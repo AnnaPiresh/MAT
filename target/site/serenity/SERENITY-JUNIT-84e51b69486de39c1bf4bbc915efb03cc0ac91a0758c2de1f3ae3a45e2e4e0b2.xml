@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="com.qamadness.Story.DashboardStory" skipped="0" tests="1" time="17.11" timestamp="2015-12-348 05:00:00"><testcase classname="com.qamadness.Story.DashboardStory" name="Close popup"><error type="java.lang.NullPointerException"/><system-err>null&#13;
+com.qamadness.steps.DashboardSteps.closePopup(DashboardSteps.java:14)&#13;
+com.qamadness.Story.DashboardStory.closePopup(DashboardStory.java:38)&#13;
+</system-err></testcase></testsuite>
