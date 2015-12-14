@@ -1,0 +1,40 @@
+package com.qamadness.Story;
+
+import com.qamadness.steps.DashboardSteps;
+import com.qamadness.steps.LoginPageSteps;
+import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.runners.ThucydidesRunner;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+import org.openqa.selenium.WebDriver;
+
+/**
+ * Created by Maksim on 14-Dec-15.
+ */
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@RunWith(ThucydidesRunner.class)
+public class DashboardStory {
+
+    @Managed(uniqueSession = true)
+    public WebDriver webdriver;
+
+    @Steps
+    LoginPageSteps loginPageSteps;
+
+    @Steps
+    DashboardSteps dashboardSteps;
+
+    @Test
+    public void closePopup(){
+
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput();
+        loginPageSteps.passInput();
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+    }
+}
