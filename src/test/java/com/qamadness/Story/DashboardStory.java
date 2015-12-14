@@ -36,5 +36,6 @@ public class DashboardStory {
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
+        loginPageSteps.delay();
     }
 }
