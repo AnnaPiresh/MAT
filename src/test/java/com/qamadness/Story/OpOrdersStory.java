@@ -2,6 +2,7 @@ package com.qamadness.Story;
 
 import com.qamadness.steps.OpOrdersSteps;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -21,6 +22,5 @@ public class OpOrdersStory {
         opOrdersSteps.openPage();
         opOrdersSteps.loginInput();
         opOrdersSteps.ordersSe();
-
     }
 }
