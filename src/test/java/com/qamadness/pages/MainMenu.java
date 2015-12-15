@@ -43,7 +43,7 @@ public class MainMenu extends PageObject {
     public void openManageCustomersPage (){
         customersMenu.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(customersMenu));
-        customersMenu.click();
+        wait.until(ExpectedConditions.elementToBeClickable(manageCustomersMenuItem));
+        manageCustomersMenuItem.click();
     }
 }
