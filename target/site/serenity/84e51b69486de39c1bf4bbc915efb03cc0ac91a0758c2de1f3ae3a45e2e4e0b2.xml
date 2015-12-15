@@ -1,39 +1,6 @@
-<acceptance-test-run title="Close popup" name="closePopup" steps="5" successful="4" failures="0" errors="1" skipped="0" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="17110" timestamp="2015-12-14T17:00:00.144+02:00">
+<acceptance-test-run title="Close popup" name="closePopup" steps="0" successful="0" failures="0" skipped="0" ignored="0" pending="0" annotated-result="PENDING" result="PENDING" duration="44" timestamp="2015-12-15T18:27:15.889+02:00">
   <user-story id="com.qamadness.Story.DashboardStory" name="Dashboard story" path="com.qamadness.Story"/>
   <tags>
     <tag name="Dashboard story" type="story"/>
   </tags>
-  <test-step result="SUCCESS" duration="11046">
-    <screenshots>
-      <screenshot image="a397ee4335ef1b73043a25b1901cf9d3.png"/>
-    </screenshots>
-    <description>Open page</description>
-  </test-step>
-  <test-step result="SUCCESS" duration="884">
-    <screenshots>
-      <screenshot image="ace1243719d3a01d03ef867f602c3fa3.png"/>
-    </screenshots>
-    <description>Login input</description>
-  </test-step>
-  <test-step result="SUCCESS" duration="439">
-    <screenshots>
-      <screenshot image="70594c0a976b5c34fcf1eb084cfbc0b8.png"/>
-    </screenshots>
-    <description>Pass input</description>
-  </test-step>
-  <test-step result="SUCCESS" duration="4065">
-    <screenshots>
-      <screenshot image="5a5e4191d2db9423828990e77713a50a.png"/>
-    </screenshots>
-    <description>Login button</description>
-  </test-step>
-  <test-step result="ERROR" duration="505">
-    <screenshots>
-      <screenshot image="5a5e4191d2db9423828990e77713a50a.png"/>
-    </screenshots>
-    <description>Close popup</description>
-    <error>java.lang.NullPointerException</error>
-    <exception>java.lang.NullPointerException:null&#xd;
-[com.qamadness.steps.DashboardSteps.closePopup(DashboardSteps.java:14), com.qamadness.Story.DashboardStory.closePopup(DashboardStory.java:38)]</exception>
-  </test-step>
 </acceptance-test-run>
