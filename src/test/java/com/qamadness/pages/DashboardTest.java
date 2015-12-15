@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by Maksim on 14-Dec-15.
  */
-public class Dashboard {
+public class DashboardTest {
 
     @FindBy(xpath = ".//*[@id='message-popup-window']/div[1]/a/span")
     WebElementFacade closePopup;
