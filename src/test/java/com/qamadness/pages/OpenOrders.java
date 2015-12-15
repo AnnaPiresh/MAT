@@ -3,14 +3,11 @@ package com.qamadness.pages;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.Mouse;
-import org.openqa.selenium.interactions.internal.MouseAction;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class OpOrders extends PageObject {
+public class OpenOrders extends PageObject {
 
     public void openPage() {
 
@@ -40,10 +37,7 @@ public class OpOrders extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(salesMenuItem));
         getDriver().findElement(By.xpath(".//*[@id='message-popup-window']/div[1]/a/span")).click();
-        salesMenuItem.click();
-        /*Actions action = new Actions(getDriver());
-        action.moveToElement(sales);
-        action.perform();*/
+        sales.click();
         getDriver().findElement(By.className(" level1")).click();
 
 
