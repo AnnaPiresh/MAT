@@ -1,6 +1,7 @@
 package com.qamadness.Story;
 
-import com.qamadness.steps.OpOrdersSteps;
+import com.qamadness.steps.OpenOrdersSteps;
+import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
@@ -9,18 +10,21 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-public class OpOrdersStory {
+public class OpenOrdersStory {
 
     @Steps
-    OpOrdersSteps opOrdersSteps;
+    OpenOrdersSteps opOrdersSteps;
+
+
     @Managed(uniqueSession = true)
     public WebDriver driver;
 
+    @Issue("MAT-5")
     @Test
-    public void loggingIn() {
+    public void check_orders_page_is_opened() {
         opOrdersSteps.openPage();
         opOrdersSteps.loginInput();
-        opOrdersSteps.ordersSe();
+        opOrdersSteps.ordersOpen();
 
     }
 }
