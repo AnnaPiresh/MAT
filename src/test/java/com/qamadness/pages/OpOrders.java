@@ -27,7 +27,7 @@ public class OpOrders extends PageObject {
     WebElementFacade loginButton;
 
     @FindBy(xpath = ".//*[@id='nav']/li[2]/a/span")
-    WebElementFacade sales;
+    WebElementFacade salesMenuItem;
 
     public void loginInput() {
 
@@ -38,9 +38,9 @@ public class OpOrders extends PageObject {
 
     public void ordersSee() {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(sales));
+        wait.until(ExpectedConditions.elementToBeClickable(salesMenuItem));
         getDriver().findElement(By.xpath(".//*[@id='message-popup-window']/div[1]/a/span")).click();
-        sales.click();
+        salesMenuItem.click();
         /*Actions action = new Actions(getDriver());
         action.moveToElement(sales);
         action.perform();*/

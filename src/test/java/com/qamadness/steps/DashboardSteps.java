@@ -1,6 +1,6 @@
 package com.qamadness.steps;
 
-import com.qamadness.pages.DashboardTest;
+import com.qamadness.pages.DashboardPage;
 import net.thucydides.core.annotations.Step;
 
 /**
@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.Step;
  */
 public class DashboardSteps {
 
-    DashboardTest dashboard;
+    DashboardPage dashboard;
 
     @Step
     public void closePopup(){dashboard.closePopup();}
