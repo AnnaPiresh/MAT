@@ -2,23 +2,25 @@ package com.qamadness.Story;
 
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
+import com.qamadness.steps.MainMenuSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
+import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesRunner;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Created by Maksim on 14-Dec-15.
+ * Created by alexandrakorniichuk on 15.12.15.
  */
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@RunWith(SerenityParameterizedRunner.class)
+//@UseTestDataFrom(value="src/test/resources/LessThan5000.csv")
 @RunWith(ThucydidesRunner.class)
-public class DashboardStory {
+public class ManageCustomersStory {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -29,14 +31,17 @@ public class DashboardStory {
     @Steps
     DashboardSteps dashboardSteps;
 
-    @Pending @Test
-    public void closePopup(){
+    @Steps
+    MainMenuSteps mainMenuSteps;
 
+    @Issue("MAT-17")
+    @Test
+    public void check_that_admin_can_create_new_customer (){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
-        loginPageSteps.delay();
+        mainMenuSteps.open_Manage_Customers_Page();
     }
 }
