@@ -25,7 +25,7 @@ public class LoginPageStory {
     @Steps
     LoginPageSteps loginPageSteps;
 
-    @Test
+    @Pending @Test
     public void loggingIn() {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

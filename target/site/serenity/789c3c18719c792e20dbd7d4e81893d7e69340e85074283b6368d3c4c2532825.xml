@@ -1,4 +1,4 @@
-<acceptance-test-run title="Logging in" name="loggingIn" steps="0" successful="0" failures="0" skipped="0" ignored="0" pending="0" annotated-result="PENDING" result="PENDING" duration="1" timestamp="2015-12-15T18:27:17.291+02:00">
+<acceptance-test-run title="Logging in" name="loggingIn" steps="0" successful="0" failures="0" skipped="0" ignored="0" pending="0" annotated-result="PENDING" result="PENDING" duration="3" timestamp="2015-12-17T12:02:05.740+02:00">
   <user-story id="com.qamadness.Story.LoginPageStory" name="Login page story" path="com.qamadness.Story"/>
   <tags>
     <tag name="Login page story" type="story"/>
