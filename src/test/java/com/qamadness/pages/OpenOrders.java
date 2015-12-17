@@ -37,7 +37,7 @@ public class OpenOrders extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(salesMenuItem));
         getDriver().findElement(By.xpath(".//*[@id='message-popup-window']/div[1]/a/span")).click();
-        sales.click();
+        salesMenuItem.click();
         getDriver().findElement(By.className(" level1")).click();
 
 
