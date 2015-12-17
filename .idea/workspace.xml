@@ -2,209 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16ce00b0-7bc5-41fd-a95c-244fee2f5389" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/5a5e4191d2db9423828990e77713a50a.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/70594c0a976b5c34fcf1eb084cfbc0b8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825_screenshots.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2_screenshots.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/a397ee4335ef1b73043a25b1901cf9d3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/a876f797d8263e33aeafa5d9fd6a4317.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/ace1243719d3a01d03ef867f602c3fa3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/bd2d41915f49967cf2e0a37af75bf0e4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/scaled_5a5e4191d2db9423828990e77713a50a.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/scaled_70594c0a976b5c34fcf1eb084cfbc0b8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/scaled_a397ee4335ef1b73043a25b1901cf9d3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/scaled_a876f797d8263e33aeafa5d9fd6a4317.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/serenity/scaled_ace1243719d3a01d03ef867f602c3fa3.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/PlaceOrderExistingStory.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/PlaceOrderAsExistingCustomerStory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/pages/PlaceOrderExisting.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/pages/PlaceOrderAsExistingCustomer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/steps/PlaceOrderExistingSteps.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/steps/PlaceOrderAsExistingCustomerSteps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/qamadness/Story/DashboardStory.class" afterPath="$PROJECT_DIR$/target/test-classes/com/qamadness/Story/DashboardStory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/qamadness/Story/LoginPageStory.class" afterPath="$PROJECT_DIR$/target/test-classes/com/qamadness/Story/LoginPageStory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/DashboardStory.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/DashboardStory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/LoginPageStory.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/LoginPageStory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/ManageCustomersStory.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/ManageCustomersStory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/OpenOrdersStory.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/Story/OpenOrdersStory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/pages/OpenOrders.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/pages/OpenOrders.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qamadness/steps/OpenOrdersSteps.java" afterPath="$PROJECT_DIR$/src/test/java/com/qamadness/steps/OpenOrdersSteps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825.html" afterPath="$PROJECT_DIR$/target/site/serenity/789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825.json" afterPath="$PROJECT_DIR$/target/site/serenity/789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825.xml" afterPath="$PROJECT_DIR$/target/site/serenity/789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2.html" afterPath="$PROJECT_DIR$/target/site/serenity/84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2.json" afterPath="$PROJECT_DIR$/target/site/serenity/84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2.xml" afterPath="$PROJECT_DIR$/target/site/serenity/84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825.xml" afterPath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-789c3c18719c792e20dbd7d4e81893d7e69340e85074283b6368d3c4c2532825.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2.xml" afterPath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-84e51b69486de39c1bf4bbc915efb03cc0ac91a0758c2de1f3ae3a45e2e4e0b2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/bootstrap/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/target/site/serenity/bootstrap/css/bootstrap-theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/bootstrap/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/target/site/serenity/bootstrap/css/bootstrap-theme.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/target/site/serenity/bootstrap/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/target/site/serenity/bootstrap/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/target/site/serenity/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/bootstrap/js/bootstrap.js" afterPath="$PROJECT_DIR$/target/site/serenity/bootstrap/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/bootstrap/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/bootstrap/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/bootstrap/js/npm.js" afterPath="$PROJECT_DIR$/target/site/serenity/bootstrap/js/npm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/browser-firefox.properties" afterPath="$PROJECT_DIR$/target/site/serenity/browser-firefox.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/css/core.css" afterPath="$PROJECT_DIR$/target/site/serenity/css/core.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/css/link.css" afterPath="$PROJECT_DIR$/target/site/serenity/css/link.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/css/screen.css" afterPath="$PROJECT_DIR$/target/site/serenity/css/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/css/tables.css" afterPath="$PROJECT_DIR$/target/site/serenity/css/tables.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/css/jquery.dataTables.css" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/css/jquery.dataTables.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/css/jquery.dataTables.min.css" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/css/jquery.dataTables.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/css/jquery.dataTables_themeroller.css" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/css/jquery.dataTables_themeroller.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/dataTables.jqueryui.css" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/dataTables.jqueryui.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/dataTables.jqueryui.js" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/dataTables.jqueryui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/dataTables.jqueryui.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/dataTables.jqueryui.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/dataTables.jqueryui.scss" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/dataTables.jqueryui.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/index.html" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/jqueryui/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/js/jquery.dataTables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/js/jquery.dataTables.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/js/jquery.dataTables.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/js/jquery.js" afterPath="$PROJECT_DIR$/target/site/serenity/datatables/1.10.4/media/js/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/dygraph/1.1.0/dygraph-combined.js" afterPath="$PROJECT_DIR$/target/site/serenity/dygraph/1.1.0/dygraph-combined.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/excanvas/3/excanvas.compiled.js" afterPath="$PROJECT_DIR$/target/site/serenity/excanvas/3/excanvas.compiled.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/excanvas/3/excanvas.js" afterPath="$PROJECT_DIR$/target/site/serenity/excanvas/3/excanvas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/css/font-awesome-ie7.css" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/css/font-awesome-ie7.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/css/font-awesome-ie7.min.css" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/css/font-awesome-ie7.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/font/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/font/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/bootstrap.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/bootstrap.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/bordered-pulled.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/extras.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/extras.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/fixed-width.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/font-awesome-ie7.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/font-awesome-ie7.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/icons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/larger.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/path.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/rotated-flipped.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/spinning.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/spinning.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/stacked.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_bootstrap.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_bootstrap.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_core.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_extras.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_extras.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_fixed-width.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_larger.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_list.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_path.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_rotated-flipped.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_spinning.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_spinning.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_stacked.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/font-awesome-ie7.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/font-awesome-ie7.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/target/site/serenity/font-awesome/scss/font-awesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/2.0.1/jit-yc.js" afterPath="$PROJECT_DIR$/target/site/serenity/jit/2.0.1/jit-yc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/2.0.1/jit.js" afterPath="$PROJECT_DIR$/target/site/serenity/jit/2.0.1/jit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/AreaChart.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/AreaChart.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/BarChart.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/BarChart.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/ForceDirected.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/ForceDirected.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/ForceDirected3D.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/ForceDirected3D.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/Hypertree.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/Hypertree.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/Icicle.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/Icicle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/Other.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/Other.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/PieChart.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/PieChart.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/Spacetree.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/Spacetree.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/Sunburst.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/Sunburst.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/TimeGraph.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/TimeGraph.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/Treemap.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/Treemap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jit/css/base.css" afterPath="$PROJECT_DIR$/target/site/serenity/jit/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/excanvas.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/excanvas.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/jquery.jqplot.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/jquery.jqplot.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.BezierCurveRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.BezierCurveRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.BezierCurveRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.BezierCurveRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.barRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.barRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.barRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.barRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.blockRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.blockRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.blockRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.blockRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.bubbleRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.bubbleRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.bubbleRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.bubbleRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasAxisLabelRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasAxisLabelRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasAxisLabelRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasAxisLabelRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasAxisTickRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasAxisTickRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasAxisTickRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasAxisTickRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasOverlay.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasOverlay.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasOverlay.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasOverlay.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasTextRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasTextRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasTextRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.canvasTextRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.ciParser.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.ciParser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.ciParser.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.ciParser.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.cursor.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.cursor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.cursor.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.cursor.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.dateAxisRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.dateAxisRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.dateAxisRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.dateAxisRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.donutRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.donutRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.donutRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.donutRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.dragable.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.dragable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.dragable.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.dragable.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.enhancedLegendRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.enhancedLegendRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.enhancedLegendRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.enhancedLegendRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.funnelRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.funnelRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.funnelRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.funnelRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.highlighter.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.highlighter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.highlighter.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.highlighter.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.json2.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.json2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.json2.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.json2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.logAxisRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.logAxisRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.logAxisRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.logAxisRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mekkoAxisRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mekkoAxisRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mekkoAxisRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mekkoAxisRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mekkoRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mekkoRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mekkoRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mekkoRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.meterGaugeRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.meterGaugeRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.meterGaugeRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.meterGaugeRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mobile.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mobile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mobile.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.mobile.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.ohlcRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.ohlcRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.ohlcRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.ohlcRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pieRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pieRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pieRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pieRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pointLabels.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pointLabels.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pointLabels.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pointLabels.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidAxisRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidAxisRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidAxisRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidAxisRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidGridRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidGridRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidGridRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidGridRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidRenderer.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidRenderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidRenderer.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.pyramidRenderer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.trendline.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.trendline.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.trendline.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqplot/1.0.8/plugins/jqplot.trendline.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqtree/0.22/jqtree.css" afterPath="$PROJECT_DIR$/target/site/serenity/jqtree/0.22/jqtree.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqtree/0.22/tree.jquery.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqtree/0.22/tree.jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/external/jquery/jquery.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/external/jquery/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/index.html" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.css" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.min.css" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.structure.css" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.structure.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.structure.min.css" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.structure.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.theme.css" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.theme.min.css" afterPath="$PROJECT_DIR$/target/site/serenity/jqueryui/1.11.2-start/jquery-ui.theme.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/README.md" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/demo/demo.html" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/demo/demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/demo/scripts/jquery-1.9.0.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/demo/scripts/jquery-1.9.0.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/demo/style.css" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/demo/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/jquery.nivo.slider.js" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/jquery.nivo.slider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/jquery.nivo.slider.pack.js" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/jquery.nivo.slider.pack.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/license.txt" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/license.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/nivo-slider.css" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/nivo-slider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/nivoslider.jquery.json" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/nivoslider.jquery.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/themes/bar/bar.css" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/themes/bar/bar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/themes/dark/dark.css" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/themes/dark/dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/themes/default/default.css" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/themes/default/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/themes/light/light.css" afterPath="$PROJECT_DIR$/target/site/serenity/nivo-slider/3.2/themes/light/light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/scripts/imgpreview.full.jquery.js" afterPath="$PROJECT_DIR$/target/site/serenity/scripts/imgpreview.full.jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/scripts/jquery-1.11.1.min.js" afterPath="$PROJECT_DIR$/target/site/serenity/scripts/jquery-1.11.1.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/serenity/scripts/jquery.js" afterPath="$PROJECT_DIR$/target/site/serenity/scripts/jquery.js" />
     </list>
     <ignored path="MAT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -226,46 +24,7 @@
     <favorites_list name="MAT" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlaceOrderAsExistingCustomer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/pages/PlaceOrderAsExistingCustomer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlaceOrderAsExistingCustomerSteps.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/steps/PlaceOrderAsExistingCustomerSteps.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#986#987#0" expanded="true" />
-                <element signature="e#1048#1049#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlaceOrderAsExistingCustomerStory.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/Story/PlaceOrderAsExistingCustomerStory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23421355">
-              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -785,7 +544,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450183459188</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added &quot;Place order as existing customer&quot; story">
+      <created>1450346978395</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1450346978395</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -831,10 +596,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3363029" sideWeight="0.5042644" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -842,13 +608,12 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3070078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25746268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25746268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -895,7 +660,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed classes titles" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="added &quot;Place order as existing customer&quot; story" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &quot;Place order as existing customer&quot; story" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -925,38 +691,6 @@
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/pages/PlaceOrderAsExistingCustomer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/steps/PlaceOrderAsExistingCustomerSteps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#986#987#0" expanded="true" />
-            <element signature="e#1048#1049#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/Story/PlaceOrderAsExistingCustomerStory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="0" selection-start-line="39" selection-start-column="9" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1291,38 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.60505164">
           <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/pages/PlaceOrderAsExistingCustomer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/steps/PlaceOrderAsExistingCustomerSteps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#986#987#0" expanded="true" />
-            <element signature="e#1048#1049#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/qamadness/Story/PlaceOrderAsExistingCustomerStory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23421355">
-          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
