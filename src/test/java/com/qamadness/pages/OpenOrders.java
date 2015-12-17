@@ -11,7 +11,7 @@ public class OpenOrders extends PageObject {
 
     public void openPage() {
 
-        getDriver().navigate().to("http://qamad:f3Vh!@www.qamadness.dev/admin");
+     getDriver().navigate().to("http://qamad:f3Vh!@www.qamadness.dev/admin");
     }
 
     @FindBy(xpath = ".//*[@id='username']")
@@ -26,22 +26,12 @@ public class OpenOrders extends PageObject {
     @FindBy(xpath = ".//*[@id='nav']/li[2]/a/span")
     WebElementFacade salesMenuItem;
 
-    public void loginInput() {
 
-        loginInput.sendKeys("admin");
-        passInput.sendKeys("3HSYOFf");
-        loginButton.click();
-    }
-
-    public void ordersSee() {
+    public void open_orders() {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(salesMenuItem));
         getDriver().findElement(By.xpath(".//*[@id='message-popup-window']/div[1]/a/span")).click();
         salesMenuItem.click();
         getDriver().findElement(By.className(" level1")).click();
-
-
     }
-
-
 }
