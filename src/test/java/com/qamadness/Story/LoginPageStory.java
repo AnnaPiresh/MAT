@@ -2,6 +2,7 @@ package com.qamadness.Story;
 
 import com.qamadness.steps.LoginPageSteps;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.FixMethodOrder;
@@ -24,7 +25,7 @@ public class LoginPageStory {
     @Steps
     LoginPageSteps loginPageSteps;
 
-    @Test
+    @Pending @Test
     public void loggingIn() {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

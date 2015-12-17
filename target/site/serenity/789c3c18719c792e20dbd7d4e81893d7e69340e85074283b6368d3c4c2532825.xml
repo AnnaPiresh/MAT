@@ -1,30 +1,6 @@
-<acceptance-test-run title="Logging in" name="loggingIn" steps="4" successful="4" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="17128" timestamp="2015-12-14T16:38:43.300+02:00">
+<acceptance-test-run title="Logging in" name="loggingIn" steps="0" successful="0" failures="0" skipped="0" ignored="0" pending="0" annotated-result="PENDING" result="PENDING" duration="3" timestamp="2015-12-17T12:02:05.740+02:00">
   <user-story id="com.qamadness.Story.LoginPageStory" name="Login page story" path="com.qamadness.Story"/>
   <tags>
     <tag name="Login page story" type="story"/>
   </tags>
-  <test-step result="SUCCESS" duration="11703">
-    <screenshots>
-      <screenshot image="a397ee4335ef1b73043a25b1901cf9d3.png"/>
-    </screenshots>
-    <description>Open page</description>
-  </test-step>
-  <test-step result="SUCCESS" duration="791">
-    <screenshots>
-      <screenshot image="ace1243719d3a01d03ef867f602c3fa3.png"/>
-    </screenshots>
-    <description>Login input</description>
-  </test-step>
-  <test-step result="SUCCESS" duration="449">
-    <screenshots>
-      <screenshot image="70594c0a976b5c34fcf1eb084cfbc0b8.png"/>
-    </screenshots>
-    <description>Pass input</description>
-  </test-step>
-  <test-step result="SUCCESS" duration="3928">
-    <screenshots>
-      <screenshot image="5a5e4191d2db9423828990e77713a50a.png"/>
-    </screenshots>
-    <description>Login button</description>
-  </test-step>
 </acceptance-test-run>
