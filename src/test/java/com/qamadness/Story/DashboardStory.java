@@ -29,7 +29,7 @@ public class DashboardStory {
     @Steps
     DashboardSteps dashboardSteps;
 
-    @Pending @Test
+    @Pending@Test
     public void closePopup(){
 
         loginPageSteps.openPage();

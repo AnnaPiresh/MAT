@@ -1,4 +1,4 @@
-<acceptance-test-run title="Close popup" name="closePopup" steps="0" successful="0" failures="0" skipped="0" ignored="0" pending="0" annotated-result="PENDING" result="PENDING" duration="71" timestamp="2015-12-16T12:58:17.565+02:00">
+<acceptance-test-run title="Close popup" name="closePopup" steps="0" successful="0" failures="0" skipped="0" ignored="0" pending="0" annotated-result="PENDING" result="PENDING" duration="49" timestamp="2015-12-17T12:02:04.402+02:00">
   <user-story id="com.qamadness.Story.DashboardStory" name="Dashboard story" path="com.qamadness.Story"/>
   <tags>
     <tag name="Dashboard story" type="story"/>
