@@ -556,7 +556,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450347546810</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added &quot;Place order as existing customer&quot; story">
+      <created>1450347566475</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1450347566475</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
