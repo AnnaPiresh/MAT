@@ -6,6 +6,7 @@ import com.qamadness.steps.MainMenuSteps;
 import com.qamadness.steps.PlaceOrderAsExistingCustomerSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -31,7 +32,7 @@ import org.openqa.selenium.WebDriver;
     PlaceOrderAsExistingCustomerSteps placeOrderAsExistingCustomerSteps;
 
     @Issue("MAT-6")
-    @Test
+    @Pending@Test
     public void place_order_for_existing_customer_from_admin(){
     loginPageSteps.openPage();
     loginPageSteps.loginInput();
