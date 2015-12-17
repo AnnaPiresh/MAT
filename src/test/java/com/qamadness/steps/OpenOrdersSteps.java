@@ -9,18 +9,8 @@ public class OpenOrdersSteps extends ScenarioSteps {
     OpenOrders openOrders;
 
     @Step
-    public void openPage() {
-        openOrders.openPage();
-    }
-
-    @Step
-    public void loginInput() {
-        openOrders.loginInput();
-    }
-
-    @Step
-    public void ordersOpen() {
-        openOrders.ordersSee();
+    public void orders_Open() {
+        openOrders.open_orders();
     }
 }
 

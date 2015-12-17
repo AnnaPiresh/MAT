@@ -6,6 +6,7 @@ import com.qamadness.steps.MainMenuSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesRunner;
@@ -35,7 +36,7 @@ public class ManageCustomersStory {
     MainMenuSteps mainMenuSteps;
 
     @Issue("MAT-17")
-    @Test
+    @Pending@Test
     public void check_that_admin_can_create_new_customer (){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
