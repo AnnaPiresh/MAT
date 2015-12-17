@@ -25,7 +25,6 @@ public class LoginPage extends PageObject{
 
 
     public void openPage() {
-
         getDriver().navigate().to("http://qamad:f3Vh!@www.qamadness.dev/admin");
     }
 
