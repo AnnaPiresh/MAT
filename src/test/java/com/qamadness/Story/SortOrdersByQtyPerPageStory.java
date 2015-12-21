@@ -3,7 +3,7 @@ package com.qamadness.Story;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.SortingAndFilteringOfOrdersSteps;
+import com.qamadness.steps.SortOrdersByQtyPerPageSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-public class SortingAndFilteringOfOrdersStory {
+public class SortOrdersByQtyPerPageStory {
 
     @Managed(uniqueSession = true)
     public WebDriver driver;
@@ -28,7 +28,7 @@ public class SortingAndFilteringOfOrdersStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    SortingAndFilteringOfOrdersSteps sortingAndFilteringOfOrdersSteps;
+    SortOrdersByQtyPerPageSteps sortOrdersByQtyPerPageSteps;
 
     @Issue("MAT-12")
     @Test
@@ -39,8 +39,8 @@ public class SortingAndFilteringOfOrdersStory {
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        sortingAndFilteringOfOrdersSteps.can_user_change_qty_of_orders();
-        sortingAndFilteringOfOrdersSteps.check_new_qty_of_orders();
+        sortOrdersByQtyPerPageSteps.can_user_change_qty_of_orders();
+        sortOrdersByQtyPerPageSteps.check_new_qty_of_orders();
 
     }
 

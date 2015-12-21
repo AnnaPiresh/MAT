@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static junit.framework.TestCase.assertEquals;
 
-public class SortingAndFilteringOfOrders extends PageObject{
+public class SortOrdersByQtyPerPage extends PageObject{
 
     @FindBy(xpath = ".//*[@id='sales_order_grid_massaction-count']")
     WebElementFacade qtyOfOrdersPerPageDropdown;
