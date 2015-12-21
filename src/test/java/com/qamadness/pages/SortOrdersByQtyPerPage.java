@@ -16,6 +16,9 @@ public class SortOrdersByQtyPerPage extends PageObject{
     @FindBy(xpath = ".//*[@id='sales_order_grid_massaction-count']")
     WebElementFacade qtyOfOrdersPerPageDropdown;
 
+    @FindBy(xpath = ".//*[@id='sales_order_grid_massaction']/table/tbody/tr/td[1]/a[1]")
+    WebElementFacade selectVisibleOrdersBtn;
+
     public void canUserChangeQtyOfOrders(){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath(".//select[@name='limit']"))));
@@ -23,8 +26,7 @@ public class SortOrdersByQtyPerPage extends PageObject{
         orders_qty.selectByValue("50");
     }
     public void checkNewQtyOfOrders(){
-        JavascriptExecutor je = (JavascriptExecutor) getDriver();
-        je.executeScript("return sales_order_grid_massactionJsObject.selectVisible()");
+        selectVisibleOrdersBtn.click();
         assertEquals("Qty of orders is correct","50",qtyOfOrdersPerPageDropdown.getText());
     }
 
