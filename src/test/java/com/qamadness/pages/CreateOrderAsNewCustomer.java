@@ -44,10 +44,12 @@ public class CreateOrderAsNewCustomer extends PageObject {
     }
 
     public void enterEmailToEmailField(){
+        int i = 1;
+        i=++i;
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         enterEmailField.click();
-        enterEmailField.sendKeys("testersunny377+1@gmail.com");
+        enterEmailField.sendKeys("testersunny377+"+i+"@gmail.com");
     }
 
     public void enterBillingAddress(){

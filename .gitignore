@@ -11,6 +11,11 @@ buildNumber.properties
 ### Java template
 /.idea/misc.xml
 /.idea
+/src/test/resources
+build.gradle
+MAT.iml
+pom.xml
+serenity.properties
 /target
 /target/site
 *.class

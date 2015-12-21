@@ -4,6 +4,7 @@ package com.qamadness.Story;
 import com.qamadness.steps.*;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -32,7 +33,7 @@ public class CreateOrderAsNewCustomerStory {
     CreateOrderAsNewCustomerSteps createOrderAsNewCustomerSteps;
 
     @Issue("MAT-11")
-    @Test
+    @Pending@Test
     public void place_an_order_for_a_new_customer_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
