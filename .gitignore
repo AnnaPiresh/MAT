@@ -11,7 +11,9 @@ buildNumber.properties
 ### Java template
 /.idea/misc.xml
 /.idea
+/serenity.properties
 /src/test/resources
+/.idea/libraries/workspace.xml
 build.gradle
 MAT.iml
 pom.xml
