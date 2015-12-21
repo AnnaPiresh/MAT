@@ -1,4 +1,4 @@
-package com.qamadness.pages;
+package com.qamadness.pages.Sales;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;

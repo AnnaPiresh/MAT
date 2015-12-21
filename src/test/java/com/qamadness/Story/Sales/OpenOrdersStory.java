@@ -1,7 +1,7 @@
-package com.qamadness.Story;
+package com.qamadness.Story.Sales;
 
 import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.OpenOrdersSteps;
+import com.qamadness.steps.Sales.OpenOrdersSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;

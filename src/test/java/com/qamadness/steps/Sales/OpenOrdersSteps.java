@@ -1,6 +1,6 @@
-package com.qamadness.steps;
+package com.qamadness.steps.Sales;
 
-import com.qamadness.pages.OpenOrders;
+import com.qamadness.pages.Sales.OpenOrders;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 

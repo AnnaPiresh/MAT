@@ -1,9 +1,9 @@
-package com.qamadness.Story;
+package com.qamadness.Story.Sales;
 
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.SortOrdersByQtyPerPageSteps;
+import com.qamadness.steps.Sales.SortOrdersByQtyPerPageSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;

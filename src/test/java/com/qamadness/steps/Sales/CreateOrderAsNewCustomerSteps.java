@@ -1,6 +1,6 @@
-package com.qamadness.steps;
+package com.qamadness.steps.Sales;
 
-import com.qamadness.pages.CreateOrderAsNewCustomer;
+import com.qamadness.pages.Sales.CreateOrderAsNewCustomer;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
