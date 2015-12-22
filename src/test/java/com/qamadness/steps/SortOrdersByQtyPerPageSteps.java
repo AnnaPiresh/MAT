@@ -1,6 +1,6 @@
-package com.qamadness.steps.Sales;
+package com.qamadness.steps;
 
-import com.qamadness.pages.Sales.SortOrdersByQtyPerPage;
+import com.qamadness.pages.SortOrdersByQtyPerPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 

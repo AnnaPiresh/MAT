@@ -1,9 +1,10 @@
-package com.qamadness.Story.Sales;
+package com.qamadness.Story;
+
 
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.Sales.SortOrdersByQtyPerPageSteps;
+import com.qamadness.steps.SwitchBetweenOrdersByArrowsSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -12,11 +13,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+
+
 @RunWith(ThucydidesRunner.class)
-public class SortOrdersByQtyPerPageStory {
+public class SwitchBetweenOrdersByArrowsStory {
 
     @Managed(uniqueSession = true)
-    public WebDriver driver;
+    public WebDriver webdriver;
 
     @Steps
     LoginPageSteps loginPageSteps;
@@ -28,21 +31,18 @@ public class SortOrdersByQtyPerPageStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    SortOrdersByQtyPerPageSteps sortOrdersByQtyPerPageSteps;
+    SwitchBetweenOrdersByArrowsSteps switchBetweenOrdersByArrowsSteps;
 
-    @Issue("MAT-12")
+    @Issue("MAT-13")
     @Test
-    public void check_that_user_can_change_qty_of_orders_displayed_per_page(){
+    public void check_that_user_can_navigate_between_orders_using_arrows() {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        sortOrdersByQtyPerPageSteps.can_user_change_qty_of_orders();
-        sortOrdersByQtyPerPageSteps.check_new_qty_of_orders();
-
+        switchBetweenOrdersByArrowsSteps.switch_to_next_orders_page();
+        switchBetweenOrdersByArrowsSteps.switch_to_previous_orders_page();
     }
-
-
 }

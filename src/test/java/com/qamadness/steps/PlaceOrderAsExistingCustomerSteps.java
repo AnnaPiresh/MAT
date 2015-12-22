@@ -1,7 +1,7 @@
-package com.qamadness.steps.Sales;
+package com.qamadness.steps;
 
 
-import com.qamadness.pages.Sales.PlaceOrderAsExistingCustomer;
+import com.qamadness.pages.PlaceOrderAsExistingCustomer;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 

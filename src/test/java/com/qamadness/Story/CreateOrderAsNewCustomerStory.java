@@ -1,9 +1,9 @@
-package com.qamadness.Story.Sales;
+package com.qamadness.Story;
 
 
 import com.qamadness.steps.*;
-import com.qamadness.steps.Sales.CreateOrderAsNewCustomerSteps;
-import com.qamadness.steps.Sales.PlaceOrderAsExistingCustomerSteps;
+import com.qamadness.steps.CreateOrderAsNewCustomerSteps;
+import com.qamadness.steps.PlaceOrderAsExistingCustomerSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;

@@ -1,4 +1,4 @@
-package com.qamadness.pages.Sales;
+package com.qamadness.pages;
 
 
 
