@@ -1,12 +1,11 @@
 package com.qamadness.Story;
 
 import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.FilterOrdersByIdSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SortOrdersByIdSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -14,7 +13,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-public class FilterOrdersByIdStory {
+public class SortOrdersByIdStory {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -29,20 +28,18 @@ public class FilterOrdersByIdStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    FilterOrdersByIdSteps filterOrdersByIdSteps;
+    SortOrdersByIdSteps sortOrdersByIdSteps;
 
-    @Issue("MAT-15")
-    @Pending@Test
-    public void can_user_filter_orders_by_id (){
+    @Issue("MAT-16")
+    @Test
+    public void can_user_sort_orders_by_id(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        filterOrdersByIdSteps.filter_orders_in_grid();
-        filterOrdersByIdSteps.check_filtered_order_number();
-
+        sortOrdersByIdSteps.change_sort_order_by_id();
+        sortOrdersByIdSteps.check_that_sorting_changed();
     }
-
 }
