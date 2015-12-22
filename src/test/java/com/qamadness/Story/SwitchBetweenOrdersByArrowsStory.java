@@ -7,6 +7,7 @@ import com.qamadness.steps.MainMenuSteps;
 import com.qamadness.steps.SwitchBetweenOrdersByArrowsSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -34,7 +35,7 @@ public class SwitchBetweenOrdersByArrowsStory {
     SwitchBetweenOrdersByArrowsSteps switchBetweenOrdersByArrowsSteps;
 
     @Issue("MAT-13")
-    @Test
+    @Pending@Test
     public void check_that_user_can_navigate_between_orders_using_arrows() {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
