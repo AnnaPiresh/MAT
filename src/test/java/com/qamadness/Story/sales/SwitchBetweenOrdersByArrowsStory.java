@@ -1,9 +1,10 @@
-package com.qamadness.Story;
+package com.qamadness.Story.sales;
+
 
 import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.FilterOrdersByIdSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.sales.SwitchBetweenOrdersByArrowsSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
@@ -13,8 +14,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+
+
 @RunWith(ThucydidesRunner.class)
-public class FilterOrdersByIdStory {
+public class SwitchBetweenOrdersByArrowsStory {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -29,20 +32,18 @@ public class FilterOrdersByIdStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    FilterOrdersByIdSteps filterOrdersByIdSteps;
+    SwitchBetweenOrdersByArrowsSteps switchBetweenOrdersByArrowsSteps;
 
-    @Issue("MAT-15")
+    @Issue("MAT-13")
     @Pending@Test
-    public void can_user_filter_orders_by_id (){
+    public void check_that_user_can_navigate_between_orders_using_arrows() {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        filterOrdersByIdSteps.filter_orders_in_grid();
-        filterOrdersByIdSteps.check_filtered_order_number();
-
+        switchBetweenOrdersByArrowsSteps.switch_to_next_orders_page();
+        switchBetweenOrdersByArrowsSteps.switch_to_previous_orders_page();
     }
-
 }

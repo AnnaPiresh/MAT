@@ -1,7 +1,7 @@
-package com.qamadness.steps;
+package com.qamadness.steps.sales;
 
 
-import com.qamadness.pages.SwitchBetweenOrdersByArrows;
+import com.qamadness.pages.sales.SwitchBetweenOrdersByArrows;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
