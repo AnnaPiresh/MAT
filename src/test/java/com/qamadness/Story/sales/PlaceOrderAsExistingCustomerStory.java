@@ -17,7 +17,7 @@ import org.openqa.selenium.WebDriver;
     public class PlaceOrderAsExistingCustomerStory {
 
     @Managed(uniqueSession = true)
-    public WebDriver driver;
+    public WebDriver webdriver;
 
     @Steps
     LoginPageSteps loginPageSteps;

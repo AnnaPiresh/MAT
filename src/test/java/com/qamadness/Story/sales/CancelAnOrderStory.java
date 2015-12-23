@@ -7,6 +7,7 @@ import com.qamadness.steps.MainMenuSteps;
 import com.qamadness.steps.sales.CancelAnOrderSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -32,7 +33,7 @@ public class CancelAnOrderStory {
     CancelAnOrderSteps cancelAnOrderSteps;
 
     @Issue("MAT-19")
-    @Test
+    @Pending@Test
     public void can_user_cancel_order_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

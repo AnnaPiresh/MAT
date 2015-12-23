@@ -16,13 +16,15 @@ public class CancelAnOrder extends PageObject{
     WebElementFacade searchBtn;
 
     @FindBy(xpath = ".//*[@id='sales_order_grid_table']/tbody/tr[2]/td[1]/input")
-    WebElementFacade selectOrderinput; //checkbox to tick an order
+    WebElementFacade selectOrderinput;
+    //checkbox to tick an order
 
     @FindBy(xpath = ".//button[@title='Submit']")
     WebElementFacade submitBtn;
 
     @FindBy(xpath = ".//*[@id='messages']")
-    WebElementFacade successMsg; //success message after cancelling an order
+    WebElementFacade successMsg;
+    //success message after cancelling an order
 
     public void seeOrdersInPendingStatus(){
         Select status_dropdown = new Select(getDriver().findElement(By.xpath(".//*[@id='sales_order_grid_filter_status']")));

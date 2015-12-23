@@ -26,9 +26,9 @@ PlaceOrderAsExistingCustomer placeOrderAsExistingCustomer;
     @Step
     public void click_submit_btn(){placeOrderAsExistingCustomer.clickSubmit();}
 
-    @Step
-    public void check_That_Success_Message_Is_Displayed (){
-        placeOrderAsExistingCustomer.checkSuccessMsg();
-    }
+   @Step
+   public void check_That_Success_Message_Is_Displayed (){
+      placeOrderAsExistingCustomer.checkSuccessMsg();
+  }
 
 }

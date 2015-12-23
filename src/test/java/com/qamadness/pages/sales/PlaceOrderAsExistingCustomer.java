@@ -4,10 +4,14 @@ package com.qamadness.pages.sales;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.remote.server.handler.ExecuteScript;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 
 public class PlaceOrderAsExistingCustomer extends PageObject{
@@ -45,13 +49,10 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
     @FindBy(xpath = ".//input[@id='s_method_ups_GND']")
     WebElementFacade flatRate;
 
-    @FindBy(xpath = ".//button[@class='scalable save']")
+    @FindBy(xpath = ".//button[@title='Submit Order']")
     WebElementFacade submitBtn;
 
-    @FindBy(xpath = ".//*[@id='loading_mask_loader']")
-    WebElementFacade loader;
-
-    @FindBy(xpath = ".//li[@class='success-msg']")
+    @FindBy(xpath = ".//*[@id='messages']")
     WebElementFacade successMessage;
 
     public void clickCreateOrderBtn(){
@@ -63,11 +64,7 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
         emailfield.click();
         emailfield.sendKeys("testersunny377@gmail.com");
         searchBtn.click();
-        try {
-            Thread.sleep(2000);
-        } catch(InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         selectedCustomer.click();
         wait.until(ExpectedConditions.elementToBeClickable(englishStoreview));
     }
@@ -96,13 +93,15 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
         checkOrderPayment.click();
     }
     public void clickSubmit(){
-        submitBtn.click();
-
+        JavascriptExecutor jsexecute = (JavascriptExecutor)getDriver();
+        jsexecute.executeScript("order.submit()");
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.urlContains("sales_order/view/order_id"));
     }
 
     public void checkSuccessMsg (){
-        WebDriverWait wait3 = new WebDriverWait(getDriver(), 60);
-        wait3.until(ExpectedConditions.visibilityOf(successMessage));
+       Assert.assertTrue("Success message is present", successMessage.isVisible());
+       Assert.assertEquals("Order have been created successfully","The order has been created.", successMessage.getText());
     }
 
 

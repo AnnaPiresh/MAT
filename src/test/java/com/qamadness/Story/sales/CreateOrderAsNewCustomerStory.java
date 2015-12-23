@@ -35,7 +35,7 @@ public class CreateOrderAsNewCustomerStory {
     CreateOrderAsNewCustomerSteps createOrderAsNewCustomerSteps;
 
     @Issue("MAT-11")
-    @Pending@Test
+    @Test
     public void place_an_order_for_a_new_customer_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -52,7 +52,7 @@ public class CreateOrderAsNewCustomerStory {
         createOrderAsNewCustomerSteps.click_save_address_checkbox();
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
-        //placeOrderAsExistingCustomerSteps.check_That_Success_Message_Is_Displayed();
+        placeOrderAsExistingCustomerSteps.check_That_Success_Message_Is_Displayed();
     }
 
 
