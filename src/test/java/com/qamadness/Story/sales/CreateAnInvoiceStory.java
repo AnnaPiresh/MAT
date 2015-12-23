@@ -1,12 +1,12 @@
 package com.qamadness.Story.sales;
 
-
-import com.qamadness.steps.*;
-import com.qamadness.steps.sales.CreateOrderAsNewCustomerSteps;
+import com.qamadness.steps.DashboardSteps;
+import com.qamadness.steps.LoginPageSteps;
+import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.sales.CreateAnInvoiceSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -14,10 +14,10 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-public class CreateOrderAsNewCustomerStory {
+public class CreateAnInvoiceStory {
 
     @Managed(uniqueSession = true)
-    public WebDriver driver;
+    public WebDriver webdriver;
 
     @Steps
     LoginPageSteps loginPageSteps;
@@ -32,11 +32,11 @@ public class CreateOrderAsNewCustomerStory {
     PlaceOrderAsExistingCustomerSteps placeOrderAsExistingCustomerSteps;
 
     @Steps
-    CreateOrderAsNewCustomerSteps createOrderAsNewCustomerSteps;
+    CreateAnInvoiceSteps createAnInvoiceSteps;
 
-    @Issue("MAT-11")
-    @Pending@Test
-    public void place_an_order_for_a_new_customer_from_admin(){
+    @Issue("MAT-26")
+    @Test
+    public void create_an_invoice_for_an_order(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
@@ -44,17 +44,13 @@ public class CreateOrderAsNewCustomerStory {
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
         placeOrderAsExistingCustomerSteps.click_create_order_btn();
-        createOrderAsNewCustomerSteps.click_create_customer_btn();
+        placeOrderAsExistingCustomerSteps.select_first_customer();
         placeOrderAsExistingCustomerSteps.select_engish_storeview();
         placeOrderAsExistingCustomerSteps.add_products_to_cart();
-        createOrderAsNewCustomerSteps.enter_email_to_email_field();
-        createOrderAsNewCustomerSteps.enter_billing_address();
-        createOrderAsNewCustomerSteps.click_save_address_checkbox();
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
-        placeOrderAsExistingCustomerSteps.check_That_Success_Message_Is_Displayed();
+        createAnInvoiceSteps.create_an_invoice_for_order();
+        createAnInvoiceSteps.check_invoice_created();
     }
-
-
 
 }
