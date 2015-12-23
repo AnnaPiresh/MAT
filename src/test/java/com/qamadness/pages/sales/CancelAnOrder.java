@@ -12,17 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CancelAnOrder extends PageObject{
 
-    @FindBy(xpath = ".//*[@id='sales_order_grid_filter_status']")
-    WebElementFacade statusDropdown; //dropdown with orders statuses
-
     @FindBy(xpath = ".//button[@title='Search']")
     WebElementFacade searchBtn;
 
     @FindBy(xpath = ".//*[@id='sales_order_grid_table']/tbody/tr[2]/td[1]/input")
     WebElementFacade selectOrderinput; //checkbox to tick an order
-
-    @FindBy(xpath = ".//*[@id='sales_order_grid_massaction-select']")
-    WebElementFacade actionsDropdown; //dropdown with all possible actions about orders
 
     @FindBy(xpath = ".//button[@title='Submit']")
     WebElementFacade submitBtn;
