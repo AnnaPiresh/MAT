@@ -7,6 +7,7 @@ import com.qamadness.steps.sales.CreateAnInvoiceSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -35,7 +36,7 @@ public class CreateAnInvoiceStory {
     CreateAnInvoiceSteps createAnInvoiceSteps;
 
     @Issue("MAT-26")
-    @Test
+    @Pending@Test
     public void create_an_invoice_for_an_order(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
