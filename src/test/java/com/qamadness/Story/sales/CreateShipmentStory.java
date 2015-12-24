@@ -4,10 +4,10 @@ import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
 import com.qamadness.steps.sales.CreateAnInvoiceSteps;
+import com.qamadness.steps.sales.CreateShipmentSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-public class CreateAnInvoiceStory {
+public class CreateShipmentStory {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -35,9 +35,12 @@ public class CreateAnInvoiceStory {
     @Steps
     CreateAnInvoiceSteps createAnInvoiceSteps;
 
-    @Issue("MAT-26")
-    @Pending@Test
-    public void create_an_invoice_for_an_order(){
+    @Steps
+    CreateShipmentSteps createShipmentSteps;
+
+    @Issue("MAT-29")
+    @Test
+    public void create_a_shipment_for_order(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
@@ -51,7 +54,10 @@ public class CreateAnInvoiceStory {
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
         createAnInvoiceSteps.create_an_invoice_for_order();
-        createAnInvoiceSteps.check_invoice_created();
+        createShipmentSteps.create_shipment_for_order();
+        createShipmentSteps.check_shipment_is_created();
+
     }
+
 
 }
