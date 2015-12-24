@@ -49,9 +49,6 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
     @FindBy(xpath = ".//input[@id='s_method_ups_GND']")
     WebElementFacade flatRate;
 
-    @FindBy(xpath = ".//button[@title='Submit Order']")
-    WebElementFacade submitBtn;
-
     @FindBy(xpath = ".//*[@id='messages']")
     WebElementFacade successMessage;
 

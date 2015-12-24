@@ -2,13 +2,11 @@ package com.qamadness.Story.sales;
 
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
+import com.qamadness.steps.LogoutFromAdminSteps;
 import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.sales.CreateAnInvoiceSteps;
-import com.qamadness.steps.sales.CreateShipmentSteps;
-import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
+import com.qamadness.steps.sales.*;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -16,7 +14,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-public class CreateShipmentStory {
+public class CreatePartialRefundCreditMemoStory {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -31,6 +29,9 @@ public class CreateShipmentStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
+    LogoutFromAdminSteps logoutFromAdminSteps;
+
+    @Steps
     PlaceOrderAsExistingCustomerSteps placeOrderAsExistingCustomerSteps;
 
     @Steps
@@ -39,9 +40,15 @@ public class CreateShipmentStory {
     @Steps
     CreateShipmentSteps createShipmentSteps;
 
-    @Issue("MAT-29")
-    @Pending@Test
-    public void create_a_shipment_for_order(){
+    @Steps
+    CreateFullRefundCreditMemoSteps createFullRefundCreditMemoSteps;
+
+    @Steps
+    CreatePartialRefundCreditMemoSteps createPartialRefundCreditMemoSteps;
+
+    @Issue("MAT-31")
+    @Test
+    public void can_user_create_partial_refund_credit_memo(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
@@ -56,9 +63,12 @@ public class CreateShipmentStory {
         placeOrderAsExistingCustomerSteps.click_submit_btn();
         createAnInvoiceSteps.create_an_invoice_for_order();
         createShipmentSteps.create_shipment_for_order();
-        createShipmentSteps.check_shipment_is_created();
-
-
+        createFullRefundCreditMemoSteps.start_creating_credit_memo();
+        createPartialRefundCreditMemoSteps.remove_refund_for_shipment();
+        createFullRefundCreditMemoSteps.submit_credit_memo();
+        createFullRefundCreditMemoSteps.check_credit_memo_is_created();
+        createPartialRefundCreditMemoSteps.check_more_credit_memos_can_be_created();
+        logoutFromAdminSteps.logout_from_admin();
     }
 
 
