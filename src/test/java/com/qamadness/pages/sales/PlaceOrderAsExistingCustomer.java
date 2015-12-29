@@ -7,6 +7,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.server.handler.ExecuteScript;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,39 +19,55 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
 
     @FindBy(xpath = ".//button[@title='Create New Order']")
     WebElementFacade createOrderBtn;
+    //Create new order button in grid
 
     @FindBy(xpath = ".//*[@id='sales_order_create_customer_grid_filter_email']")
     WebElementFacade emailfield;
+    //field to enter email to search for customer
 
     @FindBy(xpath = ".//button[@title='Search']")
     WebElementFacade searchBtn;
+    //search button in grid
 
     @FindBy(xpath = ".//*[@id='sales_order_create_customer_grid_table']/tbody/tr/td[1]")
     WebElementFacade selectedCustomer;
+    //selected customer after filtering
 
     @FindBy(xpath = ".//*[@id='store_1']")
     WebElementFacade englishStoreview;
+    //radio button for an English storeview
 
     @FindBy(xpath = ".//*[@id='order-items']/div/div[1]/div/button")
     WebElementFacade addProductsBtn;
+    //Add product to Cart button at new order's page
 
-    @FindBy(xpath = ".//*[@id='sales_order_create_search_grid_table']/tbody/tr[1]/td[5]/input")
+    @FindBy(xpath = ".//*[@id='sales_order_create_search_grid_filter_entity_id']")
+    WebElementFacade productSearchFld;
+    //field for search for a product by id at list with products
+
+    @FindBy(xpath = ".//input[@class='checkbox']")
     WebElementFacade productCheckbox;
+    //checkbox to tick for adding to cart a needed product
 
     @FindBy(xpath = ".//button[@title='Add Selected Product(s) to Order']")
     WebElementFacade addSelectedToCartBtn;
+    //adds selected product to cart
 
     @FindBy(xpath = ".//input[@id='p_method_checkmo']")
     WebElementFacade checkOrderPayment;
+    //Check/Money order payment method
 
     @FindBy(xpath = ".//*[@id='order-shipping-method-summary']/a")
     WebElementFacade getRates;
+    //Link "Get rates"
 
-    @FindBy(xpath = ".//input[@id='s_method_ups_GND']")
+    @FindBy(xpath = ".//*[@id='s_method_flatrate_flatrate']")
     WebElementFacade flatRate;
+    //Flat Rate shipping method
 
     @FindBy(xpath = ".//*[@id='messages']")
     WebElementFacade successMessage;
+    //Success message after placing an order
 
     public void clickCreateOrderBtn(){
         createOrderBtn.click();
@@ -72,27 +89,35 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
     }
 
     public void addProductstoCart(){
-        WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
-        wait1.until(ExpectedConditions.elementToBeClickable(addProductsBtn));
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(addProductsBtn));
         addProductsBtn.click();
-        wait1.until(ExpectedConditions.elementToBeClickable(productCheckbox));
+        productSearchFld.click();
+        productSearchFld.sendKeys("1051");
+        productSearchFld.sendKeys(Keys.ENTER);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        wait.until(ExpectedConditions.elementToBeClickable(productCheckbox));
         productCheckbox.click();
         addSelectedToCartBtn.click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
     }
     public void selectPaymentShipment() {
-        WebDriverWait wait2 = new WebDriverWait(getDriver(), 60);
-        wait2.until(ExpectedConditions.elementToBeClickable(getRates));
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(getRates));
         getRates.click();
-        wait2.until(ExpectedConditions.visibilityOf(flatRate));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        wait.until(ExpectedConditions.visibilityOf(flatRate));
         flatRate.click();
-        wait2.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        wait2.until(ExpectedConditions.elementToBeClickable(checkOrderPayment));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        wait.until(ExpectedConditions.elementToBeClickable(checkOrderPayment));
         checkOrderPayment.click();
     }
     public void clickSubmit(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         JavascriptExecutor jsexecute = (JavascriptExecutor)getDriver();
         jsexecute.executeScript("order.submit()");
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+
         wait.until(ExpectedConditions.urlContains("sales_order/view/order_id"));
     }
 

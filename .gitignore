@@ -10,10 +10,10 @@ buildNumber.properties
 .mvn/timing.properties
 ### Java template
 /.idea/misc.xml
+/.idea/workspace.xml
 /.idea
 /serenity.properties
 /src/test/resources
-/.idea/workspace.xml
 build.gradle
 MAT.iml
 pom.xml

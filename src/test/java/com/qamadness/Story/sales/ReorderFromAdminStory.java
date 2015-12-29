@@ -1,13 +1,13 @@
 package com.qamadness.Story.sales;
 
+
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.LogoutFromAdminSteps;
 import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.sales.*;
+import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
+import com.qamadness.steps.sales.ReorderFromAdminSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-public class CreatePartialRefundCreditMemoStory {
+public class ReorderFromAdminStory {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -30,26 +30,14 @@ public class CreatePartialRefundCreditMemoStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    LogoutFromAdminSteps logoutFromAdminSteps;
-
-    @Steps
     PlaceOrderAsExistingCustomerSteps placeOrderAsExistingCustomerSteps;
 
     @Steps
-    CreateAnInvoiceSteps createAnInvoiceSteps;
+    ReorderFromAdminSteps reorderFromAdminSteps;
 
-    @Steps
-    CreateShipmentSteps createShipmentSteps;
-
-    @Steps
-    CreateFullRefundCreditMemoSteps createFullRefundCreditMemoSteps;
-
-    @Steps
-    CreatePartialRefundCreditMemoSteps createPartialRefundCreditMemoSteps;
-
-    @Issue("MAT-31")
-    @Pending@Test
-    public void can_user_create_partial_refund_credit_memo(){
+    @Issue("MAT-32")
+    @Test
+    public void can_user_reorder_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
@@ -62,15 +50,12 @@ public class CreatePartialRefundCreditMemoStory {
         placeOrderAsExistingCustomerSteps.add_products_to_cart();
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
-        createAnInvoiceSteps.create_an_invoice_for_order();
-        createShipmentSteps.create_shipment_for_order();
-        createFullRefundCreditMemoSteps.start_creating_credit_memo();
-        createPartialRefundCreditMemoSteps.remove_refund_for_shipment();
-        createFullRefundCreditMemoSteps.submit_credit_memo();
-        createFullRefundCreditMemoSteps.check_credit_memo_is_created();
-        createPartialRefundCreditMemoSteps.check_more_credit_memos_can_be_created();
-        logoutFromAdminSteps.logout_from_admin();
+        reorderFromAdminSteps.click_reorder_btn();
+        reorderFromAdminSteps.check_correct_product_reordered();
+        reorderFromAdminSteps.check_shipment_method_is_selected();
+        reorderFromAdminSteps.check_payment_method_is_selected();
+        placeOrderAsExistingCustomerSteps.click_submit_btn();
+        placeOrderAsExistingCustomerSteps.check_That_Success_Message_Is_Displayed();
     }
-
 
 }
