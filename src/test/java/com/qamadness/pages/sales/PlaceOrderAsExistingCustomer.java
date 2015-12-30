@@ -117,7 +117,6 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         JavascriptExecutor jsexecute = (JavascriptExecutor)getDriver();
         jsexecute.executeScript("order.submit()");
-
         wait.until(ExpectedConditions.urlContains("sales_order/view/order_id"));
     }
 
