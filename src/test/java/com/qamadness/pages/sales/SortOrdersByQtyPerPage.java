@@ -19,11 +19,11 @@ public class SortOrdersByQtyPerPage extends PageObject{
     @FindBy(xpath = ".//*[@id='sales_order_grid_massaction']/table/tbody/tr/td[1]/a[1]")
     WebElementFacade selectVisibleOrdersBtn;
 
-    public void canUserChangeQtyOfOrders(){
+    public void canUserChangeQtyOfOrders(String value){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath(".//select[@name='limit']"))));
         Select orders_qty = new Select(getDriver().findElement(By.xpath(".//select[@name='limit']")));
-        orders_qty.selectByValue("50");
+        orders_qty.selectByValue(value);
     }
     public void checkNewQtyOfOrders(){
         selectVisibleOrdersBtn.click();

@@ -20,18 +20,18 @@ public class SwitchBetweenOrdersByArrows extends PageObject{
     @FindBy(xpath = ".//*[@alt='Go to Previous page']")
     WebElementFacade previousPageArrow;
 
-    public void switchToNextOrdersPage(){
+    public void switchToNextOrdersPage(String nextPage){
         nextPageArrow.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        assertEquals("User is redirected to next page","2", fieldWithPageNo.getValue());
+        assertEquals("User is redirected to next page",nextPage, fieldWithPageNo.getValue());
     }
 
-    public void switchToPreviousOrdersPage(){
+    public void switchToPreviousOrdersPage(String previousPage){
         previousPageArrow.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        assertEquals("User is redirected to previous page", "1", fieldWithPageNo.getValue());
+        assertEquals("User is redirected to previous page", previousPage, fieldWithPageNo.getValue());
     }
 
 }

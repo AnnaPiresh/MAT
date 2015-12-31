@@ -12,13 +12,13 @@ PlaceOrderAsExistingCustomer placeOrderAsExistingCustomer;
     public void click_create_order_btn(){placeOrderAsExistingCustomer.clickCreateOrderBtn();}
 
     @Step
-    public void select_first_customer(){placeOrderAsExistingCustomer.selectCustomer();}
+    public void select_customer(String email){placeOrderAsExistingCustomer.selectCustomer(email);}
 
     @Step
     public void select_engish_storeview(){placeOrderAsExistingCustomer.selectStoreview();}
 
     @Step
-    public void add_products_to_cart(){placeOrderAsExistingCustomer.addProductstoCart();}
+    public void add_products_to_cart(String SKU){placeOrderAsExistingCustomer.addProductstoCart(SKU);}
 
     @Step
     public void select_payment_shipment(){placeOrderAsExistingCustomer.selectPaymentShipment();}

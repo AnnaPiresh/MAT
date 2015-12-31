@@ -7,6 +7,7 @@ import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import com.qamadness.steps.sales.ResendEmailToCustomerSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -35,7 +36,7 @@ public class ResendEmailToCustomerStory {
     ResendEmailToCustomerSteps resendEmailToCustomerSteps;
 
     @Issue("MAT-33")
-    @Test
+    @Pending@Test
     public void resend_an_email_to_a_customer(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -44,9 +45,9 @@ public class ResendEmailToCustomerStory {
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
         placeOrderAsExistingCustomerSteps.click_create_order_btn();
-        placeOrderAsExistingCustomerSteps.select_first_customer();
+        placeOrderAsExistingCustomerSteps.select_customer("testersunny377@gmail.com");
         placeOrderAsExistingCustomerSteps.select_engish_storeview();
-        placeOrderAsExistingCustomerSteps.add_products_to_cart();
+        placeOrderAsExistingCustomerSteps.add_products_to_cart("1051");
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
         resendEmailToCustomerSteps.click_send_email_bth();

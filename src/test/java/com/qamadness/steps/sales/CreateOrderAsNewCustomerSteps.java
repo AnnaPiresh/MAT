@@ -3,6 +3,7 @@ package com.qamadness.steps.sales;
 import com.qamadness.pages.sales.CreateOrderAsNewCustomer;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.yecht.Data;
 
 public class CreateOrderAsNewCustomerSteps extends ScenarioSteps {
 CreateOrderAsNewCustomer createOrderAsNewCustomer;
@@ -13,14 +14,32 @@ CreateOrderAsNewCustomer createOrderAsNewCustomer;
     }
 
     @Step
-    public void enter_email_to_email_field(){
-        createOrderAsNewCustomer.enterEmailToEmailField();
+    public void enter_email_to_email_field(String email){
+        createOrderAsNewCustomer.enterEmailToEmailField(email);
     }
 
     @Step
-    public void enter_billing_address(){
-        createOrderAsNewCustomer.enterBillingAddress();
+    public void enter_first_name(String firstName){
+        createOrderAsNewCustomer.enterFirstName(firstName);
     }
+
+    @Step
+    public void enter_last_name(String lastname) { createOrderAsNewCustomer.enterLastName(lastname); }
+
+    @Step
+    public void enter_street(String street) { createOrderAsNewCustomer.enterStreet(street);}
+
+    @Step
+    public void enter_city(String city){ createOrderAsNewCustomer.enterCity(city);}
+
+    @Step
+    public void select_region(String region){ createOrderAsNewCustomer.selectRegion(region);}
+
+    @Step
+    public void enter_zipcode(String zipcode){ createOrderAsNewCustomer.enterZipcode(zipcode);}
+
+    @Step
+    public void enter_telephone(String telephone){ createOrderAsNewCustomer.enterTelephone(telephone);}
 
     @Step
     public void click_save_address_checkbox(){

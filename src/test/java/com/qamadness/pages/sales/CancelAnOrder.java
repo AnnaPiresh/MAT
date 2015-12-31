@@ -16,7 +16,7 @@ public class CancelAnOrder extends PageObject{
     WebElementFacade searchBtn;
 
     @FindBy(xpath = ".//*[@id='sales_order_grid_table']/tbody/tr[2]/td[1]/input")
-    WebElementFacade selectOrderinput;
+    WebElementFacade selectOrderInput;
     //checkbox to tick an order
 
     @FindBy(xpath = ".//button[@title='Submit']")
@@ -35,7 +35,7 @@ public class CancelAnOrder extends PageObject{
     public void cancelSelectedOrder(){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        selectOrderinput.click();
+        selectOrderInput.click();
         Select actions_dropdown = new Select(getDriver().findElement(By.xpath(".//*[@id='sales_order_grid_massaction-select']")));
         actions_dropdown.selectByValue("cancel_order");
         submitBtn.click();

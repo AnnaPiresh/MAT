@@ -40,8 +40,8 @@ public class FilterOrdersByIdStory {
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        filterOrdersByIdSteps.filter_orders_in_grid();
-        filterOrdersByIdSteps.check_filtered_order_number();
+        filterOrdersByIdSteps.filter_orders_in_grid("302000003");
+        filterOrdersByIdSteps.check_filtered_order_number("302000003");
 
     }
 

@@ -40,8 +40,8 @@ public class NavigateToParticularOrdersPageStory {
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        navigateToParticularOrdersPageSteps.enter_orders_page();
-        navigateToParticularOrdersPageSteps.check_the_page_is_correct();
+        navigateToParticularOrdersPageSteps.enter_orders_page("5");
+        navigateToParticularOrdersPageSteps.check_the_page_is_correct("5");
     }
 
 

@@ -9,13 +9,13 @@ public class FilterOrdersByIdSteps extends ScenarioSteps{
     FilterOrdersById filterOrdersById;
 
     @Step
-    public void filter_orders_in_grid(){
-        filterOrdersById.filterOrdersInGrid();
+    public void filter_orders_in_grid(String orderId){
+        filterOrdersById.filterOrdersInGrid(orderId);
     }
 
     @Step
-    public void check_filtered_order_number(){
-        filterOrdersById.checkFilteredOrderNo();
+    public void check_filtered_order_number(String orderId){
+        filterOrdersById.checkFilteredOrderNo(orderId);
     }
 
 }

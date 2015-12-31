@@ -21,6 +21,15 @@ public class MainMenu extends PageObject {
 
 //------------------------------------------------------Objects for Catalog menu--------------------------------------//
 
+    @FindBy(xpath = ".//*[@id='nav']/li[3]/a/span")
+    WebElementFacade catalogMenu;
+
+    @FindBy(xpath = ".//*[@id='nav']/li[3]/ul/li[3]/a/span")
+    WebElementFacade attributesMenuItem;
+
+    @FindBy(xpath = ".//*[@id='nav']/li[3]/ul/li[3]/ul/li[1]/a/span")
+    WebElementFacade manageAttributesMenuItem;
+
 //------------------------------------------------------Objects for Customers menu------------------------------------//
 
     @FindBy (xpath = ".//*[@id='nav']/li[4]/a/span")
@@ -46,4 +55,20 @@ public class MainMenu extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(manageCustomersMenuItem));
         manageCustomersMenuItem.click();
     }
+
+//------------------------------------------------------Methods for Catalog menu------------------------------------//
+
+    public void openManageAttributesPage(){
+        catalogMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(attributesMenuItem));
+        attributesMenuItem.click();
+        wait.until(ExpectedConditions.elementToBeClickable(manageAttributesMenuItem));
+        manageAttributesMenuItem.click();
+    }
+
+
+
+
+
 }

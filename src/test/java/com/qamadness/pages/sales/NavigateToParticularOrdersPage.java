@@ -17,17 +17,17 @@ public class NavigateToParticularOrdersPage extends PageObject{
     @FindBy(xpath = ".//*[@id='sales_order_grid']/table/tbody/tr/td[1]/input")
     WebElementFacade fieldWithPageNo;  //number of pages of orders user is now at
 
-    public void enterOrdersPage() {
+    public void enterOrdersPage(String ordersPage) {
         fieldWithPageNo.click();
         fieldWithPageNo.clear();
-        fieldWithPageNo.sendKeys("5");
+        fieldWithPageNo.sendKeys(ordersPage);
         fieldWithPageNo.sendKeys(Keys.ENTER);
     }
 
-    public void checkThePageIsCorrect(){
+    public void checkThePageIsCorrect(String ordersPage){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        assertEquals("The page is correct", "5", fieldWithPageNo.getValue());
+        assertEquals("The page is correct", ordersPage, fieldWithPageNo.getValue());
     }
 
 }

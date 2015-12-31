@@ -9,8 +9,8 @@ public class SortOrdersByQtyPerPageSteps extends ScenarioSteps {
     SortOrdersByQtyPerPage sortOrdersByQtyPerPage;
 
     @Step
-    public void can_user_change_qty_of_orders(){
-        sortOrdersByQtyPerPage.canUserChangeQtyOfOrders();
+    public void can_user_change_qty_of_orders(String value){
+        sortOrdersByQtyPerPage.canUserChangeQtyOfOrders(value);
     }
 
     @Step

@@ -18,15 +18,15 @@ public class FilterOrdersById extends PageObject {
     @FindBy(xpath = ".//*[@id='sales_order_grid_table']/tbody/tr/td[2]")
     WebElementFacade firstFilteredOrder; //order displayed first in table after filtering
 
-    public void filterOrdersInGrid() {
+    public void filterOrdersInGrid(String orderId) {
         orderIdInputFld.click();
-        orderIdInputFld.sendKeys("302000003");
+        orderIdInputFld.sendKeys(orderId);
         orderIdInputFld.sendKeys(Keys.ENTER);
     }
 
-    public void checkFilteredOrderNo(){
+    public void checkFilteredOrderNo(String orderId){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        assertEquals("Correct order is in grid", "302000003", firstFilteredOrder.getText());
+        assertEquals("Correct order is in grid", orderId, firstFilteredOrder.getText());
     }
 }

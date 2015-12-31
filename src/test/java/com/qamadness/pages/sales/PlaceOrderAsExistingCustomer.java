@@ -17,6 +17,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PlaceOrderAsExistingCustomer extends PageObject{
 
+//--------------------------------------------------Objects for Placing an order----------------------------------------//
+
     @FindBy(xpath = ".//button[@title='Create New Order']")
     WebElementFacade createOrderBtn;
     //Create new order button in grid
@@ -69,14 +71,17 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
     WebElementFacade successMessage;
     //Success message after placing an order
 
+//--------------------------------------------------Methods for Placing an order----------------------------------------//
+
     public void clickCreateOrderBtn(){
         createOrderBtn.click();
     }
-    public void selectCustomer(){
+
+    public void selectCustomer(String email){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(emailfield));
         emailfield.click();
-        emailfield.sendKeys("testersunny377@gmail.com");
+        emailfield.sendKeys(email);
         searchBtn.click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         selectedCustomer.click();
@@ -88,12 +93,12 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
         englishStoreview.click();
     }
 
-    public void addProductstoCart(){
+    public void addProductstoCart(String SKU){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(addProductsBtn));
         addProductsBtn.click();
         productSearchFld.click();
-        productSearchFld.sendKeys("1051");
+        productSearchFld.sendKeys(SKU);
         productSearchFld.sendKeys(Keys.ENTER);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         wait.until(ExpectedConditions.elementToBeClickable(productCheckbox));

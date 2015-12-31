@@ -40,7 +40,7 @@ public class SortOrdersByQtyPerPageStory {
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        sortOrdersByQtyPerPageSteps.can_user_change_qty_of_orders();
+        sortOrdersByQtyPerPageSteps.can_user_change_qty_of_orders("50");
         sortOrdersByQtyPerPageSteps.check_new_qty_of_orders();
 
     }

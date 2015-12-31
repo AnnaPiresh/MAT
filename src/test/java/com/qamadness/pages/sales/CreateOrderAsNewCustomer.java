@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateOrderAsNewCustomer extends PageObject {
 
+//--------------------------------------------------Methods for Placing an order----------------------------------------//
+
     @FindBy(xpath = ".//button[@title='Create New Customer']")
     WebElementFacade createNewCustomerBtn;
 
@@ -29,6 +31,9 @@ public class CreateOrderAsNewCustomer extends PageObject {
     @FindBy(xpath = ".//*[@id='order-billing_address_city']")
     WebElementFacade cityBillingField;
 
+    @FindBy(id = "order-billing_address_region_id")
+    WebElementFacade regionBillingDropdown;
+
     @FindBy(xpath = ".//*[@id='order-billing_address_postcode']")
     WebElementFacade zipcodeBillingField;
 
@@ -38,35 +43,52 @@ public class CreateOrderAsNewCustomer extends PageObject {
     @FindBy(xpath = ".//*[@id='order-billing_address_save_in_address_book']")
     WebElementFacade saveAdressCheckbox;
 
+//--------------------------------------------------Methods for Placing an order----------------------------------------//
 
     public void clickCreateCustomerBtn(){
         createNewCustomerBtn.click();
     }
 
-    public void enterEmailToEmailField(){
-        int i = 1;
-        i=++i;
+    public void enterEmailToEmailField(String email){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         enterEmailField.click();
-        enterEmailField.sendKeys("testersunny377+"+i+"@gmail.com");
+        enterEmailField.sendKeys(email);
     }
 
-    public void enterBillingAddress(){
+    public void enterFirstName(String firstName){
         firstnameBillingField.click();
-        firstnameBillingField.sendKeys("Anna");
+        firstnameBillingField.sendKeys(firstName);
+    }
+
+    public void enterLastName(String lastname) {
         lastnameBillingField.click();
-        lastnameBillingField.sendKeys("Tester");
+        lastnameBillingField.sendKeys(lastname);
+    }
+
+    public void enterStreet(String street) {
         streetBillingField.click();
-        streetBillingField.sendKeys("251 S Olive St");
+        streetBillingField.sendKeys(street);
+    }
+
+    public void enterCity(String city) {
         cityBillingField.click();
-        cityBillingField.sendKeys("Los Angeles");
-        Select dropdown = new Select(getDriver().findElement(By.id("order-billing_address_region_id")));
-        dropdown.selectByValue("12");
+        cityBillingField.sendKeys(city);
+    }
+
+    public void selectRegion(String region) {
+        Select dropdown = new Select(regionBillingDropdown);
+        dropdown.selectByValue(region);
+    }
+
+    public void enterZipcode(String zipcode) {
         zipcodeBillingField.click();
-        zipcodeBillingField.sendKeys("90012");
+        zipcodeBillingField.sendKeys(zipcode);
+    }
+
+    public void enterTelephone(String telephone){
         telephoneFieldBilling.click();
-        telephoneFieldBilling.sendKeys("+1 213-617-3300");
+        telephoneFieldBilling.sendKeys(telephone);
     }
 
     public void saveAddressCheckbox(){

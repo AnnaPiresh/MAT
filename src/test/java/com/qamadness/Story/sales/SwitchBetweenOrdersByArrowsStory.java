@@ -43,7 +43,7 @@ public class SwitchBetweenOrdersByArrowsStory {
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        switchBetweenOrdersByArrowsSteps.switch_to_next_orders_page();
-        switchBetweenOrdersByArrowsSteps.switch_to_previous_orders_page();
+        switchBetweenOrdersByArrowsSteps.switch_to_next_orders_page("2");
+        switchBetweenOrdersByArrowsSteps.switch_to_previous_orders_page("1");
     }
 }
