@@ -37,7 +37,7 @@ public class ReorderFromAdminStory {
     ReorderFromAdminSteps reorderFromAdminSteps;
 
     @Issue("MAT-32")
-    @Pending@Test
+   @Pending@Test
     public void can_user_reorder_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -46,9 +46,9 @@ public class ReorderFromAdminStory {
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
         placeOrderAsExistingCustomerSteps.click_create_order_btn();
-        placeOrderAsExistingCustomerSteps.select_first_customer();
+        placeOrderAsExistingCustomerSteps.select_customer("testersunny377@gmail.com");
         placeOrderAsExistingCustomerSteps.select_engish_storeview();
-        placeOrderAsExistingCustomerSteps.add_products_to_cart();
+        placeOrderAsExistingCustomerSteps.add_products_to_cart("1051");
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
         reorderFromAdminSteps.click_reorder_btn();
