@@ -23,4 +23,7 @@ public class MainMenuSteps extends ScenarioSteps {
 
     @Step
     public void open_Manage_Attributes_Page() {mainMenu.openManageAttributesPage(); }
+
+    @Step
+    public void open_Customer_Groups_Page() { mainMenu.openCustomerGroupsPage(); }
 }

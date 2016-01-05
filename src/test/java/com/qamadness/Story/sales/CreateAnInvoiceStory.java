@@ -36,7 +36,7 @@ public class CreateAnInvoiceStory {
     CreateAnInvoiceSteps createAnInvoiceSteps;
 
     @Issue("MAT-26")
-    @Test
+    @Pending@Test
     public void create_an_invoice_for_an_order(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

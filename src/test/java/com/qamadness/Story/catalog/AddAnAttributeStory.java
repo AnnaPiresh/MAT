@@ -6,6 +6,7 @@ import com.qamadness.steps.MainMenuSteps;
 import com.qamadness.steps.catalog.AddAnAttributeSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -31,7 +32,7 @@ public class AddAnAttributeStory {
     AddAnAttributeSteps addAnAttributeSteps;
 
     @Issue("MAT-34")
-    @Test
+    @Pending@Test
     public void add_an_attribute_in_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
