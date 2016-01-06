@@ -49,6 +49,9 @@ public class MainMenu extends PageObject {
     @FindBy(xpath = ".//*[@id='nav']/li[9]/ul/li[12]/a/span")
     WebElementFacade cacheManagementMenuItem;
 
+    @FindBy(xpath = ".//*[@id='nav']/li[9]/ul/li[13]/a/span")
+    WebElementFacade indexManagementMenuItem;
+
 //-----------------------------------------------------Methods for Sales menu-----------------------------------------//
 
     public void openOrdersPage () {
@@ -92,6 +95,13 @@ public class MainMenu extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(cacheManagementMenuItem));
         cacheManagementMenuItem.click();
+    }
+
+    public void openIndexManagementPage(){
+        systemMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(indexManagementMenuItem));
+        indexManagementMenuItem.click();
     }
 
 

@@ -6,6 +6,7 @@ import com.qamadness.steps.MainMenuSteps;
 import com.qamadness.steps.system.DisableAndEnableMagentoCachingSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -31,6 +32,7 @@ public class DisableAndEnableMagentoCachingStory {
     DisableAndEnableMagentoCachingSteps disableAndEnableMagentoCachingSteps;
 
     @Issue("MAT-37")
+    @Pending
     @Test
     public void disable_magento_caching_from_admin(){
         loginPageSteps.openPage();
