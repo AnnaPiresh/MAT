@@ -3,6 +3,7 @@ package com.qamadness.Story.catalog;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.catalog.AddAnAttributeSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
@@ -31,8 +32,12 @@ public class AddAnAttributeStory {
     @Steps
     AddAnAttributeSteps addAnAttributeSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-34")
-    @Pending@Test
+    @Pending
+    @Test
     public void add_an_attribute_in_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -53,8 +58,8 @@ public class AddAnAttributeStory {
         addAnAttributeSteps.add_options_to_dropdown();
         addAnAttributeSteps.add_second_dropdown_option("Terminator");
         addAnAttributeSteps.save_an_attribute();
-        addAnAttributeSteps.check_attribute_is_saved();
+        successMessagesSteps.check_success_message("The product attribute has been saved.");
         addAnAttributeSteps.delete_attribute("test_robot_attribute");
-        addAnAttributeSteps.check_attribute_deleted();
+        successMessagesSteps.check_success_message("The product attribute has been deleted.");
     }
 }

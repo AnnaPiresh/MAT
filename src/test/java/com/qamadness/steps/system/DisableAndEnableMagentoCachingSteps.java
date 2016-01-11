@@ -19,6 +19,4 @@ public class DisableAndEnableMagentoCachingSteps extends ScenarioSteps{
     @Step
     public void click_submit_btn() { disableAndEnableMagentoCaching.clickSubmitBtn();}
 
-    @Step
-    public void check_sucess_msg(String messageCaches){disableAndEnableMagentoCaching.checkSuccessMsg(messageCaches);}
 }

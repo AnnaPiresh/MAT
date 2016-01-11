@@ -24,9 +24,6 @@ public class ReindexData extends PageObject{
     @FindBy(xpath = ".//button[@title='Submit']")
     WebElementFacade submitActionBtn;
 
-    @FindBy(xpath = ".//*[@class='success-msg']")
-    WebElementFacade successMsg;
-
 //-------------------------------------Methods for Reindexing Data----------------------------------------------------//
 
     public void clickSelectAllIndexes() {
@@ -41,20 +38,10 @@ public class ReindexData extends PageObject{
     }
 
     public void clickSubmitBtn() {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 360);
         wait.until(ExpectedConditions.elementToBeClickable(submitActionBtn));
         submitActionBtn.click();
         submitActionBtn.click();
-    }
-
-    public void checkSuccessMsg(String messageIndex){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMsg));
-        if (successMsg.containsText(messageIndex)){
-            System.out.println("Data were reindexed");
-        } else {
-            Assert.fail("Data were not reindexed");
-        }
     }
 
 }

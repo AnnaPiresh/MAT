@@ -26,17 +26,4 @@ public class FlushMagentoCaches extends PageObject{
         wait.until(ExpectedConditions.elementToBeClickable(flushMagentoCachesBtn));
         flushMagentoCachesBtn.click();
     }
-
-    public void checkCachesFlushed(String cachesSuccess){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMsg));
-        if (successMsg.containsText(cachesSuccess)){
-            System.out.println("Magento Caches have been flushed successfully");
-        } else {
-            Assert.fail("Magento Caches haven't been flushed");
-        }
-    }
-
-
-
 }

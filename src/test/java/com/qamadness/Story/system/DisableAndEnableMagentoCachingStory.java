@@ -3,6 +3,7 @@ package com.qamadness.Story.system;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.system.DisableAndEnableMagentoCachingSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
@@ -31,6 +32,9 @@ public class DisableAndEnableMagentoCachingStory {
     @Steps
     DisableAndEnableMagentoCachingSteps disableAndEnableMagentoCachingSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-37")
     @Pending
     @Test
@@ -44,10 +48,10 @@ public class DisableAndEnableMagentoCachingStory {
         disableAndEnableMagentoCachingSteps.select_all_caches();
         disableAndEnableMagentoCachingSteps.choose_value_from_actions_dropdown("disable");
         disableAndEnableMagentoCachingSteps.click_submit_btn();
-        disableAndEnableMagentoCachingSteps.check_sucess_msg("cache type(s) disabled.");
+        successMessagesSteps.check_success_message("cache type(s) disabled.");
         disableAndEnableMagentoCachingSteps.select_all_caches();
         disableAndEnableMagentoCachingSteps.choose_value_from_actions_dropdown("enable");
         disableAndEnableMagentoCachingSteps.click_submit_btn();
-        disableAndEnableMagentoCachingSteps.check_sucess_msg("cache type(s) enabled.");
+        successMessagesSteps.check_success_message("cache type(s) enabled.");
     }
 }

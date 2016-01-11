@@ -17,6 +17,4 @@ public class ReidexDataSteps extends ScenarioSteps{
     @Step
     public void click_submit_btn() {reindexData.clickSubmitBtn();}
 
-    @Step
-    public void check_sucess_msg(String messageIndex) {reindexData.checkSuccessMsg(messageIndex);}
 }

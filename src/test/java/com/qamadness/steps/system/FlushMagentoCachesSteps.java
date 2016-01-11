@@ -11,6 +11,4 @@ public class FlushMagentoCachesSteps extends ScenarioSteps{
     @Step
     public void click_flush_cache_btn(){ flushMagentoCaches.clickFlushCacheBtn();}
 
-    @Step
-    public void check_caches_flushed(String cachesSuccess) { flushMagentoCaches.checkCachesFlushed(cachesSuccess);}
 }

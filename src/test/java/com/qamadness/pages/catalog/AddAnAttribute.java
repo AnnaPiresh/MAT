@@ -66,8 +66,8 @@ public class AddAnAttribute extends PageObject{
     @FindBy(xpath = ".//*[@title='Delete Attribute']")
     WebElementFacade deleteAttrBtn;
 
-    @FindBy(xpath = ".//*[@class='success-msg']")
-    WebElementFacade successMsg;
+   /* @FindBy(xpath = ".//*[@class='success-msg']")
+    WebElementFacade successMsg;*/
 
     @FindBy(xpath = ".//input[@id='attributeGrid_filter_attribute_code']")
     WebElementFacade attributeCodeFld;
@@ -143,16 +143,6 @@ public class AddAnAttribute extends PageObject{
         saveAttrBtn.click();
     }
 
-    public void checkAttributeIsSaved(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMsg));
-        if (successMsg.containsText("The product attribute has been saved.")){
-            System.out.println("New product attribute is saved");
-        } else {
-            Assert.fail("New product attribut is not saved");
-        }
-    }
-
     public void deleteAttribute(String attrCode){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(attributeCodeFld));
@@ -166,18 +156,4 @@ public class AddAnAttribute extends PageObject{
         Alert alert = getDriver().switchTo().alert();
         alert.accept();
     }
-
-    public void checkAttributeIsDeleted(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMsg));
-        if (successMsg.containsText("The product attribute has been deleted.")){
-            System.out.println("New product attribute is deleted");
-        } else {
-            Assert.fail("New product attribut is not deleted");
-        }
-
-    }
-
-
-
 }

@@ -45,11 +45,6 @@ public class AddAnAttributeSteps extends ScenarioSteps{
     public void save_an_attribute() { addAnAttribute.saveAnAttribute(); }
 
     @Step
-    public void check_attribute_is_saved(){ addAnAttribute.checkAttributeIsSaved(); }
-
-    @Step
     public void delete_attribute(String attrCode){ addAnAttribute.deleteAttribute(attrCode);}
 
-    @Step
-    public void check_attribute_deleted(){ addAnAttribute.checkAttributeIsDeleted(); }
 }

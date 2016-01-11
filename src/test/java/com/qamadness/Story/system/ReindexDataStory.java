@@ -3,6 +3,7 @@ package com.qamadness.Story.system;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.system.ReidexDataSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
@@ -31,8 +32,12 @@ public class ReindexDataStory {
     @Steps
     ReidexDataSteps reidexDataSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-39")
-    @Pending@Test
+    @Pending
+    @Test
     public void can_user_reindex_data_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -43,6 +48,6 @@ public class ReindexDataStory {
         reidexDataSteps.click_select_all_indexes();
         reidexDataSteps.select_action_from_dropdown("reindex");
         reidexDataSteps.click_submit_btn();
-        reidexDataSteps.check_sucess_msg("index(es) have reindexed data.");
+        successMessagesSteps.check_success_message("index(es) have reindexed data.");
     }
 }

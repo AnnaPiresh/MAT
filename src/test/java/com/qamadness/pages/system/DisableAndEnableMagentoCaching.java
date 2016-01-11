@@ -21,9 +21,6 @@ public class DisableAndEnableMagentoCaching extends PageObject{
     @FindBy(xpath = ".//button[@title='Submit']")
     WebElementFacade submitActionBtn;
 
-    @FindBy(xpath = ".//*[@class='success-msg']")
-    WebElementFacade successMsg;
-
 //----------------------------------------Methods for Disabling caching------------------------------------------------//
 
     public void selectAllCaches(){
@@ -42,15 +39,5 @@ public class DisableAndEnableMagentoCaching extends PageObject{
         wait.until(ExpectedConditions.elementToBeClickable(submitActionBtn));
         submitActionBtn.click();
         submitActionBtn.click();
-    }
-
-    public void checkSuccessMsg(String messageCaches){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMsg));
-        if (successMsg.containsText(messageCaches)){
-            System.out.println("Magento Caching settings have been changed");
-        } else {
-            Assert.fail("Magento Caching haven't been changed");
-        }
     }
 }

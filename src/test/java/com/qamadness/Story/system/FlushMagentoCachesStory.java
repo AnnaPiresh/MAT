@@ -3,6 +3,7 @@ package com.qamadness.Story.system;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.system.FlushMagentoCachesSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
@@ -29,10 +30,14 @@ public class FlushMagentoCachesStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
+    @Steps
     FlushMagentoCachesSteps flushMagentoCachesSteps;
 
     @Issue("MAT-36")
-    @Pending@Test
+    @Pending
+    @Test
     public void flush_magento_caches_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -41,6 +46,6 @@ public class FlushMagentoCachesStory {
         dashboardSteps.closePopup();
         mainMenuSteps.open_Cache_Management_Page();
         flushMagentoCachesSteps.click_flush_cache_btn();
-        flushMagentoCachesSteps.check_caches_flushed("The Magento cache storage has been flushed.");
+        successMessagesSteps.check_success_message("The Magento cache storage has been flushed.");
     }
 }
