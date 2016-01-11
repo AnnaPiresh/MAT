@@ -28,6 +28,9 @@ public class MainMenuSteps extends ScenarioSteps {
     public void open_Customer_Groups_Page() { mainMenu.openCustomerGroupsPage(); }
 
     @Step
+    public void open_Catalog_Price_Rules_Page(){ mainMenu.openCatalogPriceRulesPage();}
+
+    @Step
     public void open_Cache_Management_Page() {mainMenu.openCacheManagementPage();}
 
     @Step

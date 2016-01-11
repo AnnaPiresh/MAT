@@ -6,6 +6,7 @@ import com.qamadness.steps.MainMenuSteps;
 import com.qamadness.steps.system.ReidexDataSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -31,7 +32,7 @@ public class ReindexDataStory {
     ReidexDataSteps reidexDataSteps;
 
     @Issue("MAT-39")
-    @Test
+    @Pending@Test
     public void can_user_reindex_data_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
