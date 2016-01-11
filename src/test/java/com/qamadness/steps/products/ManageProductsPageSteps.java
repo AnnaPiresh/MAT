@@ -145,4 +145,16 @@ public class ManageProductsPageSteps extends ScenarioSteps {
 
     @Step
     public void checkNameUpdated (String name) { manageProductPage.checkNameUpdated(name);}
+
+    @Step
+    public void selectConfigurableAttribute () { manageProductPage.selectConfigurableAttribute();}
+
+    @Step
+    public void selectAssociatedProductsTab () { manageProductPage.selectAssociatedProductsTab();}
+
+    @Step
+    public void checkFirstAssociatedProduct () { manageProductPage.checkFirstAssociatedProduct();}
+
+    @Step
+    public void checkSecondAssociatedProduct () { manageProductPage.checkSecondAssociatedProduct();}
 }

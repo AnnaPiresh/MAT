@@ -295,6 +295,25 @@ public class ManageProductsPage extends PageObject {
             Assert.fail("Name is wrong");}
     }
 
+    @FindBy (xpath = ".//*[@id='settings']/div/table/tbody/tr[2]/td[1]/label")
+    WebElementFacade configurableAttribute;
+
+    public void selectConfigurableAttribute () { configurableAttribute.click();}
+
+    @FindBy (xpath = ".//*[@id='product_info_tabs_configurable']/span")
+    WebElementFacade associatedProductsTab;
+
+    public void selectAssociatedProductsTab() { associatedProductsTab.click();}
+
+    @FindBy (xpath = ".//*[@id='super_product_links_table']/tbody/tr[1]/td[1]/input[1]")
+    WebElementFacade firstAssociatedProduct;
+
+    public void checkFirstAssociatedProduct () { firstAssociatedProduct.click();}
+
+    @FindBy (xpath = ".//*[@id='super_product_links_table']/tbody/tr[2]/td[1]/input[1]")
+    WebElementFacade secondAssociatedProduct;
+
+    public void checkSecondAssociatedProduct () { secondAssociatedProduct.click();}
 
 
 }
