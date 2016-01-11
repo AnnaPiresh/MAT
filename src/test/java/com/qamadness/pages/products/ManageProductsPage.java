@@ -2,6 +2,7 @@ package com.qamadness.pages.products;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class ManageProductsPage extends PageObject {
 
-    @FindBy (tagName = "button")
+    @FindBy (css = "button[title='Add Product']")
     WebElementFacade addProduct;
 
     public void addProduct () {
@@ -162,7 +163,8 @@ public class ManageProductsPage extends PageObject {
 
     public void selectCategoriesTab() { categoriesTab.click();}
 
-    @FindBy(css = "#ext-gen23")
+    //@FindBy(css = "#ext-gen23")
+    @FindBy(xpath = "//*[contains(text(), 'Women')]")
     WebElementFacade firstCategory;
 
     public void selectFirstCategory() {
@@ -206,6 +208,8 @@ public class ManageProductsPage extends PageObject {
 
     public void submitAction() { /*submit.click();*/}
 
+    public void submitActionn() { submit.click();}
+
     public void deletionApproveAlert () {
         submit.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
@@ -225,14 +229,14 @@ public class ManageProductsPage extends PageObject {
 
     public void selectBundleTab () { bundleTab.click();}
 
-    public void selectCategory () {
+    /*public void selectCategory () {
 
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[type='checkbox']")));
         List<WebElement> checkboxes = getDriver().findElements(By.cssSelector("input[type='checkbox']"));
 
         checkboxes.get(1).click();
-    }
+    }*/
 
     @FindBy (xpath = ".//*[@id='shipment_type']")
     WebElementFacade shipmentType;
@@ -271,4 +275,26 @@ public class ManageProductsPage extends PageObject {
     WebElementFacade productThree;
 
     public void selectProductThree () { productThree.click();}
+
+    @FindBy (xpath = ".//*[@id='name-checkbox']")
+    WebElementFacade updateProductNameCheckbox;
+
+    public void updateProductNameCheckboxClick () { updateProductNameCheckbox.click();}
+
+    @FindBy (xpath = ".//*[@id='name']")
+    WebElementFacade updateProductNameField;
+
+    public void updateProductName (String name) { updateProductNameField.sendKeys(name);}
+
+    public void checkNameUpdated (String name) {
+        int size = getDriver().findElements(org.openqa.selenium.By.xpath(name)).size();
+        if (size > 0) {
+            checkProduct();}
+
+        else {
+            Assert.fail("Name is wrong");}
+    }
+
+
+
 }

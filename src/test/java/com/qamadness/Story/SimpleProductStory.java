@@ -62,12 +62,12 @@ public class SimpleProductStory {
         manageProductsPageSteps.selectCategoriesTab();
         manageProductsPageSteps.selectFirstCategory();
         manageProductsPageSteps.saveProduct();
-        manageProductsPageSteps.searchBySku("100001");
+        /*manageProductsPageSteps.searchBySku("100001");
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
         manageProductsPageSteps.selectAction("delete");
         manageProductsPageSteps.submitAction();
-        manageProductsPageSteps.deletionApproveAlert();
+        manageProductsPageSteps.deletionApproveAlert();*/
         //loginPageSteps.delay();
 
     }

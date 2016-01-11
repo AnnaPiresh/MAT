@@ -102,13 +102,16 @@ public class ManageProductsPageSteps extends ScenarioSteps {
     public void submitAction () { manageProductPage.submitAction();}
 
     @Step
+    public void submitActionn () { manageProductPage.submitActionn();}
+
+    @Step
     public void deletionApproveAlert () { manageProductPage.deletionApproveAlert();}
 
     @Step
     public void edit () { manageProductPage.edit();}
 
-    @Step
-    public void selectCategory () { manageProductPage.selectCategory();}
+    /*@Step
+    public void selectCategory () { manageProductPage.selectCategory();}*/
 
     @Step
     public void selectBundleTab () { manageProductPage.selectBundleTab();}
@@ -133,4 +136,13 @@ public class ManageProductsPageSteps extends ScenarioSteps {
 
     @Step
     public void selectProductThree () { manageProductPage.selectProductThree();}
+
+    @Step
+    public void updateProductNameCheckboxClick () { manageProductPage.updateProductNameCheckboxClick();}
+
+    @Step
+    public void updateProductName (String name) { manageProductPage.updateProductName(name);}
+
+    @Step
+    public void checkNameUpdated (String name) { manageProductPage.checkNameUpdated(name);}
 }
