@@ -13,11 +13,15 @@ import static junit.framework.TestCase.assertEquals;
 
 public class SortOrdersByQtyPerPage extends PageObject{
 
+//------------------------------------Objects for Sorting orders by Qty per page---------------------------------------//
+
     @FindBy(xpath = ".//*[@id='sales_order_grid_massaction-count']")
     WebElementFacade qtyOfOrdersPerPageDropdown;
 
     @FindBy(xpath = ".//*[@id='sales_order_grid_massaction']/table/tbody/tr/td[1]/a[1]")
     WebElementFacade selectVisibleOrdersBtn;
+
+//------------------------------------Methods for sorting orders by Qty per page---------------------------------------//
 
     public void canUserChangeQtyOfOrders(String value){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);

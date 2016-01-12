@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CancelAnOrder extends PageObject{
 
+//-------------------------------------Objects for Canceling Order----------------------------------------------------//
+
     @FindBy(xpath = ".//button[@title='Search']")
     WebElementFacade searchBtn;
 
@@ -27,6 +29,8 @@ public class CancelAnOrder extends PageObject{
 
     @FindBy(xpath = ".//button[@title='Submit']")
     WebElementFacade submitBtn;
+
+//---------------------------------------Methods for Canceling Order--------------------------------------------------//
 
     public void seeOrdersInPendingStatus(String status){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);

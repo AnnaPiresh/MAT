@@ -3,6 +3,7 @@ package com.qamadness.Story.sales;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import com.qamadness.steps.sales.ResendEmailToCustomerSteps;
 import net.thucydides.core.annotations.Issue;
@@ -35,8 +36,12 @@ public class ResendEmailToCustomerStory {
     @Steps
     ResendEmailToCustomerSteps resendEmailToCustomerSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-33")
-    @Pending@Test
+    @Pending
+    @Test
     public void resend_an_email_to_a_customer(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -51,6 +56,6 @@ public class ResendEmailToCustomerStory {
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
         resendEmailToCustomerSteps.click_send_email_bth();
-        resendEmailToCustomerSteps.check_success_message_present();
+        successMessagesSteps.check_success_message("The order email has been sent.");
     }
 }

@@ -11,13 +11,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ResendEmailToCustomer extends PageObject{
 
+//------------------------------------Objects for Resending an email---------------------------------------------------//
+
     @FindBy(xpath = ".//button[@title='Send Email']")
     WebElementFacade sendEmailBtn;
     //button that resends an email to a customer
 
-    @FindBy(xpath = ".//*[@class='success-msg']")
-    WebElementFacade successMesg;
-
+//------------------------------------Methods for Resending an email----------------------------------------------------//
 
     public void clickSendEmailBtn(){
         if (sendEmailBtn.isVisible()){
@@ -30,16 +30,5 @@ public class ResendEmailToCustomer extends PageObject{
         Alert alert = getDriver().switchTo().alert();
         alert.accept();
     }
-
-    public void checkSuccessMsgPresent(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMesg));
-        if (successMesg.containsText("The order email has been sent.")){
-            System.out.println("Email to order is successfully sent");
-        } else {
-            Assert.fail("Email to order is not sent");
-        }
-    }
-
 
 }

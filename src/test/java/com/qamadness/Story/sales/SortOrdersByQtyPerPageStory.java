@@ -32,7 +32,8 @@ public class SortOrdersByQtyPerPageStory {
     SortOrdersByQtyPerPageSteps sortOrdersByQtyPerPageSteps;
 
     @Issue("MAT-12")
-    @Pending@Test
+    @Pending
+    @Test
     public void check_that_user_can_change_qty_of_orders_displayed_per_page(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

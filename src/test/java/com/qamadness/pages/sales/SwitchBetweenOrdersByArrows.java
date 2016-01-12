@@ -11,6 +11,8 @@ import static junit.framework.TestCase.assertEquals;
 
 public class SwitchBetweenOrdersByArrows extends PageObject{
 
+//------------------------------------Objects for Switching Between orders by arrows------------------------------------//
+
     @FindBy(xpath = ".//*[@alt='Go to Next page']")
     WebElementFacade nextPageArrow;
 
@@ -19,6 +21,8 @@ public class SwitchBetweenOrdersByArrows extends PageObject{
 
     @FindBy(xpath = ".//*[@alt='Go to Previous page']")
     WebElementFacade previousPageArrow;
+
+//------------------------------------Methods for Switching Between orders by arrows------------------------------------//
 
     public void switchToNextOrdersPage(String nextPage){
         nextPageArrow.click();

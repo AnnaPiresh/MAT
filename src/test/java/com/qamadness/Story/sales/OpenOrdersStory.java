@@ -25,7 +25,8 @@ public class OpenOrdersStory {
     OpenOrdersSteps openOrdersSteps;
 
     @Issue("MAT-5")
-    @Pending@Test
+    @Pending
+    @Test
     public void check_orders_page_is_opened() {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

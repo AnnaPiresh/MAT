@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateShipment extends PageObject{
 
+//------------------------------------------Objects for Creating Shipment-------------------------------------------------//
+
     @FindBy(xpath = ".//button[@title='Ship']")
     WebElementFacade shipmentBtn;
     //"Ship" button at order's page
@@ -18,9 +20,7 @@ public class CreateShipment extends PageObject{
     WebElementFacade submitShipmentBtn;
     //"Submit shipment" button at new shipment page
 
-    @FindBy(xpath = ".//*[@id='messages']")
-    WebElementFacade successMsg;
-    //Success message after creating an order
+//------------------------------------------Methods for Creating Shipment-------------------------------------------------//
 
     public void createShipmentForOrder(){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
@@ -30,13 +30,5 @@ public class CreateShipment extends PageObject{
         submitShipmentBtn.click();
         wait.until(ExpectedConditions.urlContains("sales_order/view/order_id"));
     }
-
-    public void checkShipmentIsCreated(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMsg));
-        Assert.assertTrue(successMsg.isVisible());
-        Assert.assertEquals("Shipment is created", "The shipment has been created.", successMsg.getText());
-    }
-
 
 }

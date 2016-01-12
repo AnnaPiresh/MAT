@@ -32,7 +32,8 @@ public class SortOrdersByIdStory {
     SortOrdersByIdSteps sortOrdersByIdSteps;
 
     @Issue("MAT-16")
-    @Pending@Test
+    @Pending
+    @Test
     public void can_user_sort_orders_by_id(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

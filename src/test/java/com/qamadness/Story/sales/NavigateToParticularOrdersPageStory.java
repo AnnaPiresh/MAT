@@ -32,16 +32,18 @@ public class NavigateToParticularOrdersPageStory {
     NavigateToParticularOrdersPageSteps navigateToParticularOrdersPageSteps;
 
     @Issue("MAT-14")
-    @Pending@Test
+    @Pending
+    @Test
     public void can_user_navigate_to_a_particular_page_of_orders(){
+        String ordersPage ="5";
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        navigateToParticularOrdersPageSteps.enter_orders_page("5");
-        navigateToParticularOrdersPageSteps.check_the_page_is_correct("5");
+        navigateToParticularOrdersPageSteps.enter_orders_page(ordersPage);
+        navigateToParticularOrdersPageSteps.check_the_page_is_correct(ordersPage);
     }
 
 

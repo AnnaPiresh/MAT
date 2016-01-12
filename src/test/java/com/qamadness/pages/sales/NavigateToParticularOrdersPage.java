@@ -14,8 +14,12 @@ import static junit.framework.TestCase.assertEquals;
 
 public class NavigateToParticularOrdersPage extends PageObject{
 
+//------------------------------------Objects for Navigating to Particular page-----------------------------------------------//
+
     @FindBy(xpath = ".//*[@id='sales_order_grid']/table/tbody/tr/td[1]/input")
     WebElementFacade fieldWithPageNo;  //number of pages of orders user is now at
+
+//------------------------------------Methods for Navigating to Particular Page-----------------------------------------------//
 
     public void enterOrdersPage(String ordersPage) {
         fieldWithPageNo.click();

@@ -2,6 +2,8 @@ package com.qamadness.Story.sales;
 
 
 import com.qamadness.steps.*;
+import com.qamadness.steps.customers.CustomerInformationSteps;
+import com.qamadness.steps.customers.ManageCustomersSteps;
 import com.qamadness.steps.sales.CreateOrderAsNewCustomerSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import net.thucydides.core.annotations.Issue;
@@ -12,6 +14,8 @@ import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+
+import java.awt.*;
 
 @RunWith(ThucydidesRunner.class)
 public class CreateOrderAsNewCustomerStory {
@@ -34,9 +38,20 @@ public class CreateOrderAsNewCustomerStory {
     @Steps
     CreateOrderAsNewCustomerSteps createOrderAsNewCustomerSteps;
 
+    @Steps
+    ManageCustomersSteps manageCustomersSteps;
+
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
+    @Steps
+    CustomerInformationSteps customerInformationSteps;
+
     @Issue("MAT-11")
-    @Pending@Test
-    public void place_an_order_for_a_new_customer_from_admin(){
+    @Pending
+    @Test
+    public void place_an_order_for_a_new_customer_from_admin() throws AWTException {
+        String email = "testersunny377+1@gmail.com";
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
@@ -47,7 +62,7 @@ public class CreateOrderAsNewCustomerStory {
         createOrderAsNewCustomerSteps.click_create_customer_btn();
         placeOrderAsExistingCustomerSteps.select_engish_storeview();
         placeOrderAsExistingCustomerSteps.add_products_to_cart("1051");
-        createOrderAsNewCustomerSteps.enter_email_to_email_field("testersunny377+2@gmail.com");
+        createOrderAsNewCustomerSteps.enter_email_to_email_field(email);
         createOrderAsNewCustomerSteps.enter_first_name("Anna");
         createOrderAsNewCustomerSteps.enter_last_name("Tester");
         createOrderAsNewCustomerSteps.enter_street("251 S Olive St");
@@ -58,7 +73,13 @@ public class CreateOrderAsNewCustomerStory {
         createOrderAsNewCustomerSteps.click_save_address_checkbox();
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
-        placeOrderAsExistingCustomerSteps.check_That_Success_Message_Is_Displayed();
+        successMessagesSteps.check_success_message("The order has been created.");
+        mainMenuSteps.open_Manage_Customers_Page();
+        manageCustomersSteps.search_Customer_By_Email(email);
+        manageCustomersSteps.check_Search_Result(email);
+        manageCustomersSteps.open_First_Customer_Profile();
+        customerInformationSteps.click_Delete_Customer_Button();
+        successMessagesSteps.check_success_message("The customer has been deleted.");
     }
 
 

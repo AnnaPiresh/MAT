@@ -35,7 +35,8 @@ public class SwitchBetweenOrdersByArrowsStory {
     SwitchBetweenOrdersByArrowsSteps switchBetweenOrdersByArrowsSteps;
 
     @Issue("MAT-13")
-    @Pending@Test
+    @Pending
+    @Test
     public void check_that_user_can_navigate_between_orders_using_arrows() {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

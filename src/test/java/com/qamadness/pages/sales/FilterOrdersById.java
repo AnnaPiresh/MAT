@@ -12,11 +12,15 @@ import static junit.framework.TestCase.assertEquals;
 
 public class FilterOrdersById extends PageObject {
 
+//------------------------------------Objects for Filtering orders by ID-----------------------------------------------//
+
     @FindBy(xpath = ".//*[@id='sales_order_grid_filter_real_order_id']")
     WebElementFacade orderIdInputFld;
 
     @FindBy(xpath = ".//*[@id='sales_order_grid_table']/tbody/tr/td[2]")
     WebElementFacade firstFilteredOrder; //order displayed first in table after filtering
+
+//------------------------------------Methods for Filtering orders by ID-----------------------------------------------//
 
     public void filterOrdersInGrid(String orderId) {
         orderIdInputFld.click();

@@ -9,9 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LogoutFromAdmin extends PageObject{
 
+//------------------------------------Objects for Logging out from admin----------------------------------------------//
+
     @FindBy(xpath = ".//a[@class='link-logout']")
     WebElementFacade logOutLnk;
     //Link to Log out from admin panel
+
+//-----------------------------------Methods for Logging out from admin------------------------------------------------//
 
     public void logoutfromAdmin(){
         logOutLnk.click();

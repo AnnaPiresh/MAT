@@ -11,6 +11,8 @@ import static junit.framework.TestCase.assertTrue;
 
 public class SortOrdersById extends PageObject{
 
+//------------------------------------Objects for Sorting orders by ID-----------------------------------------------//
+
     @FindBy(xpath = ".//*[@id='sales_order_grid_table']/thead/tr[1]/th[2]/span/a/span")
     WebElementFacade OrderNoColumnTitle; //title of the column, also clickable
 
@@ -19,6 +21,8 @@ public class SortOrdersById extends PageObject{
 
     @FindBy(xpath = ".//*[@id='sales_order_grid_table']/tbody/tr[2]/td[2]")
     WebElementFacade lowerOrderInTable; //the 2nd order in grid
+
+//------------------------------------Methods for Sorting orders by ID-----------------------------------------------//
 
     public void changeSortOrderById(){
         OrderNoColumnTitle.click();

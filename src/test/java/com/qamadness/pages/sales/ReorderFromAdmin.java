@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ReorderFromAdmin extends PageObject{
 
+//------------------------------------Objects for Reordering from admin-----------------------------------------------//
+
     @FindBy(xpath = ".//button[@title='Reorder']")
     WebElementFacade reorderBtn;
     //Reorder button at order's page
@@ -26,6 +28,7 @@ public class ReorderFromAdmin extends PageObject{
     WebElementFacade paymentMethodCheckbox;
     //checkbox of the selected payment method
 
+//------------------------------------Methods for Reordering from Admin-----------------------------------------------//
 
     public void clickReorderBtn(){
         if (reorderBtn.isVisible()){

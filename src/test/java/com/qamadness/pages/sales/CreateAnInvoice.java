@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateAnInvoice extends PageObject{
 
+//-------------------------------Objects for Creating Invoice---------------------------------------------------------//
+
     @FindBy(xpath = ".//button[@title='Invoice']")
     WebElementFacade invoiceBtn;
     //invoice button at order's page
@@ -18,6 +20,7 @@ public class CreateAnInvoice extends PageObject{
     WebElementFacade submitInvoiceBtn;
     //"Submit invoice" button at new invoice page
 
+//------------------------------Methods for Creating Invoice-----------------------------------------------------------//
 
     public void createAnInvoiceForOrder(){
         invoiceBtn.click();

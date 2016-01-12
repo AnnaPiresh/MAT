@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateFullRefundCreditMemo extends PageObject{
 
+//---------------------------------Objects for Creating Full Refund Credit Memo----------------------------------------//
+
     @FindBy(xpath =".//button[@title='Credit Memo']")
     WebElementFacade creditMemoBtn;
     //"Credit memo" button at order's page
@@ -18,6 +20,7 @@ public class CreateFullRefundCreditMemo extends PageObject{
     WebElementFacade refundOffbtn;
     //"Refund offline" button at new credit memo page
 
+//-----------------------------Methods for Creating Full Refund Credit Memo--------------------------------------------//
 
     public void startCreatingCreditMemo() {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);

@@ -3,6 +3,7 @@ package com.qamadness.Story.sales;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.sales.CreateAnInvoiceSteps;
 import com.qamadness.steps.sales.CreateShipmentSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
@@ -39,8 +40,12 @@ public class CreateShipmentStory {
     @Steps
     CreateShipmentSteps createShipmentSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-29")
-    @Pending@Test
+    @Pending
+    @Test
     public void create_a_shipment_for_order(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -56,7 +61,7 @@ public class CreateShipmentStory {
         placeOrderAsExistingCustomerSteps.click_submit_btn();
         createAnInvoiceSteps.create_an_invoice_for_order();
         createShipmentSteps.create_shipment_for_order();
-        createShipmentSteps.check_shipment_is_created();
+        successMessagesSteps.check_success_message("The shipment has been created.");
 
 
     }

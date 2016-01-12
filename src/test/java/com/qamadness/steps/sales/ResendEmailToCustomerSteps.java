@@ -13,10 +13,4 @@ public class ResendEmailToCustomerSteps extends ScenarioSteps{
         resendEmailToCustomer.clickSendEmailBtn();
     }
 
-    @Step
-    public void check_success_message_present(){
-        resendEmailToCustomer.checkSuccessMsgPresent();
-    }
-
-
 }

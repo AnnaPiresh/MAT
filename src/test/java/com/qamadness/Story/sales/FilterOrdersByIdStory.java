@@ -32,16 +32,18 @@ public class FilterOrdersByIdStory {
     FilterOrdersByIdSteps filterOrdersByIdSteps;
 
     @Issue("MAT-15")
-    @Pending@Test
+    @Pending
+    @Test
     public void can_user_filter_orders_by_id (){
+        String orderID = "302000003";
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        filterOrdersByIdSteps.filter_orders_in_grid("302000003");
-        filterOrdersByIdSteps.check_filtered_order_number("302000003");
+        filterOrdersByIdSteps.filter_orders_in_grid(orderID);
+        filterOrdersByIdSteps.check_filtered_order_number(orderID);
 
     }
 

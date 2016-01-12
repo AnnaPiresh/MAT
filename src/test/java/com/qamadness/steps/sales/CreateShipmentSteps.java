@@ -13,9 +13,4 @@ public class CreateShipmentSteps extends ScenarioSteps{
         createShipment.createShipmentForOrder();
     }
 
-    @Step
-    public void check_shipment_is_created(){
-        createShipment.checkShipmentIsCreated();
-    }
-
 }
