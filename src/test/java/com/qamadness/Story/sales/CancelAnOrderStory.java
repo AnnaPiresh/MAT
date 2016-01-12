@@ -4,6 +4,7 @@ package com.qamadness.Story.sales;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.sales.CancelAnOrderSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
@@ -30,10 +31,14 @@ public class CancelAnOrderStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
+    @Steps
     CancelAnOrderSteps cancelAnOrderSteps;
 
     @Issue("MAT-19")
-    @Pending@Test
+    @Pending
+    @Test
     public void can_user_cancel_order_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -41,9 +46,9 @@ public class CancelAnOrderStory {
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Orders_Page();
-        cancelAnOrderSteps.see_orders_in_pending_status();
-        cancelAnOrderSteps.cancel_selected_order();
-        cancelAnOrderSteps.check_cancellation_success();
+        cancelAnOrderSteps.see_orders_in_pending_status("pending");
+        cancelAnOrderSteps.cancel_selected_order("cancel_order");
+        successMessagesSteps.check_success_message("1 order(s) have been canceled.");
     }
 
 }

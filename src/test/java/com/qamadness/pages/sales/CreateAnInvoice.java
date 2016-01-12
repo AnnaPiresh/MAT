@@ -28,12 +28,4 @@ public class CreateAnInvoice extends PageObject{
         wait.until(ExpectedConditions.urlContains("/sales_order_invoice/new/order_id/"));
         submitInvoiceBtn.click();
     }
-
-    public void checkInvoiceCreated(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMsg));
-        Assert.assertTrue(successMsg.isVisible());
-        Assert.assertEquals("Invoice is created", "The invoice has been created.", successMsg.getText());
-    }
-
 }

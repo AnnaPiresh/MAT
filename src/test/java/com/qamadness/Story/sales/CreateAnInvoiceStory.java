@@ -3,6 +3,7 @@ package com.qamadness.Story.sales;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.sales.CreateAnInvoiceSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import net.thucydides.core.annotations.Issue;
@@ -35,8 +36,12 @@ public class CreateAnInvoiceStory {
     @Steps
     CreateAnInvoiceSteps createAnInvoiceSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-26")
-    @Pending@Test
+    //@Pending
+    @Test
     public void create_an_invoice_for_an_order(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -51,7 +56,7 @@ public class CreateAnInvoiceStory {
         placeOrderAsExistingCustomerSteps.select_payment_shipment();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
         createAnInvoiceSteps.create_an_invoice_for_order();
-        createAnInvoiceSteps.check_invoice_created();
+        successMessagesSteps.check_success_message("The invoice has been created.");
     }
 
 }

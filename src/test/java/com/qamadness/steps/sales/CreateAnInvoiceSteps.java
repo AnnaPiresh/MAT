@@ -13,11 +13,4 @@ public class CreateAnInvoiceSteps extends ScenarioSteps{
         createAnInvoice.createAnInvoiceForOrder();
     }
 
-    @Step
-    public void check_invoice_created(){
-        createAnInvoice.checkInvoiceCreated();
-    }
-
-
-
 }

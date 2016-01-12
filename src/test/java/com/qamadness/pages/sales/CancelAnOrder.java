@@ -19,33 +19,33 @@ public class CancelAnOrder extends PageObject{
     WebElementFacade selectOrderInput;
     //checkbox to tick an order
 
+    @FindBy(xpath = ".//*[@id='sales_order_grid_filter_status']")
+    WebElementFacade statusDropdown;
+
+    @FindBy(xpath = ".//*[@id='sales_order_grid_massaction-select']")
+    WebElementFacade actionsDropdown;
+
     @FindBy(xpath = ".//button[@title='Submit']")
     WebElementFacade submitBtn;
 
-    @FindBy(xpath = ".//*[@id='messages']")
-    WebElementFacade successMsg;
-    //success message after cancelling an order
-
-    public void seeOrdersInPendingStatus(){
-        Select status_dropdown = new Select(getDriver().findElement(By.xpath(".//*[@id='sales_order_grid_filter_status']")));
-        status_dropdown.selectByValue("pending");
+    public void seeOrdersInPendingStatus(String status){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(statusDropdown));
+        statusDropdown.click();
+        statusDropdown.selectByValue(status).click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         searchBtn.click();
     }
 
-    public void cancelSelectedOrder(){
+    public void cancelSelectedOrder(String action){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         selectOrderInput.click();
-        Select actions_dropdown = new Select(getDriver().findElement(By.xpath(".//*[@id='sales_order_grid_massaction-select']")));
-        actions_dropdown.selectByValue("cancel_order");
+        actionsDropdown.click();
+        actionsDropdown.selectByValue(action).click();
         submitBtn.click();
     }
 
-    public void checkCancellationSuccess(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        Assert.assertTrue("Success message is present", successMsg.isVisible());
-        Assert.assertEquals("Message text is correct", "1 order(s) have been canceled.", successMsg.getText());
-    }
+
 
 }

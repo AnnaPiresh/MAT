@@ -9,18 +9,13 @@ public class CancelAnOrderSteps extends ScenarioSteps{
     CancelAnOrder cancelAnOrder;
 
     @Step
-    public void see_orders_in_pending_status(){
-        cancelAnOrder.seeOrdersInPendingStatus();
+    public void see_orders_in_pending_status(String status){
+        cancelAnOrder.seeOrdersInPendingStatus(status);
     }
 
     @Step
-    public void cancel_selected_order(){
-        cancelAnOrder.cancelSelectedOrder();
-    }
-
-    @Step
-    public void check_cancellation_success(){
-        cancelAnOrder.checkCancellationSuccess();
+    public void cancel_selected_order(String action){
+        cancelAnOrder.cancelSelectedOrder(action);
     }
 
 
