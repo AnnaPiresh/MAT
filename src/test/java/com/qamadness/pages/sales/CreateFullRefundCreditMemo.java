@@ -18,9 +18,6 @@ public class CreateFullRefundCreditMemo extends PageObject{
     WebElementFacade refundOffbtn;
     //"Refund offline" button at new credit memo page
 
-    @FindBy(xpath = ".//*[@id='messages']")
-    WebElementFacade successMsg;
-    //success message after creating a credit memo
 
     public void startCreatingCreditMemo() {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
@@ -33,13 +30,5 @@ public class CreateFullRefundCreditMemo extends PageObject{
         refundOffbtn.click();
         wait.until(ExpectedConditions.urlContains("sales_order/view/order_id"));
     }
-
-    public void checkCreditMemoIsCreated(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.visibilityOf(successMsg));
-        Assert.assertTrue(successMsg.isVisible());
-        Assert.assertEquals("Credit memo was created successfully", "The credit memo has been created.", successMsg.getText());
-    }
-
 
 }

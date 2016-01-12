@@ -18,9 +18,4 @@ public class CreateFullRefundCreditMemoSteps extends ScenarioSteps{
         createFullRefundCreditMemo.submitCreditMemo();
     }
 
-    @Step
-    public void check_credit_memo_is_created(){
-        createFullRefundCreditMemo.checkCreditMemoIsCreated();
-    }
-
 }

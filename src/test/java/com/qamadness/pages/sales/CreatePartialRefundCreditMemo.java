@@ -21,7 +21,7 @@ public class CreatePartialRefundCreditMemo extends PageObject{
         refundShipmentFld.clear();
     }
 
-    public void checkMoreCreditMemoscanBeCreated(){
+    public void checkMoreCreditMemosCanBeCreated(){
         Assert.assertTrue(creditMemoBtn.isPresent());
     }
 

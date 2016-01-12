@@ -3,6 +3,7 @@ package com.qamadness.Story.sales;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
@@ -31,8 +32,12 @@ import org.openqa.selenium.WebDriver;
     @Steps
     PlaceOrderAsExistingCustomerSteps placeOrderAsExistingCustomerSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-6")
-    @Pending@Test
+    @Pending
+    @Test
     public void place_order_for_existing_customer_from_admin(){
     loginPageSteps.openPage();
     loginPageSteps.loginInput();
@@ -46,7 +51,7 @@ import org.openqa.selenium.WebDriver;
     placeOrderAsExistingCustomerSteps.add_products_to_cart("1051");
     placeOrderAsExistingCustomerSteps.select_payment_shipment();
     placeOrderAsExistingCustomerSteps.click_submit_btn();
-    placeOrderAsExistingCustomerSteps.check_That_Success_Message_Is_Displayed();
+    successMessagesSteps.check_success_message("The order has been created.");
 }
 
 }

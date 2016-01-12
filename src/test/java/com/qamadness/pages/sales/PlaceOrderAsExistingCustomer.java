@@ -67,10 +67,6 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
     WebElementFacade flatRate;
     //Flat Rate shipping method
 
-    @FindBy(xpath = ".//*[@id='messages']")
-    WebElementFacade successMessage;
-    //Success message after placing an order
-
 //--------------------------------------------------Methods for Placing an order----------------------------------------//
 
     public void clickCreateOrderBtn(){
@@ -124,11 +120,5 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
         jsexecute.executeScript("order.submit()");
         wait.until(ExpectedConditions.urlContains("sales_order/view/order_id"));
     }
-
-    public void checkSuccessMsg (){
-       Assert.assertTrue("Success message is present", successMessage.isVisible());
-       Assert.assertEquals("Order have been created successfully","The order has been created.", successMessage.getText());
-    }
-
 
 }

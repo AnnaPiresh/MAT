@@ -15,7 +15,7 @@ public class CreatePartialRefundCreditMemoSteps extends ScenarioSteps{
 
     @Step
     public void check_more_credit_memos_can_be_created(){
-        createPartialRefundCreditMemo.checkMoreCreditMemoscanBeCreated();
+        createPartialRefundCreditMemo.checkMoreCreditMemosCanBeCreated();
     }
 
 

@@ -40,7 +40,7 @@ public class CreateAnInvoiceStory {
     SuccessMessagesSteps successMessagesSteps;
 
     @Issue("MAT-26")
-    //@Pending
+    @Pending
     @Test
     public void create_an_invoice_for_an_order(){
         loginPageSteps.openPage();

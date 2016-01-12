@@ -1,9 +1,6 @@
 package com.qamadness.Story.sales;
 
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.LogoutFromAdminSteps;
-import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.*;
 import com.qamadness.steps.sales.*;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
@@ -47,8 +44,12 @@ public class CreatePartialRefundCreditMemoStory {
     @Steps
     CreatePartialRefundCreditMemoSteps createPartialRefundCreditMemoSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-31")
-    @Pending@Test
+    @Pending
+    @Test
     public void can_user_create_partial_refund_credit_memo(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -67,7 +68,7 @@ public class CreatePartialRefundCreditMemoStory {
         createFullRefundCreditMemoSteps.start_creating_credit_memo();
         createPartialRefundCreditMemoSteps.remove_refund_for_shipment();
         createFullRefundCreditMemoSteps.submit_credit_memo();
-        createFullRefundCreditMemoSteps.check_credit_memo_is_created();
+        successMessagesSteps.check_success_message("The credit memo has been created.");
         createPartialRefundCreditMemoSteps.check_more_credit_memos_can_be_created();
         logoutFromAdminSteps.logout_from_admin();
     }

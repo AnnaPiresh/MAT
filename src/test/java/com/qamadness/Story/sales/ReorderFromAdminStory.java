@@ -4,6 +4,7 @@ package com.qamadness.Story.sales;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.sales.PlaceOrderAsExistingCustomerSteps;
 import com.qamadness.steps.sales.ReorderFromAdminSteps;
 import net.thucydides.core.annotations.Issue;
@@ -36,8 +37,12 @@ public class ReorderFromAdminStory {
     @Steps
     ReorderFromAdminSteps reorderFromAdminSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-32")
-   @Pending@Test
+    @Pending
+    @Test
     public void can_user_reorder_from_admin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -56,7 +61,7 @@ public class ReorderFromAdminStory {
         reorderFromAdminSteps.check_shipment_method_is_selected();
         reorderFromAdminSteps.check_payment_method_is_selected();
         placeOrderAsExistingCustomerSteps.click_submit_btn();
-        placeOrderAsExistingCustomerSteps.check_That_Success_Message_Is_Displayed();
+        successMessagesSteps.check_success_message("The order has been created.");
     }
 
 }

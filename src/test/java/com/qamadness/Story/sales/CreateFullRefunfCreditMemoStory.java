@@ -1,10 +1,7 @@
 package com.qamadness.Story.sales;
 
 import com.qamadness.pages.LogoutFromAdmin;
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.LogoutFromAdminSteps;
-import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.*;
 import com.qamadness.steps.sales.CreateAnInvoiceSteps;
 import com.qamadness.steps.sales.CreateFullRefundCreditMemoSteps;
 import com.qamadness.steps.sales.CreateShipmentSteps;
@@ -48,8 +45,12 @@ public class CreateFullRefunfCreditMemoStory {
     @Steps
     CreateFullRefundCreditMemoSteps createFullRefundCreditMemoSteps;
 
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
     @Issue("MAT-30")
-    @Pending@Test
+    @Pending
+    @Test
     public void can_user_create_a_full_refund_credit_memo(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -67,7 +68,7 @@ public class CreateFullRefunfCreditMemoStory {
         createShipmentSteps.create_shipment_for_order();
         createFullRefundCreditMemoSteps.start_creating_credit_memo();
         createFullRefundCreditMemoSteps.submit_credit_memo();
-        createFullRefundCreditMemoSteps.check_credit_memo_is_created();
+        successMessagesSteps.check_success_message("The credit memo has been created.");
         logoutFromAdminSteps.logout_from_admin();
 
     }

@@ -7,6 +7,7 @@ import com.qamadness.steps.SuccessMessagesSteps;
 import com.qamadness.steps.promotions.AddCatalogPriceRuleSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
@@ -35,6 +36,7 @@ public class AddCatalogPriceRuleStory {
     SuccessMessagesSteps successMessagesSteps;
 
     @Issue("MAT-40")
+    @Pending
     @Test
     public void create_catalog_price_rule_from_admin(){
         String customerGroups[] = {"0", "1", "2", "4"};

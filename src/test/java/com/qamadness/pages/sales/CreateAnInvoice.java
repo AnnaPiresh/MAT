@@ -18,9 +18,6 @@ public class CreateAnInvoice extends PageObject{
     WebElementFacade submitInvoiceBtn;
     //"Submit invoice" button at new invoice page
 
-    @FindBy(xpath = ".//*[@id='messages']")
-    WebElementFacade successMsg;
-    //Success message after creating the invoice
 
     public void createAnInvoiceForOrder(){
         invoiceBtn.click();
