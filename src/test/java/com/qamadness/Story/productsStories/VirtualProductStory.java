@@ -1,4 +1,4 @@
-package com.qamadness.Story;
+package com.qamadness.Story.productsStories;
 
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
@@ -16,7 +16,7 @@ import com.qamadness.steps.products.ManageProductsPageSteps;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(ThucydidesRunner.class)
-public class ChageProductAttributeStory {
+public class VirtualProductStory {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -34,7 +34,7 @@ public class ChageProductAttributeStory {
     ManageProductsPageSteps manageProductsPageSteps;
 
     @Test
-    public void changingProductAttribute () {
+    public void addingVirtualProduct () {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
@@ -43,18 +43,17 @@ public class ChageProductAttributeStory {
         mainMenuSteps.openManageProducts();
         manageProductsPageSteps.addProduct();
         manageProductsPageSteps.selectAttributeSet("4");
-        manageProductsPageSteps.selectProductType("simple");
+        manageProductsPageSteps.selectProductType("virtual");
         manageProductsPageSteps.continueButton();
-        manageProductsPageSteps.enterProductDescription("Max auto product description");
-        manageProductsPageSteps.enterShortDescription("Max auto product short description");
-        manageProductsPageSteps.enterSKU("100001");
-        manageProductsPageSteps.enterWeight("18");
+        manageProductsPageSteps.enterName("Max auto virtual product");
+        manageProductsPageSteps.enterProductDescription("Max auto virtual product description");
+        manageProductsPageSteps.enterShortDescription("Max auto virtual product short description");
+        manageProductsPageSteps.enterSKU("100005");
         manageProductsPageSteps.selectStatus("1");
         manageProductsPageSteps.selectVisibility("4");
-        manageProductsPageSteps.enterName("Max auto product");
         manageProductsPageSteps.clearGlobalSearch();
         manageProductsPageSteps.selectPricesTab();
-        manageProductsPageSteps.enterProductPrice("21");
+        manageProductsPageSteps.enterProductPrice("35");
         manageProductsPageSteps.selectTaxClass("0");
         manageProductsPageSteps.clearGlobalSearch();
         manageProductsPageSteps.selectWebsitesTab();
@@ -62,17 +61,13 @@ public class ChageProductAttributeStory {
         manageProductsPageSteps.selectCategoriesTab();
         manageProductsPageSteps.selectFirstCategory();
         manageProductsPageSteps.saveProduct();
-        manageProductsPageSteps.searchBySku("100001");
+        manageProductsPageSteps.searchBySku("100005");
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
-        manageProductsPageSteps.selectAction("attributes");
-        manageProductsPageSteps.submitActionn();
-        manageProductsPageSteps.updateProductNameCheckboxClick();
-        manageProductsPageSteps.updateProductName("New Max auto product name");
-        manageProductsPageSteps.saveProduct();
-        manageProductsPageSteps.checkNameUpdated("//*[contains(text(), 'New Max auto product name')]");
         manageProductsPageSteps.selectAction("delete");
         manageProductsPageSteps.submitAction();
         manageProductsPageSteps.deletionApproveAlert();
+        //loginPageSteps.delay();
+
     }
 }

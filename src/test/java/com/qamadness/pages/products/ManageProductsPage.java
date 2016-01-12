@@ -5,14 +5,14 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
+import javax.xml.ws.WebEndpoint;
 
 public class ManageProductsPage extends PageObject {
 
@@ -301,19 +301,75 @@ public class ManageProductsPage extends PageObject {
     public void selectConfigurableAttribute () { configurableAttribute.click();}
 
     @FindBy (xpath = ".//*[@id='product_info_tabs_configurable']/span")
-    WebElementFacade associatedProductsTab;
+    WebElementFacade associatedProductsTabConfigurable;
 
-    public void selectAssociatedProductsTab() { associatedProductsTab.click();}
+    public void selectAssociatedProductsConfigurableTab() { associatedProductsTabConfigurable.click();}
 
     @FindBy (xpath = ".//*[@id='super_product_links_table']/tbody/tr[1]/td[1]/input[1]")
-    WebElementFacade firstAssociatedProduct;
+    WebElementFacade firstConfigurableAssociatedProduct;
 
-    public void checkFirstAssociatedProduct () { firstAssociatedProduct.click();}
+    public void checkFirstConfigurableAssociatedProduct() { firstConfigurableAssociatedProduct.click();}
 
     @FindBy (xpath = ".//*[@id='super_product_links_table']/tbody/tr[2]/td[1]/input[1]")
-    WebElementFacade secondAssociatedProduct;
+    WebElementFacade secondConfigurableAssociatedProduct;
 
-    public void checkSecondAssociatedProduct () { secondAssociatedProduct.click();}
+    public void checkSecondConfigurableAssociatedProduct() { secondConfigurableAssociatedProduct.click();}
+
+    @FindBy (xpath = ".//*[@id='product_info_tabs_super']/span")
+    WebElementFacade associatedProductsTabGrouped;
+
+    public void selectAssociatedProductsTabGrouped () { associatedProductsTabGrouped.click();}
+
+    @FindBy (xpath = ".//*[@id='super_product_grid_table']/tbody/tr[1]/td[1]/input")
+    WebElementFacade firstGroupAssociatedProduct;
+
+    public void checkFirstGroupAssociatedProduct () { firstGroupAssociatedProduct.click();}
+
+    @FindBy (xpath = ".//*[@id='super_product_grid_table']/tbody/tr[2]/td[1]/input")
+    WebElementFacade secondGroupAssociatedProduct;
+
+    public void checkSecondGroupAssociatedProduct () { secondGroupAssociatedProduct.click();}
+
+//---------------------------------------Downloadable Information Tab (Downloadable Product)--------------------------//
+
+    @FindBy (xpath = ".//*[@id='product_info_tabs_downloadable_items']/span")
+    WebElementFacade downloadableInformationTab;
+
+    public void selectDownloadableInformationTab () { downloadableInformationTab.click();}
+
+    @FindBy (xpath = ".//*[@id='add_link_item']")
+    WebElementFacade addNewRowButton;
+
+    public void addNewRow () {
+        /*WebDriverWait driverWait = new WebDriverWait(getDriver(), 60);
+        driverWait.until(ExpectedConditions.elementToBeClickable(addNewOptionButton));*/
+        addNewRowButton.click();}
+
+    @FindBy (xpath = ".//*[@id='link_items_body']/tr/td[1]/input[3]")
+    WebElementFacade downloadableLinkName;
+
+    public void enterDownloadableLinkName (String name) { downloadableLinkName.sendKeys(name);}
+
+    @FindBy (xpath = ".//*[@id='downloadable_link_0_sample_url_type']")
+    WebElementFacade sampleSelectURL;
+
+    public void sampleSelectURL () { sampleSelectURL.click();}
+
+    @FindBy (xpath = ".//*[@id='link_items_body']/tr/td[5]/div[3]/div[2]/input")
+    WebElementFacade sampleURLField;
+
+    public void enterSampleURL (String url) { sampleURLField.sendKeys(url);}
+
+    @FindBy (xpath = ".//*[@id='downloadable_link_0_url_type']")
+    WebElementFacade fileSelectURL;
+
+    public void fileSelectURL () { fileSelectURL.click();}
+
+    @FindBy (xpath = ".//*[@id='link_items_body']/tr/td[6]/div/div[2]/input")
+    WebElementFacade fileURLField;
+
+    public void enterFileURL (String url) { fileURLField.sendKeys(url);}
+
 
 
 }

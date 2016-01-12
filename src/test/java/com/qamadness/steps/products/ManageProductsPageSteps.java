@@ -150,11 +150,41 @@ public class ManageProductsPageSteps extends ScenarioSteps {
     public void selectConfigurableAttribute () { manageProductPage.selectConfigurableAttribute();}
 
     @Step
-    public void selectAssociatedProductsTab () { manageProductPage.selectAssociatedProductsTab();}
+    public void selectAssociatedProductsConfigurableTab() { manageProductPage.selectAssociatedProductsConfigurableTab();}
 
     @Step
-    public void checkFirstAssociatedProduct () { manageProductPage.checkFirstAssociatedProduct();}
+    public void checkFirstConfigurableAssociatedProduct() { manageProductPage.checkFirstConfigurableAssociatedProduct();}
 
     @Step
-    public void checkSecondAssociatedProduct () { manageProductPage.checkSecondAssociatedProduct();}
+    public void checkSecondConfigurableAssociatedProduct() { manageProductPage.checkSecondConfigurableAssociatedProduct();}
+
+    @Step
+    public void selectAssociatedProductsTabGrouped () { manageProductPage.selectAssociatedProductsTabGrouped();}
+
+    @Step
+    public void checkFirstGroupAssociatedProduct () { manageProductPage.checkFirstGroupAssociatedProduct();}
+
+    @Step
+    public void checkSecondGroupAssociatedProduct () { manageProductPage.checkSecondGroupAssociatedProduct();}
+
+    @Step
+    public void selectDownloadableInformationTab () { manageProductPage.selectDownloadableInformationTab();}
+
+    @Step
+    public void addNewRow () { manageProductPage.addNewRow();}
+
+    @Step
+    public void enterDownloadableLinkName (String name) { manageProductPage.enterDownloadableLinkName(name);}
+
+    @Step
+    public void sampleSelectURL () { manageProductPage.sampleSelectURL();}
+
+    @Step
+    public void enterSampleURL (String url) { manageProductPage.enterSampleURL(url);}
+
+    @Step
+    public void fileSelectURL () { manageProductPage.fileSelectURL();}
+
+    @Step
+    public void enterFileURL (String url) { manageProductPage.enterFileURL(url);}
 }

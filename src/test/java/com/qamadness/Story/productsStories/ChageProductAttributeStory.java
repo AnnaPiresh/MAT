@@ -1,4 +1,4 @@
-package com.qamadness.Story;
+package com.qamadness.Story.productsStories;
 
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
@@ -13,9 +13,10 @@ import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import com.qamadness.steps.products.ManageProductsPageSteps;
 
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(ThucydidesRunner.class)
-public class BundleProductStory {
+public class ChageProductAttributeStory {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -33,7 +34,7 @@ public class BundleProductStory {
     ManageProductsPageSteps manageProductsPageSteps;
 
     @Test
-    public void addingBundleProduct () {
+    public void changingProductAttribute () {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
@@ -42,50 +43,36 @@ public class BundleProductStory {
         mainMenuSteps.openManageProducts();
         manageProductsPageSteps.addProduct();
         manageProductsPageSteps.selectAttributeSet("4");
-        manageProductsPageSteps.selectProductType("bundle");
+        manageProductsPageSteps.selectProductType("simple");
         manageProductsPageSteps.continueButton();
-        manageProductsPageSteps.enterProductDescription("Max auto bundle product description");
-        manageProductsPageSteps.enterShortDescription("Max auto bundle product short description");
-        manageProductsPageSteps.selectProductSKUType("1");
-        manageProductsPageSteps.enterSKU("1000002");
-        manageProductsPageSteps.selectProductWeightType("1");
-        manageProductsPageSteps.enterWeight("50");
+        manageProductsPageSteps.enterProductDescription("Max auto product description");
+        manageProductsPageSteps.enterShortDescription("Max auto product short description");
+        manageProductsPageSteps.enterSKU("100001");
+        manageProductsPageSteps.enterWeight("18");
         manageProductsPageSteps.selectStatus("1");
         manageProductsPageSteps.selectVisibility("4");
-        manageProductsPageSteps.enterName("Max auto bundle product");
+        manageProductsPageSteps.enterName("Max auto product");
         manageProductsPageSteps.clearGlobalSearch();
         manageProductsPageSteps.selectPricesTab();
-        manageProductsPageSteps.selectPriceType("1");
-        manageProductsPageSteps.enterProductPrice("37");
+        manageProductsPageSteps.enterProductPrice("21");
         manageProductsPageSteps.selectTaxClass("0");
-        manageProductsPageSteps.selectPriceView("0");
         manageProductsPageSteps.clearGlobalSearch();
         manageProductsPageSteps.selectWebsitesTab();
         manageProductsPageSteps.selectMainWebsite();
         manageProductsPageSteps.selectCategoriesTab();
         manageProductsPageSteps.selectFirstCategory();
-        manageProductsPageSteps.selectBundleTab();
-        manageProductsPageSteps.selectShipmentType("0");
-        manageProductsPageSteps.addNewOption();
-        manageProductsPageSteps.enterDeafultTitle("Auto title");
-        manageProductsPageSteps.addSelection();
-        manageProductsPageSteps.resetFilter();
-        manageProductsPageSteps.selectProductTwo();
-        manageProductsPageSteps.clearGlobalSearch();
-        manageProductsPageSteps.selectProductThree();
         manageProductsPageSteps.saveProduct();
-        manageProductsPageSteps.clearGlobalSearch();
-        manageProductsPageSteps.searchBySku("1000002");
+        manageProductsPageSteps.searchBySku("100001");
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
+        manageProductsPageSteps.selectAction("attributes");
+        manageProductsPageSteps.submitActionn();
+        manageProductsPageSteps.updateProductNameCheckboxClick();
+        manageProductsPageSteps.updateProductName("New Max auto product name");
+        manageProductsPageSteps.saveProduct();
+        manageProductsPageSteps.checkNameUpdated("//*[contains(text(), 'New Max auto product name')]");
         manageProductsPageSteps.selectAction("delete");
         manageProductsPageSteps.submitAction();
         manageProductsPageSteps.deletionApproveAlert();
-
-
-
-
-        //loginPageSteps.delay();
-
     }
 }

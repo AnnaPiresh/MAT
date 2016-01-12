@@ -1,4 +1,4 @@
-package com.qamadness.Story;
+package com.qamadness.Story.productsStories;
 
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
@@ -45,13 +45,13 @@ public class SimpleProductStory {
         manageProductsPageSteps.selectAttributeSet("4");
         manageProductsPageSteps.selectProductType("simple");
         manageProductsPageSteps.continueButton();
+        manageProductsPageSteps.enterName("Max auto product");
         manageProductsPageSteps.enterProductDescription("Max auto product description");
         manageProductsPageSteps.enterShortDescription("Max auto product short description");
         manageProductsPageSteps.enterSKU("100001");
         manageProductsPageSteps.enterWeight("18");
         manageProductsPageSteps.selectStatus("1");
         manageProductsPageSteps.selectVisibility("4");
-        manageProductsPageSteps.enterName("Max auto product");
         manageProductsPageSteps.clearGlobalSearch();
         manageProductsPageSteps.selectPricesTab();
         manageProductsPageSteps.enterProductPrice("21");
