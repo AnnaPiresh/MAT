@@ -33,6 +33,8 @@ public class LoginPage extends PageObject{
     @FindBy(xpath = ".//*[@id='username']")
     WebElementFacade loginInput;
     public void loginInput(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(loginInput));
         loginInput.sendKeys("admin");
     }
 
