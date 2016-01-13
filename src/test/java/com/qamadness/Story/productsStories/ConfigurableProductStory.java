@@ -40,7 +40,7 @@ public class ConfigurableProductStory {
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
-        mainMenuSteps.openManageProducts();
+        mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
         manageProductsPageSteps.selectAttributeSet("4");
         manageProductsPageSteps.selectProductType("configurable");
