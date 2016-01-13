@@ -1,36 +1,38 @@
-package com.qamadness.Story;
+package com.qamadness.Story.sales;
 
 import com.qamadness.steps.LoginPageSteps;
+import com.qamadness.steps.sales.OpenOrdersSteps;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
-import net.thucydides.junit.runners.ThucydidesRunner;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by Maksim on 14-Dec-15.
- */
-
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(ThucydidesRunner.class)
-public class LoginPageStory {
+@RunWith(SerenityRunner.class)
+public class OpenOrdersStory {
 
     @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+    public WebDriver driver;
+
 
     @Steps
     LoginPageSteps loginPageSteps;
 
-    @Pending@Test
-    public void loggingIn() {
+    @Steps
+    OpenOrdersSteps openOrdersSteps;
+
+    @Issue("MAT-5")
+    @Pending
+    @Test
+    public void check_orders_page_is_opened() {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
-        //loginPageSteps.delay();
+        openOrdersSteps.orders_Open();
+
     }
 }

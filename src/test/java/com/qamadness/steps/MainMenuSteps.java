@@ -22,7 +22,17 @@ public class MainMenuSteps extends ScenarioSteps {
     }
 
     @Step
-    public void openManageProducts (){
-        mainMenu.openManageProducts();
-    }
+    public void open_Manage_Attributes_Page() {mainMenu.openManageAttributesPage(); }
+
+    @Step
+    public void open_Customer_Groups_Page() { mainMenu.openCustomerGroupsPage(); }
+
+    @Step
+    public void open_Catalog_Price_Rules_Page(){ mainMenu.openCatalogPriceRulesPage();}
+
+    @Step
+    public void open_Cache_Management_Page() {mainMenu.openCacheManagementPage();}
+
+    @Step
+    public void open_Index_Management_Page() {mainMenu.openIndexManagementPage();}
 }

@@ -45,6 +45,7 @@ public class LoginPage extends PageObject{
     @FindBy(css = ".form-button")
     WebElementFacade loginButton;
     public void loginButton(){
+        getDriver().manage().window().maximize();
         loginButton.click();
         //loginButton.click();
     }
