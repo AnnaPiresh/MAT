@@ -21,6 +21,11 @@ public class MainMenu extends PageObject {
 
 //------------------------------------------------------Objects for Catalog menu--------------------------------------//
 
+    @FindBy(xpath = ".//*[@id='nav']/li[3]/a/span")
+    WebElementFacade catalogMenu;
+
+    @FindBy(xpath = ".//*[@id='nav']/li[3]/ul/li[1]/a/span")
+    WebElementFacade catalogMenuItem;
 //------------------------------------------------------Objects for Customers menu------------------------------------//
 
     @FindBy (xpath = ".//*[@id='nav']/li[4]/a/span")
@@ -37,6 +42,16 @@ public class MainMenu extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(ordersMenuItem));
         ordersMenuItem.click();
     }
+
+//-----------------------------------------------------Methods for Catalog menu---------------------------------------//
+
+    public void openManageProducts () {
+        catalogMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(catalogMenuItem));
+        catalogMenuItem.click();
+    }
+
 
 //------------------------------------------------------Methods for Customers menu------------------------------------//
 
