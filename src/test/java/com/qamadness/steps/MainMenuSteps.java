@@ -35,4 +35,7 @@ public class MainMenuSteps extends ScenarioSteps {
 
     @Step
     public void open_Index_Management_Page() {mainMenu.openIndexManagementPage();}
+
+    @Step
+    public void openManageProductsPage () {mainMenu.openManageProductsPage();}
 }
