@@ -1,0 +1,14 @@
+package com.qamadness.steps.backend.system;
+
+
+import com.qamadness.pages.backend.system.FlushMagentoCaches;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
+
+public class FlushMagentoCachesSteps extends ScenarioSteps{
+    FlushMagentoCaches flushMagentoCaches;
+
+    @Step
+    public void click_flush_cache_btn(){ flushMagentoCaches.clickFlushCacheBtn();}
+
+}

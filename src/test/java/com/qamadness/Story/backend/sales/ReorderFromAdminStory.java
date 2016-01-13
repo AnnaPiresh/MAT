@@ -1,0 +1,67 @@
+package com.qamadness.Story.backend.sales;
+
+
+import com.qamadness.steps.backend.DashboardSteps;
+import com.qamadness.steps.backend.LoginPageSteps;
+import com.qamadness.steps.backend.MainMenuSteps;
+import com.qamadness.steps.backend.SuccessMessagesSteps;
+import com.qamadness.steps.backend.sales.PlaceOrderAsExistingCustomerSteps;
+import com.qamadness.steps.backend.sales.ReorderFromAdminSteps;
+import net.thucydides.core.annotations.Issue;
+import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.runners.ThucydidesRunner;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+
+@RunWith(ThucydidesRunner.class)
+public class ReorderFromAdminStory {
+
+    @Managed(uniqueSession = true)
+    public WebDriver webdriver;
+
+    @Steps
+    LoginPageSteps loginPageSteps;
+
+    @Steps
+    DashboardSteps dashboardSteps;
+
+    @Steps
+    MainMenuSteps mainMenuSteps;
+
+    @Steps
+    PlaceOrderAsExistingCustomerSteps placeOrderAsExistingCustomerSteps;
+
+    @Steps
+    ReorderFromAdminSteps reorderFromAdminSteps;
+
+    @Steps
+    SuccessMessagesSteps successMessagesSteps;
+
+    @Issue("MAT-32")
+    @Pending
+    @Test
+    public void can_user_reorder_from_admin(){
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput();
+        loginPageSteps.passInput();
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+        mainMenuSteps.open_Orders_Page();
+        placeOrderAsExistingCustomerSteps.click_create_order_btn();
+        placeOrderAsExistingCustomerSteps.select_customer("testersunny377@gmail.com");
+        placeOrderAsExistingCustomerSteps.select_engish_storeview();
+        placeOrderAsExistingCustomerSteps.add_products_to_cart("1051");
+        placeOrderAsExistingCustomerSteps.select_payment_shipment();
+        placeOrderAsExistingCustomerSteps.click_submit_btn();
+        reorderFromAdminSteps.click_reorder_btn();
+        reorderFromAdminSteps.check_correct_product_reordered();
+        reorderFromAdminSteps.check_shipment_method_is_selected();
+        reorderFromAdminSteps.check_payment_method_is_selected();
+        placeOrderAsExistingCustomerSteps.click_submit_btn();
+        successMessagesSteps.check_success_message("The order has been created.");
+    }
+
+}
