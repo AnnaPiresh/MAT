@@ -33,6 +33,9 @@ public class MainMenu extends PageObject {
     @FindBy(xpath = ".//*[@id='nav']/li[3]/ul/li[3]/ul/li[1]/a/span")
     WebElementFacade manageAttributesMenuItem;
 
+    @FindBy(xpath = ".//*[@id='nav']/li[3]/ul/li[2]/a/span")
+    WebElementFacade manageCategoriesMenu;
+
 //------------------------------------------------------Objects for Customers menu------------------------------------//
 
     @FindBy (xpath = ".//*[@id='nav']/li[4]/a/span")
@@ -100,11 +103,24 @@ public class MainMenu extends PageObject {
     }
 
     public void openManageProductsPage () {
+        WebDriverWait waitt = new WebDriverWait(getDriver(), 60);
+        waitt.until(ExpectedConditions.elementToBeClickable(catalogMenu));
         catalogMenu.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(manageProducts));
         manageProducts.click();
     }
+
+    public void openManageCategoriesPage () {
+        WebDriverWait waitt = new WebDriverWait(getDriver(), 60);
+        waitt.until(ExpectedConditions.elementToBeClickable(catalogMenu));
+        catalogMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(manageCategoriesMenu));
+        manageCategoriesMenu.click();
+    }
+
+
 //-----------------------------------------------------Methods for Promotions menu------------------------------------//
 
     public void openCatalogPriceRulesPage(){

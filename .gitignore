@@ -1,9 +1,5 @@
 ### Maven template
 target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
@@ -12,12 +8,8 @@ buildNumber.properties
 /.idea/misc.xml
 /.idea/workspace.xml
 /.idea
-/serenity.properties
 /src/test/resources
-build.gradle
 MAT.iml
-pom.xml
-serenity.properties
 /target
 /target/site
 *.class

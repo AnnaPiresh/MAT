@@ -5,6 +5,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -184,6 +185,10 @@ public class ManageProductsPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(searchBySku));
         searchBySku.sendKeys(SKU);}
+
+    public void clearSKUFilter () {
+        searchBySku.clear();
+        searchBySku.sendKeys(Keys.ENTER);}
 
     @FindBy(css = "button[title='Search']")
     WebElementFacade searchButton;
