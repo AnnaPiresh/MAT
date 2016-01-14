@@ -10,7 +10,6 @@ buildNumber.properties
 /.idea
 /src/test/resources
 MAT.iml
-pom.xml
 /target
 /target/site
 *.class
