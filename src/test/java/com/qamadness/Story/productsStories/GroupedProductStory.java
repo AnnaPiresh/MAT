@@ -4,6 +4,7 @@ import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.FixMethodOrder;
@@ -33,7 +34,7 @@ public class GroupedProductStory {
     @Steps
     ManageProductsPageSteps manageProductsPageSteps;
 
-    @Test
+    @Pending@Test
     public void addingGroupedProduct () {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();

@@ -63,6 +63,12 @@ public class MainMenu extends PageObject {
     @FindBy(xpath = ".//*[@id='nav']/li[9]/ul/li[13]/a/span")
     WebElementFacade indexManagementMenuItem;
 
+    @FindBy(xpath = ".//a/span[contains(.,'Permissions')]")
+    WebElementFacade permissionsMenu;
+
+    @FindBy (xpath = "//ul[@id='nav']//a[contains(@href, 'permissions_user')]")
+    WebElementFacade usersMenuItem;
+
 //-----------------------------------------------------Methods for Sales menu-----------------------------------------//
 
     public void openOrdersPage () {
@@ -128,6 +134,12 @@ public class MainMenu extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(indexManagementMenuItem));
         indexManagementMenuItem.click();
+    }
+
+    public void openManageAdminUsersPage (){
+        systemMenu.click();
+        permissionsMenu.click();
+        usersMenuItem.click();
     }
 
 
