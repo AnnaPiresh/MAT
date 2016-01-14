@@ -90,6 +90,9 @@ public class ManageProductsPageSteps extends ScenarioSteps {
     public void searchBySku (String SKU) { manageProductPage.searchBySku(SKU);}
 
     @Step
+    public void clearSKUFilter () { manageProductPage.clearSKUFilter();}
+
+    @Step
     public void searchButton () { manageProductPage.searchButton();}
 
     @Step
