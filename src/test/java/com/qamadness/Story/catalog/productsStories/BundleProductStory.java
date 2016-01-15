@@ -43,11 +43,6 @@ public class BundleProductStory {
     private String defaultTitle;
     private String selectAction;
 
-
-
-
-
-
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
