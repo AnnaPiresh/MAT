@@ -46,7 +46,7 @@ public class IndexManagementStory {
     }
 
     @Issue("MAT-39")
-    //@Pending
+    @Pending
     @Test
     public void can_user_reindex_all_data_from_admin(){
         indexManagementSteps.click_select_all_indexes();

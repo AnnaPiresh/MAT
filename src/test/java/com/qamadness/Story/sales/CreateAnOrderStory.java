@@ -1,16 +1,17 @@
 package com.qamadness.Story.sales;
 
-import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.customersSteps.CustomerInformationSteps;
 import com.qamadness.steps.backendSteps.customersSteps.ManageCustomersSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.salesSteps.CreateAnOrderSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
-import net.thucydides.junit.runners.ThucydidesRunner;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -24,9 +25,23 @@ import java.awt.*;
  * Created by Serhii_Boiko on 15.01.2016.
  */
 
-@RunWith(ThucydidesRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@UseTestDataFrom(value="src/test/resources/sales/CreateAnOrder.csv")
 public class CreateAnOrderStory {
+
+    private String emailExisting;
+    private String productID;
+    private String emailNew;
+    private String firstName;
+    private String lastName;
+    private String street;
+    private String city;
+    private String region;
+    private String zipcode;
+    private String telephone;
+    private String orderMessage;
+    private String customerMessage;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -67,41 +82,40 @@ public class CreateAnOrderStory {
     @Test
     public void place_order_for_existing_customer_from_admin() {
         createAnOrderSteps.click_create_order_btn();
-        createAnOrderSteps.select_customer("testersunny377@gmail.com");
+        createAnOrderSteps.select_customer(emailExisting);
         createAnOrderSteps.select_engish_storeview();
-        createAnOrderSteps.add_products_to_cart("1051");
+        createAnOrderSteps.add_products_to_cart(productID);
         createAnOrderSteps.select_payment_shipment();
         createAnOrderSteps.click_submit_btn();
-        createAnOrderSteps.check_success_message("The order has been created.");
+        createAnOrderSteps.check_success_message(orderMessage);
     }
 
     @Issue("MAT-11")
     @Pending
     @Test
     public void place_an_order_for_a_new_customer_from_admin() throws AWTException {
-        String email = "testersunny377+1@gmail.com";
         createAnOrderSteps.click_create_order_btn();
         createAnOrderSteps.click_create_customer_btn();
         createAnOrderSteps.select_engish_storeview();
-        createAnOrderSteps.add_products_to_cart("1051");
-        createAnOrderSteps.enter_email_to_email_field(email);
-        createAnOrderSteps.enter_first_name("Anna");
-        createAnOrderSteps.enter_last_name("Tester");
-        createAnOrderSteps.enter_street("251 S Olive St");
-        createAnOrderSteps.enter_city("Los Angeles");
-        createAnOrderSteps.select_region("12");
-        createAnOrderSteps.enter_zipcode("90012");
-        createAnOrderSteps.enter_telephone("+1 213-617-3300");
+        createAnOrderSteps.add_products_to_cart(productID);
+        createAnOrderSteps.enter_email_to_email_field(emailNew);
+        createAnOrderSteps.enter_first_name(firstName);
+        createAnOrderSteps.enter_last_name(lastName);
+        createAnOrderSteps.enter_street(street);
+        createAnOrderSteps.enter_city(city);
+        createAnOrderSteps.select_region(region);
+        createAnOrderSteps.enter_zipcode(zipcode);
+        createAnOrderSteps.enter_telephone(telephone);
         createAnOrderSteps.click_save_address_checkbox();
         createAnOrderSteps.select_payment_shipment();
         createAnOrderSteps.click_submit_btn();
-        createAnOrderSteps.check_success_message("The order has been created.");
+        createAnOrderSteps.check_success_message(orderMessage);
         mainMenuSteps.open_Manage_Customers_Page();
-        manageCustomersSteps.search_Customer_By_Email(email);
-        manageCustomersSteps.check_Search_Result(email);
+        manageCustomersSteps.search_Customer_By_Email(emailNew);
+        manageCustomersSteps.check_Search_Result(emailNew);
         manageCustomersSteps.open_First_Customer_Profile();
         customerInformationSteps.click_Delete_Customer_Button();
-        createAnOrderSteps.check_success_message("The customer has been deleted.");
+        createAnOrderSteps.check_success_message(customerMessage);
     }
 
 }

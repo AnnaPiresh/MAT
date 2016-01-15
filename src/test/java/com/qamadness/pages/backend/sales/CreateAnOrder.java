@@ -108,11 +108,11 @@ public class CreateAnOrder extends PageObject {
         createOrderBtn.click();
     }
 
-    public void selectCustomer(String email){
+    public void selectCustomer(String emailExisting){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(emailfield));
         emailfield.click();
-        emailfield.sendKeys(email);
+        emailfield.sendKeys(emailExisting);
         searchBtn.click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         wait.until(ExpectedConditions.elementToBeClickable(selectedCustomer));
@@ -124,12 +124,12 @@ public class CreateAnOrder extends PageObject {
         englishStoreview.click();
     }
 
-    public void addProductstoCart(String SKU){
+    public void addProductstoCart(String productID){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(addProductsBtn));
         addProductsBtn.click();
         productSearchFld.click();
-        productSearchFld.sendKeys(SKU);
+        productSearchFld.sendKeys(productID);
         productSearchFld.sendKeys(Keys.ENTER);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         wait.until(ExpectedConditions.elementToBeClickable(productCheckbox));
@@ -172,11 +172,11 @@ public class CreateAnOrder extends PageObject {
         createNewCustomerBtn.click();
     }
 
-    public void enterEmailToEmailField(String email){
+    public void enterEmailToEmailField(String emailNew){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
         enterEmailField.click();
-        enterEmailField.sendKeys(email);
+        enterEmailField.sendKeys(emailNew);
     }
 
     public void enterFirstName(String firstName){
@@ -184,9 +184,9 @@ public class CreateAnOrder extends PageObject {
         firstnameBillingField.sendKeys(firstName);
     }
 
-    public void enterLastName(String lastname) {
+    public void enterLastName(String lastName) {
         lastnameBillingField.click();
-        lastnameBillingField.sendKeys(lastname);
+        lastnameBillingField.sendKeys(lastName);
     }
 
     public void enterStreet(String street) {

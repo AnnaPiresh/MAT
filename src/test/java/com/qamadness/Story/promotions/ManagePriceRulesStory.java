@@ -6,6 +6,7 @@ import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.promotionsSteps.ManagePriceRulesSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;
@@ -51,7 +52,7 @@ public class ManagePriceRulesStory {
     }
 
     @Issue("MAT-40")
-    //@Pending
+    @Pending
     @Test
     public void create_catalog_price_rule_from_admin(){
         String customerGroups[] = {"0", "1", "2", "4"};
@@ -76,7 +77,7 @@ public class ManagePriceRulesStory {
     }
 
     @Issue("MAT-42")
-    //@Pending
+    @Pending
     @Test
     public void create_shopping_cart_price_rule_from_admin(){
         String customerGroups[] = {"0", "1", "2", "4"};

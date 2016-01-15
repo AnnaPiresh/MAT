@@ -34,7 +34,7 @@ public class ManageCustomersStory {
     MainMenuSteps mainMenuSteps;
 
     @Issue("MAT-17")
-    //@Pending
+    @Pending
     @Test
     public void check_that_admin_can_create_new_customer (){
         loginPageSteps.openPage();

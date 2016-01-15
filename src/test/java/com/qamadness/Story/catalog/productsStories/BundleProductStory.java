@@ -5,6 +5,7 @@ import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.FixMethodOrder;
@@ -36,6 +37,7 @@ public class BundleProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
+    @Pending
     @Test
     public void addingBundleProduct () {
         loginPageSteps.openPage();

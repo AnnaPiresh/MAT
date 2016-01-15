@@ -33,7 +33,8 @@ public class AddNewCustomerGroupStory  {
     AddNewCustomerGroupSteps addNewCustomerGroupSteps;
 
     @Issue("MAT-35")
-    @Pending@Test
+    @Pending
+    @Test
     public void check_that_customer_group_can_be_created_from_agmin(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
