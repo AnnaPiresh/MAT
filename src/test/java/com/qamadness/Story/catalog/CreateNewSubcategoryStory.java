@@ -10,6 +10,7 @@ import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
 import com.qamadness.steps.catalog.ManageCategoriesPageSteps;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;
@@ -54,7 +55,7 @@ public class CreateNewSubcategoryStory {
     @Steps
     ManageCategoriesPageSteps manageCategoriesPageSteps;
 
-    @Test
+    @Pending@Test
     public void creatingNewSubcategory (){
         /*loginPageSteps.openPage();
         loginPageSteps.loginInput();

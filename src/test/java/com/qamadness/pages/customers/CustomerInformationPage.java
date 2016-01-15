@@ -6,8 +6,6 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.security.cert.X509Certificate;
 
 /**
  * Created by alexandrakorniichuk on 15.12.15.

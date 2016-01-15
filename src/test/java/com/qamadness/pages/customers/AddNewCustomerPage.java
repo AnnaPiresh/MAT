@@ -3,9 +3,6 @@ package com.qamadness.pages.customers;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.junit.Assert;
-
-import java.security.cert.X509Certificate;
 
 
 /**
