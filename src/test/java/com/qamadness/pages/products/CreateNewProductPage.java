@@ -114,7 +114,10 @@ public class CreateNewProductPage extends PageObject {
     @FindBy(xpath = ".//*[@id='global_search']")
     WebElementFacade globalSearch;
 
-    public void clearGlobalSearch () { globalSearch.clear();}
+    public void clearGlobalSearch () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(globalSearch));
+        globalSearch.clear();}
 
     public void moveToTop () {
         Actions actions = new Actions(getDriver());
@@ -186,12 +189,17 @@ public class CreateNewProductPage extends PageObject {
     @FindBy (xpath = ".//*[@id='product_info_tabs_bundle_items']/span")
     WebElementFacade bundleTab;
 
-    public void selectBundleTab () { bundleTab.click();}
+    public void selectBundleTab () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(bundleTab));
+        bundleTab.click();}
 
     @FindBy (xpath = ".//*[@id='shipment_type']")
     WebElementFacade shipmentType;
 
     public void selectShipmentType (String value) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(shipmentType));
         Select dropdown = new Select(shipmentType);
         dropdown.selectByValue(value);
     }
@@ -199,35 +207,171 @@ public class CreateNewProductPage extends PageObject {
     @FindBy (xpath = ".//*[@id='add_new_option']")
     WebElementFacade addNewOptionButton;
 
-    public void addNewOption () {addNewOptionButton.click();}
+    public void addNewOption () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(addNewOptionButton));
+        addNewOptionButton.click();}
 
     @FindBy (xpath = ".//*[@id='id_bundle_options_0_title']")
     WebElementFacade defaultTitle;
 
-    public void enterDeafultTitle (String title) { defaultTitle.sendKeys(title);}
+    public void enterDeafultTitle (String title) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(defaultTitle));
+        defaultTitle.sendKeys(title);}
 
     @FindBy (xpath = ".//*[@id='bundle_option_0_add_button']")
     WebElementFacade addSelectionButton;
 
-    public void addSelection () { addSelectionButton.click();}
+    public void addSelection () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(addSelectionButton));
+        addSelectionButton.click();}
 
     @FindBy (css = "button[title='Reset Filter']")
     WebElementFacade resetFilterButton;
 
-    public void resetFilter () { resetFilterButton.click();}
+    public void resetFilter () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(resetFilterButton));
+        resetFilterButton.click();}
 
     @FindBy (xpath = ".//*[@id='bundle_selection_search_grid_0_table']/tbody/tr[2]/td[6]/input")
     WebElementFacade productTwo;
 
-    public void selectProductTwo () { productTwo.click();}
+    public void selectProductTwo () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(productTwo));
+        productTwo.click();}
 
     @FindBy (xpath = ".//*[@id='bundle_selection_search_grid_0_table']/tbody/tr[3]/td[6]/input")
     WebElementFacade productThree;
 
-    public void selectProductThree () { productThree.click();}
+    public void selectProductThree () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(productThree));
+        productThree.click();}
 
 
+    //------------------------------------Configurable Product Settings Tab-------------------------------------------//
 
+    @FindBy (xpath = ".//*[@id='settings']/div/table/tbody/tr[2]/td[1]/label")
+    WebElementFacade configurableAttribute;
+
+    public void selectConfigurableAttribute () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(configurableAttribute));
+        configurableAttribute.click();}
+
+    //---------------------------------Associated Products Tab (Configurable)-----------------------------------------//
+
+    @FindBy (xpath = ".//*[@id='product_info_tabs_configurable']/span")
+    WebElementFacade associatedProductsTabConfigurable;
+
+    public void selectAssociatedProductsConfigurableTab() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(associatedProductsTabConfigurable));
+        associatedProductsTabConfigurable.click();}
+
+    @FindBy (xpath = ".//*[@id='super_product_links_table']/tbody/tr[1]/td[1]/input[1]")
+    WebElementFacade firstConfigurableAssociatedProduct;
+
+    public void checkFirstConfigurableAssociatedProduct() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(firstConfigurableAssociatedProduct));
+        firstConfigurableAssociatedProduct.click();}
+
+    @FindBy (xpath = ".//*[@id='super_product_links_table']/tbody/tr[2]/td[1]/input[1]")
+    WebElementFacade secondConfigurableAssociatedProduct;
+
+    public void checkSecondConfigurableAssociatedProduct() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(secondConfigurableAssociatedProduct));
+        secondConfigurableAssociatedProduct.click();}
+
+    //-----------------------------------Associated Products Tab (Grouped)--------------------------------------------//
+
+    @FindBy (xpath = ".//*[@id='product_info_tabs_super']/span")
+    WebElementFacade associatedProductsTabGrouped;
+
+    public void selectAssociatedProductsTabGrouped () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(associatedProductsTabGrouped));
+        associatedProductsTabGrouped.click();}
+
+    @FindBy (xpath = ".//*[@id='super_product_grid_table']/tbody/tr[1]/td[1]/input")
+    WebElementFacade firstGroupAssociatedProduct;
+
+    public void checkFirstGroupAssociatedProduct () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(firstGroupAssociatedProduct));
+        firstGroupAssociatedProduct.click();}
+
+    @FindBy (xpath = ".//*[@id='super_product_grid_table']/tbody/tr[2]/td[1]/input")
+    WebElementFacade secondGroupAssociatedProduct;
+
+    public void checkSecondGroupAssociatedProduct () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(secondGroupAssociatedProduct));
+        secondGroupAssociatedProduct.click();}
+
+    //-------------------------------Downloadable Information Tab (Downloadable Product)------------------------------//
+
+    @FindBy (xpath = ".//*[@id='product_info_tabs_downloadable_items']/span")
+    WebElementFacade downloadableInformationTab;
+
+    public void selectDownloadableInformationTab () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(downloadableInformationTab));
+        downloadableInformationTab.click();}
+
+    @FindBy (xpath = ".//*[@id='add_link_item']")
+    WebElementFacade addNewRowButton;
+
+    public void addNewRow () {
+        WebDriverWait driverWait = new WebDriverWait(getDriver(), 60);
+        driverWait.until(ExpectedConditions.elementToBeClickable(addNewRowButton));
+        addNewRowButton.click();}
+
+    @FindBy (xpath = ".//*[@id='link_items_body']/tr/td[1]/input[3]")
+    WebElementFacade downloadableLinkName;
+
+    public void enterDownloadableLinkName (String name) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(downloadableLinkName));
+        downloadableLinkName.sendKeys(name);}
+
+    @FindBy (xpath = ".//*[@id='downloadable_link_0_sample_url_type']")
+    WebElementFacade sampleSelectURL;
+
+    public void sampleSelectURL () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(sampleSelectURL));
+        sampleSelectURL.click();}
+
+    @FindBy (xpath = ".//*[@id='link_items_body']/tr/td[5]/div[3]/div[2]/input")
+    WebElementFacade sampleURLField;
+
+    public void enterSampleURL (String url) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(sampleURLField));
+        sampleURLField.sendKeys(url);}
+
+    @FindBy (xpath = ".//*[@id='downloadable_link_0_url_type']")
+    WebElementFacade fileSelectURL;
+
+    public void fileSelectURL () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(fileSelectURL));
+        fileSelectURL.click();}
+
+    @FindBy (xpath = ".//*[@id='link_items_body']/tr/td[6]/div/div[2]/input")
+    WebElementFacade fileURLField;
+
+    public void enterFileURL (String url) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(fileURLField));
+        fileURLField.sendKeys(url);}
 
 }
 

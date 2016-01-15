@@ -3,6 +3,7 @@ package com.qamadness.Story.productsStories;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.products.CreateNewProductPageSteps;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
@@ -33,6 +34,9 @@ public class DownloadableProductStory {
     @Steps
     ManageProductsPageSteps manageProductsPageSteps;
 
+    @Steps
+    CreateNewProductPageSteps createNewProductPageSteps;
+
     @Test
     public void addingDownloadableProduct () {
         loginPageSteps.openPage();
@@ -42,32 +46,32 @@ public class DownloadableProductStory {
         dashboardSteps.closePopup();
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
-        manageProductsPageSteps.selectAttributeSet("4");
-        manageProductsPageSteps.selectProductType("downloadable");
-        manageProductsPageSteps.continueButton();
-        manageProductsPageSteps.enterName("Max auto downloadable product");
-        manageProductsPageSteps.enterProductDescription("Max auto downloadable product description");
-        manageProductsPageSteps.enterShortDescription("Max auto downloadable product short description");
-        manageProductsPageSteps.enterSKU("100007");
-        manageProductsPageSteps.selectStatus("1");
-        manageProductsPageSteps.selectVisibility("4");
-        manageProductsPageSteps.clearGlobalSearch();
-        manageProductsPageSteps.selectPricesTab();
-        manageProductsPageSteps.enterProductPrice("173");
-        manageProductsPageSteps.selectTaxClass("0");
-        manageProductsPageSteps.clearGlobalSearch();
-        manageProductsPageSteps.selectWebsitesTab();
-        manageProductsPageSteps.selectMainWebsite();
-        manageProductsPageSteps.selectCategoriesTab();
-        manageProductsPageSteps.selectFirstCategory();
-        manageProductsPageSteps.selectDownloadableInformationTab();
-        manageProductsPageSteps.addNewRow();
-        manageProductsPageSteps.enterDownloadableLinkName("Link name");
-        manageProductsPageSteps.sampleSelectURL();
-        manageProductsPageSteps.enterSampleURL("http://cs623727.vk.me/v623727867/489f6/xGaqvPMZXOc.jpg");
-        manageProductsPageSteps.fileSelectURL();
-        manageProductsPageSteps.enterFileURL("http://cs623727.vk.me/v623727867/489f6/xGaqvPMZXOc.jpg");
-        manageProductsPageSteps.saveProduct();
+        createNewProductPageSteps.selectAttributeSet("4");
+        createNewProductPageSteps.selectProductType("downloadable");
+        createNewProductPageSteps.continueButton();
+        createNewProductPageSteps.enterName("Max auto downloadable product");
+        createNewProductPageSteps.enterProductDescription("Max auto downloadable product description");
+        createNewProductPageSteps.enterShortDescription("Max auto downloadable product short description");
+        createNewProductPageSteps.enterSKU("100007");
+        createNewProductPageSteps.selectStatus("1");
+        createNewProductPageSteps.selectVisibility("4");
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectPricesTab();
+        createNewProductPageSteps.enterProductPrice("173");
+        createNewProductPageSteps.selectTaxClass("0");
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectWebsitesTab();
+        createNewProductPageSteps.selectMainWebsite();
+        createNewProductPageSteps.selectCategoriesTab();
+        createNewProductPageSteps.selectFirstCategory();
+        createNewProductPageSteps.selectDownloadableInformationTab();
+        createNewProductPageSteps.addNewRow();
+        createNewProductPageSteps.enterDownloadableLinkName("Link name");
+        createNewProductPageSteps.sampleSelectURL();
+        createNewProductPageSteps.enterSampleURL("http://cs623727.vk.me/v623727867/489f6/xGaqvPMZXOc.jpg");
+        createNewProductPageSteps.fileSelectURL();
+        createNewProductPageSteps.enterFileURL("http://cs623727.vk.me/v623727867/489f6/xGaqvPMZXOc.jpg");
+        createNewProductPageSteps.saveProduct();
         manageProductsPageSteps.searchBySku("100007");
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
