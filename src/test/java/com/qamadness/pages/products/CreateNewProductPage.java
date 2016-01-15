@@ -371,7 +371,7 @@ public class CreateNewProductPage extends PageObject {
     public void enterFileURL (String url) {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(fileURLField));
-        fileURLField.sendKeys(url);}
+        fileURLField.sendKeys(url);} 
 
 }
 
