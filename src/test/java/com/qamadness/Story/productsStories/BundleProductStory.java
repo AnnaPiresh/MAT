@@ -40,7 +40,7 @@ public class BundleProductStory {
     public void addingBundleProduct () {
         loginPageSteps.openPage();
         loginPageSteps.loginInput();
-        loginPageSteps.passInput();
+        loginPageSteps.passInput(); 
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.openManageProductsPage();
