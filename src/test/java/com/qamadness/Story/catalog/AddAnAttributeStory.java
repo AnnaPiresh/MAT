@@ -1,10 +1,9 @@
 package com.qamadness.Story.catalog;
 
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.SuccessMessagesSteps;
-import com.qamadness.steps.catalog.AddAnAttributeSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.LoginPageSteps;
+import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.catalogSteps.AttributesSteps.ManageAttributesSteps.AddAnAttributeSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;

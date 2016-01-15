@@ -4,11 +4,10 @@ package com.qamadness.Story.catalog;
  * Created by M. Yermolneko on 13.01.2016.
  */
 
-import com.qamadness.pages.catalog.ManageCategoriesPage;
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.catalog.ManageCategoriesPageSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.LoginPageSteps;
+import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.catalogSteps.ManageCategoriesSteps.ManageCategoriesPageSteps;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
@@ -19,7 +18,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
-import com.qamadness.steps.products.ManageProductsPageSteps;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

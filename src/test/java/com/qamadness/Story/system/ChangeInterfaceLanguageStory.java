@@ -1,8 +1,8 @@
 package com.qamadness.Story.system;
 
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.system.ChangeInterfaceLanguageSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.LoginPageSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.ChangeInterfaceLanguageSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;

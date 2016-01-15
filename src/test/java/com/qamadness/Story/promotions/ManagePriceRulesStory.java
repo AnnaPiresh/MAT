@@ -1,12 +1,11 @@
 package com.qamadness.Story.promotions;
 
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.promotions.ManagePriceRulesSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.LoginPageSteps;
+import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.promotionsSteps.ManagePriceRulesSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;

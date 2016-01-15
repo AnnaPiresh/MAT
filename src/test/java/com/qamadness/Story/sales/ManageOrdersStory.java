@@ -1,10 +1,9 @@
 package com.qamadness.Story.sales;
 
-import com.qamadness.pages.sales.ManageOrders;
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.sales.ManageOrdersSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.LoginPageSteps;
+import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.salesSteps.ManageOrdersSteps;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
