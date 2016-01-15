@@ -1,7 +1,6 @@
 package com.qamadness.pages.catalog;
 
 
-import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.Alert;

@@ -31,6 +31,9 @@ public class MainMenuSteps extends ScenarioSteps {
     public void open_Catalog_Price_Rules_Page(){ mainMenu.openCatalogPriceRulesPage();}
 
     @Step
+    public void open_Shopping_Cart_Price_Rules_Page() {mainMenu.openShoppingCartPriceRulesPage();}
+
+    @Step
     public void open_Cache_Management_Page() {mainMenu.openCacheManagementPage();}
 
     @Step
