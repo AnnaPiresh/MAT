@@ -10,6 +10,7 @@ import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -26,7 +27,11 @@ import java.awt.*;
 
 @RunWith(ThucydidesRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@UseTestDataFrom(value="src/test/resources/CreateAnOrderData.csv")
 public class CreateAnOrderStory {
+
+    private String login;
+    private String password;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -54,8 +59,8 @@ public class CreateAnOrderStory {
         loginPageSteps.openPage();
         int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
         if (size > 0) {
-            loginPageSteps.loginInput();
-            loginPageSteps.passInput();
+            loginPageSteps.loginInput(login);
+            loginPageSteps.passInput(password);
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();
         } else {}

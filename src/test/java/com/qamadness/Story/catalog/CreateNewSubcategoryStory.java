@@ -11,6 +11,7 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageCategoriesSteps.Manag
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -22,15 +23,19 @@ import org.openqa.selenium.WebDriver;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(ThucydidesRunner.class)
+@UseTestDataFrom(value="src/test/resources/CreateNewSubcategoryData.csv")
 public class CreateNewSubcategoryStory {
+
+    private String login;
+    private String password;
 
     @Before
     public void openPage () {
         loginPageSteps.openPage();
         int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
         if (size > 0) {
-            loginPageSteps.loginInput();
-            loginPageSteps.passInput();
+            loginPageSteps.loginInput(login);
+            loginPageSteps.passInput(password);
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();}
 

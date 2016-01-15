@@ -15,10 +15,10 @@ public class LoginPageSteps extends ScenarioSteps {
     public void openPage(){loginPage.openPage();}
 
     @Step
-    public void loginInput(){loginPage.loginInput();}
+    public void loginInput(String login){loginPage.loginInput(login);}
 
     @Step
-    public void passInput(){loginPage.passInput();}
+    public void passInput(String password){loginPage.passInput(password);}
 
     @Step
     public void loginButton(){loginPage.loginButton();}

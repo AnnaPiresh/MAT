@@ -32,16 +32,15 @@ public class LoginPage extends PageObject{
 
     @FindBy(xpath = ".//*[@id='username']")
     WebElementFacade loginInput;
-    public void loginInput(){
+    public void loginInput(String login){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(loginInput));
-        loginInput.sendKeys("admin");
+        loginInput.sendKeys(login);
     }
 
     @FindBy(xpath = ".//*[@id='login']")
     WebElementFacade passInput;
-    public void passInput(){
-        passInput.sendKeys("3HSYOFf");
+    public void passInput(String password){ passInput.sendKeys(password);
     }
 
     @FindBy(css = ".form-button")

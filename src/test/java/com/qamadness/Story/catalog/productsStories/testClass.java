@@ -6,6 +6,7 @@ import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -16,15 +17,19 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageP
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(ThucydidesRunner.class)
+@UseTestDataFrom(value="src/test/resources/testClassData.csv")
 public class testClass {
+
+    private String login;
+    private String password;
 
     @Before
     public void openPage () {
         loginPageSteps.openPage();
         int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
         if (size > 0) {
-            loginPageSteps.loginInput();
-            loginPageSteps.passInput();
+            loginPageSteps.loginInput(login);
+            loginPageSteps.passInput(password);
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();}
 

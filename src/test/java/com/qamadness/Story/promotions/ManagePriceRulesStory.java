@@ -7,6 +7,7 @@ import com.qamadness.steps.backendSteps.promotionsSteps.ManagePriceRulesSteps;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -21,7 +22,11 @@ import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@UseTestDataFrom(value="src/test/resources/ManagePriceRulesData.csv")
 public class ManagePriceRulesStory {
+
+    private String login;
+    private String password;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -43,8 +48,8 @@ public class ManagePriceRulesStory {
         loginPageSteps.openPage();
         int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
         if (size > 0) {
-            loginPageSteps.loginInput();
-            loginPageSteps.passInput();
+            loginPageSteps.loginInput(login);
+            loginPageSteps.passInput(password);
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();
         } else {}

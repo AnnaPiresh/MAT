@@ -6,6 +6,7 @@ import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -17,7 +18,11 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageP
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(ThucydidesRunner.class)
+@UseTestDataFrom(value="src/test/resources/DownloadableProductData.csv")
 public class DownloadableProductStory {
+
+    private String login;
+    private String password;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -40,8 +45,8 @@ public class DownloadableProductStory {
     @Test
     public void addingDownloadableProduct () {
         loginPageSteps.openPage();
-        loginPageSteps.loginInput();
-        loginPageSteps.passInput();
+        loginPageSteps.loginInput(login);
+        loginPageSteps.passInput(password);
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.openManageProductsPage();
