@@ -30,7 +30,6 @@ import java.awt.*;
 @RunWith(SerenityParameterizedRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @UseTestDataFrom(value="src/test/resources/CreateAnOrderData.csv")
-@UseTestDataFrom(value="src/test/resources/sales/CreateAnOrder.csv")
 public class CreateAnOrderStory {
 
     private String login;

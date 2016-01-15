@@ -61,8 +61,7 @@ public class BundleProductStory {
 
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
-
-    @Pending
+    
     @Test
     public void addingBundleProduct () {
         loginPageSteps.openPage();
