@@ -5,6 +5,7 @@ import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.salesSteps.ManageOrdersSteps;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
@@ -23,19 +24,24 @@ import org.openqa.selenium.support.FindBy;
  * Created by Serhii_Boiko on 14.01.2016.
  */
 
-@RunWith(ThucydidesRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @UseTestDataFrom(value="src/test/resources/ManageOrdersData.csv")
+@UseTestDataFrom(value="src/test/resources/sales/ManageOrders.csv")
 public class ManageOrdersStory {
 
     private String login;
     private String password;
 
+    private String status;
+    private String action;
+    private String orderID;
+    private String ordersPage;
+    private String value;
+    private String cancelOrderMessage;
+
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
-
-    @FindBy(xpath = ".//*[@id='sales_order_grid']/table/tbody/tr/td[1]/input")
-    WebElementFacade fieldWithPageNo;
 
     @Steps
     LoginPageSteps loginPageSteps;
@@ -63,16 +69,16 @@ public class ManageOrdersStory {
     }
 
     @Issue("MAT-12")
-    @Pending
+    //@Pending
     @Test
     public void check_that_user_can_change_qty_of_orders_displayed_per_page(){
-        manageOrdersSteps.can_user_change_qty_of_orders("50");
+        manageOrdersSteps.can_user_change_qty_of_orders(value);
         manageOrdersSteps.check_new_qty_of_orders();
         manageOrdersSteps.unselect_orders();
     }
 
     @Issue("MAT-13")
-    @Pending
+    //@Pending
     @Test
     public void check_that_user_can_navigate_between_orders_using_arrows() {
         manageOrdersSteps.switch_to_next_orders_page();
@@ -83,23 +89,21 @@ public class ManageOrdersStory {
     @Pending
     @Test
     public void can_user_navigate_to_a_particular_page_of_orders(){
-        String ordersPage ="5";
         manageOrdersSteps.enter_orders_page(ordersPage);
         manageOrdersSteps.check_the_page_is_correct(ordersPage);
     }
 
     @Issue("MAT-15")
-    @Pending
+    //@Pending
     @Test
     public void can_user_filter_orders_by_id (){
-        String orderID = "302000003";
         manageOrdersSteps.filter_orders_in_grid(orderID);
         manageOrdersSteps.check_filtered_order_number(orderID);
         manageOrdersSteps.reset_filter();
     }
 
     @Issue("MAT-16")
-    @Pending
+    //@Pending
     @Test
     public void can_user_sort_orders_by_id(){
         manageOrdersSteps.change_sort_order_by_id();
@@ -107,12 +111,12 @@ public class ManageOrdersStory {
     }
 
     @Issue("MAT-19")
-    @Pending
+    //@Pending
     @Test
     public void can_user_cancel_order_from_admin(){
-        manageOrdersSteps.see_orders_in_pending_status("pending");
-        manageOrdersSteps.cancel_selected_order("cancel_order");
-        manageOrdersSteps.check_success_message("1 order(s) have been canceled.");
+        manageOrdersSteps.see_orders_in_pending_status(status);
+        manageOrdersSteps.cancel_selected_order(action);
+        manageOrdersSteps.check_success_message(cancelOrderMessage);
         manageOrdersSteps.reset_filter();
     }
 }

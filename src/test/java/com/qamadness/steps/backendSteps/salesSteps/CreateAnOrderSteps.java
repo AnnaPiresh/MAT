@@ -15,13 +15,13 @@ public class CreateAnOrderSteps extends ScenarioSteps {
     public void click_create_order_btn(){createAnOrder.clickCreateOrderBtn();}
 
     @Step
-    public void select_customer(String email){createAnOrder.selectCustomer(email);}
+    public void select_customer(String emailExisting){createAnOrder.selectCustomer(emailExisting);}
 
     @Step
     public void select_engish_storeview(){createAnOrder.selectStoreview();}
 
     @Step
-    public void add_products_to_cart(String SKU){createAnOrder.addProductstoCart(SKU);}
+    public void add_products_to_cart(String productID){createAnOrder.addProductstoCart(productID);}
 
     @Step
     public void select_payment_shipment(){createAnOrder.selectPaymentShipment();}
@@ -35,8 +35,8 @@ public class CreateAnOrderSteps extends ScenarioSteps {
     }
 
     @Step
-    public void enter_email_to_email_field(String email){
-        createAnOrder.enterEmailToEmailField(email);
+    public void enter_email_to_email_field(String emailNew){
+        createAnOrder.enterEmailToEmailField(emailNew);
     }
 
     @Step
@@ -45,7 +45,7 @@ public class CreateAnOrderSteps extends ScenarioSteps {
     }
 
     @Step
-    public void enter_last_name(String lastname) { createAnOrder.enterLastName(lastname); }
+    public void enter_last_name(String lastName) { createAnOrder.enterLastName(lastName); }
 
     @Step
     public void enter_street(String street) { createAnOrder.enterStreet(street);}
