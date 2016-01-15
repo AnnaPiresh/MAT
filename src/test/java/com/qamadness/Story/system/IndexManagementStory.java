@@ -32,9 +32,6 @@ public class IndexManagementStory {
     @Steps
     IndexManagementSteps indexManagementSteps;
 
-    @Steps
-    SuccessMessagesSteps successMessagesSteps;
-
     @Before
     public void openPage () {
         loginPageSteps.openPage();
