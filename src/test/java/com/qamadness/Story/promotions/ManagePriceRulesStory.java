@@ -40,16 +40,19 @@ public class ManagePriceRulesStory {
     ManagePriceRulesSteps managePriceRulesSteps;
 
     @Before
-    public void login_to_admin_panel() {
+    public void openPage () {
         loginPageSteps.openPage();
-        loginPageSteps.loginInput();
-        loginPageSteps.passInput();
-        loginPageSteps.loginButton();
-        dashboardSteps.closePopup();
+        int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
+        if (size > 0) {
+            loginPageSteps.loginInput();
+            loginPageSteps.passInput();
+            loginPageSteps.loginButton();
+            dashboardSteps.closePopup();
+        } else {}
     }
 
     @Issue("MAT-40")
-    @Pending
+    //@Pending
     @Test
     public void create_catalog_price_rule_from_admin(){
         String customerGroups[] = {"0", "1", "2", "4"};
@@ -68,13 +71,13 @@ public class ManagePriceRulesStory {
         managePriceRulesSteps.enter_discount_amount("10");
         managePriceRulesSteps.save_rule();
         managePriceRulesSteps.check_success_message("The rule has been saved.");
-        managePriceRulesSteps.find_created_rule("test robot rule");
+        managePriceRulesSteps.find_created_catalog_rule("test robot rule");
         managePriceRulesSteps.delete_created_rule();
         managePriceRulesSteps.check_success_message("The rule has been deleted.");
     }
 
     @Issue("MAT-42")
-    @Pending
+    //@Pending
     @Test
     public void create_shopping_cart_price_rule_from_admin(){
         String customerGroups[] = {"0", "1", "2", "4"};
@@ -96,6 +99,9 @@ public class ManagePriceRulesStory {
         managePriceRulesSteps.enter_discount_amount("10");
         managePriceRulesSteps.save_rule();
         managePriceRulesSteps.check_success_message("The rule has been saved.");
+        managePriceRulesSteps.find_created_shopping_cart_rule("test robot rule");
+        managePriceRulesSteps.delete_created_rule();
+        managePriceRulesSteps.check_success_message("The rule has been deleted.");
     }
 
 }

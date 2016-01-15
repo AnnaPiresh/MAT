@@ -73,10 +73,12 @@ public class ManagePriceRules extends PageObject {
     WebElementFacade successMsg;
 
     @FindBy(xpath = ".//*[@id='promo_catalog_grid_filter_name']")
-    WebElementFacade ruleNameField;
+    WebElementFacade catRuleNameField;
+    //field for search for rule by name in Catalog price rules grid
 
     @FindBy(xpath = ".//*[@id='promo_catalog_grid_table']/tbody/tr[1]/td[2]")
-    WebElementFacade firstRuleInGrid;
+    WebElementFacade firstRuleInCatGrid;
+    //first found rule in Catalog price rules grid
 
     @FindBy(xpath = ".//button[@title='Delete']")
     WebElementFacade deleteBtn;
@@ -91,6 +93,14 @@ public class ManagePriceRules extends PageObject {
 
     @FindBy(xpath = ".//*[@id='global_search']")
     WebElementFacade globalSearch;
+
+    @FindBy(xpath = ".//*[@id='promo_quote_grid_filter_name']")
+    WebElementFacade shopRuleNameField;
+    //field for search for rule by name in CShopping cart price rules grid
+
+    @FindBy(xpath = ".//*[@id='promo_quote_grid_table']/tbody/tr/td[2]")
+    WebElementFacade firstRuleInShopGrid;
+    //first found rule in Shopping  price rules grid
 
 //--------------------------------Methods for Adding New Catalog Price Rule-------------------------------------------//
 
@@ -186,14 +196,14 @@ public class ManagePriceRules extends PageObject {
         }
     }
 
-    public void findCreatedRule(String ruleId){
-        ruleNameField.click();
-        ruleNameField.sendKeys(ruleId);
-        ruleNameField.sendKeys(Keys.ENTER);
+    public void findCreatedCatRule(String ruleId){
+        catRuleNameField.click();
+        catRuleNameField.sendKeys(ruleId);
+        catRuleNameField.sendKeys(Keys.ENTER);
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(firstRuleInGrid));
-        if (firstRuleInGrid.containsText(ruleId)){
-            firstRuleInGrid.click();
+        wait.until(ExpectedConditions.elementToBeClickable(firstRuleInCatGrid));
+        if (firstRuleInCatGrid.containsText(ruleId)){
+            firstRuleInCatGrid.click();
         }else {
             Assert.fail("Rule cannot be found");
         }
@@ -222,6 +232,19 @@ public class ManagePriceRules extends PageObject {
     }
 
     public void clearGlobalSearch () { globalSearch.clear();}
+
+    public void findCreatedShopRule(String ruleId){
+        shopRuleNameField.click();
+        shopRuleNameField.sendKeys(ruleId);
+        shopRuleNameField.sendKeys(Keys.ENTER);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(firstRuleInShopGrid));
+        if (firstRuleInShopGrid.containsText(ruleId)){
+            firstRuleInShopGrid.click();
+        }else {
+            Assert.fail("Rule cannot be found");
+        }
+    }
 
 
 }

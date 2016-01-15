@@ -115,12 +115,12 @@ public class CreateAnOrder extends PageObject {
         emailfield.sendKeys(email);
         searchBtn.click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        wait.until(ExpectedConditions.elementToBeClickable(selectedCustomer));
         selectedCustomer.click();
-        wait.until(ExpectedConditions.elementToBeClickable(englishStoreview));
     }
     public void selectStoreview(){
-        WebDriverWait wait4 = new WebDriverWait(getDriver(), 60);
-        wait4.until(ExpectedConditions.elementToBeClickable(englishStoreview));
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(englishStoreview));
         englishStoreview.click();
     }
 

@@ -1,6 +1,7 @@
 package com.qamadness.pages.system;
 
 
+import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,9 @@ public class IndexManagement extends PageObject{
     @FindBy(xpath = ".//button[@title='Submit']")
     WebElementFacade submitActionBtn;
 
+    @FindBy(xpath = ".//*[@class='success-msg']")
+    WebElementFacade successMsg;
+
 //-------------------------------------Methods for Reindexing Data----------------------------------------------------//
 
     public void clickSelectAllIndexes() {
@@ -41,6 +45,16 @@ public class IndexManagement extends PageObject{
         wait.until(ExpectedConditions.elementToBeClickable(submitActionBtn));
         submitActionBtn.click();
         submitActionBtn.click();
+    }
+
+    public void checkSuccessMsg(String message){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(successMsg));
+        if (successMsg.containsText(message)){
+            System.out.println("Success message is present");
+        } else {
+            Assert.fail("Success message is not present");
+        }
     }
 
 }

@@ -59,14 +59,13 @@ public class CreateAnOrderStory {
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();
         } else {}
-
+        mainMenuSteps.open_Orders_Page();
     }
 
     @Issue("MAT-6")
-    //@Pending
+    @Pending
     @Test
     public void place_order_for_existing_customer_from_admin() {
-        mainMenuSteps.open_Orders_Page();
         createAnOrderSteps.click_create_order_btn();
         createAnOrderSteps.select_customer("testersunny377@gmail.com");
         createAnOrderSteps.select_engish_storeview();
@@ -77,11 +76,10 @@ public class CreateAnOrderStory {
     }
 
     @Issue("MAT-11")
-    //@Pending
+    @Pending
     @Test
     public void place_an_order_for_a_new_customer_from_admin() throws AWTException {
         String email = "testersunny377+1@gmail.com";
-        mainMenuSteps.open_Orders_Page();
         createAnOrderSteps.click_create_order_btn();
         createAnOrderSteps.click_create_customer_btn();
         createAnOrderSteps.select_engish_storeview();

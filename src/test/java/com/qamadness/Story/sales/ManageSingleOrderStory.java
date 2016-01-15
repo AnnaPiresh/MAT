@@ -44,12 +44,15 @@ public class ManageSingleOrderStory {
     ManageSingleOrderSteps manageSingleOrderSteps;
 
     @Before
-    public void login_to_admin_panel(){
+    public void openPage () {
         loginPageSteps.openPage();
-        loginPageSteps.loginInput();
-        loginPageSteps.passInput();
-        loginPageSteps.loginButton();
-        dashboardSteps.closePopup();
+        int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
+        if (size > 0) {
+            loginPageSteps.loginInput();
+            loginPageSteps.passInput();
+            loginPageSteps.loginButton();
+            dashboardSteps.closePopup();
+        } else {}
         mainMenuSteps.open_Orders_Page();
     }
 
@@ -71,6 +74,12 @@ public class ManageSingleOrderStory {
     @Pending
     @Test
     public void create_a_shipment_for_order(){
+        createAnOrderSteps.click_create_order_btn();
+        createAnOrderSteps.select_customer("testersunny377@gmail.com");
+        createAnOrderSteps.select_engish_storeview();
+        createAnOrderSteps.add_products_to_cart("1051");
+        createAnOrderSteps.select_payment_shipment();
+        createAnOrderSteps.click_submit_btn();
         manageSingleOrderSteps.create_shipment_for_order();
         manageSingleOrderSteps.check_success_message("The shipment has been created.");
     }
@@ -79,6 +88,14 @@ public class ManageSingleOrderStory {
     @Pending
     @Test
     public void can_user_create_a_full_refund_credit_memo() {
+        createAnOrderSteps.click_create_order_btn();
+        createAnOrderSteps.select_customer("testersunny377@gmail.com");
+        createAnOrderSteps.select_engish_storeview();
+        createAnOrderSteps.add_products_to_cart("1051");
+        createAnOrderSteps.select_payment_shipment();
+        createAnOrderSteps.click_submit_btn();
+        manageSingleOrderSteps.create_an_invoice_for_order();
+        manageSingleOrderSteps.create_shipment_for_order();
         manageSingleOrderSteps.start_creating_credit_memo();
         manageSingleOrderSteps.submit_credit_memo();
         manageSingleOrderSteps.check_success_message("The credit memo has been created.");
@@ -107,6 +124,12 @@ public class ManageSingleOrderStory {
     @Pending
     @Test
     public void can_user_reorder_from_admin(){
+        createAnOrderSteps.click_create_order_btn();
+        createAnOrderSteps.select_customer("testersunny377@gmail.com");
+        createAnOrderSteps.select_engish_storeview();
+        createAnOrderSteps.add_products_to_cart("1051");
+        createAnOrderSteps.select_payment_shipment();
+        createAnOrderSteps.click_submit_btn();
         manageSingleOrderSteps.click_reorder_btn();
         manageSingleOrderSteps.check_correct_product_reordered();
         manageSingleOrderSteps.check_shipment_method_is_selected();
@@ -119,6 +142,12 @@ public class ManageSingleOrderStory {
     @Pending
     @Test
     public void resend_an_email_to_a_customer(){
+        createAnOrderSteps.click_create_order_btn();
+        createAnOrderSteps.select_customer("testersunny377@gmail.com");
+        createAnOrderSteps.select_engish_storeview();
+        createAnOrderSteps.add_products_to_cart("1051");
+        createAnOrderSteps.select_payment_shipment();
+        createAnOrderSteps.click_submit_btn();
         manageSingleOrderSteps.click_send_email_bth();
         manageSingleOrderSteps.check_success_message("The order email has been sent.");
     }

@@ -55,7 +55,7 @@ public class ManagePriceRulesSteps extends ScenarioSteps {
     public void check_success_message(String message) {managePriceRules.checkSuccessMsg(message);}
 
     @Step
-    public void find_created_rule(String ruleId){ managePriceRules.findCreatedRule(ruleId);}
+    public void find_created_catalog_rule(String ruleId){ managePriceRules.findCreatedCatRule(ruleId);}
 
     @Step
     public void delete_created_rule(){managePriceRules.deleteCreatedRule();}
@@ -69,4 +69,7 @@ public class ManagePriceRulesSteps extends ScenarioSteps {
 
     @Step
     public void clear_global_search(){managePriceRules.clearGlobalSearch();}
+
+    @Step
+    public void find_created_shopping_cart_rule(String ruleId){ managePriceRules.findCreatedShopRule(ruleId);}
 }

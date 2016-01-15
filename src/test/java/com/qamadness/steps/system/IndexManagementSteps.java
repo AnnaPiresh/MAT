@@ -15,7 +15,9 @@ public class IndexManagementSteps extends ScenarioSteps{
     public void select_action_from_dropdown(String indexAction) { indexManagement.selectActionFromDropdown(indexAction);}
 
     @Step
-    public void click_submit_btn() {
-        indexManagement.clickSubmitBtn();}
+    public void click_submit_btn() { indexManagement.clickSubmitBtn();}
+
+    @Step
+    public void check_success_message(String message) { indexManagement.checkSuccessMsg(message);}
 
 }

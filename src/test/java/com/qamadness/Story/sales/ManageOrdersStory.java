@@ -55,14 +55,13 @@ public class ManageOrdersStory {
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();
         } else {}
-
+        mainMenuSteps.open_Orders_Page();
     }
 
     @Issue("MAT-12")
     @Pending
     @Test
     public void check_that_user_can_change_qty_of_orders_displayed_per_page(){
-        mainMenuSteps.open_Orders_Page();
         manageOrdersSteps.can_user_change_qty_of_orders("50");
         manageOrdersSteps.check_new_qty_of_orders();
         manageOrdersSteps.unselect_orders();
@@ -72,13 +71,8 @@ public class ManageOrdersStory {
     @Pending
     @Test
     public void check_that_user_can_navigate_between_orders_using_arrows() {
-        String nextPages = fieldWithPageNo.getText();
-        int fieldValue = Integer.parseInt(nextPages);
-        int previousPage = fieldValue;
-        int nextPage = ++fieldValue;
-        mainMenuSteps.open_Orders_Page();
-        manageOrdersSteps.switch_to_next_orders_page(nextPage);
-        manageOrdersSteps.switch_to_previous_orders_page(previousPage);
+        manageOrdersSteps.switch_to_next_orders_page();
+        manageOrdersSteps.switch_to_previous_orders_page();
     }
 
     @Issue("MAT-14")
@@ -86,7 +80,6 @@ public class ManageOrdersStory {
     @Test
     public void can_user_navigate_to_a_particular_page_of_orders(){
         String ordersPage ="5";
-        mainMenuSteps.open_Orders_Page();
         manageOrdersSteps.enter_orders_page(ordersPage);
         manageOrdersSteps.check_the_page_is_correct(ordersPage);
     }
@@ -96,7 +89,6 @@ public class ManageOrdersStory {
     @Test
     public void can_user_filter_orders_by_id (){
         String orderID = "302000003";
-        mainMenuSteps.open_Orders_Page();
         manageOrdersSteps.filter_orders_in_grid(orderID);
         manageOrdersSteps.check_filtered_order_number(orderID);
         manageOrdersSteps.reset_filter();
@@ -106,7 +98,6 @@ public class ManageOrdersStory {
     @Pending
     @Test
     public void can_user_sort_orders_by_id(){
-        mainMenuSteps.open_Orders_Page();
         manageOrdersSteps.change_sort_order_by_id();
         manageOrdersSteps.check_that_sorting_changed();
     }
@@ -115,7 +106,6 @@ public class ManageOrdersStory {
     @Pending
     @Test
     public void can_user_cancel_order_from_admin(){
-        mainMenuSteps.open_Orders_Page();
         manageOrdersSteps.see_orders_in_pending_status("pending");
         manageOrdersSteps.cancel_selected_order("cancel_order");
         manageOrdersSteps.check_success_message("1 order(s) have been canceled.");

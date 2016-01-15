@@ -61,12 +61,12 @@ public class ManageOrdersSteps extends ScenarioSteps {
     public void unselect_orders(){manageOrders.unselectOrders();}
 
     @Step
-    public void switch_to_next_orders_page (int nextPage){
-        manageOrders.switchToNextOrdersPage(nextPage);
+    public void switch_to_next_orders_page (){
+        manageOrders.switchToNextOrdersPage();
     }
 
     @Step
-    public void switch_to_previous_orders_page(int previousPage){ manageOrders.switchToPreviousOrdersPage(previousPage); }
+    public void switch_to_previous_orders_page(){ manageOrders.switchToPreviousOrdersPage(); }
 
     @Step
     public void check_success_message(String message) {manageOrders.checkSuccessMsg(message);}

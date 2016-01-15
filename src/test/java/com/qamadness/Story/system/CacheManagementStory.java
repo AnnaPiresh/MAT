@@ -40,12 +40,15 @@ public class CacheManagementStory {
     CacheManagementSteps cacheManagementSteps;
 
     @Before
-    public void login_to_admin_panel() {
+    public void openPage () {
         loginPageSteps.openPage();
-        loginPageSteps.loginInput();
-        loginPageSteps.passInput();
-        loginPageSteps.loginButton();
-        dashboardSteps.closePopup();
+        int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
+        if (size > 0) {
+            loginPageSteps.loginInput();
+            loginPageSteps.passInput();
+            loginPageSteps.loginButton();
+            dashboardSteps.closePopup();
+        } else {}
         mainMenuSteps.open_Cache_Management_Page();
     }
 
