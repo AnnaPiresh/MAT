@@ -1,13 +1,24 @@
 package com.qamadness.pages.system;
 
-
+import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class DisableAndEnableMagentoCaching extends PageObject{
+/**
+ * Created by Serhii_Boiko on 15.01.2016.
+ */
+public class CacheManagement extends PageObject {
+
+//--------------------------------------------------Objects for Flushing Caches----------------------------------------//
+
+    @FindBy(xpath = ".//button[@title='Flush Magento Cache']")
+    WebElementFacade flushMagentoCachesBtn;
+
+    @FindBy(xpath = ".//*[@class='success-msg']")
+    WebElementFacade successMsg;
 
 //------------------------------------------Objects for Disabling caching----------------------------------------------//
 
@@ -19,6 +30,24 @@ public class DisableAndEnableMagentoCaching extends PageObject{
 
     @FindBy(xpath = ".//button[@title='Submit']")
     WebElementFacade submitActionBtn;
+
+//--------------------------------------------------Methods for Flushing Caches----------------------------------------//
+
+    public void clickFlushCacheBtn(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(flushMagentoCachesBtn));
+        flushMagentoCachesBtn.click();
+    }
+
+    public void checkSuccessMsg(String message){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(successMsg));
+        if (successMsg.containsText(message)){
+            System.out.println("Success message is present");
+        } else {
+            Assert.fail("Success message is not present");
+        }
+    }
 
 //----------------------------------------Methods for Disabling caching------------------------------------------------//
 
@@ -39,4 +68,6 @@ public class DisableAndEnableMagentoCaching extends PageObject{
         submitActionBtn.click();
         submitActionBtn.click();
     }
+
+
 }

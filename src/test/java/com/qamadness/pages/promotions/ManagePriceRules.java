@@ -1,16 +1,18 @@
 package com.qamadness.pages.promotions;
 
-
 import junit.framework.Assert;
+import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddCatalogPriceRule extends PageObject{
+/**
+ * Created by Serhii_Boiko on 15.01.2016.
+ */
+public class ManagePriceRules extends PageObject {
 
 //---------------------------------Objects for Adding New Catalog Price Rule------------------------------------------//
 
@@ -67,6 +69,9 @@ public class AddCatalogPriceRule extends PageObject{
     @FindBy(xpath = ".//button[@title='Save']")
     WebElementFacade saveRuleBtn;
 
+    @FindBy(xpath = ".//*[@class='success-msg']")
+    WebElementFacade successMsg;
+
     @FindBy(xpath = ".//*[@id='promo_catalog_grid_filter_name']")
     WebElementFacade ruleNameField;
 
@@ -75,6 +80,17 @@ public class AddCatalogPriceRule extends PageObject{
 
     @FindBy(xpath = ".//button[@title='Delete']")
     WebElementFacade deleteBtn;
+
+//---------------------------------Objects for Adding Shopping Cart Price Rule-----------------------------------------//
+
+    @FindBy(xpath = ".//*[@id='rule_coupon_type']")
+    WebElementFacade couponDropdown;
+
+    @FindBy(xpath = ".//*[@id='rule_coupon_code']")
+    WebElementFacade couponCodeField;
+
+    @FindBy(xpath = ".//*[@id='global_search']")
+    WebElementFacade globalSearch;
 
 //--------------------------------Methods for Adding New Catalog Price Rule-------------------------------------------//
 
@@ -160,6 +176,16 @@ public class AddCatalogPriceRule extends PageObject{
         saveRuleBtn.click();
     }
 
+    public void checkSuccessMsg(String message){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(successMsg));
+        if (successMsg.containsText(message)){
+            System.out.println("Success message is present");
+        } else {
+            Assert.fail("Success message is not present");
+        }
+    }
+
     public void findCreatedRule(String ruleId){
         ruleNameField.click();
         ruleNameField.sendKeys(ruleId);
@@ -181,6 +207,21 @@ public class AddCatalogPriceRule extends PageObject{
         alert.accept();
     }
 
+//--------------------------------Methods for Adding Shopping Cart Price Rule------------------------------------------//
+
+    public void selectCouponTypeFromDropdown(String couponType){
+        couponDropdown.click();
+        couponDropdown.selectByValue(couponType).click();
+    }
+
+    public void enterCouponCode(String couponCode){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(couponCodeField));
+        couponCodeField.click();
+        couponCodeField.sendKeys(couponCode);
+    }
+
+    public void clearGlobalSearch () { globalSearch.clear();}
 
 
 }

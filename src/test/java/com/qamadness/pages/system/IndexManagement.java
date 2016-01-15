@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ReindexData extends PageObject{
+public class IndexManagement extends PageObject{
 
 //--------------------------------------Objects for Reindexing Data---------------------------------------------------//
 

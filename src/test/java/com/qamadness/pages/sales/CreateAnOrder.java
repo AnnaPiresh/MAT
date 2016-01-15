@@ -1,7 +1,6 @@
 package com.qamadness.pages.sales;
 
-
-
+import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
@@ -9,11 +8,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-
-public class PlaceOrderAsExistingCustomer extends PageObject{
+/**
+ * Created by Serhii_Boiko on 15.01.2016.
+ */
+public class CreateAnOrder extends PageObject {
 
 //--------------------------------------------------Objects for Placing an order----------------------------------------//
 
@@ -29,7 +30,7 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
     WebElementFacade searchBtn;
     //search button in grid
 
-    @FindBy(xpath = ".//*[@id='sales_order_create_customer_grid_table']/tbody/tr/td[1]")
+    @FindBy(xpath = ".//*[@id='sales_order_create_customer_grid_table']/tbody/tr/td[2]")
     WebElementFacade selectedCustomer;
     //selected customer after filtering
 
@@ -64,6 +65,42 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
     @FindBy(xpath = ".//*[@id='s_method_flatrate_flatrate']")
     WebElementFacade flatRate;
     //Flat Rate shipping method
+
+    @FindBy(xpath = ".//*[@class='success-msg']")
+    WebElementFacade successMsg;
+
+//------------------------------------Objects for Adding a New Customer------------------------------------------------//
+
+    @FindBy(xpath = ".//button[@title='Create New Customer']")
+    WebElementFacade createNewCustomerBtn;
+
+    @FindBy(xpath = ".//*[@id='email']")
+    WebElementFacade enterEmailField;
+
+    @FindBy(xpath = ".//*[@id='order-billing_address_firstname']")
+    WebElementFacade firstnameBillingField;
+
+    @FindBy(xpath = ".//*[@id='order-billing_address_lastname']")
+    WebElementFacade lastnameBillingField;
+
+    @FindBy(xpath = ".//*[@id='order-billing_address_street0']")
+    WebElementFacade streetBillingField;
+
+    @FindBy(xpath = ".//*[@id='order-billing_address_city']")
+    WebElementFacade cityBillingField;
+
+    @FindBy(id = "order-billing_address_region_id")
+    WebElementFacade regionBillingDropdown;
+
+    @FindBy(xpath = ".//*[@id='order-billing_address_postcode']")
+    WebElementFacade zipcodeBillingField;
+
+    @FindBy(xpath = ".//*[@id='order-billing_address_telephone']")
+    WebElementFacade telephoneFieldBilling;
+
+    @FindBy(xpath = ".//*[@id='order-billing_address_save_in_address_book']")
+    WebElementFacade saveAdressCheckbox;
+
 
 //--------------------------------------------------Methods for Placing an order----------------------------------------//
 
@@ -117,6 +154,70 @@ public class PlaceOrderAsExistingCustomer extends PageObject{
         JavascriptExecutor jsexecute = (JavascriptExecutor)getDriver();
         jsexecute.executeScript("order.submit()");
         wait.until(ExpectedConditions.urlContains("sales_order/view/order_id"));
+    }
+
+    public void checkSuccessMsg(String message){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(successMsg));
+        if (successMsg.containsText(message)){
+            System.out.println("Success message is present");
+        } else {
+            Assert.fail("Success message is not present");
+        }
+    }
+
+//-------------------------------------Methods for adding a new customer----------------------------------------------//
+
+    public void clickCreateCustomerBtn(){
+        createNewCustomerBtn.click();
+    }
+
+    public void enterEmailToEmailField(String email){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        enterEmailField.click();
+        enterEmailField.sendKeys(email);
+    }
+
+    public void enterFirstName(String firstName){
+        firstnameBillingField.click();
+        firstnameBillingField.sendKeys(firstName);
+    }
+
+    public void enterLastName(String lastname) {
+        lastnameBillingField.click();
+        lastnameBillingField.sendKeys(lastname);
+    }
+
+    public void enterStreet(String street) {
+        streetBillingField.click();
+        streetBillingField.sendKeys(street);
+    }
+
+    public void enterCity(String city) {
+        cityBillingField.click();
+        cityBillingField.sendKeys(city);
+    }
+
+    public void selectRegion(String region) {
+        Select dropdown = new Select(regionBillingDropdown);
+        dropdown.selectByValue(region);
+    }
+
+    public void enterZipcode(String zipcode) {
+        zipcodeBillingField.click();
+        zipcodeBillingField.sendKeys(zipcode);
+    }
+
+    public void enterTelephone(String telephone){
+        telephoneFieldBilling.click();
+        telephoneFieldBilling.sendKeys(telephone);
+    }
+
+    public void saveAddressCheckbox(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(saveAdressCheckbox));
+        saveAdressCheckbox.click();
     }
 
 }
