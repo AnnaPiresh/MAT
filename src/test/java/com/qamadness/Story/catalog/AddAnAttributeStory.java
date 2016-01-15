@@ -31,7 +31,7 @@ public class AddAnAttributeStory {
     @Steps
     AddAnAttributeSteps addAnAttributeSteps;
 
-    @Steps
+    /*@Steps
     SuccessMessagesSteps successMessagesSteps;
 
     @Issue("MAT-34")
@@ -60,5 +60,5 @@ public class AddAnAttributeStory {
         successMessagesSteps.check_success_message("The product attribute has been saved.");
         addAnAttributeSteps.delete_attribute("test_robot_attribute");
         successMessagesSteps.check_success_message("The product attribute has been deleted.");
-    }
+    }*/
 }
