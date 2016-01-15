@@ -1,0 +1,2 @@
+login,password, attributeSet, productType, productDescription, productShortDescription, productSKUType, productSKU, productWeightType, productWeight, productStatus, productVisibility, productName, priceType, productPrice, taxClass, priceView, shipmentType, defaultTitle, selectAction
+admin,3HSYOFf, 4, bundle, Max auto bundle product description,Max auto bundle product short description, 1, 100002, 1, 50, 1, 4, Max auto bundle product, 1, 37, 0, 0, 0, Auto title, delete
