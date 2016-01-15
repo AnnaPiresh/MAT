@@ -1,16 +1,15 @@
 package com.qamadness.Story.admin_user;
 
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.system.permissions.users.CreateNewUserPageSteps;
-import com.qamadness.steps.system.permissions.users.ManageUsersPageSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.LoginPageSteps;
+import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.systemSteps.permissions.users.CreateNewUserPageSteps;
+import com.qamadness.steps.backendSteps.systemSteps.permissions.users.ManageUsersPageSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
-import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +17,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by Alexandra on 1/14/16.
  */
-@RunWith(ThucydidesRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value="src/test/resources/admin_user/CreateAdminUserData.csv")
 public class AdminUserNavigationStory {
 

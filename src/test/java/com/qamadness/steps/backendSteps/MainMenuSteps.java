@@ -33,9 +33,6 @@ public class MainMenuSteps extends ScenarioSteps {
     @Step
     public void open_Manage_Attributes_Page() {mainMenu.openManageAttributesPage(); }
 
-    @Step
-    public void openManageProductsPage () {mainMenu.openManageProductsPage();}
-
     //------------------------------------------Steps for promotions menu-----------------------------//
 
     @Step
@@ -57,6 +54,7 @@ public class MainMenuSteps extends ScenarioSteps {
 
     @Step
     public void openManageCategoriesPage () {mainMenu.openManageCategoriesPage();}
+
     public void open_Manage_Admin_Users_Page (){
         mainMenu.openManageAdminUsersPage();
     }

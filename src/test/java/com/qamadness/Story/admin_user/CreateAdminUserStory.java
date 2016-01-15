@@ -1,10 +1,10 @@
 package com.qamadness.Story.admin_user;
 
-import com.qamadness.steps.DashboardSteps;
-import com.qamadness.steps.LoginPageSteps;
-import com.qamadness.steps.MainMenuSteps;
-import com.qamadness.steps.system.permissions.users.CreateNewUserPageSteps;
-import com.qamadness.steps.system.permissions.users.ManageUsersPageSteps;
+import com.qamadness.steps.backendSteps.LoginPageSteps;
+import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.systemSteps.permissions.users.CreateNewUserPageSteps;
+import com.qamadness.steps.backendSteps.systemSteps.permissions.users.ManageUsersPageSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
@@ -89,6 +89,7 @@ public class CreateAdminUserStory {
         createNewUserPageSteps.fill_First_Name_Field(firstName);
         createNewUserPageSteps.fill_Last_Name_Field(lastName);
         createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
         createNewUserPageSteps.fill_Password_Field(password);
         createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
         createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);

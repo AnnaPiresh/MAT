@@ -42,6 +42,9 @@ public class CreateNewUserPage extends PageObject {
     @FindBy (xpath = "//input[@id='user_email']")
     WebElementFacade emailField;
 
+    @FindBy (xpath = "//input[@id='user_current_password']")
+    WebElementFacade currentAdminPassword;
+
     @FindBy (xpath = "//input[@id='user_password']")
     WebElementFacade passwordField;
 
@@ -104,6 +107,10 @@ public class CreateNewUserPage extends PageObject {
 
     public void fillEmailField (String email){
         emailField.type(email);
+    }
+
+    public void fillCurrentAdminPasswordField (String currentPass){
+        currentAdminPassword.type(currentPass);
     }
 
     public void fillPasswordField (String password){

@@ -1,4 +1,4 @@
-package com.qamadness.steps.system.permissions.users;
+package com.qamadness.steps.backendSteps.systemSteps.permissions.users;
 
 import com.qamadness.pages.system.permissions.users.ManageUsersPage;
 

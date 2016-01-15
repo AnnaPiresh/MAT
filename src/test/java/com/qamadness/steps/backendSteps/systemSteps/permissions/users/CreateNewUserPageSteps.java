@@ -1,4 +1,4 @@
-package com.qamadness.steps.system.permissions.users;
+package com.qamadness.steps.backendSteps.systemSteps.permissions.users;
 
 import com.qamadness.pages.system.permissions.users.CreateNewUserPage;
 import net.thucydides.core.annotations.Step;
@@ -48,6 +48,11 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
     @Step
     public void fill_Email_Field (String email){
         createNewUserPage.fillEmailField(email);
+    }
+
+    @Step
+    public void fill_Current_Admin_Password_Field (String currentPass){
+        createNewUserPage.fillCurrentAdminPasswordField(currentPass);
     }
 
     @Step
