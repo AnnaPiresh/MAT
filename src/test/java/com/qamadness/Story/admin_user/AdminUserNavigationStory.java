@@ -9,6 +9,7 @@ import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +19,11 @@ import org.openqa.selenium.WebDriver;
  * Created by Alexandra on 1/14/16.
  */
 @RunWith(ThucydidesRunner.class)
+@UseTestDataFrom(value="src/test/resources/admin_user/CreateAdminUserData.csv")
 public class AdminUserNavigationStory {
+
+    private String adminLogin;
+    private String adminPassword;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -42,8 +47,8 @@ public class AdminUserNavigationStory {
     @Test
     public void navigationToAdminUsersPage (){
         loginPageSteps.openPage();
-        loginPageSteps.loginInput();
-        loginPageSteps.passInput();
+        loginPageSteps.loginInput(adminLogin);
+        loginPageSteps.passInput(adminPassword);
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Manage_Admin_Users_Page();

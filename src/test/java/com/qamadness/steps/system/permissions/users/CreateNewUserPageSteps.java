@@ -11,7 +11,7 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
 
     CreateNewUserPage createNewUserPage;
 
-    //General verifications:
+    //Verification methods:
 
     @Step
     public void verify_That_Back_Button_Is_Present (){
@@ -26,5 +26,49 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
     @Step
     public void verify_That_Reset_Button_Is_Present (){
         createNewUserPage.verifyThatResetButtonIsPresent();
+    }
+
+    //Fill fields on User Info tab methods:
+
+    @Step
+    public void fill_User_Name_Field (String userName){
+        createNewUserPage.fillUserNameField(userName);
+    }
+
+    @Step
+    public void fill_First_Name_Field (String firstName){
+        createNewUserPage.fillFirstNameField(firstName);
+    }
+
+    @Step
+    public void fill_Last_Name_Field (String lastName){
+        createNewUserPage.fillLastNameField(lastName);
+    }
+
+    @Step
+    public void fill_Email_Field (String email){
+        createNewUserPage.fillEmailField(email);
+    }
+
+    @Step
+    public void fill_Password_Field (String password){
+        createNewUserPage.fillPasswordField(password);
+    }
+
+    @Step
+    public void fill_Password_Confirmation_Field (String passConfirmation){
+        createNewUserPage.fillPasswordConfirmationField(passConfirmation);
+    }
+
+    @Step
+    public void select_Is_Account_Active (String status){
+        createNewUserPage.selectIsAccountActive(status);
+    }
+
+    //Click general buttons methods:
+
+    @Step
+    public void click_Save_User_Button (){
+        createNewUserPage.clickSaveUserButton();
     }
 }

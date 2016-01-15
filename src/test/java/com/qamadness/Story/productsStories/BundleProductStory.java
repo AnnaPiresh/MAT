@@ -36,7 +36,7 @@ public class BundleProductStory {
     @Pending@Test
     public void addingBundleProduct () {
         loginPageSteps.openPage();
-        loginPageSteps.loginInput();
+        loginPageSteps.loginInput("admin");
         loginPageSteps.passInput();
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();

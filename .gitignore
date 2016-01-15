@@ -12,12 +12,8 @@ buildNumber.properties
 /.idea/misc.xml
 /.idea/workspace.xml
 /.idea
-/serenity.properties
-/src/test/resources
 build.gradle
 MAT.iml
-pom.xml
-serenity.properties
 /target
 /target/site
 *.class

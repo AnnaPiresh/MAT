@@ -1,8 +1,13 @@
 package com.qamadness.pages.system.permissions.users;
 
+import junit.framework.Assert;
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Alexandra on 1/14/16.
@@ -75,9 +80,30 @@ public class ManageUsersPage extends PageObject {
     @FindBy (xpath = "//div[@id='messages']//li[span='The role has been successfully saved.']")
     WebElementFacade successSavedRoleMessage;
 
+    //Click general buttons methods:
+
     public void clickAddNewUserButton (){
         addNewUserButton.click();
     }
+
+    //Methods for search in Users grid:
+
+    public void searchByUserEmail (String email){
+        emailField.type(email);
+        searchButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
+        WebElement firstEmailInList = getDriver().findElement(By.xpath(".//*[@id='permissionsUserGrid_table']/tbody/tr[1]/td[5]"));
+        Assert.assertTrue("Correct user is found", firstEmailInList.getText().equals(email));
+    }
+
+    //Verification methods:
+
+    public void checkThatSuccessSavedUserMessageIsDisplayed (){
+        Assert.assertTrue(successSavedUserMessage.isDisplayed());
+    }
+
+
 
 
 }

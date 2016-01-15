@@ -74,7 +74,7 @@ public class CreateNewUserPage extends PageObject {
     @FindBy (xpath = "//tr//input[@class='radio']")
     WebElementFacade selectByRoleNameRadioButtons;
 
-    //General methods:
+    //Verification methods:
 
     public void verifyThatBackButtonIsPresent (){
         Assert.assertTrue("Back button is present", backButton.isDisplayed());
@@ -86,6 +86,42 @@ public class CreateNewUserPage extends PageObject {
 
     public void verifyThatResetButtonIsPresent (){
         Assert.assertTrue("Reset buttn is displayed", resetButton.isDisplayed());
+    }
+
+    //Fill fields on User Info tab methods:
+
+    public void fillUserNameField (String userName){
+        userNameField.type(userName);
+    }
+
+    public void fillFirstNameField (String firstName){
+        firstNameField.type(firstName);
+    }
+
+    public void fillLastNameField (String lastName){
+        lastNameField.type(lastName);
+    }
+
+    public void fillEmailField (String email){
+        emailField.type(email);
+    }
+
+    public void fillPasswordField (String password){
+        passwordField.type(password);
+    }
+
+    public void fillPasswordConfirmationField (String passConfirmation){
+        passwordConfirmationField.type(passConfirmation);
+    }
+
+    public void selectIsAccountActive (String status){
+        thisAccountIsDropDown.selectByVisibleText(status);
+    }
+
+    //Click general buttons methods:
+
+    public void clickSaveUserButton (){
+        saveAdminUserButton.click();
     }
 
 
