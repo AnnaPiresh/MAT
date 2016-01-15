@@ -3,14 +3,15 @@ package com.qamadness.Story.productsStories;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.products.CreateNewProductPageSteps;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.openqa.jetty.util.CachedResource;
 import org.openqa.selenium.WebDriver;
 import com.qamadness.steps.products.ManageProductsPageSteps;
 
@@ -34,7 +35,9 @@ public class VirtualProductStory {
     @Steps
     ManageProductsPageSteps manageProductsPageSteps;
 
-    @Pending
+    @Steps
+    CreateNewProductPageSteps createNewProductPageSteps;
+
     @Test
     public void addingVirtualProduct () {
         loginPageSteps.openPage();
@@ -44,25 +47,25 @@ public class VirtualProductStory {
         dashboardSteps.closePopup();
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
-        manageProductsPageSteps.selectAttributeSet("4");
-        manageProductsPageSteps.selectProductType("virtual");
-        manageProductsPageSteps.continueButton();
-        manageProductsPageSteps.enterName("Max auto virtual product");
-        manageProductsPageSteps.enterProductDescription("Max auto virtual product description");
-        manageProductsPageSteps.enterShortDescription("Max auto virtual product short description");
-        manageProductsPageSteps.enterSKU("100005");
-        manageProductsPageSteps.selectStatus("1");
-        manageProductsPageSteps.selectVisibility("4");
-        manageProductsPageSteps.clearGlobalSearch();
-        manageProductsPageSteps.selectPricesTab();
-        manageProductsPageSteps.enterProductPrice("35");
-        manageProductsPageSteps.selectTaxClass("0");
-        manageProductsPageSteps.clearGlobalSearch();
-        manageProductsPageSteps.selectWebsitesTab();
-        manageProductsPageSteps.selectMainWebsite();
-        manageProductsPageSteps.selectCategoriesTab();
-        manageProductsPageSteps.selectFirstCategory();
-        manageProductsPageSteps.saveProduct();
+        createNewProductPageSteps.selectAttributeSet("4");
+        createNewProductPageSteps.selectProductType("virtual");
+        createNewProductPageSteps.continueButton();
+        createNewProductPageSteps.enterName("Max auto virtual product");
+        createNewProductPageSteps.enterProductDescription("Max auto virtual product description");
+        createNewProductPageSteps.enterShortDescription("Max auto virtual product short description");
+        createNewProductPageSteps.enterSKU("100005");
+        createNewProductPageSteps.selectStatus("1");
+        createNewProductPageSteps.selectVisibility("4");
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectPricesTab();
+        createNewProductPageSteps.enterProductPrice("35");
+        createNewProductPageSteps.selectTaxClass("0");
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectWebsitesTab();
+        createNewProductPageSteps.selectMainWebsite();
+        createNewProductPageSteps.selectCategoriesTab();
+        createNewProductPageSteps.selectFirstCategory();
+        createNewProductPageSteps.saveProduct();
         manageProductsPageSteps.searchBySku("100005");
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();

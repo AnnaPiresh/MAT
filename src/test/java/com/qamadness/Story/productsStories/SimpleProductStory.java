@@ -3,8 +3,8 @@ package com.qamadness.Story.productsStories;
 import com.qamadness.steps.DashboardSteps;
 import com.qamadness.steps.LoginPageSteps;
 import com.qamadness.steps.MainMenuSteps;
+import com.qamadness.steps.products.CreateNewProductPageSteps;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;
@@ -49,31 +49,33 @@ public class SimpleProductStory {
     @Steps
     ManageProductsPageSteps manageProductsPageSteps;
 
-    @Pending
+    @Steps
+    CreateNewProductPageSteps createNewProductPageSteps;
+
     @Test
     public void addingSimpleProduct () {
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
-        manageProductsPageSteps.selectAttributeSet("4");
-        manageProductsPageSteps.selectProductType("simple");
-        manageProductsPageSteps.continueButton();
-        manageProductsPageSteps.enterName("Max auto product");
-        manageProductsPageSteps.enterProductDescription("Max auto product description");
-        manageProductsPageSteps.enterShortDescription("Max auto product short description");
-        manageProductsPageSteps.enterSKU("100001");
-        manageProductsPageSteps.enterWeight("18");
-        manageProductsPageSteps.selectStatus("1");
-        manageProductsPageSteps.selectVisibility("4");
-        manageProductsPageSteps.clearGlobalSearch();
-        manageProductsPageSteps.selectPricesTab();
-        manageProductsPageSteps.enterProductPrice("21");
-        manageProductsPageSteps.selectTaxClass("0");
-        manageProductsPageSteps.clearGlobalSearch();
-        manageProductsPageSteps.selectWebsitesTab();
-        manageProductsPageSteps.selectMainWebsite();
-        manageProductsPageSteps.selectCategoriesTab();
-        manageProductsPageSteps.selectFirstCategory();
-        manageProductsPageSteps.saveProduct();
+        createNewProductPageSteps.selectAttributeSet("4");
+        createNewProductPageSteps.selectProductType("simple");
+        createNewProductPageSteps.continueButton();
+        createNewProductPageSteps.enterName("Max auto product");
+        createNewProductPageSteps.enterProductDescription("Max auto product description");
+        createNewProductPageSteps.enterShortDescription("Max auto product short description");
+        createNewProductPageSteps.enterSKU("100001");
+        createNewProductPageSteps.enterWeight("18");
+        createNewProductPageSteps.selectStatus("1");
+        createNewProductPageSteps.selectVisibility("4");
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectPricesTab();
+        createNewProductPageSteps.enterProductPrice("21");
+        createNewProductPageSteps.selectTaxClass("0");
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectWebsitesTab();
+        createNewProductPageSteps.selectMainWebsite();
+        createNewProductPageSteps.selectCategoriesTab();
+        createNewProductPageSteps.selectFirstCategory();
+        createNewProductPageSteps.saveProduct();
         manageProductsPageSteps.searchBySku("100001");
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
