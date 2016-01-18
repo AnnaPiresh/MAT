@@ -20,7 +20,7 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageP
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 //@RunWith(ThucydidesRunner.class)
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value="src/test/resources/BundleProductData.csv")
+@UseTestDataFrom(value="src/test/resources/catalog/ManageProducts/BundleProductData.csv")
 public class BundleProductStory {
 
     private String login;

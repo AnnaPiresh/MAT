@@ -4,6 +4,7 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
@@ -18,12 +19,24 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageP
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(ThucydidesRunner.class)
-@UseTestDataFrom(value="src/test/resources/ConfigurableProductData.cvs")
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/catalog/ManageProducts/ConfigurableProductData.csv")
 public class ConfigurableProductStory {
 
     private String login;
     private String password;
+    private String attributeSet;
+    private String productType;
+    private String productDescription;
+    private String productShortDescription;
+    private String productSKU;
+    private String productWeightType;
+    private String productStatus;
+    private String productVisibility;
+    private String productName;
+    private String productPrice;
+    private String taxClass;
+    private String selectAction;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -43,7 +56,7 @@ public class ConfigurableProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    @Pending
+    //@Pending
     @Test
     public void addingConfigurableProduct () {
         loginPageSteps.openPage();
@@ -53,21 +66,21 @@ public class ConfigurableProductStory {
         dashboardSteps.closePopup();
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
-        createNewProductPageSteps.selectAttributeSet("4");
-        createNewProductPageSteps.selectProductType("configurable");
+        createNewProductPageSteps.selectAttributeSet(attributeSet);
+        createNewProductPageSteps.selectProductType(productType);
         createNewProductPageSteps.continueButton();
         createNewProductPageSteps.selectConfigurableAttribute();
         createNewProductPageSteps.continueButton();
-        createNewProductPageSteps.enterName("Max configurable auto product");
-        createNewProductPageSteps.enterProductDescription("Max auto configurable product description");
-        createNewProductPageSteps.enterShortDescription("Max auto configurable product short description");
-        createNewProductPageSteps.enterSKU("100005");
-        createNewProductPageSteps.selectStatus("1");
-        createNewProductPageSteps.selectVisibility("4");
+        createNewProductPageSteps.enterName(productName);
+        createNewProductPageSteps.enterProductDescription(productDescription);
+        createNewProductPageSteps.enterShortDescription(productShortDescription);
+        createNewProductPageSteps.enterSKU(productSKU);
+        createNewProductPageSteps.selectStatus(productStatus);
+        createNewProductPageSteps.selectVisibility(productVisibility);
         createNewProductPageSteps.clearGlobalSearch();
         createNewProductPageSteps.selectPricesTab();
-        createNewProductPageSteps.enterProductPrice("21");
-        createNewProductPageSteps.selectTaxClass("0");
+        createNewProductPageSteps.enterProductPrice(productPrice);
+        createNewProductPageSteps.selectTaxClass(taxClass);
         createNewProductPageSteps.clearGlobalSearch();
         createNewProductPageSteps.selectWebsitesTab();
         createNewProductPageSteps.selectMainWebsite();
@@ -77,10 +90,10 @@ public class ConfigurableProductStory {
         createNewProductPageSteps.checkFirstConfigurableAssociatedProduct();
         createNewProductPageSteps.checkSecondConfigurableAssociatedProduct();
         createNewProductPageSteps.saveProduct();
-        manageProductsPageSteps.searchBySku("100005");
+        manageProductsPageSteps.searchBySku(productSKU);
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
-        manageProductsPageSteps.selectAction("delete");
+        manageProductsPageSteps.selectAction(selectAction);
         manageProductsPageSteps.submitAction();
         manageProductsPageSteps.deletionApproveAlert();
         //loginPageSteps.delay();

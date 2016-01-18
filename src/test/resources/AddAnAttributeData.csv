@@ -1,0 +1,2 @@
+Login, password ,attrCode,scope,inptype,products,type,title,firstOption,secondOption,successSaveMessage,successDeleteMessage
+admin,3HSYOFf,test_robot_attribute,2,select,1,simple,test_robot,Bender,Terminator,The product attribute has been saved.,The product attribute has been deleted.
