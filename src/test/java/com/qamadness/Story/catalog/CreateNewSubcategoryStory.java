@@ -8,6 +8,7 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageCategoriesSteps.ManageCategoriesPageSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
@@ -22,8 +23,8 @@ import org.openqa.selenium.WebDriver;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(ThucydidesRunner.class)
-@UseTestDataFrom(value="src/test/resources/CreateNewSubcategoryData.csv")
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/catalog/ManageCategories/CreateNewSubcategoryData.csv")
 public class CreateNewSubcategoryStory {
 
     private String login;
@@ -58,7 +59,8 @@ public class CreateNewSubcategoryStory {
     @Steps
     ManageCategoriesPageSteps manageCategoriesPageSteps;
 
-    @Pending@Test
+    //@Pending
+    @Test
     public void creatingNewSubcategory (){
         /*loginPageSteps.openPage();
         loginPageSteps.loginInput();
@@ -66,7 +68,7 @@ public class CreateNewSubcategoryStory {
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();*/
         mainMenuSteps.openManageCategoriesPage();
-        manageCategoriesPageSteps.addNewSubCategory();
+        //manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.enterCategoryName("Max auto category name");
         manageCategoriesPageSteps.selectCategoryActivity("1");
         manageCategoriesPageSteps.selectIncludingInNavigationMenu("1");

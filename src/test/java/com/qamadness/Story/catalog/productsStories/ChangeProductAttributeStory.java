@@ -4,11 +4,10 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
-import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,12 +17,28 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageP
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(ThucydidesRunner.class)
-@UseTestDataFrom(value="src/test/resources/ChageProductAttributeData.csv")
-public class ChageProductAttributeStory {
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/catalog/ManageProducts/ChangeProductAttributeData.csv", separator=';')
+public class ChangeProductAttributeStory {
 
     private String login;
     private String password;
+    private String attributeSet;
+    private String productType;
+    private String productDescription;
+    private String shortDescription;
+    private String SKU;
+    private String weight;
+    private String status;
+    private String visibility;
+    private String name;
+    private String price;
+    private String taxClass;
+    private String actionAtributes;
+    private String newName;
+    private String updatedName;
+    private String actionDelete;
+
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -43,7 +58,7 @@ public class ChageProductAttributeStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    @Pending
+    //@Pending
     @Test
     public void changingProductAttribute () {
         loginPageSteps.openPage();
@@ -53,36 +68,36 @@ public class ChageProductAttributeStory {
         dashboardSteps.closePopup();
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
-        createNewProductPageSteps.selectAttributeSet("4");
-        createNewProductPageSteps.selectProductType("simple");
+        createNewProductPageSteps.selectAttributeSet(attributeSet);
+        createNewProductPageSteps.selectProductType(productType);
         createNewProductPageSteps.continueButton();
-        createNewProductPageSteps.enterProductDescription("Max auto product description");
-        createNewProductPageSteps.enterShortDescription("Max auto product short description");
-        createNewProductPageSteps.enterSKU("100001");
-        createNewProductPageSteps.enterWeight("18");
-        createNewProductPageSteps.selectStatus("1");
-        createNewProductPageSteps.selectVisibility("4");
-        createNewProductPageSteps.enterName("Max auto product");
+        createNewProductPageSteps.enterProductDescription(productDescription);
+        createNewProductPageSteps.enterShortDescription(shortDescription);
+        createNewProductPageSteps.enterSKU(SKU);
+        createNewProductPageSteps.enterWeight(weight);
+        createNewProductPageSteps.selectStatus(status);
+        createNewProductPageSteps.selectVisibility(visibility);
+        createNewProductPageSteps.enterName(name);
         createNewProductPageSteps.clearGlobalSearch();
         createNewProductPageSteps.selectPricesTab();
-        createNewProductPageSteps.enterProductPrice("21");
-        createNewProductPageSteps.selectTaxClass("0");
+        createNewProductPageSteps.enterProductPrice(price);
+        createNewProductPageSteps.selectTaxClass(taxClass);
         createNewProductPageSteps.clearGlobalSearch();
         createNewProductPageSteps.selectWebsitesTab();
         createNewProductPageSteps.selectMainWebsite();
         createNewProductPageSteps.selectCategoriesTab();
         createNewProductPageSteps.selectFirstCategory();
         createNewProductPageSteps.saveProduct();
-        manageProductsPageSteps.searchBySku("100001");
+        manageProductsPageSteps.searchBySku(SKU);
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
-        manageProductsPageSteps.selectAction("attributes");
+        manageProductsPageSteps.selectAction(actionAtributes);
         manageProductsPageSteps.submitActionn();
         manageProductsPageSteps.updateProductNameCheckboxClick();
-        createNewProductPageSteps.enterName("New Max auto product name");
+        createNewProductPageSteps.enterName(newName);
         createNewProductPageSteps.saveProduct();
-        manageProductsPageSteps.checkNameUpdated("//*[contains(text(), 'New Max auto product name')]");
-        manageProductsPageSteps.selectAction("delete");
+        manageProductsPageSteps.checkNameUpdated(updatedName);
+        manageProductsPageSteps.selectAction(actionDelete);
         manageProductsPageSteps.submitAction();
         manageProductsPageSteps.deletionApproveAlert();
     }

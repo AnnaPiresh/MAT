@@ -4,6 +4,7 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
@@ -17,8 +18,8 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageP
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(ThucydidesRunner.class)
-@UseTestDataFrom(value="src/test/resources/testClassData.csv")
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/catalog/ManageProducts/testClassData.csv")
 public class testClass {
 
     private String login;
@@ -56,7 +57,7 @@ public class testClass {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    @Pending
+    //@Pending
     @Test
     public void addingSimpleProduct () {
 

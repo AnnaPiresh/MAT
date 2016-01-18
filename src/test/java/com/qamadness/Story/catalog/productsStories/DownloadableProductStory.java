@@ -4,6 +4,7 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
@@ -18,12 +19,26 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageP
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(ThucydidesRunner.class)
-@UseTestDataFrom(value="src/test/resources/DownloadableProductData.csv")
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/catalog/ManageProducts/DownloadableProductData.csv")
 public class DownloadableProductStory {
 
     private String login;
     private String password;
+    private String attributeSet;
+    private String productType;
+    private String productDescription;
+    private String productShortDescription;
+    private String productSKU;
+    private String productStatus;
+    private String productVisibility;
+    private String productName;
+    private String productPrice;
+    private String taxClass;
+    private String selectAction;
+    private String downloadableLinkName;
+    private String sampleURL;
+    private String fileURL;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -43,7 +58,7 @@ public class DownloadableProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    @Pending
+    //@Pending
     @Test
     public void addingDownloadableProduct () {
         loginPageSteps.openPage();
@@ -53,19 +68,19 @@ public class DownloadableProductStory {
         dashboardSteps.closePopup();
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
-        createNewProductPageSteps.selectAttributeSet("4");
-        createNewProductPageSteps.selectProductType("downloadable");
+        createNewProductPageSteps.selectAttributeSet(attributeSet);
+        createNewProductPageSteps.selectProductType(productType);
         createNewProductPageSteps.continueButton();
-        createNewProductPageSteps.enterName("Max auto downloadable product");
-        createNewProductPageSteps.enterProductDescription("Max auto downloadable product description");
-        createNewProductPageSteps.enterShortDescription("Max auto downloadable product short description");
-        createNewProductPageSteps.enterSKU("100007");
-        createNewProductPageSteps.selectStatus("1");
-        createNewProductPageSteps.selectVisibility("4");
+        createNewProductPageSteps.enterName(productDescription);
+        createNewProductPageSteps.enterProductDescription(productShortDescription);
+        createNewProductPageSteps.enterShortDescription(productShortDescription);
+        createNewProductPageSteps.enterSKU(productSKU);
+        createNewProductPageSteps.selectStatus(productStatus);
+        createNewProductPageSteps.selectVisibility(productVisibility);
         createNewProductPageSteps.clearGlobalSearch();
         createNewProductPageSteps.selectPricesTab();
-        createNewProductPageSteps.enterProductPrice("173");
-        createNewProductPageSteps.selectTaxClass("0");
+        createNewProductPageSteps.enterProductPrice(productPrice);
+        createNewProductPageSteps.selectTaxClass(taxClass);
         createNewProductPageSteps.clearGlobalSearch();
         createNewProductPageSteps.selectWebsitesTab();
         createNewProductPageSteps.selectMainWebsite();
@@ -73,16 +88,16 @@ public class DownloadableProductStory {
         createNewProductPageSteps.selectFirstCategory();
         createNewProductPageSteps.selectDownloadableInformationTab();
         createNewProductPageSteps.addNewRow();
-        createNewProductPageSteps.enterDownloadableLinkName("Link name");
+        createNewProductPageSteps.enterDownloadableLinkName(downloadableLinkName);
         createNewProductPageSteps.sampleSelectURL();
-        createNewProductPageSteps.enterSampleURL("http://cs623727.vk.me/v623727867/489f6/xGaqvPMZXOc.jpg");
+        createNewProductPageSteps.enterSampleURL(sampleURL);
         createNewProductPageSteps.fileSelectURL();
-        createNewProductPageSteps.enterFileURL("http://cs623727.vk.me/v623727867/489f6/xGaqvPMZXOc.jpg");
+        createNewProductPageSteps.enterFileURL(fileURL);
         createNewProductPageSteps.saveProduct();
-        manageProductsPageSteps.searchBySku("100007");
+        manageProductsPageSteps.searchBySku(productSKU);
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
-        manageProductsPageSteps.selectAction("delete");
+        manageProductsPageSteps.selectAction(selectAction);
         manageProductsPageSteps.submitAction();
         manageProductsPageSteps.deletionApproveAlert();
         //loginPageSteps.delay();
