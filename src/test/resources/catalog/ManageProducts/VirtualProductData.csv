@@ -1,0 +1,2 @@
+login,password, attributeSet, productType, productDescription, productShortDescription, productSKU, productStatus, productVisibility, productName, productPrice, taxClass, selectAction
+admin,3HSYOFf, 4, virtual, Max auto virtual product description,Max auto virtual product short description, 100005, 1, 4, Max auto virtual product, 17, 0, delete

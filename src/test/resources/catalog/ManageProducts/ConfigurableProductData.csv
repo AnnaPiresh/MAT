@@ -1,0 +1,2 @@
+login,password, attributeSet, productType, productDescription, productShortDescription, productSKU, productStatus, productVisibility, productName, productPrice, taxClass, selectAction
+admin,3HSYOFf, 4, configurable, Max auto configurable product description,Max auto configurable product short description, 100005, 1, 4, Max auto configurable product, 95, 0, delete

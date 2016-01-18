@@ -1,0 +1,2 @@
+login;password;attributeSet;productType;productDescription;shortDescription;SKU;weight;status;visibility;name;price;taxClass;actionAtributes;newName;updatedName;actionDelete
+admin;3HSYOFf;4;simple;Max auto product description;Max auto product short description;100001;18;1;4;Max auto product;21;0;attributes;New Max Auto Product Name;//*[contains(text(), 'New Max Auto Product Name')];delete

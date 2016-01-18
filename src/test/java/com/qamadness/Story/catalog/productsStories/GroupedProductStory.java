@@ -4,6 +4,7 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
@@ -18,12 +19,21 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageP
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(ThucydidesRunner.class)
-@UseTestDataFrom(value="src/test/resources/GroupedProductData.csv")
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/catalog/ManageProducts/GroupedProductData.csv")
 public class GroupedProductStory {
 
     private String login;
     private String password;
+    private String attributeSet;
+    private String productType;
+    private String productDescription;
+    private String productShortDescription;
+    private String productSKU;
+    private String productStatus;
+    private String productVisibility;
+    private String productName;
+    private String selectAction;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -43,7 +53,7 @@ public class GroupedProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    @Pending
+    //@Pending
     @Test
     public void addingGroupedProduct () {
         loginPageSteps.openPage();
@@ -53,15 +63,15 @@ public class GroupedProductStory {
         dashboardSteps.closePopup();
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
-        createNewProductPageSteps.selectAttributeSet("4");
-        createNewProductPageSteps.selectProductType("grouped");
+        createNewProductPageSteps.selectAttributeSet(attributeSet);
+        createNewProductPageSteps.selectProductType(productType);
         createNewProductPageSteps.continueButton();
-        createNewProductPageSteps.enterName("Max auto grouped product");
-        createNewProductPageSteps.enterProductDescription("Max auto grouped product description");
-        createNewProductPageSteps.enterShortDescription("Max auto grouped product short description");
-        createNewProductPageSteps.enterSKU("100006");
-        createNewProductPageSteps.selectStatus("1");
-        createNewProductPageSteps.selectVisibility("4");
+        createNewProductPageSteps.enterName(productName);
+        createNewProductPageSteps.enterProductDescription(productDescription);
+        createNewProductPageSteps.enterShortDescription(productShortDescription);
+        createNewProductPageSteps.enterSKU(productSKU);
+        createNewProductPageSteps.selectStatus(productStatus);
+        createNewProductPageSteps.selectVisibility(productVisibility);
         createNewProductPageSteps.clearGlobalSearch();
         /*manageProductsPageSteps.selectPricesTab();
         manageProductsPageSteps.enterProductPrice("0.17");
@@ -75,10 +85,10 @@ public class GroupedProductStory {
         createNewProductPageSteps.checkFirstGroupAssociatedProduct();
         createNewProductPageSteps.checkSecondGroupAssociatedProduct();
         createNewProductPageSteps.saveProduct();
-        manageProductsPageSteps.searchBySku("100006");
+        manageProductsPageSteps.searchBySku(productSKU);
         manageProductsPageSteps.searchButton();
         manageProductsPageSteps.checkProduct();
-        manageProductsPageSteps.selectAction("delete");
+        manageProductsPageSteps.selectAction(selectAction);
         manageProductsPageSteps.submitAction();
         manageProductsPageSteps.deletionApproveAlert();
         //loginPageSteps.delay();
