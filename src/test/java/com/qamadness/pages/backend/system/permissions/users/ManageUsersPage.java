@@ -1,4 +1,4 @@
-package com.qamadness.pages.system.permissions.users;
+package com.qamadness.pages.backend.system.permissions.users;
 
 import junit.framework.Assert;
 import net.serenitybdd.core.annotations.findby.By;
@@ -45,6 +45,9 @@ public class ManageUsersPage extends PageObject {
     @FindBy (xpath = "//input[@name='email']")
     WebElementFacade emailField;
 
+    @FindBy (xpath = ".//*[@id='permissionsUserGrid_table']/tbody/tr/td[@class='empty-text a-center']")
+    WebElementFacade noRecordsFoundResult;
+
     //Messages:
 
     @FindBy (xpath = "//li[normalize-space(@class)='error-msg' and contains(.,'You cannot delete your own account.')]")
@@ -88,7 +91,20 @@ public class ManageUsersPage extends PageObject {
 
     //Methods for search in Users grid:
 
-    public void searchByUserEmail (String email){
+
+    public void findUserAndOpen (String email){
+        emailField.type(email);
+        searchButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
+        WebElement firstEmailInList = getDriver().findElement(By.xpath(".//*[@id='permissionsUserGrid_table']/tbody/tr[1]/td[5]"));
+        firstEmailInList.click();
+    }
+
+
+    //Verification methods:
+
+    public void checkThatUserIsCreated (String email){
         emailField.type(email);
         searchButton.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
@@ -97,13 +113,29 @@ public class ManageUsersPage extends PageObject {
         Assert.assertTrue("Correct user is found", firstEmailInList.getText().equals(email));
     }
 
-    //Verification methods:
-
     public void checkThatSuccessSavedUserMessageIsDisplayed (){
         Assert.assertTrue(successSavedUserMessage.isDisplayed());
     }
 
+    public void checkThatExistEmailOrNameErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorExistEmailOrName.isDisplayed());
+    }
 
+    public void checkByEmailThatUserIsNotCreated (String email){
+        emailField.type(email);
+        searchButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
+        Assert.assertTrue("User with such email wasn't found", noRecordsFoundResult.isDisplayed());
+    }
+
+    public void checkByUserNameThatUserIsNotCreated (String name){
+        userNameField.type(name);
+        searchButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
+        Assert.assertTrue("User with such email wasn't found", noRecordsFoundResult.isDisplayed());
+    }
 
 
 }

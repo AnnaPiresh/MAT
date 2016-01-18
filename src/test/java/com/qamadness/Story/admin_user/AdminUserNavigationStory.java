@@ -8,6 +8,7 @@ import com.qamadness.steps.backendSteps.systemSteps.permissions.users.ManageUser
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Test;
@@ -43,7 +44,7 @@ public class AdminUserNavigationStory {
     CreateNewUserPageSteps createNewUserPageSteps;
 
     @Issue("MAT-43")
-    @Test
+    @Pending @Test
     public void navigationToAdminUsersPage (){
         loginPageSteps.openPage();
         loginPageSteps.loginInput(adminLogin);

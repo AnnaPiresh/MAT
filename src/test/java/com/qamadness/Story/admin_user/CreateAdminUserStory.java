@@ -8,8 +8,11 @@ import com.qamadness.steps.backendSteps.systemSteps.permissions.users.ManageUser
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +36,7 @@ public class CreateAdminUserStory {
     private String firstName;
     private String lastName;
     private String email;
+    private String email2;
     private String password;
     private String passwordConfirmation;
     private String thisAccountIsInactive;
@@ -82,7 +86,7 @@ public class CreateAdminUserStory {
     //Test case "Create Admin User (all required fields are filled)":
 
     @Issue("MAT-44")
-    @Test
+    @Pending @Test
     public void createAdminWithRequiredFieldsOnly (){
         manageUsersPageSteps.click_Add_New_User_Button();
         createNewUserPageSteps.fill_User_Name_Field(userName);
@@ -95,6 +99,41 @@ public class CreateAdminUserStory {
         createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
         createNewUserPageSteps.click_Save_User_Button();
         manageUsersPageSteps.check_That_Success_Saved_User_Message_Is_Displayed();
-        manageUsersPageSteps.search_By_User_Email(email);
+        manageUsersPageSteps.check_That_User_Is_Created(email);
     }
+
+    @Issue("MAT-45")
+    @Pending @Test
+    public void createAdminWithUserNameThatAlreadyExist (){
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email2);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        manageUsersPageSteps.check_That_Exist_Email_Or_Name_Error_Is_Displayed();
+        createNewUserPageSteps.click_Back_Button();
+        manageUsersPageSteps.check_By_Email_That_User_Is_Not_Created(email2);
+    }
+
+    @After
+    public void removeCreatedAccount (){
+        manageUsersPageSteps.find_User_By_Email_And_Open(email);
+        createNewUserPageSteps.click_Delete_Button_And_Confirm();
+    }
+
 }

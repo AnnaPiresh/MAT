@@ -99,7 +99,7 @@ public class testClass {
 
     }
 
-    @Test
+    @Pending @Test
     public void changingProductAttribute () {
 
         loginPageSteps.openPage();
