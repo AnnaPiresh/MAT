@@ -1,4 +1,4 @@
-package com.qamadness.pages.system.permissions.roles;
+package com.qamadness.pages.backend.system.permissions.roles;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;

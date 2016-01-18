@@ -68,7 +68,7 @@ public class ManageOrdersStory {
     }
 
     @Issue("MAT-12")
-    //@Pending
+    @Pending
     @Test
     public void check_that_user_can_change_qty_of_orders_displayed_per_page(){
         manageOrdersSteps.can_user_change_qty_of_orders(value);
@@ -77,7 +77,7 @@ public class ManageOrdersStory {
     }
 
     @Issue("MAT-13")
-    //@Pending
+    @Pending
     @Test
     public void check_that_user_can_navigate_between_orders_using_arrows() {
         manageOrdersSteps.switch_to_next_orders_page();
@@ -93,7 +93,7 @@ public class ManageOrdersStory {
     }
 
     @Issue("MAT-15")
-    //@Pending
+    @Pending
     @Test
     public void can_user_filter_orders_by_id (){
         manageOrdersSteps.filter_orders_in_grid(orderID);
@@ -102,7 +102,7 @@ public class ManageOrdersStory {
     }
 
     @Issue("MAT-16")
-    //@Pending
+    @Pending
     @Test
     public void can_user_sort_orders_by_id(){
         manageOrdersSteps.change_sort_order_by_id();
@@ -110,7 +110,7 @@ public class ManageOrdersStory {
     }
 
     @Issue("MAT-19")
-    //@Pending
+    @Pending
     @Test
     public void can_user_cancel_order_from_admin(){
         manageOrdersSteps.see_orders_in_pending_status(status);

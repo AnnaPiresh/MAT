@@ -1,6 +1,6 @@
 package com.qamadness.steps.backendSteps.systemSteps.permissions.users;
 
-import com.qamadness.pages.system.permissions.users.CreateNewUserPage;
+import com.qamadness.pages.backend.system.permissions.users.CreateNewUserPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -75,5 +75,15 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
     @Step
     public void click_Save_User_Button (){
         createNewUserPage.clickSaveUserButton();
+    }
+
+    @Step
+    public void click_Back_Button (){
+        createNewUserPage.clickBackButton();
+    }
+
+    @Step
+    public void click_Delete_Button_And_Confirm (){
+        createNewUserPage.clickDeleteButtonAndConfirm();
     }
 }

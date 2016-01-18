@@ -1,4 +1,4 @@
-package com.qamadness.pages.system.permissions.users;
+package com.qamadness.pages.backend.system.permissions.users;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -24,6 +24,9 @@ public class CreateNewUserPage extends PageObject {
 
     @FindBy (xpath = "//button[span='Save User']")
     WebElementFacade saveAdminUserButton;
+
+    @FindBy (xpath = "//button[span='Delete User']")
+    WebElementFacade deleteUserButton;
 
     //User Info tab:
 
@@ -131,5 +134,13 @@ public class CreateNewUserPage extends PageObject {
         saveAdminUserButton.click();
     }
 
+    public void clickBackButton (){
+        backButton.click();
+    }
+
+    public void clickDeleteButtonAndConfirm (){
+        deleteUserButton.click();
+        getDriver().switchTo().alert().accept();
+    }
 
 }
