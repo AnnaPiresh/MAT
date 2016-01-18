@@ -4,6 +4,7 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.systemSteps.CacheManagementSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
@@ -21,13 +22,18 @@ import org.openqa.selenium.WebDriver;
  * Created by Serhii_Boiko on 15.01.2016.
  */
 
-@RunWith(ThucydidesRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@UseTestDataFrom(value="src/test/resources/CacheManagementData.cvs")
+@UseTestDataFrom(value="src/test/resources/CacheManagementData.csv")
 public class CacheManagementStory {
 
     private String login;
     private String password;
+    private String flushCachesMessage;
+    private String cachesActionEnable;
+    private String cachesActionDisable;
+    private String successEnableMessage;
+    private String successDisableMessage;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -62,7 +68,7 @@ public class CacheManagementStory {
     @Test
     public void flush_magento_caches_from_admin(){
         cacheManagementSteps.click_flush_cache_btn();
-        cacheManagementSteps.check_success_message("The Magento cache storage has been flushed.");
+        cacheManagementSteps.check_success_message(flushCachesMessage);
     }
 
     @Issue("MAT-37")
@@ -70,12 +76,12 @@ public class CacheManagementStory {
     @Test
     public void disable_magento_caching_from_admin(){
         cacheManagementSteps.select_all_caches();
-        cacheManagementSteps.choose_value_from_actions_dropdown("disable");
+        cacheManagementSteps.choose_value_from_actions_dropdown(cachesActionDisable);
         cacheManagementSteps.click_submit_btn();
-        cacheManagementSteps.check_success_message("cache type(s) disabled.");
+        cacheManagementSteps.check_success_message(successDisableMessage);
         cacheManagementSteps.select_all_caches();
-        cacheManagementSteps.choose_value_from_actions_dropdown("enable");
+        cacheManagementSteps.choose_value_from_actions_dropdown(cachesActionEnable);
         cacheManagementSteps.click_submit_btn();
-        cacheManagementSteps.check_success_message("cache type(s) enabled.");
+        cacheManagementSteps.check_success_message(successEnableMessage);
     }
 }

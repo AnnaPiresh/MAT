@@ -34,7 +34,6 @@ public class CreateAnOrderStory {
 
     private String login;
     private String password;
-
     private String emailExisting;
     private String productID;
     private String emailNew;

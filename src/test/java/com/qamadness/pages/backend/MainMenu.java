@@ -33,6 +33,9 @@ public class MainMenu extends PageObject {
     @FindBy(xpath = ".//*[@id='nav']/li[3]/ul/li[3]/ul/li[1]/a/span")
     WebElementFacade manageAttributesMenuItem;
 
+    @FindBy(xpath = ".//*[@id='nav']/li[3]/ul/li[3]/ul/li[2]/a/span")
+    WebElementFacade manageAttributeSetsMenuItem;
+
     @FindBy(xpath = ".//*[@id='nav']/li[3]/ul/li[2]/a/span")
     WebElementFacade manageCategoriesMenu;
 
@@ -109,6 +112,15 @@ public class MainMenu extends PageObject {
         attributesMenuItem.click();
         wait.until(ExpectedConditions.elementToBeClickable(manageAttributesMenuItem));
         manageAttributesMenuItem.click();
+    }
+
+    public void openManageAttributeSetsPage(){
+        catalogMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(attributesMenuItem));
+        attributesMenuItem.click();
+        wait.until(ExpectedConditions.elementToBeClickable(manageAttributeSetsMenuItem));
+        manageAttributeSetsMenuItem.click();
     }
 
     public void openManageProductsPage () {

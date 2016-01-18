@@ -1,0 +1,2 @@
+login,password,ruleId,status,website,customerGroups,conditionCatalogue,conditionShoppingCart,equalty,value,applyValue,discount,successSavingMessage,successDeletionMessage,couponCode,couponType
+admin,3HSYOFf,test robot rule,1,1,0124,catalogrule/rule_condition_product|price,salesrule/rule_condition_address|base_subtotal,>=,100,by_fixed,10,The rule has been saved.,The rule has been deleted.,test_robot_code,2
