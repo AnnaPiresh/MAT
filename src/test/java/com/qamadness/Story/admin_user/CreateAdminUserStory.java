@@ -40,6 +40,7 @@ public class CreateAdminUserStory {
     private String lastName;
     private String email;
     private String email2;
+    private String invalidEmail;
     private String password;
     private String passwordConfirmation;
     private String thisAccountIsInactive;
@@ -279,4 +280,24 @@ public class CreateAdminUserStory {
         manageUsersPageSteps.check_By_User_Name_That_User_Is_Not_Created(userName);
     }
 
+    //Test case "Create Admin User (with invalid data in the 'email' field)":
+
+    @Issue("MAT-51")
+    @Pending @Test
+    public void createAdminUserWithInvalidEmail(){
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(invalidEmail);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
+        createNewUserPageSteps.verify_That_Invalid_Email_Message_Is_Displayed();
+        createNewUserPageSteps.click_Back_Button();
+        manageUsersPageSteps.check_By_User_Name_That_User_Is_Not_Created(userName);
+    }
 }
