@@ -96,6 +96,15 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.check_required_field_message(requiredMessage);
     }
 
-
+    @Issue("MAT-70")
+    @Pending
+    @Test
+    public void create_attribute_set_with_long_name(){
+        String longName = new String(new char[52]).replace("\0", "Test ");
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(longName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
+    }
 
 }

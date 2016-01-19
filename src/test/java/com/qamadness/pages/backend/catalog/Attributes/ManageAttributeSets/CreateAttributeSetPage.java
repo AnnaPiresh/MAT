@@ -3,6 +3,7 @@ package com.qamadness.pages.backend.catalog.Attributes.ManageAttributeSets;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -76,8 +77,6 @@ public class CreateAttributeSetPage extends PageObject{
             Assert.fail("Error message is incorrect");
         }
     }
-
-
 
 
 }
