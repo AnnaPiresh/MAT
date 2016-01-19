@@ -17,6 +17,9 @@ public class ManageCategoriesPageSteps extends PageObject {
     @Step
     public void enterCategoryName (String name) { manageCategoriesPage.enterCategoryName(name);}
 
+    /*@Step
+    public void clearCategoryName () { manageCategoriesPage.clearCategoryName();}*/
+
     @Step
     public void selectCategoryActivity (String value) { manageCategoriesPage.selectCategoryActivity(value);}
 
@@ -28,4 +31,16 @@ public class ManageCategoriesPageSteps extends PageObject {
 
     @Step
     public void checkCategorySaved () { manageCategoriesPage.checkCategorySaved();}
+
+    @Step
+    public void addNewRootCategory () { manageCategoriesPage.addNewRootCategory();}
+
+    @Step
+    public void selectCategoryByName (String name) {manageCategoriesPage.selectCategoryByName(name);}
+
+    @Step
+    public void checkSuccessMessage () {manageCategoriesPage.checkSuccessMessage();}
+
+    @Step
+    public void deleteCategory () {manageCategoriesPage.deleteCategory();}
 }

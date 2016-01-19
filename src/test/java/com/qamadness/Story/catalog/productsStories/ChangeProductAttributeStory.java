@@ -6,6 +6,7 @@ import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.FixMethodOrder;
@@ -59,6 +60,7 @@ public class ChangeProductAttributeStory {
     CreateNewProductPageSteps createNewProductPageSteps;
 
     //@Pending
+    @Pending
     @Test
     public void changingProductAttribute () {
         loginPageSteps.openPage();
