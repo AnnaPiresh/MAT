@@ -5,6 +5,7 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.customersSteps.AddNewCustomerGroupSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
@@ -15,12 +16,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(ThucydidesRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value="src/test/resources/AddNewCustomerGroupData.csv")
 public class AddNewCustomerGroupStory  {
 
     private String login;
     private String password;
+    private String groupCode;
+    private String taxvalue;
+    private String successMText;
+    private String confirmDelete;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -48,11 +53,11 @@ public class AddNewCustomerGroupStory  {
         dashboardSteps.closePopup();
         mainMenuSteps.open_Customer_Groups_Page();
         addNewCustomerGroupSteps.click_add_customer_group_btn();
-        addNewCustomerGroupSteps.select_tax_class("7");
-        addNewCustomerGroupSteps.enter_group_code("robot_customer_group");
+        addNewCustomerGroupSteps.select_tax_class(taxvalue);
+        addNewCustomerGroupSteps.enter_group_code(groupCode);
         addNewCustomerGroupSteps.click_save_customer_group_btn();
-        addNewCustomerGroupSteps.check_success_msg("The customer group has been saved.");
-        addNewCustomerGroupSteps.find_created_group("robot_customer_group");
-        addNewCustomerGroupSteps.delete_created_group("The customer group has been deleted.");
+        addNewCustomerGroupSteps.check_success_msg(successMText);
+        addNewCustomerGroupSteps.find_created_group(groupCode);
+        addNewCustomerGroupSteps.delete_created_group(confirmDelete);
     }
 }

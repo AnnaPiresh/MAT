@@ -1,0 +1,2 @@
+login,password,indexAction,successMessage
+admin,3HSYOFf,reindex,index(es) have reindexed data.

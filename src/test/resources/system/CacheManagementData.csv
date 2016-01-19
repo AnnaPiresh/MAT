@@ -1,0 +1,2 @@
+login,password,flushCachesMessage,cachesActionEnable,cachesActionDisable,successEnableMessage,successDisableMessage
+admin,3HSYOFf,The Magento cache storage has been flushed.,enable,disable,cache type(s) enabled.,cache type(s) disabled.

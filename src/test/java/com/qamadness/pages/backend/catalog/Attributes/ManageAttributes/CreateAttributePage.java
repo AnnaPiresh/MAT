@@ -1,6 +1,7 @@
 package com.qamadness.pages.backend.catalog.Attributes.ManageAttributes;
 
 
+import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.Alert;
@@ -65,8 +66,8 @@ public class CreateAttributePage extends PageObject{
     @FindBy(xpath = ".//*[@title='Delete Attribute']")
     WebElementFacade deleteAttrBtn;
 
-   /* @FindBy(xpath = ".//*[@class='success-msg']")
-    WebElementFacade successMsg;*/
+    @FindBy(xpath = ".//*[@class='success-msg']")
+    WebElementFacade successMsg;
 
     @FindBy(xpath = ".//input[@id='attributeGrid_filter_attribute_code']")
     WebElementFacade attributeCodeFld;
@@ -140,6 +141,16 @@ public class CreateAttributePage extends PageObject{
 
     public void saveAnAttribute(){
         saveAttrBtn.click();
+    }
+
+    public void checkSuccessMsg(String message){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(successMsg));
+        if (successMsg.containsText(message)){
+            System.out.println("Success message is present");
+        } else {
+            Assert.fail("Success message is not present");
+        }
     }
 
     public void deleteAttribute(String attrCode){
