@@ -106,4 +106,21 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
     public void click_Delete_Button_And_Confirm (){
         createNewUserPage.clickDeleteButtonAndConfirm();
     }
+
+    //Methods for User Role tab:
+
+    @Step
+    public void open_User_Role_Tab (){
+        createNewUserPage.openUserRoleTab();
+    }
+
+    @Step
+    public void search_For_Role (String roleName){
+        createNewUserPage.searchForRole(roleName);
+    }
+
+    @Step
+    public void select_First_Role_In_The_List (){
+        createNewUserPage.selectFirstRoleInTheList();
+    }
 }

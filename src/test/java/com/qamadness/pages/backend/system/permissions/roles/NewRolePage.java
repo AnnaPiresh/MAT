@@ -22,6 +22,9 @@ public class NewRolePage extends PageObject {
     @FindBy (xpath = "//input[@id='role_name']")
     WebElementFacade roleNameField;
 
+    @FindBy (xpath = ".//*[@id='current_password']")
+    WebElementFacade currentAdminPassword;
+
     //Dropdown on Role Resources tab:
 
     @FindBy (xpath = "//select[@id='all']")
@@ -37,4 +40,38 @@ public class NewRolePage extends PageObject {
 
     @FindBy (xpath = "//button[span='Save Role']")
     WebElementFacade saveRoleButton;
+
+    @FindBy (xpath = "//button[span='Delete Role']")
+    WebElementFacade deleteRoleButton;
+
+    //Methods for Role Info tabs:
+
+    public void fillRoleNameField (String roleName){
+        roleNameField.type(roleName);
+    }
+
+    public void fillCurrentAdminPasswordField (String password){
+        currentAdminPassword.type(password);
+    }
+
+    //Methods for Role Resources tab:
+
+    public void openRoleResourcesTab(){
+        roleResourcesTab.click();
+    }
+
+    public void selectAllResourcesAccess (){
+        resourceAccessDropdown.selectByVisibleText("All");
+    }
+
+    //Methods for general buttons:
+
+    public void clickSaveButton (){
+        saveRoleButton.click();
+    }
+
+    public void clickDeleteRoleButtonAndConfirm (){
+        deleteRoleButton.click();
+        getDriver().switchTo().alert().accept();
+    }
 }

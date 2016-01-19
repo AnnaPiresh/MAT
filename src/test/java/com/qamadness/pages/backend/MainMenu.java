@@ -2,6 +2,7 @@ package com.qamadness.pages.backend;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -77,6 +78,9 @@ public class MainMenu extends PageObject {
 
     @FindBy (xpath = "//ul[@id='nav']//a[contains(@href, 'permissions_user')]")
     WebElementFacade usersMenuItem;
+
+    @FindBy (xpath = "//ul[@id='nav']//a[contains(@href, 'permissions_role')]")
+    WebElementFacade rolesMenuItem;
 
 //-----------------------------------------------------Methods for Sales menu-----------------------------------------//
 
@@ -180,6 +184,11 @@ public class MainMenu extends PageObject {
         usersMenuItem.click();
     }
 
+    public void openManageRolesPage (){
+        systemMenu.click();
+        permissionsMenu.click();
+        rolesMenuItem.click();
+    }
 
 
 }
