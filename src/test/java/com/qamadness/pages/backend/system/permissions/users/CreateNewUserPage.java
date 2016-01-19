@@ -80,6 +80,11 @@ public class CreateNewUserPage extends PageObject {
     @FindBy (xpath = "//tr//input[@class='radio']")
     WebElementFacade selectByRoleNameRadioButtons;
 
+    //Messages:
+
+    @FindBy (xpath = ".//*[@id='advice-required-entry-user_email' and contains(.,'This is a required field')]")
+    WebElementFacade errorEmailIsRequired;
+
     //Verification methods:
 
     public void verifyThatBackButtonIsPresent (){
@@ -92,6 +97,10 @@ public class CreateNewUserPage extends PageObject {
 
     public void verifyThatResetButtonIsPresent (){
         Assert.assertTrue("Reset buttn is displayed", resetButton.isDisplayed());
+    }
+
+    public void verifyThatEmailIsRequiredErrorMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorEmailIsRequired.isDisplayed());
     }
 
     //Fill fields on User Info tab methods:
