@@ -1,26 +1,28 @@
 package com.qamadness.Story.system;
 
-import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.systemSteps.IndexManagementSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
-import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(ThucydidesRunner.class)
-@UseTestDataFrom(value="src/test/resources/IndexManagementData.cvs")
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/IndexManagementData.csv")
 public class IndexManagementStory {
 
     private String login;
     private String password;
+    private String indexAction;
+    private String successMessage;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -55,8 +57,8 @@ public class IndexManagementStory {
     @Test
     public void can_user_reindex_all_data_from_admin(){
         indexManagementSteps.click_select_all_indexes();
-        indexManagementSteps.select_action_from_dropdown("reindex");
+        indexManagementSteps.select_action_from_dropdown(indexAction);
         indexManagementSteps.click_submit_btn();
-        indexManagementSteps.check_success_message("index(es) have reindexed data.");
+        indexManagementSteps.check_success_message(successMessage);
     }
 }

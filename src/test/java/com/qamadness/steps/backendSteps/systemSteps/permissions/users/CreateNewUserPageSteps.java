@@ -28,6 +28,11 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
         createNewUserPage.verifyThatResetButtonIsPresent();
     }
 
+    @Step
+    public void verify_That_Email_Is_Required_Error_Message_Is_Displayed (){
+        createNewUserPage.verifyThatEmailIsRequiredErrorMessageIsDisplayed();
+    }
+
     //Fill fields on User Info tab methods:
 
     @Step

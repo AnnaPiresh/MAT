@@ -127,12 +127,12 @@ public class ManagePriceRules extends PageObject {
         websiteForRuleSelect.selectByValue(website);
     }
 
-    public void selectCustomerGroupsApplyTo(String customerGroups[]){
+    public void selectCustomerGroupsApplyTo(char[] customerGroups){
         customerGroupsSelect.sendKeys(Keys.CONTROL);
-        customerGroupsSelect.selectByValue(customerGroups[0]);
-        customerGroupsSelect.selectByValue(customerGroups[1]);
-        customerGroupsSelect.selectByValue(customerGroups[2]);
-        customerGroupsSelect.selectByValue(customerGroups[3]);
+        customerGroupsSelect.selectByValue(String.valueOf(customerGroups[0]));
+        customerGroupsSelect.selectByValue(String.valueOf(customerGroups[1]));
+        customerGroupsSelect.selectByValue(String.valueOf(customerGroups[2]));
+        customerGroupsSelect.selectByValue(String.valueOf(customerGroups[3]));
     }
 
     public void switchToConditionsTab(){

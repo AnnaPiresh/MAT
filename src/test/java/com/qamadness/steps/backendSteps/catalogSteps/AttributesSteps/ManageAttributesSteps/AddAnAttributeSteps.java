@@ -47,4 +47,7 @@ public class AddAnAttributeSteps extends ScenarioSteps{
     @Step
     public void delete_attribute(String attrCode){ createAttributePage.deleteAttribute(attrCode);}
 
+    @Step
+    public void check_success_message(String message) {createAttributePage.checkSuccessMsg(message);}
+
 }

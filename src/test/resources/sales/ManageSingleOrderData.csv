@@ -1,0 +1,2 @@
+login,password,emailExisting,productId,orderMessage,invoiceMessage,shipmentMessage,creditMemoMessage,emailMessage
+admin,3HSYOFf,testersunny377@gmail.com,1051,The order has been created.,The invoice has been created.,The shipment has been created.,The credit memo has been created.,The order email has been sent.

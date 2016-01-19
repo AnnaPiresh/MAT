@@ -1,0 +1,2 @@
+login,password,setName,successMessage,errorMessage,requiredMessage
+admin,3HSYOFf,Test robot attribute set,The attribute set has been saved.,Attribute set with the "Test robot attribute set" name already exists.,This is a required field.

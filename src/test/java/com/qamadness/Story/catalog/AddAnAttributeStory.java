@@ -4,17 +4,33 @@ import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.AttributesSteps.ManageAttributesSteps.AddAnAttributeSteps;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
-import net.thucydides.junit.runners.ThucydidesRunner;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(ThucydidesRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/AddAnAttributeData.csv")
 public class AddAnAttributeStory {
+
+    private String login;
+    private String password;
+    private String attrCode;
+    private String scope;
+    private String inptype;
+    private String products;
+    private String type;
+    private String title;
+    private String firstOption;
+    private String secondOption;
+    private String successSaveMessage;
+    private String successDeleteMessage;
+
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -31,33 +47,33 @@ public class AddAnAttributeStory {
     @Steps
     AddAnAttributeSteps addAnAttributeSteps;
 
-    /*
+
 
     @Issue("MAT-34")
     @Pending
     @Test
     public void add_an_attribute_in_admin(){
         loginPageSteps.openPage();
-        loginPageSteps.loginInput();
-        loginPageSteps.passInput();
+        loginPageSteps.loginInput(login);
+        loginPageSteps.passInput(password);
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.open_Manage_Attributes_Page();
         addAnAttributeSteps.click_add_new_attribute_btn();
-        addAnAttributeSteps.add_attribute_code("test_robot_attribute");
-        addAnAttributeSteps.select_scope("2");
-        addAnAttributeSteps.select_input_type("select");
-        addAnAttributeSteps.select_apply_to("1");
-        addAnAttributeSteps.select_product_types_to_apply("simple");
+        addAnAttributeSteps.add_attribute_code(attrCode);
+        addAnAttributeSteps.select_scope(scope);
+        addAnAttributeSteps.select_input_type(inptype);
+        addAnAttributeSteps.select_apply_to(products);
+        addAnAttributeSteps.select_product_types_to_apply(type);
         addAnAttributeSteps.switch_to_options_tab();
-        addAnAttributeSteps.add_admin_value_in_manage_titles("test_robot");
+        addAnAttributeSteps.add_admin_value_in_manage_titles(title);
         addAnAttributeSteps.add_options_to_dropdown();
-        addAnAttributeSteps.add_first_dropdown_option("Bender");
+        addAnAttributeSteps.add_first_dropdown_option(firstOption);
         addAnAttributeSteps.add_options_to_dropdown();
-        addAnAttributeSteps.add_second_dropdown_option("Terminator");
+        addAnAttributeSteps.add_second_dropdown_option(secondOption);
         addAnAttributeSteps.save_an_attribute();
-        successMessagesSteps.check_success_message("The product attribute has been saved.");
-        addAnAttributeSteps.delete_attribute("test_robot_attribute");
-        
-    }*/
+        addAnAttributeSteps.check_success_message(successSaveMessage);
+        addAnAttributeSteps.delete_attribute(attrCode);
+        addAnAttributeSteps.check_success_message(successDeleteMessage);
+   }
 }

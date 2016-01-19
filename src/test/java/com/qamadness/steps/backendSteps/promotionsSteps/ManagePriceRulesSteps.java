@@ -24,7 +24,7 @@ public class ManagePriceRulesSteps extends ScenarioSteps {
     public void select_website_scope(String website){managePriceRules.selectWebsiteScope(website);}
 
     @Step
-    public void select_customer_groups_apply_to(String customerGroups[]){
+    public void select_customer_groups_apply_to(char customerGroups[]){
         managePriceRules.selectCustomerGroupsApplyTo(customerGroups);}
 
     @Step
