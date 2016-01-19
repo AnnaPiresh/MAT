@@ -1,8 +1,8 @@
 package com.qamadness.pages.backend.catalog.Attributes.ManageAttributeSets;
 
-import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,6 +25,9 @@ public class CreateAttributeSetPage extends PageObject{
 
     @FindBy(xpath = ".//*[@class='success-msg']")
     WebElementFacade successMsg;
+
+    @FindBy(xpath = ".//*[@class='error-msg']")
+    WebElementFacade errorMsg;
 
 //--------------------------------Methods for Creating an Attribute Set------------------------------------------------//
 
@@ -51,6 +54,13 @@ public class CreateAttributeSetPage extends PageObject{
         } else {
             Assert.fail("Success message is not present");
         }
+    }
+
+    public void checkErrorMsg(String eMessage){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(errorMsg));
+        Assert.assertTrue(errorMsg.isPresent());
+        Assert.assertEquals(eMessage, errorMsg.getText());
     }
 
 }
