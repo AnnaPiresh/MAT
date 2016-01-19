@@ -89,6 +89,10 @@ public class ManageUsersPage extends PageObject {
         addNewUserButton.click();
     }
 
+    public void clickResetFilterButton (){
+        resetFilterButton.click();
+    }
+
     //Methods for search in Users grid:
 
 

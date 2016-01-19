@@ -21,6 +21,11 @@ public class ManageUsersPageSteps extends ScenarioSteps {
         manageUsersPage.clickAddNewUserButton();
     }
 
+    @Step
+    public void click_Reset_Filter_Button (){
+        manageUsersPage.clickResetFilterButton();
+    }
+
     //Methods for search in Users grid:
 
     @Step
