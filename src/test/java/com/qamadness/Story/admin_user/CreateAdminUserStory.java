@@ -33,6 +33,7 @@ public class CreateAdminUserStory {
     private String adminLogin;
     private String adminPassword;
     private String userName;
+    private String userName2;
     private String firstName;
     private String lastName;
     private String email;
@@ -102,9 +103,12 @@ public class CreateAdminUserStory {
         manageUsersPageSteps.check_That_User_Is_Created(email);
     }
 
+    //Test case "Create Admin User. Use user name that already exist":
+
     @Issue("MAT-45")
     @Pending @Test
     public void createAdminWithUserNameThatAlreadyExist (){
+        //create first user:
         manageUsersPageSteps.click_Add_New_User_Button();
         createNewUserPageSteps.fill_User_Name_Field(userName);
         createNewUserPageSteps.fill_First_Name_Field(firstName);
@@ -115,6 +119,7 @@ public class CreateAdminUserStory {
         createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
         createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
         createNewUserPageSteps.click_Save_User_Button();
+        //create second user with name that first user has
         manageUsersPageSteps.click_Add_New_User_Button();
         createNewUserPageSteps.fill_User_Name_Field(userName);
         createNewUserPageSteps.fill_First_Name_Field(firstName);
@@ -125,13 +130,48 @@ public class CreateAdminUserStory {
         createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
         createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
         createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
         manageUsersPageSteps.check_That_Exist_Email_Or_Name_Error_Is_Displayed();
         createNewUserPageSteps.click_Back_Button();
         manageUsersPageSteps.check_By_Email_That_User_Is_Not_Created(email2);
     }
 
+    //Test case "Create Admin User. Use email that already exist"
+
+    @Issue("MAT-46")
+    @Test
+    public void createAdminUserWithEmailThatAlreadyExist (){
+        //create first user:
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //create second user with email that first user has
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName2);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
+        manageUsersPageSteps.check_That_Exist_Email_Or_Name_Error_Is_Displayed();
+        createNewUserPageSteps.click_Back_Button();
+        manageUsersPageSteps.check_By_User_Name_That_User_Is_Not_Created(userName2);
+    }
+
     @After
     public void removeCreatedAccount (){
+        manageUsersPageSteps.click_Reset_Filter_Button();
         manageUsersPageSteps.find_User_By_Email_And_Open(email);
         createNewUserPageSteps.click_Delete_Button_And_Confirm();
     }
