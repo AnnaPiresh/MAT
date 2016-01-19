@@ -57,7 +57,7 @@ public class testClass {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
+    @Pending
     @Test
     public void addingSimpleProduct () {
 

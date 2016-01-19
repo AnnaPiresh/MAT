@@ -57,6 +57,7 @@ public class ConfigurableProductStory {
     CreateNewProductPageSteps createNewProductPageSteps;
 
     //@Pending
+    @Pending
     @Test
     public void addingConfigurableProduct () {
         loginPageSteps.openPage();
