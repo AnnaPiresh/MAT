@@ -27,51 +27,10 @@ public class ManageCategoriesPage extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(addNewSubcategoryButton));
         addNewSubcategoryButton.click();}
 
-    /*@FindBy (xpath = "//input[@name='general[name]']")
-    WebElementFacade categoryNameField;*/
-
-    public void enterCategoryName (String name) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(getDriver().findElement(org.openqa.selenium.By.xpath("//input[@name='general[name]']"))));
-        getDriver().findElement(org.openqa.selenium.By.xpath("//input[@name='general[name]']")).sendKeys(name);}
-
-    /*public void clearCategoryName () {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(categoryNameField));
-        categoryNameField.clear();}*/
-
-    @FindBy (xpath = ".//*[@id='group_4is_active']")
-    WebElementFacade activitySelectionDropdown;
-
-    public void selectCategoryActivity (String value){
-        Select dropdown = new Select(activitySelectionDropdown);
-        dropdown.selectByValue(value);
-    }
-
-    @FindBy (xpath = ".//*[@id='group_4include_in_menu']")
-    WebElementFacade includingInNavigatioMenuDropdown;
-
-    public void selectIncludingInNavigationMenu (String value) {
-        Select dropdown = new Select(includingInNavigatioMenuDropdown);
-        dropdown.selectByValue(value);
-    }
-
     @FindBy (css = "button[title='Save Category']")
     WebElementFacade saveCategoryButton;
 
     public void saveCategory () { saveCategoryButton.click();}
-
-    //The category has been saved.
-    //*[contains(text(), 'New Max auto product name')
-
-    public void checkCategorySaved () {
-        int size = getDriver().findElements(org.openqa.selenium.By.xpath("//*[contains(text(), 'The category has been saved.')")).size();
-        if (size > 0) {
-            System.out.println("Category is saved");}
-
-        else {
-            Assert.fail("Name is wrong");}
-    }
 
     @FindBy(xpath = "//button[@id='add_root_category_button']")
     WebElementFacade addRootCategoryButton;
@@ -106,6 +65,66 @@ public class ManageCategoriesPage extends PageObject {
         Alert alert = getDriver().switchTo().alert();
         alert.accept();
     }
+
+    //----------------------------------------------General Tab-------------------------------------------------------//
+
+    @FindBy (xpath = "//input[@name='general[name]']")
+    WebElementFacade categoryNameField;
+
+    public void enterCategoryName (String name) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(categoryNameField));
+        categoryNameField.sendKeys(name);}
+
+    /*public void clearCategoryName () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(categoryNameField));
+        categoryNameField.clear();}*/
+
+    @FindBy(xpath = "//textarea[@name='general[description]']")
+    WebElementFacade descriptionField;
+
+    public void enterCategoryDescription (String description) {
+        descriptionField.sendKeys(description);
+    }
+
+    @FindBy(xpath = "//input[@name='general[meta_title]']")
+    WebElementFacade pageTitleField;
+
+    public void enterPageTitle (String title){ pageTitleField.sendKeys(title);}
+
+    @FindBy(xpath = "//textarea[@name='general[meta_keywords]']")
+    WebElementFacade metaKeywordsField;
+
+    public void enterMetaKeywords (String keywords) {metaKeywordsField.sendKeys(keywords);}
+
+    @FindBy(xpath = "//textarea[@name='general[meta_description]']")
+    WebElementFacade metaDescriptionField;
+
+    public void entermetaDescription (String metadesc) { metaDescriptionField.sendKeys(metadesc);}
+
+    @FindBy (xpath = ".//*[@id='group_4is_active']")
+    WebElementFacade activitySelectionDropdown;
+
+    public void selectCategoryActivity (String value){
+        Select dropdown = new Select(activitySelectionDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    @FindBy (xpath = ".//*[@id='group_4include_in_menu']")
+    WebElementFacade includingInNavigatioMenuDropdown;
+
+    public void selectIncludingInNavigationMenu (String value) {
+        Select dropdown = new Select(includingInNavigatioMenuDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    //----------------------------------------
+
+    @FindBy(xpath = "//a[@title='Display Settings']/span")
+    WebElementFacade displaySettingsTab;
+
+    public void selectDisplaySettingsTab () {displaySettingsTab.click();}
 
 
 

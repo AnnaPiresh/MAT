@@ -1,2 +1,2 @@
-login;password;categoryName;name;activity; including
-admin;3HSYOFf;Max Auto Root Category;//span[contains(text(),'Default Category')];1;1
+login;password;categoryName;name;activity; including; desc; title;keywords;metadesc
+admin;3HSYOFf;Max Auto Root Category;//span[contains(text(),'Default Category')];1;1; Max Auto Root Category Description; Max Auto Root Category Page Title;Max Auto Root Category Keywords;Max Auto Root Category Meta Description

@@ -5,9 +5,9 @@ import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageCategoriesSteps.ManageCategoriesPageSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
-import cucumber.api.Pending;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.junit.annotations.UseTestDataFrom;
@@ -32,6 +32,11 @@ public class CreateRootCategoryStory extends PageObject{
     private String name;
     private String activity;
     private String including;
+    private String desc;
+    private String title;
+    private String keywords;
+    private String metadesc;
+
 
         @Managed(uniqueSession = true)
     public WebDriver webDriver;
@@ -51,7 +56,7 @@ public class CreateRootCategoryStory extends PageObject{
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
+    @Pending
     @Test
     public void createRootCategoryWithRequiredFields () {
 
@@ -62,12 +67,36 @@ public class CreateRootCategoryStory extends PageObject{
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
         mainMenuSteps.openManageCategoriesPage();
-        manageCategoriesPageSteps.selectCategoryByName(name);
-        manageCategoriesPageSteps.addNewRootCategory();
         createNewProductPageSteps.clearGlobalSearch();
         manageCategoriesPageSteps.enterCategoryName(categoryName);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkSuccessMessage();
+        manageCategoriesPageSteps.deleteCategory();
+
+
+    }
+
+    @Test
+    public void createRootCategoryWithAllFields () {
+
+
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(login);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+        mainMenuSteps.openManageCategoriesPage();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.enterCategoryName(categoryName);
+        manageCategoriesPageSteps.enterCategoryDescription(desc);
+        manageCategoriesPageSteps.enterPageTitle(title);
+        manageCategoriesPageSteps.enterMetaKeywords(keywords);
+        manageCategoriesPageSteps.entermetaDescription(metadesc);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.selectDisplaySettingsTab();
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkSuccessMessage();
         manageCategoriesPageSteps.deleteCategory();

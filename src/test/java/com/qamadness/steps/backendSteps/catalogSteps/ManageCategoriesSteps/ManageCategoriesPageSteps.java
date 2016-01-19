@@ -30,9 +30,6 @@ public class ManageCategoriesPageSteps extends PageObject {
     public void saveCategory () { manageCategoriesPage.saveCategory();}
 
     @Step
-    public void checkCategorySaved () { manageCategoriesPage.checkCategorySaved();}
-
-    @Step
     public void addNewRootCategory () { manageCategoriesPage.addNewRootCategory();}
 
     @Step
@@ -43,4 +40,19 @@ public class ManageCategoriesPageSteps extends PageObject {
 
     @Step
     public void deleteCategory () {manageCategoriesPage.deleteCategory();}
+
+    @Step
+    public void enterCategoryDescription (String desc) {manageCategoriesPage.enterCategoryDescription(desc);}
+
+    @Step
+    public void enterPageTitle (String title) {manageCategoriesPage.enterPageTitle(title);}
+
+    @Step
+    public void enterMetaKeywords (String keywords) {manageCategoriesPage.enterMetaKeywords(keywords);}
+
+    @Step
+    public void entermetaDescription (String metadesc) {manageCategoriesPage.entermetaDescription(metadesc);}
+
+    @Step
+    public void selectDisplaySettingsTab () {manageCategoriesPage.selectDisplaySettingsTab();}
 }
