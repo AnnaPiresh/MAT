@@ -58,7 +58,7 @@ public class DownloadableProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
+    @Pending
     @Test
     public void addingDownloadableProduct () {
         loginPageSteps.openPage();

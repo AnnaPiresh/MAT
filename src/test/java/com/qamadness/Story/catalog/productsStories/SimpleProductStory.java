@@ -71,7 +71,7 @@ public class SimpleProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
+    @Pending
     @Test
     public void addingSimpleProduct () {
         mainMenuSteps.openManageProductsPage();

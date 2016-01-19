@@ -56,7 +56,7 @@ public class VirtualProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
+    @Pending
     @Test
     public void addingVirtualProduct () {
         loginPageSteps.openPage();

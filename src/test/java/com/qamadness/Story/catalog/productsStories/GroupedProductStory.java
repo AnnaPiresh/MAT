@@ -53,7 +53,7 @@ public class GroupedProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
+    @Pending
     @Test
     public void addingGroupedProduct () {
         loginPageSteps.openPage();

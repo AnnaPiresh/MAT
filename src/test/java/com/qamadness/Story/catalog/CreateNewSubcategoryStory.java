@@ -59,7 +59,7 @@ public class CreateNewSubcategoryStory {
     @Steps
     ManageCategoriesPageSteps manageCategoriesPageSteps;
 
-    //@Pending
+    @Pending
     @Test
     public void creatingNewSubcategory (){
         /*loginPageSteps.openPage();
