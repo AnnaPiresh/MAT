@@ -30,4 +30,9 @@ public class LoginPageSteps extends ScenarioSteps {
     public void verify_That_Inactive_Account_Error_Is_Displayed (){
         loginPage.verifyThatInactiveAccountErrorIsDisplayed();
     }
+
+    @Step
+    public void verify_That_Access_Denied_Error_Is_Displayed (){
+        loginPage.verifyThatAccessDeniedErrorIsDisplayed();
+    }
 }

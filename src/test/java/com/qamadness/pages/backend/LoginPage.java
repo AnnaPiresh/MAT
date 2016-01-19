@@ -27,6 +27,9 @@ public class LoginPage extends PageObject{
     @FindBy (xpath = ".//li[@class='error-msg']/ul/li/span[contains(.,'This account is inactive')]")
     WebElementFacade errorInactiveAccountMessage;
 
+    @FindBy (xpath = ".//li[@class='error-msg']/ul/li/span[contains(.,'Access denied')]")
+    WebElementFacade errorAccessDeniedMessage;
+
     //Fields:
     @FindBy(xpath = ".//*[@id='username']")
     WebElementFacade loginInput;
@@ -60,6 +63,10 @@ public class LoginPage extends PageObject{
 
     public void verifyThatInactiveAccountErrorIsDisplayed (){
         Assert.assertTrue("Error message is displayed", errorInactiveAccountMessage.isDisplayed());
+    }
+
+    public void verifyThatAccessDeniedErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorAccessDeniedMessage.isDisplayed());
     }
 }
 
