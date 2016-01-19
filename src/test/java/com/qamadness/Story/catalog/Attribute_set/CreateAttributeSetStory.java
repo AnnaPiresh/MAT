@@ -32,6 +32,7 @@ public class CreateAttributeSetStory {
     private String setName;
     private String successMessage;
     private String errorMessage;
+    private String requiredMessage;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -84,6 +85,15 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_error_message(errorMessage);
+    }
+
+    @Issue("MAT-69")
+    @Pending
+    @Test
+    public void create_attribute_set_with_empty_name(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_required_field_message(requiredMessage);
     }
 
 
