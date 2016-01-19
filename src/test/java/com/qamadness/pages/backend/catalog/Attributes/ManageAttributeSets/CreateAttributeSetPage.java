@@ -23,6 +23,9 @@ public class CreateAttributeSetPage extends PageObject{
     @FindBy(xpath = ".//button[@title='Save Attribute Set']")
     WebElementFacade saveAttributeSetButton;
 
+    @FindBy(xpath = ".//*[@id='advice-required-entry-attribute_set_name']")
+    WebElementFacade requiredFieldMessage;
+
     @FindBy(xpath = ".//*[@class='success-msg']")
     WebElementFacade successMsg;
 
@@ -62,5 +65,19 @@ public class CreateAttributeSetPage extends PageObject{
         Assert.assertTrue(errorMsg.isPresent());
         Assert.assertEquals(eMessage, errorMsg.getText());
     }
+
+    public void checkRequiredFieldMsg(String requiredMessage){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(requiredFieldMessage));
+        Assert.assertTrue(requiredFieldMessage.isPresent());
+        if (requiredFieldMessage.containsText(requiredMessage)){
+            System.out.println("Error message is correct");
+        } else {
+            Assert.fail("Error message is incorrect");
+        }
+    }
+
+
+
 
 }

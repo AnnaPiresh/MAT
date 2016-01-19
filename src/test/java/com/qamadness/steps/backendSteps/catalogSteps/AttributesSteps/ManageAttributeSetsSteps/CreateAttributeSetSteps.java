@@ -26,4 +26,8 @@ public class CreateAttributeSetSteps extends ScenarioSteps {
     @Step
     public void check_error_message(String errorMessage) {createAttributeSetPage.checkErrorMsg(errorMessage);}
 
+    @Step
+    public void check_required_field_message(String requiredMessage) {
+        createAttributeSetPage.checkRequiredFieldMsg(requiredMessage);}
+
 }
