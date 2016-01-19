@@ -18,6 +18,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import java.util.UUID;
+
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 /**
@@ -87,7 +89,7 @@ public class CreateAdminUserStory {
     //Test case "Create Admin User (all required fields are filled)":
 
     @Issue("MAT-44")
-    @Test
+    @Pending @Test
     public void createAdminWithRequiredFieldsOnly (){
         manageUsersPageSteps.click_Add_New_User_Button();
         createNewUserPageSteps.fill_User_Name_Field(userName);
@@ -111,7 +113,7 @@ public class CreateAdminUserStory {
     //Test case "Create Admin User. Use user name that already exist":
 
     @Issue("MAT-45")
-    @Test
+    @Pending @Test
     public void createAdminWithUserNameThatAlreadyExist (){
         //create first user:
         manageUsersPageSteps.click_Add_New_User_Button();
@@ -148,7 +150,7 @@ public class CreateAdminUserStory {
     //Test case "Create Admin User. Use email that already exist"
 
     @Issue("MAT-46")
-    @Test
+    @Pending @Test
     public void createAdminUserWithEmailThatAlreadyExist (){
         //create first user:
         manageUsersPageSteps.click_Add_New_User_Button();
@@ -185,7 +187,7 @@ public class CreateAdminUserStory {
     //Test case "Create Admin User with one empty required field":
 
     @Issue("MAT-47")
-    @Test
+    @Pending @Test
     public void createAdminWithOneEmptyRequiredField(){
         //create user without email:
         manageUsersPageSteps.click_Add_New_User_Button();
@@ -206,9 +208,9 @@ public class CreateAdminUserStory {
     //Test case "Create Admin User (all required fields are filled by special characters)"
 
     @Issue("MAT-48")
-    @Test
+    @Pending @Test
     public void createAdminUserWithSpecialCharactersExceptEmail (){
-        //create new user with special characters except emal and current admin password
+        //create new user with special characters except email and current admin password
         manageUsersPageSteps.click_Add_New_User_Button();
         createNewUserPageSteps.fill_User_Name_Field(userNameSpecial);
         createNewUserPageSteps.fill_First_Name_Field(firstNameSpecial);
@@ -217,6 +219,32 @@ public class CreateAdminUserStory {
         createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
         createNewUserPageSteps.fill_Password_Field(passwordSpecial);
         createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmationSpecial);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
+        manageUsersPageSteps.check_That_Success_Saved_User_Message_Is_Displayed();
+        manageUsersPageSteps.check_That_User_Is_Created(email);
+        //remove created user:
+        manageUsersPageSteps.click_Reset_Filter_Button();
+        manageUsersPageSteps.find_User_By_Email_And_Open(email);
+        createNewUserPageSteps.click_Delete_Button_And_Confirm();
+    }
+
+    //Test case "Create Admin User (all required fields are filled by long value data)":
+
+    @Issue("MAT-49")
+    @Pending @Test
+    public void createAdminUserWithLongValues (){
+        //create new user with long values except email and current admin password
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field( UUID.randomUUID().toString());
+        createNewUserPageSteps.fill_First_Name_Field( UUID.randomUUID().toString());
+        createNewUserPageSteps.fill_Last_Name_Field( UUID.randomUUID().toString());
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        String longPassword =  UUID.randomUUID().toString();
+        createNewUserPageSteps.fill_Password_Field(longPassword);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(longPassword);
         createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
         createNewUserPageSteps.click_Save_User_Button();
         //verifications:
