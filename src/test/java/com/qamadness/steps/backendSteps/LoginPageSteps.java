@@ -23,6 +23,11 @@ public class LoginPageSteps extends ScenarioSteps {
     @Step
     public void loginButton(){loginPage.loginButton();}
 
+
+    //Verifications:
+
     @Step
-    public void delay(){loginPage.delay();}
+    public void verify_That_Inactive_Account_Error_Is_Displayed (){
+        loginPage.verifyThatInactiveAccountErrorIsDisplayed();
+    }
 }
