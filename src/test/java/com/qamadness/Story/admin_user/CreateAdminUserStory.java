@@ -256,4 +256,27 @@ public class CreateAdminUserStory {
         createNewUserPageSteps.click_Delete_Button_And_Confirm();
     }
 
+    //Test case "Create Admin User. Use wrong values for 'password' fields":
+
+    @Issue("MAT-50")
+    @Pending @Test
+    public void createAdminWithInvalidPassword (){
+        //create new admin user with invalid password and password confirmation:
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(wrongPassword);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(wrongPasswordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
+        createNewUserPageSteps.verify_That_Invalid_Password_Message_Is_Displayed();
+        createNewUserPageSteps.verify_That_Invalid_Password_Confirmation_Message_Is_Displayed();
+        createNewUserPageSteps.click_Back_Button();
+        manageUsersPageSteps.check_By_User_Name_That_User_Is_Not_Created(userName);
+    }
+
 }

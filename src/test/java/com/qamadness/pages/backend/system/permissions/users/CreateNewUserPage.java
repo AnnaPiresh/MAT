@@ -2,6 +2,7 @@ package com.qamadness.pages.backend.system.permissions.users;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 
@@ -85,6 +86,12 @@ public class CreateNewUserPage extends PageObject {
     @FindBy (xpath = ".//*[@id='advice-required-entry-user_email' and contains(.,'This is a required field')]")
     WebElementFacade errorEmailIsRequired;
 
+    @FindBy (xpath = ".//*[@id='advice-validate-cpassword-user_confirmation' and contains(.,'Please make sure your passwords match.')]")
+    WebElementFacade errorInvalidPasswordConfirmation;
+
+    @FindBy (xpath = ".//*[@id='advice-validate-admin-password-user_password' and contains(.,'Please enter 7 or more characters. Password should contain both numeric and alphabetic characters.')]")
+    WebElementFacade errorInvalidPassword;
+
     //Verification methods:
 
     public void verifyThatBackButtonIsPresent (){
@@ -101,6 +108,14 @@ public class CreateNewUserPage extends PageObject {
 
     public void verifyThatEmailIsRequiredErrorMessageIsDisplayed (){
         Assert.assertTrue("Error message is displayed", errorEmailIsRequired.isDisplayed());
+    }
+
+    public void verifyThatInvalidPasswordConfirmationMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorInvalidPasswordConfirmation.isDisplayed());
+    }
+
+    public void verifyThatInvalidPasswordMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorInvalidPassword.isDisplayed());
     }
 
     //Fill fields on User Info tab methods:
