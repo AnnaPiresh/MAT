@@ -92,6 +92,9 @@ public class CreateNewUserPage extends PageObject {
     @FindBy (xpath = ".//*[@id='advice-validate-admin-password-user_password' and contains(.,'Please enter 7 or more characters. Password should contain both numeric and alphabetic characters.')]")
     WebElementFacade errorInvalidPassword;
 
+    @FindBy (xpath = ".//*[@id='advice-validate-email-user_email' and contains(.,'Please enter a valid email address')]")
+    WebElementFacade errorIncorrectEmail;
+
     //Verification methods:
 
     public void verifyThatBackButtonIsPresent (){
@@ -116,6 +119,10 @@ public class CreateNewUserPage extends PageObject {
 
     public void verifyThatInvalidPasswordMessageIsDisplayed (){
         Assert.assertTrue("Error message is displayed", errorInvalidPassword.isDisplayed());
+    }
+
+    public void verifyThatInvalidEmailMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorIncorrectEmail.isDisplayed());
     }
 
     //Fill fields on User Info tab methods:

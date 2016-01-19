@@ -43,6 +43,11 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
         createNewUserPage.verifyThatInvalidPasswordMessageIsDisplayed();
     }
 
+    @Step
+    public void verify_That_Invalid_Email_Message_Is_Displayed (){
+        createNewUserPage.verifyThatInvalidEmailMessageIsDisplayed();
+    }
+
     //Fill fields on User Info tab methods:
 
     @Step
