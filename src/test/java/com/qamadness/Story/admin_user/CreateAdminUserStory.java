@@ -4,6 +4,8 @@ import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.LogoutFromAdminSteps;
+import com.qamadness.steps.backendSteps.systemSteps.permissions.roles.ManageRolesPageSteps;
+import com.qamadness.steps.backendSteps.systemSteps.permissions.roles.NewRolePageSteps;
 import com.qamadness.steps.backendSteps.systemSteps.permissions.users.CreateNewUserPageSteps;
 import com.qamadness.steps.backendSteps.systemSteps.permissions.users.ManageUsersPageSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
@@ -33,6 +35,7 @@ public class CreateAdminUserStory {
 
     //Fields in CSV file:
 
+    private String adminRoleName;
     private String adminLogin;
     private String adminPassword;
     private String userName;
@@ -77,6 +80,12 @@ public class CreateAdminUserStory {
 
     @Steps
     LogoutFromAdminSteps logoutFromAdminSteps;
+
+    @Steps
+    ManageRolesPageSteps manageRolesPageSteps;
+
+    @Steps
+    NewRolePageSteps newRolePageSteps;
 
     //Precondition: login as admin user and navigate to System -> Permissions -> Users page
 
@@ -146,10 +155,6 @@ public class CreateAdminUserStory {
         manageUsersPageSteps.check_That_Exist_Email_Or_Name_Error_Is_Displayed();
         createNewUserPageSteps.click_Back_Button();
         manageUsersPageSteps.check_By_Email_That_User_Is_Not_Created(email2);
-        //remove created user:
-        manageUsersPageSteps.click_Reset_Filter_Button();
-        manageUsersPageSteps.find_User_By_Email_And_Open(email);
-        createNewUserPageSteps.click_Delete_Button_And_Confirm();
     }
 
     //Test case "Create Admin User. Use email that already exist"
@@ -341,6 +346,59 @@ public class CreateAdminUserStory {
         manageUsersPageSteps.click_Reset_Filter_Button();
         manageUsersPageSteps.find_User_By_Email_And_Open(email);
         createNewUserPageSteps.click_Delete_Button_And_Confirm();
+    }
+
+    //Test case "Create Admin User (with Admin User Role)":
+
+    @Issue("MAT-53")
+    @Pending @Test
+    public void createAdminUserWithAdminRole (){
+        //create Administrator role
+        mainMenuSteps.open_Manage_Roles_Page();
+        manageRolesPageSteps.click_Add_New_Role_Button();
+        newRolePageSteps.fill_Role_Name_Field(adminRoleName);
+        newRolePageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        newRolePageSteps.open_Role_Resources_Tab();
+        newRolePageSteps.select_All_Resources_Access();
+        newRolePageSteps.click_Save_Button();
+        manageRolesPageSteps.verify_That_Role_Is_Created(adminRoleName);
+        //create user with Administrator role
+        mainMenuSteps.open_Manage_Admin_Users_Page();
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.open_User_Role_Tab();
+        createNewUserPageSteps.search_For_Role(adminRoleName);
+        createNewUserPageSteps.select_First_Role_In_The_List();
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications
+        manageUsersPageSteps.check_That_Success_Saved_User_Message_Is_Displayed();
+        manageUsersPageSteps.check_That_User_Is_Created(email);
+        logoutFromAdminSteps.logout_from_admin();
+        loginPageSteps.loginInput(userName);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+        logoutFromAdminSteps.logout_from_admin();
+        //remove created user and role
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(adminLogin);
+        loginPageSteps.passInput(adminPassword);
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+        mainMenuSteps.open_Manage_Admin_Users_Page();
+        manageUsersPageSteps.click_Reset_Filter_Button();
+        manageUsersPageSteps.find_User_By_Email_And_Open(email);
+        createNewUserPageSteps.click_Delete_Button_And_Confirm();
+        mainMenuSteps.open_Manage_Roles_Page();
+        manageRolesPageSteps.find_Role_And_Open(adminRoleName);
+        newRolePageSteps.click_Delete_Role_Button_And_Confirm();
     }
 
     //Test case "Create Admin User (without Role)"

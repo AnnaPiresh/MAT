@@ -51,8 +51,7 @@ public class CreateRootCategoryStory extends PageObject{
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
-    @Test
+    @net.thucydides.core.annotations.Pending @Test
     public void createRootCategoryWithRequiredFields () {
 
 

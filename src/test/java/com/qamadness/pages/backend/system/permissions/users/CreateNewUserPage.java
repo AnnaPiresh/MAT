@@ -1,10 +1,13 @@
 package com.qamadness.pages.backend.system.permissions.users;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Alexandra on 1/14/16.
@@ -172,6 +175,25 @@ public class CreateNewUserPage extends PageObject {
     public void clickDeleteButtonAndConfirm (){
         deleteUserButton.click();
         getDriver().switchTo().alert().accept();
+    }
+
+    //Methods for User Role tab:
+
+    public void openUserRoleTab (){
+        userRoleTab.click();
+    }
+
+    public void searchForRole (String roleName){
+        resetFilterButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
+        roleNameField.type(roleName);
+        searchButton.click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
+    }
+
+    public void selectFirstRoleInTheList (){
+        selectByRoleNameRadioButtons.click();
     }
 
 }
