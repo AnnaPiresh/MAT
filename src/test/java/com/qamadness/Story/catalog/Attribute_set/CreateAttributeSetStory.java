@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
+import org.yecht.Data;
 
 /**
  * Created by Serhii_Boiko on 18.01.2016.
@@ -34,6 +35,10 @@ public class CreateAttributeSetStory {
     private String errorMessage;
     private String requiredMessage;
     private String charName;
+    private String userProductsName;
+    private String groupTitle;
+    private String customSetName;
+    private String basedOnValue;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -114,6 +119,30 @@ public class CreateAttributeSetStory {
     public void create_attribute_set_using_special_characters_for_set_name(){
         createAttributeSetSteps.click_add_new_attribute_set_button();
         createAttributeSetSteps.enter_attribute_set_name(charName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
+    }
+
+    @Issue("MAT-72")
+    @Pending
+    @Test
+    public void create_attribute_set_with_adding_user_product_attributes(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(userProductsName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.add_new_attribute_group(groupTitle);
+        createAttributeSetSteps.assign_attributes_to_created_group();
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
+    }
+
+    @Issue("MAT-73")
+    @Pending
+    @Test
+    public void create_attribute_set_based_on_custom(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(customSetName);
+        createAttributeSetSteps.select_based_on_value(basedOnValue);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
     }

@@ -4,6 +4,8 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.omg.CORBA.PUBLIC_MEMBER;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.security.Credentials;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -32,6 +34,12 @@ public class CreateAttributeSetPage extends PageObject{
 
     @FindBy(xpath = ".//*[@class='error-msg']")
     WebElementFacade errorMsg;
+
+    @FindBy(xpath = ".//button[@title='Add New']")
+    WebElementFacade addNewAttributeGroupBtn;
+
+    @FindBy(xpath = ".//*[@id='skeleton_set']")
+    WebElementFacade basedOnDropdown;
 
 //--------------------------------Methods for Creating an Attribute Set------------------------------------------------//
 
@@ -77,6 +85,28 @@ public class CreateAttributeSetPage extends PageObject{
             Assert.fail("Error message is incorrect");
         }
     }
+
+    public void addNewAttributeGroup(String groupTitle){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(addNewAttributeGroupBtn));
+        addNewAttributeGroupBtn.click();
+        Alert alert = getDriver().switchTo().alert();
+        alert.sendKeys(groupTitle);
+        alert.accept();
+    }
+
+    public void assignAttributesToCreatedGroup(){
+
+    }
+
+    public void selectBasedOnValue(String basedOnValue){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(basedOnDropdown));
+        basedOnDropdown.click();
+        basedOnDropdown.selectByValue(basedOnValue);
+        basedOnDropdown.click();
+    }
+
 
 
 }

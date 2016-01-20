@@ -30,5 +30,13 @@ public class CreateAttributeSetSteps extends ScenarioSteps {
     public void check_required_field_message(String requiredMessage) {
         createAttributeSetPage.checkRequiredFieldMsg(requiredMessage);}
 
+    @Step
+    public void add_new_attribute_group(String groupTitle) {createAttributeSetPage.addNewAttributeGroup(groupTitle);}
+
+    @Step
+    public void assign_attributes_to_created_group(){createAttributeSetPage.assignAttributesToCreatedGroup();}
+
+    @Step
+    public void select_based_on_value(String basedOnValue) {createAttributeSetPage.selectBasedOnValue(basedOnValue);}
 
 }
