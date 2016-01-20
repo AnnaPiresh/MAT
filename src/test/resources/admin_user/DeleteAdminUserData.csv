@@ -1,0 +1,2 @@
+adminLogin,adminPassword,userRoleName,userName,firstName,lastName,email,password,passwordConfirmation,thisAccountIsActive
+admin,3HSYOFf,robotAdminTester,autoAdmin,Robot,Tester,robot@qamadness.com,123456abc,123456abc,Active

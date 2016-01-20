@@ -98,6 +98,9 @@ public class CreateNewUserPage extends PageObject {
     @FindBy (xpath = ".//*[@id='advice-validate-email-user_email' and contains(.,'Please enter a valid email address')]")
     WebElementFacade errorIncorrectEmail;
 
+    @FindBy (xpath = "//li[normalize-space(@class)='error-msg' and contains(.,'You cannot delete your own account.')]")
+    WebElementFacade cannotDeleteAccountMessage;
+
     //Verification methods:
 
     public void verifyThatBackButtonIsPresent (){
@@ -126,6 +129,10 @@ public class CreateNewUserPage extends PageObject {
 
     public void verifyThatInvalidEmailMessageIsDisplayed (){
         Assert.assertTrue("Error message is displayed", errorIncorrectEmail.isDisplayed());
+    }
+
+    public void verifyThatCannotDeleteAccountMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", cannotDeleteAccountMessage.isDisplayed());
     }
 
     //Fill fields on User Info tab methods:
