@@ -155,6 +155,10 @@ public class CreateAdminUserStory {
         manageUsersPageSteps.check_That_Exist_Email_Or_Name_Error_Is_Displayed();
         createNewUserPageSteps.click_Back_Button();
         manageUsersPageSteps.check_By_Email_That_User_Is_Not_Created(email2);
+        //remove created user:
+        manageUsersPageSteps.click_Reset_Filter_Button();
+        manageUsersPageSteps.find_User_By_Email_And_Open(email);
+        createNewUserPageSteps.click_Delete_Button_And_Confirm();
     }
 
     //Test case "Create Admin User. Use email that already exist"
@@ -189,6 +193,7 @@ public class CreateAdminUserStory {
         createNewUserPageSteps.click_Back_Button();
         manageUsersPageSteps.check_By_User_Name_That_User_Is_Not_Created(userName2);
         //remove created user
+        manageUsersPageSteps.click_Reset_Filter_Button();
         manageUsersPageSteps.click_Reset_Filter_Button();
         manageUsersPageSteps.find_User_By_Email_And_Open(email);
         createNewUserPageSteps.click_Delete_Button_And_Confirm();
