@@ -48,6 +48,11 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
         createNewUserPage.verifyThatInvalidEmailMessageIsDisplayed();
     }
 
+    @Step
+    public void verify_That_Cannot_Delete_Accoun_tMessage_Is_Displayed (){
+        createNewUserPage.verifyThatCannotDeleteAccountMessageIsDisplayed();
+    }
+
     //Fill fields on User Info tab methods:
 
     @Step
