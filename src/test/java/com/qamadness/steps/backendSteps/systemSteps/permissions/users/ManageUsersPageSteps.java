@@ -59,4 +59,9 @@ public class ManageUsersPageSteps extends ScenarioSteps {
     public void check_That_User_Is_Created (String email){
         manageUsersPage.checkThatUserIsCreated(email);
     }
+
+    @Step
+    public void check_That_Success_Deleted_User_Message_Is_Displayed() {
+        manageUsersPage.checkThatSuccessDeletedUserMessageIsDisplayed();
+    }
 }

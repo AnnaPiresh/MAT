@@ -12,6 +12,7 @@ import jline.internal.TestAccessible;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.After;
@@ -113,7 +114,7 @@ public class DeleteAdminUserStory {
     //Test case "Delete current admin user"
 
     @Issue("MAT-55")
-    @Test
+    @Pending @Test
     public void deleteCurrentAdminUser (){
         //login as created user
         logoutFromAdminSteps.logout_from_admin();
@@ -138,10 +139,27 @@ public class DeleteAdminUserStory {
         dashboardSteps.closePopup();
         //remove created user and Role
         mainMenuSteps.open_Manage_Admin_Users_Page();
+        manageUsersPageSteps.click_Reset_Filter_Button();
+        manageUsersPageSteps.find_User_By_Email_And_Open(email);
+        createNewUserPageSteps.click_Delete_Button_And_Confirm();
+        mainMenuSteps.open_Manage_Roles_Page();
+        manageRolesPageSteps.find_Role_And_Open(userRoleName);
+        newRolePageSteps.click_Delete_Role_Button_And_Confirm();
+    }
+
+    //Test case "Delete admin user"
+
+    @Issue("MAT-56")
+    @Pending @Test
+    public void deleteCreatedAdminUser (){
+        //delete user that was created in precondition
         mainMenuSteps.open_Manage_Admin_Users_Page();
         manageUsersPageSteps.click_Reset_Filter_Button();
         manageUsersPageSteps.find_User_By_Email_And_Open(email);
         createNewUserPageSteps.click_Delete_Button_And_Confirm();
+        //verifications
+        manageUsersPageSteps.check_That_Success_Deleted_User_Message_Is_Displayed();
+        //remove created role
         mainMenuSteps.open_Manage_Roles_Page();
         manageRolesPageSteps.find_Role_And_Open(userRoleName);
         newRolePageSteps.click_Delete_Role_Button_And_Confirm();

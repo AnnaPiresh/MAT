@@ -138,5 +138,9 @@ public class ManageUsersPage extends PageObject {
         Assert.assertTrue("User with such email wasn't found", noRecordsFoundResult.isDisplayed());
     }
 
+    public void checkThatSuccessDeletedUserMessageIsDisplayed() {
+        Assert.assertTrue("Success message is displayed",successDeletedUserMessage.isDisplayed());
+    }
+
 
 }
