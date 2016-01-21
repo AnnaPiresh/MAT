@@ -2,6 +2,7 @@ package com.qamadness.pages.backend.dashboard;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,5 +19,11 @@ public class DashboardPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(closePopup));
         closePopup.click();
+    }
+
+    //Verifications:
+
+    public void verifyThatCurrentPageIsDashboard (){
+        Assert.assertTrue(getDriver().getTitle().contains("Dashboard"));
     }
 }

@@ -33,7 +33,7 @@ import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver
 @UseTestDataFrom(value="src/test/resources/admin_user/CreateAdminUserData.csv")
 public class CreateAdminUserStory {
 
-    //Fields in CSV file:
+    //Data in CSV file:
 
     private String adminRoleName;
     private String adminLogin;
