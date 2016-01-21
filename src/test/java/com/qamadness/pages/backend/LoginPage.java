@@ -30,6 +30,12 @@ public class LoginPage extends PageObject{
     @FindBy (xpath = ".//li[@class='error-msg']/ul/li/span[contains(.,'Access denied')]")
     WebElementFacade errorAccessDeniedMessage;
 
+    @FindBy (xpath = ".//*[@id='advice-required-entry-username' and contains(.,'This is a required field')]")
+    WebElementFacade errorUserNameIsRequiredFieldMessage;
+
+    @FindBy (xpath = ".//*[@id='advice-required-entry-login' and contains (.,'This is a required field')]")
+    WebElementFacade errorPasswordIsRequiredFieldMessage;
+
     //Fields:
     @FindBy(xpath = ".//*[@id='username']")
     WebElementFacade loginInput;
@@ -67,6 +73,14 @@ public class LoginPage extends PageObject{
 
     public void verifyThatAccessDeniedErrorIsDisplayed (){
         Assert.assertTrue("Error message is displayed", errorAccessDeniedMessage.isDisplayed());
+    }
+
+    public void verifyThatUserNameIsRequiredErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed",errorUserNameIsRequiredFieldMessage.isDisplayed());
+    }
+
+    public void verifyThatPasswordIsRequiredErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed",errorPasswordIsRequiredFieldMessage.isDisplayed());
     }
 }
 
