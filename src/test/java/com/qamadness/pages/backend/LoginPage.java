@@ -36,6 +36,9 @@ public class LoginPage extends PageObject{
     @FindBy (xpath = ".//*[@id='advice-required-entry-login' and contains (.,'This is a required field')]")
     WebElementFacade errorPasswordIsRequiredFieldMessage;
 
+    @FindBy (xpath = ".//span[contains(.,'Invalid User Name or Password')]")
+    WebElementFacade errorInvalidUserNameOrPasswordMessage;
+
     //Fields:
     @FindBy(xpath = ".//*[@id='username']")
     WebElementFacade loginInput;
@@ -81,6 +84,9 @@ public class LoginPage extends PageObject{
 
     public void verifyThatPasswordIsRequiredErrorIsDisplayed (){
         Assert.assertTrue("Error message is displayed",errorPasswordIsRequiredFieldMessage.isDisplayed());
+    }
+    public void verifyThatInvalidUserNameOrPasswordErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorInvalidUserNameOrPasswordMessage.isDisplayed());
     }
 }
 
