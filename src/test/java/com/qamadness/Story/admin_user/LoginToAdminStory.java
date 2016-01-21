@@ -85,4 +85,17 @@ public class LoginToAdminStory {
         //verifications:
         loginPageSteps.verify_That_Password_Is_Required_Error_Is_Displayed();
     }
+
+    //Test case "Login to admin with not existing user":
+
+    @Issue("MAT-59")
+    @Pending @Test
+    public void loginToAdminAsNotExistingUser (){
+        //login to admin as not existing user:
+        loginPageSteps.loginInput(invalidUserName);
+        loginPageSteps.passInput(validPassword);
+        loginPageSteps.loginButton();
+        //verifications:
+        loginPageSteps.verify_That_Invalid_User_Name_Or_Password_Error_Is_Displayed();
+    }
 }

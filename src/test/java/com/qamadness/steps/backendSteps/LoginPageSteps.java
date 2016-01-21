@@ -45,4 +45,9 @@ public class LoginPageSteps extends ScenarioSteps {
     public void verify_That_Password_Is_Required_Error_Is_Displayed (){
         loginPage.verifyThatPasswordIsRequiredErrorIsDisplayed();
     }
+
+    @Step
+    public void verify_That_Invalid_User_Name_Or_Password_Error_Is_Displayed (){
+        loginPage.verifyThatInvalidUserNameOrPasswordErrorIsDisplayed();
+    }
 }
