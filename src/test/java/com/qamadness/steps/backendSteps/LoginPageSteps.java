@@ -35,4 +35,14 @@ public class LoginPageSteps extends ScenarioSteps {
     public void verify_That_Access_Denied_Error_Is_Displayed (){
         loginPage.verifyThatAccessDeniedErrorIsDisplayed();
     }
+
+    @Step
+    public void verify_That_User_Name_Is_Required_Error_Is_Displayed (){
+        loginPage.verifyThatUserNameIsRequiredErrorIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Password_Is_Required_Error_Is_Displayed (){
+        loginPage.verifyThatPasswordIsRequiredErrorIsDisplayed();
+    }
 }
