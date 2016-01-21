@@ -30,7 +30,7 @@ import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver
 @UseTestDataFrom(value="src/test/resources/admin_user/DeleteAdminUserData.csv")
 public class DeleteAdminUserStory {
 
-    //Fields in CSV file:
+    //Data in CSV file:
 
     private String adminLogin;
     private String adminPassword;

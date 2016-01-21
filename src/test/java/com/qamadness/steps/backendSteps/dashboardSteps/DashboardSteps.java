@@ -12,4 +12,11 @@ public class DashboardSteps {
 
     @Step
     public void closePopup(){dashboard.closePopup();}
+
+    //Verifications:
+
+    @Step
+    public void verify_That_Current_Page_Is_Dashboard (){
+        dashboard.verifyThatCurrentPageIsDashboard();
+    }
 }
