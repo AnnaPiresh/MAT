@@ -98,4 +98,17 @@ public class LoginToAdminStory {
         //verifications:
         loginPageSteps.verify_That_Invalid_User_Name_Or_Password_Error_Is_Displayed();
     }
+
+    //Test case "Login with incorrect password"
+
+    @Issue("MAT-60")
+    @Pending @Test
+    public void loginToAdminWithIncorrectPassword (){
+        //login to admin as not existing user:
+        loginPageSteps.loginInput(validUserName);
+        loginPageSteps.passInput(invalidPassword);
+        loginPageSteps.loginButton();
+        //verifications:
+        loginPageSteps.verify_That_Invalid_User_Name_Or_Password_Error_Is_Displayed();
+    }
 }
