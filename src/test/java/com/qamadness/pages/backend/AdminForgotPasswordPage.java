@@ -1,9 +1,11 @@
 package com.qamadness.pages.backend;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -48,17 +50,20 @@ public class AdminForgotPasswordPage extends PageObject {
     //verifications:
 
     public void verifyThatEmailIsRequiredErrorMessageIsDisplayed (){
-        waitFor(errorEmailIsRequiredMessage);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(errorEmailIsRequiredMessage));
         Assert.assertTrue(errorEmailIsRequiredMessage.isDisplayed());
     }
 
     public void verifyThatInvalidEmailErorrMessageIsDisplayed (){
-        waitFor(errorInvalidEmailMessage);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(errorInvalidEmailMessage));
         Assert.assertTrue(errorInvalidEmailMessage.isDisplayed());
     }
 
     public void verifyThatRestorePasswordSuccessMessageIsDisplayed (){
-        waitFor(successRestorePasswordLinkWasSentMessage);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(successRestorePasswordLinkWasSentMessage));
         Assert.assertTrue(successRestorePasswordLinkWasSentMessage.isDisplayed());
     }
 
