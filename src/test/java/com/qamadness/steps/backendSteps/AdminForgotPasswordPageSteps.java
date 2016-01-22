@@ -35,7 +35,7 @@ public class AdminForgotPasswordPageSteps extends ScenarioSteps {
 
     @Step
     public void verify_That_Invalid_Email_Error_Message_Is_Displayed (){
-        adminForgotPasswordPage.verifyThatEmailIsRequiredErrorMessageIsDisplayed();
+        adminForgotPasswordPage.verifyThatInvalidEmailErorrMessageIsDisplayed();
     }
 
     @Step
