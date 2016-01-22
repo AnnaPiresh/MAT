@@ -23,6 +23,10 @@ public class LoginPageSteps extends ScenarioSteps {
     @Step
     public void loginButton(){loginPage.loginButton();}
 
+    @Step
+    public void click_Forgot_Password_Link (){
+        loginPage.clickForgotPasswordLink();
+    }
 
     //Verifications:
 
