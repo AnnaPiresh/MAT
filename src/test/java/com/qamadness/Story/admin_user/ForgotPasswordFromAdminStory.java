@@ -98,13 +98,25 @@ public class ForgotPasswordFromAdminStory {
     // Test case "Restore password with invalid email":
 
     @Issue("MAT-64")
-    @Test
+    @Pending @Test
     public void restorePasswordWithInvalidEmail (){
         loginPageSteps.click_Forgot_Password_Link();
         adminForgotPasswordPageSteps.enter_Email_Address(invalidEmail);
         adminForgotPasswordPageSteps.click_Retrieve_Password_Button();
         //verifications:
         adminForgotPasswordPageSteps.verify_That_Invalid_Email_Error_Message_Is_Displayed();
+    }
+
+    //Test case "Restore password with correct email":
+
+    @Issue("MAT-65")
+    @Pending @Test
+    public void restorePasswordWithCorrectEmail (){
+        loginPageSteps.click_Forgot_Password_Link();
+        adminForgotPasswordPageSteps.enter_Email_Address(newAdminEmail);
+        adminForgotPasswordPageSteps.click_Retrieve_Password_Button();
+        //verifications:
+        adminForgotPasswordPageSteps.verify_That_Restore_Password_Success_Message_Is_Displayed();
     }
 
 }
