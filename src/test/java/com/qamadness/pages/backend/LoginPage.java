@@ -50,6 +50,11 @@ public class LoginPage extends PageObject{
     @FindBy(css = ".form-button")
     WebElementFacade loginButton;
 
+    //Links:
+
+    @FindBy (xpath = ".//a[contains(.,'Forgot')]")
+    WebElementFacade forgotPasswordLink;
+
     public void openPage() {
         getDriver().navigate().to("http://qamad:f3Vh!@www.qamadness.dev/admin");
         getDriver().manage().window().maximize();
@@ -66,6 +71,10 @@ public class LoginPage extends PageObject{
 
     public void loginButton(){
         loginButton.click();
+    }
+
+    public void clickForgotPasswordLink (){
+        forgotPasswordLink.click();
     }
 
     //Verifications:
