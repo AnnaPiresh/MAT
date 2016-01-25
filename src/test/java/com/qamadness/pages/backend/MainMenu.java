@@ -62,7 +62,15 @@ public class MainMenu extends PageObject {
     @FindBy(xpath = ".//*[@id='nav']/li[5]/ul/li[2]/a/span")
     WebElementFacade shoppingCartPriceRulesMenuItem;
 
-//------------------------------------------------------Objects for System menu------------------------------------//
+//-----------------------------------------------------Objects for CMS menu-------------------------------------------//
+
+    @FindBy (xpath = ".//a[contains(.,'CMS')]")
+    WebElementFacade cmsMenu;
+
+    @FindBy (xpath = ".//a[contains(.,'Pages')]")
+    WebElementFacade pagesMenuItem;
+
+//------------------------------------------------------Objects for System menu---------------------------------------//
 
     @FindBy(xpath = ".//*[@id='nav']/li[9]/a/span")
     WebElementFacade systemMenu;
@@ -162,6 +170,14 @@ public class MainMenu extends PageObject {
         shoppingCartPriceRulesMenuItem.click();
     }
 
+//-------------------------------------------------------Methods for CMS menu-----------------------------------------//
+
+    public void openCMSPagesPage (){
+        cmsMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(pagesMenuItem));
+        pagesMenuItem.click();
+    }
 //------------------------------------------------------Methods for System menu------------------------------------//
 
     public void openCacheManagementPage(){
