@@ -75,7 +75,5 @@ public class DeleteAttributeSetStory {
         manageAttributeSetsSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteSuccessMessage);
     }
-
-
 }
 

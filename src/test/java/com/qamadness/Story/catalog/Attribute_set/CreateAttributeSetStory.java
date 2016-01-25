@@ -17,7 +17,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
-import org.yecht.Data;
 
 /**
  * Created by Serhii_Boiko on 18.01.2016.
@@ -92,6 +91,7 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
+        mainMenuSteps.open_Manage_Attribute_Sets_page();
         manageAttributeSetsSteps.search_for_attribute_set(setName);
         manageAttributeSetsSteps.check_correct_attribute_set_is_filtered(setName);
         createAttributeSetSteps.click_add_new_attribute_set_button();
@@ -135,7 +135,7 @@ public class CreateAttributeSetStory {
     }
 
     @Issue("MAT-72")
-    //@Pending
+    @Pending
     @Test
     public void create_attribute_set_with_adding_user_product_attributes(){
         createAttributeSetSteps.click_add_new_attribute_set_button();
