@@ -39,6 +39,7 @@ public class CreateAttributeSetStory {
     private String groupTitle;
     private String customSetName;
     private String basedOnValue;
+    private String deleteMessage;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -79,12 +80,18 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
     @Issue("MAT-68")
     @Pending
     @Test
     public void create_attribute_set_with_existing_name(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(setName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
         manageAttributeSetsSteps.search_for_attribute_set(setName);
         manageAttributeSetsSteps.check_correct_attribute_set_is_filtered(setName);
         createAttributeSetSteps.click_add_new_attribute_set_button();
@@ -111,6 +118,8 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(longName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
     @Issue("MAT-71")
@@ -121,10 +130,12 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(charName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
     @Issue("MAT-72")
-    @Pending
+    //@Pending
     @Test
     public void create_attribute_set_with_adding_user_product_attributes(){
         createAttributeSetSteps.click_add_new_attribute_set_button();
@@ -134,6 +145,10 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.assign_attributes_to_created_group();
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.search_for_attribute_set(userProductsName);
+        manageAttributeSetsSteps.select_attribute_set_found();
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
     @Issue("MAT-73")
@@ -145,6 +160,8 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.select_based_on_value(basedOnValue);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
 }
