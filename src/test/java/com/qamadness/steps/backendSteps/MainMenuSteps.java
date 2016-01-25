@@ -44,6 +44,13 @@ public class MainMenuSteps extends ScenarioSteps {
     @Step
     public void open_Shopping_Cart_Price_Rules_Page() {mainMenu.openShoppingCartPriceRulesPage();}
 
+    //--------------------------------------Steps for CMS menu--------------------------------------//
+
+    @Step
+    public void open_CMS_Pages_Page (){
+        mainMenu.openCMSPagesPage();
+    }
+
     //-----------------------------------------Steps for system menu----------------------------------//
 
     @Step
