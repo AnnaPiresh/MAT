@@ -1,2 +1,2 @@
-login;password;categoryName;name;activity; including
-admin;3HSYOFf;Max Auto Root Category;//span[contains(text(),'Default Category')];1;1
+login;password;categoryName;name;activity; including; desc; title;keywords;metadesc;displayMode;cMSBlock;availableProductListingSortBy;selectDefaultProductListingSortBy;priceStep;isAnchor;useParentCategorySettings;applyToProducts;selectCustomDesign;activeFrom;activeTo;pageLayout;customLayoutUpdate
+admin;3HSYOFf;Max Auto Root Category;//span[contains(text(),'Default Category')];1;1; Max Auto Root Category Description; Max Auto Root Category Page Title;Max Auto Root Category Keywords;Max Auto Root Category Meta Description;PRODUCTS;9;position;position;12;1;0;1;base/default;1/1/1;1/1/2200;one_column;Layout Update
