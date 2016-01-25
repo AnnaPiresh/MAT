@@ -142,7 +142,8 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(userProductsName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.add_new_attribute_group(groupTitle);
-        createAttributeSetSteps.assign_attributes_to_created_group();
+        createAttributeSetSteps.scroll_down_to_created_attribute_group();
+        createAttributeSetSteps.drag_and_drop_unassigned_attribute();
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
         manageAttributeSetsSteps.search_for_attribute_set(userProductsName);
