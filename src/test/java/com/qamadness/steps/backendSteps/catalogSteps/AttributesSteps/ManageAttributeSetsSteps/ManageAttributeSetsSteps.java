@@ -15,8 +15,13 @@ public class ManageAttributeSetsSteps extends ScenarioSteps{
     public void search_for_attribute_set(String searchterm) {manageAttributeSetsPage.searchForAttributeSet(searchterm);}
 
     @Step
-    public boolean check_correct_attribute_set_is_filtered(String searchterm){
-        manageAttributeSetsPage.checkCorrectAttributeSetIsFiltered(searchterm);
-        return false;
-    }
+    public void check_correct_attribute_set_is_filtered(String searchterm){
+        manageAttributeSetsPage.checkCorrectAttributeSetIsFiltered(searchterm); }
+
+    @Step
+    public void click_delete_attribute_set_button(){manageAttributeSetsPage.clickDeleteAttributeSetButton(); }
+
+    @Step
+    public void select_attribute_set_found() {manageAttributeSetsPage.selectAttributeSetFound();}
+
 }
