@@ -1,2 +1,2 @@
-login,password,setName,createSuccessMessage,deleteSuccessMessage
-admin,3HSYOFf,Test robot delete set,The attribute set has been saved.,The attribute set has been removed.
+login,password,setName,createSuccessMessage,deleteSuccessMessage,defaultSetName
+admin,3HSYOFf,Test robot delete set,The attribute set has been saved.,The attribute set has been removed.,Default

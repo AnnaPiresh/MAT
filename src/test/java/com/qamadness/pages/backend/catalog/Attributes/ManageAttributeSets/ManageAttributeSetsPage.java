@@ -59,6 +59,13 @@ public class ManageAttributeSetsPage extends PageObject{
         alert.accept();
     }
 
+    public void checkDeleteButtonIsNotPresent(){
+       if (deleteAttributeSetBtn.isPresent()){
+           Assert.fail("It's possible to delete Default attribute set");
+       } else{
+           System.out.println("Delete button is not present on page");
+       }
+    }
 
 
 

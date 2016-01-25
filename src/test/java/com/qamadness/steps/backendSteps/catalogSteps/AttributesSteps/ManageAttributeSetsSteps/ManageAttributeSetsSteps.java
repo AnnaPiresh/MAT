@@ -24,4 +24,7 @@ public class ManageAttributeSetsSteps extends ScenarioSteps{
     @Step
     public void select_attribute_set_found() {manageAttributeSetsPage.selectAttributeSetFound();}
 
+    @Step
+    public void check_delete_button_is_not_present() {manageAttributeSetsPage.checkDeleteButtonIsNotPresent();}
+
 }

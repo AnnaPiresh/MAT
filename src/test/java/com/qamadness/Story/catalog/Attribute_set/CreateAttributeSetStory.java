@@ -98,6 +98,11 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_error_message(errorMessage);
+        mainMenuSteps.open_Manage_Attribute_Sets_page();
+        manageAttributeSetsSteps.search_for_attribute_set(setName);
+        manageAttributeSetsSteps.select_attribute_set_found();
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
     @Issue("MAT-69")
@@ -164,5 +169,4 @@ public class CreateAttributeSetStory {
         manageAttributeSetsSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteMessage);
     }
-
 }

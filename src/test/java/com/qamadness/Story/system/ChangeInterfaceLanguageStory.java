@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-@UseTestDataFrom(value="src/test/resources/ChangeInterfaceLanguageData.cvs")
+@UseTestDataFrom(value="src/test/resources/ChangeInterfaceLanguageData.csv")
 public class ChangeInterfaceLanguageStory {
 
     private String login;
