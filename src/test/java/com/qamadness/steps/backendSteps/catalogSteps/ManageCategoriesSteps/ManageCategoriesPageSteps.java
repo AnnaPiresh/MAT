@@ -30,9 +30,6 @@ public class ManageCategoriesPageSteps extends PageObject {
     public void saveCategory () { manageCategoriesPage.saveCategory();}
 
     @Step
-    public void checkCategorySaved () { manageCategoriesPage.checkCategorySaved();}
-
-    @Step
     public void addNewRootCategory () { manageCategoriesPage.addNewRootCategory();}
 
     @Step
@@ -43,4 +40,76 @@ public class ManageCategoriesPageSteps extends PageObject {
 
     @Step
     public void deleteCategory () {manageCategoriesPage.deleteCategory();}
+
+    @Step
+    public void enterCategoryDescription (String desc) {manageCategoriesPage.enterCategoryDescription(desc);}
+
+    @Step
+    public void enterPageTitle (String title) {manageCategoriesPage.enterPageTitle(title);}
+
+    @Step
+    public void enterMetaKeywords (String keywords) {manageCategoriesPage.enterMetaKeywords(keywords);}
+
+    @Step
+    public void entermetaDescription (String metadesc) {manageCategoriesPage.entermetaDescription(metadesc);}
+
+    @Step
+    public void selectDisplaySettingsTab () {manageCategoriesPage.selectDisplaySettingsTab();}
+
+    @Step
+    public void selectDisplayMode (String value) {manageCategoriesPage.selectDisplayMode(value);}
+
+    @Step
+    public void selectCMSBlock (String value) {manageCategoriesPage.selectCMSBlock(value);}
+
+    @Step
+    public void clickUseAllAvailableAttributesCheckbox () {manageCategoriesPage.clickUseAllAvailableAttributesCheckbox();}
+
+    @Step
+    public void selectAvailableProductListingSortBy (String value) {manageCategoriesPage.selectAvailableProductListingSortBy(value);}
+
+    @Step
+    public void clickUseConfigSettingCheckbox () {manageCategoriesPage.clickUseConfigSettingCheckbox();}
+
+    @Step
+    public void selectDefaultProductListingSortBy (String value) {manageCategoriesPage.selectDefaultProductListingSortBy(value);}
+
+    @Step
+    public void clickPriceStepUseConfigSettingCheckbox () {manageCategoriesPage.clickPriceStepUseConfigSettingCheckbox();}
+
+    @Step
+    public void enterLayeredNavigationPriceStep (String value) {manageCategoriesPage.enterLayeredNavigationPriceStep(value);}
+
+    @Step
+    public void selectIsAnchor (String value) {manageCategoriesPage.selectIsAnchor(value);}
+
+    @Step
+    public void selectCustomDesignTab () {manageCategoriesPage.selectCustomDesignTab();}
+
+    @Step
+    public void selectUseParentCategorySettings (String value) {manageCategoriesPage.selectUseParentCategorySettings(value);}
+
+    @Step
+    public void selectApplyToProducts(String value) {manageCategoriesPage.selectApplyToProducts(value);}
+
+    @Step
+    public void selectCustomDesign (String value) {manageCategoriesPage.selectCustomDesign(value);}
+
+    @Step
+    public void selectActiveFrom (String value) {manageCategoriesPage.selectActiveFrom(value);}
+
+    @Step
+    public void selectActiveTo(String value) {manageCategoriesPage.selectActiveTo(value);}
+
+    @Step
+    public void selectPageLayout(String value) {manageCategoriesPage.selectPageLayout(value);}
+
+    @Step
+    public void enterCustomLayoutUpdate(String value) {manageCategoriesPage.enterCustomLayoutUpdate(value);}
+
+    @Step
+    public void selectCategoryProductsTab () {manageCategoriesPage.selectCategoryProductsTab();}
+
+    @Step
+    public void selectSomeCategoryProducts () {manageCategoriesPage.selectSomeCategoryProducts();}
 }

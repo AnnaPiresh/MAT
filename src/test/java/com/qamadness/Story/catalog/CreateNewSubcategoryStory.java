@@ -73,7 +73,6 @@ public class CreateNewSubcategoryStory {
         manageCategoriesPageSteps.selectCategoryActivity("1");
         manageCategoriesPageSteps.selectIncludingInNavigationMenu("1");
         manageCategoriesPageSteps.saveCategory();
-        manageCategoriesPageSteps.checkCategorySaved();
 
     }
 }
