@@ -50,9 +50,6 @@ public class ManageUsersPage extends PageObject {
 
     //Messages:
 
-    @FindBy (xpath = "//li[normalize-space(@class)='error-msg' and contains(.,'You cannot delete your own account.')]")
-    WebElementFacade cannotDeleteAccountMessage;
-
     @FindBy (xpath = "//div[@id='advice-required-entry-role_name']")
     WebElementFacade errorRequiredFieldRoleName;
 
@@ -139,6 +136,10 @@ public class ManageUsersPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
         Assert.assertTrue("User with such email wasn't found", noRecordsFoundResult.isDisplayed());
+    }
+
+    public void checkThatSuccessDeletedUserMessageIsDisplayed() {
+        Assert.assertTrue("Success message is displayed",successDeletedUserMessage.isDisplayed());
     }
 
 

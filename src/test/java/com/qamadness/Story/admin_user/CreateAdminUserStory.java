@@ -3,6 +3,9 @@ package com.qamadness.Story.admin_user;
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.LogoutFromAdminSteps;
+import com.qamadness.steps.backendSteps.systemSteps.permissions.roles.ManageRolesPageSteps;
+import com.qamadness.steps.backendSteps.systemSteps.permissions.roles.NewRolePageSteps;
 import com.qamadness.steps.backendSteps.systemSteps.permissions.users.CreateNewUserPageSteps;
 import com.qamadness.steps.backendSteps.systemSteps.permissions.users.ManageUsersPageSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
@@ -30,8 +33,9 @@ import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver
 @UseTestDataFrom(value="src/test/resources/admin_user/CreateAdminUserData.csv")
 public class CreateAdminUserStory {
 
-    //Fields in CSV file:
+    //Data in CSV file:
 
+    private String adminRoleName;
     private String adminLogin;
     private String adminPassword;
     private String userName;
@@ -40,6 +44,7 @@ public class CreateAdminUserStory {
     private String lastName;
     private String email;
     private String email2;
+    private String invalidEmail;
     private String password;
     private String passwordConfirmation;
     private String thisAccountIsInactive;
@@ -72,6 +77,15 @@ public class CreateAdminUserStory {
 
     @Steps
     CreateNewUserPageSteps createNewUserPageSteps;
+
+    @Steps
+    LogoutFromAdminSteps logoutFromAdminSteps;
+
+    @Steps
+    ManageRolesPageSteps manageRolesPageSteps;
+
+    @Steps
+    NewRolePageSteps newRolePageSteps;
 
     //Precondition: login as admin user and navigate to System -> Permissions -> Users page
 
@@ -180,6 +194,7 @@ public class CreateAdminUserStory {
         manageUsersPageSteps.check_By_User_Name_That_User_Is_Not_Created(userName2);
         //remove created user
         manageUsersPageSteps.click_Reset_Filter_Button();
+        manageUsersPageSteps.click_Reset_Filter_Button();
         manageUsersPageSteps.find_User_By_Email_And_Open(email);
         createNewUserPageSteps.click_Delete_Button_And_Confirm();
     }
@@ -256,4 +271,175 @@ public class CreateAdminUserStory {
         createNewUserPageSteps.click_Delete_Button_And_Confirm();
     }
 
+    //Test case "Create Admin User. Use wrong values for 'password' fields":
+
+    @Issue("MAT-50")
+    @Pending @Test
+    public void createAdminWithInvalidPassword (){
+        //create new admin user with invalid password and password confirmation:
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(wrongPassword);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(wrongPasswordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
+        createNewUserPageSteps.verify_That_Invalid_Password_Message_Is_Displayed();
+        createNewUserPageSteps.verify_That_Invalid_Password_Confirmation_Message_Is_Displayed();
+        createNewUserPageSteps.click_Back_Button();
+        manageUsersPageSteps.check_By_User_Name_That_User_Is_Not_Created(userName);
+    }
+
+    //Test case "Create Admin User (with invalid data in the 'email' field)":
+
+    @Issue("MAT-51")
+    @Pending @Test
+    public void createAdminUserWithInvalidEmail(){
+        //create admin user with invalid email:
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(invalidEmail);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
+        createNewUserPageSteps.verify_That_Invalid_Email_Message_Is_Displayed();
+        createNewUserPageSteps.click_Back_Button();
+        manageUsersPageSteps.check_By_User_Name_That_User_Is_Not_Created(userName);
+    }
+
+    //Test case "Create Admin User  (as Inactive)"
+
+    @Issue("MAT-52")
+    @Pending @Test
+    public void createInactiveUser (){
+        //create inactive admin user
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsInactive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
+        manageUsersPageSteps.check_That_Success_Saved_User_Message_Is_Displayed();
+        manageUsersPageSteps.check_That_User_Is_Created(email);
+        logoutFromAdminSteps.logout_from_admin();
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(userName);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        loginPageSteps.verify_That_Inactive_Account_Error_Is_Displayed();
+        //remove created user:
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(adminLogin);
+        loginPageSteps.passInput(adminPassword);
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+        mainMenuSteps.open_Manage_Admin_Users_Page();
+        manageUsersPageSteps.click_Reset_Filter_Button();
+        manageUsersPageSteps.find_User_By_Email_And_Open(email);
+        createNewUserPageSteps.click_Delete_Button_And_Confirm();
+    }
+
+    //Test case "Create Admin User (with Admin User Role)":
+
+    @Issue("MAT-53")
+    @Pending @Test
+    public void createAdminUserWithAdminRole (){
+        //create Administrator role
+        mainMenuSteps.open_Manage_Roles_Page();
+        manageRolesPageSteps.click_Add_New_Role_Button();
+        newRolePageSteps.fill_Role_Name_Field(adminRoleName);
+        newRolePageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        newRolePageSteps.open_Role_Resources_Tab();
+        newRolePageSteps.select_All_Resources_Access();
+        newRolePageSteps.click_Save_Button();
+        manageRolesPageSteps.verify_That_Role_Is_Created(adminRoleName);
+        //create user with Administrator role
+        mainMenuSteps.open_Manage_Admin_Users_Page();
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.open_User_Role_Tab();
+        createNewUserPageSteps.search_For_Role(adminRoleName);
+        createNewUserPageSteps.select_First_Role_In_The_List();
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications
+        manageUsersPageSteps.check_That_Success_Saved_User_Message_Is_Displayed();
+        manageUsersPageSteps.check_That_User_Is_Created(email);
+        logoutFromAdminSteps.logout_from_admin();
+        loginPageSteps.loginInput(userName);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+        logoutFromAdminSteps.logout_from_admin();
+        //remove created user and role
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(adminLogin);
+        loginPageSteps.passInput(adminPassword);
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+        mainMenuSteps.open_Manage_Admin_Users_Page();
+        manageUsersPageSteps.click_Reset_Filter_Button();
+        manageUsersPageSteps.find_User_By_Email_And_Open(email);
+        createNewUserPageSteps.click_Delete_Button_And_Confirm();
+        mainMenuSteps.open_Manage_Roles_Page();
+        manageRolesPageSteps.find_Role_And_Open(adminRoleName);
+        newRolePageSteps.click_Delete_Role_Button_And_Confirm();
+    }
+
+    //Test case "Create Admin User (without Role)"
+
+    @Issue("MAT-54")
+    @Pending @Test
+    public void createAdminUserWithoutRole (){
+        //create admin user without role
+        manageUsersPageSteps.click_Add_New_User_Button();
+        createNewUserPageSteps.fill_User_Name_Field(userName);
+        createNewUserPageSteps.fill_First_Name_Field(firstName);
+        createNewUserPageSteps.fill_Last_Name_Field(lastName);
+        createNewUserPageSteps.fill_Email_Field(email);
+        createNewUserPageSteps.fill_Current_Admin_Password_Field(adminPassword);
+        createNewUserPageSteps.fill_Password_Field(password);
+        createNewUserPageSteps.fill_Password_Confirmation_Field(passwordConfirmation);
+        createNewUserPageSteps.select_Is_Account_Active(thisAccountIsActive);
+        createNewUserPageSteps.click_Save_User_Button();
+        //verifications:
+        manageUsersPageSteps.check_That_Success_Saved_User_Message_Is_Displayed();
+        manageUsersPageSteps.check_That_User_Is_Created(email);
+        logoutFromAdminSteps.logout_from_admin();
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(userName);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        loginPageSteps.verify_That_Access_Denied_Error_Is_Displayed();
+        //remove created user:
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(adminLogin);
+        loginPageSteps.passInput(adminPassword);
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();
+        mainMenuSteps.open_Manage_Admin_Users_Page();
+        manageUsersPageSteps.click_Reset_Filter_Button();
+        manageUsersPageSteps.find_User_By_Email_And_Open(email);
+        createNewUserPageSteps.click_Delete_Button_And_Confirm();
+    }
 }

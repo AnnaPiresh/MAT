@@ -1,5 +1,6 @@
 package com.qamadness.pages.backend;
 
+import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
@@ -22,48 +23,79 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends PageObject{
 
+    //Messages:
+    @FindBy (xpath = ".//li[@class='error-msg']/ul/li/span[contains(.,'This account is inactive')]")
+    WebElementFacade errorInactiveAccountMessage;
 
+    @FindBy (xpath = ".//li[@class='error-msg']/ul/li/span[contains(.,'Access denied')]")
+    WebElementFacade errorAccessDeniedMessage;
+
+    @FindBy (xpath = ".//*[@id='advice-required-entry-username' and contains(.,'This is a required field')]")
+    WebElementFacade errorUserNameIsRequiredFieldMessage;
+
+    @FindBy (xpath = ".//*[@id='advice-required-entry-login' and contains (.,'This is a required field')]")
+    WebElementFacade errorPasswordIsRequiredFieldMessage;
+
+    @FindBy (xpath = ".//span[contains(.,'Invalid User Name or Password')]")
+    WebElementFacade errorInvalidUserNameOrPasswordMessage;
+
+    //Fields:
+    @FindBy(xpath = ".//*[@id='username']")
+    WebElementFacade loginInput;
+
+    @FindBy(xpath = ".//*[@id='login']")
+    WebElementFacade passInput;
+
+    //Buttons:
+    @FindBy(css = ".form-button")
+    WebElementFacade loginButton;
+
+    //Links:
+
+    @FindBy (xpath = ".//a[contains(.,'Forgot')]")
+    WebElementFacade forgotPasswordLink;
 
     public void openPage() {
         getDriver().navigate().to("http://qamad:f3Vh!@www.qamadness.dev/admin");
         getDriver().manage().window().maximize();
     }
 
-
-    @FindBy(xpath = ".//*[@id='username']")
-    WebElementFacade loginInput;
     public void loginInput(String login){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(loginInput));
         loginInput.sendKeys(login);
     }
 
-    @FindBy(xpath = ".//*[@id='login']")
-    WebElementFacade passInput;
     public void passInput(String password){ passInput.sendKeys(password);
     }
 
-    @FindBy(css = ".form-button")
-    WebElementFacade loginButton;
     public void loginButton(){
-        getDriver().manage().window().maximize();
         loginButton.click();
-        //loginButton.click();
     }
 
-    @FindBy(name = "DELAY")
-    WebElementFacade delay;
-    public void delay(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(delay));
-        delay.click();
+    public void clickForgotPasswordLink (){
+        forgotPasswordLink.click();
     }
 
+    //Verifications:
 
+    public void verifyThatInactiveAccountErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorInactiveAccountMessage.isDisplayed());
+    }
 
+    public void verifyThatAccessDeniedErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorAccessDeniedMessage.isDisplayed());
+    }
 
+    public void verifyThatUserNameIsRequiredErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed",errorUserNameIsRequiredFieldMessage.isDisplayed());
+    }
 
-
-
+    public void verifyThatPasswordIsRequiredErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed",errorPasswordIsRequiredFieldMessage.isDisplayed());
+    }
+    public void verifyThatInvalidUserNameOrPasswordErrorIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorInvalidUserNameOrPasswordMessage.isDisplayed());
+    }
 }
 

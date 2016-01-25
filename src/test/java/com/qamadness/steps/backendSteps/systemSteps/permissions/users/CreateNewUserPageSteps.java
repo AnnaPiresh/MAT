@@ -33,6 +33,26 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
         createNewUserPage.verifyThatEmailIsRequiredErrorMessageIsDisplayed();
     }
 
+    @Step
+    public void verify_That_Invalid_Password_Confirmation_Message_Is_Displayed (){
+        createNewUserPage.verifyThatInvalidPasswordConfirmationMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Invalid_Password_Message_Is_Displayed (){
+        createNewUserPage.verifyThatInvalidPasswordMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Invalid_Email_Message_Is_Displayed (){
+        createNewUserPage.verifyThatInvalidEmailMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Cannot_Delete_Accoun_tMessage_Is_Displayed (){
+        createNewUserPage.verifyThatCannotDeleteAccountMessageIsDisplayed();
+    }
+
     //Fill fields on User Info tab methods:
 
     @Step
@@ -90,5 +110,22 @@ public class CreateNewUserPageSteps extends ScenarioSteps {
     @Step
     public void click_Delete_Button_And_Confirm (){
         createNewUserPage.clickDeleteButtonAndConfirm();
+    }
+
+    //Methods for User Role tab:
+
+    @Step
+    public void open_User_Role_Tab (){
+        createNewUserPage.openUserRoleTab();
+    }
+
+    @Step
+    public void search_For_Role (String roleName){
+        createNewUserPage.searchForRole(roleName);
+    }
+
+    @Step
+    public void select_First_Role_In_The_List (){
+        createNewUserPage.selectFirstRoleInTheList();
     }
 }

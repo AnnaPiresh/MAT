@@ -24,5 +24,34 @@ public class LoginPageSteps extends ScenarioSteps {
     public void loginButton(){loginPage.loginButton();}
 
     @Step
-    public void delay(){loginPage.delay();}
+    public void click_Forgot_Password_Link (){
+        loginPage.clickForgotPasswordLink();
+    }
+
+    //Verifications:
+
+    @Step
+    public void verify_That_Inactive_Account_Error_Is_Displayed (){
+        loginPage.verifyThatInactiveAccountErrorIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Access_Denied_Error_Is_Displayed (){
+        loginPage.verifyThatAccessDeniedErrorIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_User_Name_Is_Required_Error_Is_Displayed (){
+        loginPage.verifyThatUserNameIsRequiredErrorIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Password_Is_Required_Error_Is_Displayed (){
+        loginPage.verifyThatPasswordIsRequiredErrorIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Invalid_User_Name_Or_Password_Error_Is_Displayed (){
+        loginPage.verifyThatInvalidUserNameOrPasswordErrorIsDisplayed();
+    }
 }

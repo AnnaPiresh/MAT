@@ -1,11 +1,20 @@
 package com.qamadness.pages.backend.catalog.Attributes.ManageAttributeSets;
 
+import com.thoughtworks.selenium.webdriven.commands.DragAndDrop;
+import net.serenitybdd.core.annotations.findby.*;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
+import org.omg.CORBA.PUBLIC_MEMBER;
+import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.security.Credentials;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.swing.*;
 
 /**
  * Created by kampa on 15.01.2016.
@@ -31,6 +40,24 @@ public class CreateAttributeSetPage extends PageObject{
 
     @FindBy(xpath = ".//*[@class='error-msg']")
     WebElementFacade errorMsg;
+
+    @FindBy(xpath = ".//button[@title='Add New']")
+    WebElementFacade addNewAttributeGroupBtn;
+
+    @FindBy(xpath = ".//*[@id='skeleton_set']")
+    WebElementFacade basedOnDropdown;
+
+    @FindBy(xpath = ".//div[@id='tree-div1']")
+    WebElementFacade listWithAttributeGroups;
+
+    @FindBy(xpath = ".//div[@id='tree-div2']")
+    WebElementFacade unassignedAttributes;
+
+    @FindBy(xpath = ".//div[@id='tree-div1']/ul/div/li[last()]/div/a")
+    WebElementFacade createdGroup;
+
+    @FindBy(xpath = ".//div[@id='tree-div2']/ul/div/li[last()]/div/a")
+    WebElementFacade lastAttribute;
 
 //--------------------------------Methods for Creating an Attribute Set------------------------------------------------//
 
@@ -77,6 +104,36 @@ public class CreateAttributeSetPage extends PageObject{
         }
     }
 
+    public void addNewAttributeGroup(String groupTitle){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(addNewAttributeGroupBtn));
+        addNewAttributeGroupBtn.click();
+        Alert alert = getDriver().switchTo().alert();
+        alert.sendKeys(groupTitle);
+        alert.accept();
+    }
+
+    public void scrollDownToCreatedAttributeGroup(){
+        listWithAttributeGroups.click();
+        JavascriptExecutor jsexecutor = (JavascriptExecutor)getDriver();
+        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", createdGroup);
+    }
+
+    public void dragAndDropUnassignedAttribute(){
+        unassignedAttributes.click();
+        JavascriptExecutor jsexecutor = (JavascriptExecutor)getDriver();
+        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", lastAttribute);
+        new Actions(getDriver()).dragAndDrop(lastAttribute,createdGroup).perform();
+        new Actions(getDriver()).dragAndDrop(lastAttribute,createdGroup).perform();
+    }
+
+    public void selectBasedOnValue(String basedOnValue){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(basedOnDropdown));
+        basedOnDropdown.click();
+        basedOnDropdown.selectByValue(basedOnValue);
+        basedOnDropdown.click();
+    }
 
 
 

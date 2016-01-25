@@ -30,4 +30,19 @@ public class CreateAttributeSetSteps extends ScenarioSteps {
     public void check_required_field_message(String requiredMessage) {
         createAttributeSetPage.checkRequiredFieldMsg(requiredMessage);}
 
+    @Step
+    public void add_new_attribute_group(String groupTitle) {createAttributeSetPage.addNewAttributeGroup(groupTitle);}
+
+    @Step
+    public void scroll_down_to_created_attribute_group(){
+        createAttributeSetPage.scrollDownToCreatedAttributeGroup();}
+
+    @Step
+    public void drag_and_drop_unassigned_attribute(){
+        createAttributeSetPage.dragAndDropUnassignedAttribute();
+    }
+
+    @Step
+    public void select_based_on_value(String basedOnValue) {createAttributeSetPage.selectBasedOnValue(basedOnValue);}
+
 }

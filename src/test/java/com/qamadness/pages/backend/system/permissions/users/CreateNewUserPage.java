@@ -1,9 +1,13 @@
 package com.qamadness.pages.backend.system.permissions.users;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Alexandra on 1/14/16.
@@ -85,6 +89,18 @@ public class CreateNewUserPage extends PageObject {
     @FindBy (xpath = ".//*[@id='advice-required-entry-user_email' and contains(.,'This is a required field')]")
     WebElementFacade errorEmailIsRequired;
 
+    @FindBy (xpath = ".//*[@id='advice-validate-cpassword-user_confirmation' and contains(.,'Please make sure your passwords match.')]")
+    WebElementFacade errorInvalidPasswordConfirmation;
+
+    @FindBy (xpath = ".//*[@id='advice-validate-admin-password-user_password' and contains(.,'Please enter 7 or more characters. Password should contain both numeric and alphabetic characters.')]")
+    WebElementFacade errorInvalidPassword;
+
+    @FindBy (xpath = ".//*[@id='advice-validate-email-user_email' and contains(.,'Please enter a valid email address')]")
+    WebElementFacade errorIncorrectEmail;
+
+    @FindBy (xpath = "//li[normalize-space(@class)='error-msg' and contains(.,'You cannot delete your own account.')]")
+    WebElementFacade cannotDeleteAccountMessage;
+
     //Verification methods:
 
     public void verifyThatBackButtonIsPresent (){
@@ -101,6 +117,22 @@ public class CreateNewUserPage extends PageObject {
 
     public void verifyThatEmailIsRequiredErrorMessageIsDisplayed (){
         Assert.assertTrue("Error message is displayed", errorEmailIsRequired.isDisplayed());
+    }
+
+    public void verifyThatInvalidPasswordConfirmationMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorInvalidPasswordConfirmation.isDisplayed());
+    }
+
+    public void verifyThatInvalidPasswordMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorInvalidPassword.isDisplayed());
+    }
+
+    public void verifyThatInvalidEmailMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", errorIncorrectEmail.isDisplayed());
+    }
+
+    public void verifyThatCannotDeleteAccountMessageIsDisplayed (){
+        Assert.assertTrue("Error message is displayed", cannotDeleteAccountMessage.isDisplayed());
     }
 
     //Fill fields on User Info tab methods:
@@ -150,6 +182,25 @@ public class CreateNewUserPage extends PageObject {
     public void clickDeleteButtonAndConfirm (){
         deleteUserButton.click();
         getDriver().switchTo().alert().accept();
+    }
+
+    //Methods for User Role tab:
+
+    public void openUserRoleTab (){
+        userRoleTab.click();
+    }
+
+    public void searchForRole (String roleName){
+        resetFilterButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
+        roleNameField.type(roleName);
+        searchButton.click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-mask")));
+    }
+
+    public void selectFirstRoleInTheList (){
+        selectByRoleNameRadioButtons.click();
     }
 
 }

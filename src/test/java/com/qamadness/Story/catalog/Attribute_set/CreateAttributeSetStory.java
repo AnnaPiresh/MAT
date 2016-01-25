@@ -33,6 +33,12 @@ public class CreateAttributeSetStory {
     private String successMessage;
     private String errorMessage;
     private String requiredMessage;
+    private String charName;
+    private String userProductsName;
+    private String groupTitle;
+    private String customSetName;
+    private String basedOnValue;
+    private String deleteMessage;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -73,12 +79,19 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
     @Issue("MAT-68")
     @Pending
     @Test
     public void create_attribute_set_with_existing_name(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(setName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
+        mainMenuSteps.open_Manage_Attribute_Sets_page();
         manageAttributeSetsSteps.search_for_attribute_set(setName);
         manageAttributeSetsSteps.check_correct_attribute_set_is_filtered(setName);
         createAttributeSetSteps.click_add_new_attribute_set_button();
@@ -96,6 +109,60 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.check_required_field_message(requiredMessage);
     }
 
+    @Issue("MAT-70")
+    @Pending
+    @Test
+    public void create_attribute_set_with_long_name(){
+        String longName = new String(new char[52]).replace("\0", "Test ");
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(longName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
+    }
 
+    @Issue("MAT-71")
+    @Pending
+    @Test
+    public void create_attribute_set_using_special_characters_for_set_name(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(charName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
+    }
+
+    @Issue("MAT-72")
+    @Pending
+    @Test
+    public void create_attribute_set_with_adding_user_product_attributes(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(userProductsName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.add_new_attribute_group(groupTitle);
+        createAttributeSetSteps.scroll_down_to_created_attribute_group();
+        createAttributeSetSteps.drag_and_drop_unassigned_attribute();
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.search_for_attribute_set(userProductsName);
+        manageAttributeSetsSteps.select_attribute_set_found();
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
+    }
+
+    @Issue("MAT-73")
+    @Pending
+    @Test
+    public void create_attribute_set_based_on_custom(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(customSetName);
+        createAttributeSetSteps.select_based_on_value(basedOnValue);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(successMessage);
+        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteMessage);
+    }
 
 }
