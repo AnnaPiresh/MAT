@@ -15,7 +15,13 @@ public class ManageCategoriesPageSteps extends PageObject {
     public void addNewSubCategory () { manageCategoriesPage.addNewSubCategory();}
 
     @Step
+    public void selectGeneralTab () { manageCategoriesPage.selectGeneralTab();}
+
+    @Step
     public void enterCategoryName (String name) { manageCategoriesPage.enterCategoryName(name);}
+
+    @Step
+    public void clearCategoryNameField () {manageCategoriesPage.clearCategoryNameField();}
 
     /*@Step
     public void clearCategoryName () { manageCategoriesPage.clearCategoryName();}*/
@@ -37,6 +43,9 @@ public class ManageCategoriesPageSteps extends PageObject {
 
     @Step
     public void checkSuccessMessage () {manageCategoriesPage.checkSuccessMessage();}
+
+    @Step
+    public void checkNameIsNotAdded () {manageCategoriesPage.checkNameIsNotAdded();}
 
     @Step
     public void deleteCategory () {manageCategoriesPage.deleteCategory();}
