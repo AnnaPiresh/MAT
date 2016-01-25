@@ -119,12 +119,154 @@ public class ManageCategoriesPage extends PageObject {
         dropdown.selectByValue(value);
     }
 
-    //----------------------------------------
+    //---------------------------------------------Display Settings Tab-----------------------------------------------//
 
     @FindBy(xpath = "//a[@title='Display Settings']/span")
     WebElementFacade displaySettingsTab;
 
     public void selectDisplaySettingsTab () {displaySettingsTab.click();}
+
+    @FindBy(xpath = ".//*[@id='group_5display_mode']")
+    WebElementFacade displayModeDropdown;
+
+    public void selectDisplayMode (String value) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(displayModeDropdown));
+        Select dropdown = new Select(displayModeDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    @FindBy (xpath = ".//*[@id='group_5landing_page']")
+    WebElementFacade cMSBlockDropdown;
+
+    public void selectCMSBlock (String value) {
+        Select dropdown = new Select(cMSBlockDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    @FindBy(xpath = ".//*[@id='use_config_group_5available_sort_by']")
+    WebElementFacade useAllAvailableAttributesCheckbox;
+
+    public void clickUseAllAvailableAttributesCheckbox () { useAllAvailableAttributesCheckbox.click();}
+
+    @FindBy(xpath = ".//*[@id='group_5available_sort_by']")
+    WebElementFacade availableProductListingSortDropdown;
+
+    public void selectAvailableProductListingSortBy(String value) {
+        Select dropdown = new Select(availableProductListingSortDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    @FindBy(xpath = ".//*[@id='use_config_group_5default_sort_by']")
+    WebElementFacade useConfigSettingCheckbox;
+
+    public void clickUseConfigSettingCheckbox () {useConfigSettingCheckbox.click();}
+
+    @FindBy(xpath = ".//*[@id='group_5default_sort_by']")
+    WebElementFacade defaultProductListingSortByDropdown;
+
+    public void selectDefaultProductListingSortBy (String value) {
+        Select dropdown = new Select(defaultProductListingSortByDropdown);
+        dropdown.selectByValue(value);
+    }
+
+
+    @FindBy(xpath = ".//*[@id='use_config_group_5filter_price_range']")
+    WebElementFacade priceStepUseConfigSettingCheckbox;
+
+    public void clickPriceStepUseConfigSettingCheckbox () { priceStepUseConfigSettingCheckbox.click();}
+
+    @FindBy(xpath = ".//*[@id='group_5filter_price_range']")
+    WebElementFacade layeredNavigationPriceStepField;
+
+    public void enterLayeredNavigationPriceStep (String value) { layeredNavigationPriceStepField.sendKeys(value);}
+
+    @FindBy(xpath = ".//*[@id='group_5is_anchor']")
+    WebElementFacade isAnchorDropdown;
+
+    public void selectIsAnchor (String value) {
+        Select dropdown = new Select(isAnchorDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    //-------------------------------------------Custom Design Tab----------------------------------------------------//
+
+    @FindBy(xpath = ".//*[@id='category_info_tabs_group_6']/span")
+    WebElementFacade customDesignTab;
+
+    public void selectCustomDesignTab() {customDesignTab.click();}
+
+    @FindBy(xpath = ".//*[@id='group_6custom_use_parent_settings']")
+    WebElementFacade useParentCategorySettingsDropdown;
+
+    public void selectUseParentCategorySettings (String value) {
+        Select dropdown = new Select(useParentCategorySettingsDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    @FindBy(xpath = ".//*[@id='group_6custom_apply_to_products']")
+    WebElementFacade applyToProductsDropdown;
+
+    public void selectApplyToProducts (String value) {
+        Select dropdown = new Select(applyToProductsDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    @FindBy(xpath = ".//*[@id='group_6custom_design']")
+    WebElementFacade customDesignDropdown;
+
+    public void selectCustomDesign (String value) {
+        Select dropdown = new Select(customDesignDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    @FindBy(xpath = ".//*[@id='group_6custom_design_from']")
+    WebElementFacade activeFrom;
+
+    public void selectActiveFrom (String value) {activeFrom.sendKeys(value);}
+
+    @FindBy(xpath = ".//*[@id='group_6custom_design_to']")
+    WebElementFacade activeTo;
+
+    public void selectActiveTo (String value) {activeTo.sendKeys(value);}
+
+    @FindBy(xpath = ".//*[@id='group_6page_layout']")
+    WebElementFacade pageLayoutDropdown;
+
+    public void selectPageLayout (String value) {
+        Select dropdown = new Select(pageLayoutDropdown);
+        dropdown.selectByValue(value);
+    }
+
+    @FindBy(xpath = ".//*[@id='group_6custom_layout_update']")
+    WebElementFacade customLayoutUpdateField;
+
+    public void enterCustomLayoutUpdate (String value) {customLayoutUpdateField.sendKeys(value);}
+
+
+    //-----------------------------------------Category Products Tab--------------------------------------------------//
+
+    @FindBy(xpath = ".//*[@id='category_info_tabs_products']")
+    WebElementFacade categoryProductsTab;
+
+    public void selectCategoryProductsTab () {categoryProductsTab.click();}
+
+    @FindBy(xpath = ".//*[@id='catalog_category_products_table']/tbody/tr[1]/td[1]/input")
+    WebElementFacade firstProductInList;
+
+    @FindBy(xpath = ".//*[@id='catalog_category_products_table']/tbody/tr[2]/td[1]/input")
+    WebElementFacade secondProductInList;
+
+    @FindBy(xpath = ".//*[@id='catalog_category_products_table']/tbody/tr[3]/td[1]/input")
+    WebElementFacade thirdProductInList;
+
+    public void selectSomeCategoryProducts () {
+        firstProductInList.click();
+        secondProductInList.click();
+        thirdProductInList.click();
+    }
+
+
 
 
 

@@ -15,8 +15,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Created by M. Yermolenko on 19.01.2016.
  */
@@ -36,9 +34,21 @@ public class CreateRootCategoryStory extends PageObject{
     private String title;
     private String keywords;
     private String metadesc;
+    private String displayMode;
+    private String cMSBlock;
+    private String availableProductListingSortBy;
+    private String selectDefaultProductListingSortBy;
+    private String priceStep;
+    private String isAnchor;
+    private String useParentCategorySettings;
+    private String applyToProducts;
+    private String selectCustomDesign;
+    private String activeFrom;
+    private String activeTo;
+    private String pageLayout;
+    private String customLayoutUpdate;
 
-
-        @Managed(uniqueSession = true)
+    @Managed(uniqueSession = true)
     public WebDriver webDriver;
 
     @Steps
@@ -59,8 +69,6 @@ public class CreateRootCategoryStory extends PageObject{
     @Pending
     @Test
     public void createRootCategoryWithRequiredFields () {
-
-
         loginPageSteps.openPage();
         loginPageSteps.loginInput(login);
         loginPageSteps.passInput(password);
@@ -78,10 +86,9 @@ public class CreateRootCategoryStory extends PageObject{
 
     }
 
+    @Pending
     @Test
-    public void createRootCategoryWithAllFields () {
-
-
+        public void createRootCategoryWithAllFields () {
         loginPageSteps.openPage();
         loginPageSteps.loginInput(login);
         loginPageSteps.passInput(password);
@@ -97,10 +104,28 @@ public class CreateRootCategoryStory extends PageObject{
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
         manageCategoriesPageSteps.selectDisplaySettingsTab();
+        manageCategoriesPageSteps.selectDisplayMode(displayMode);
+        manageCategoriesPageSteps.selectCMSBlock(cMSBlock);
+        manageCategoriesPageSteps.clickUseAllAvailableAttributesCheckbox();
+        manageCategoriesPageSteps.selectAvailableProductListingSortBy(availableProductListingSortBy);
+        manageCategoriesPageSteps.clickUseConfigSettingCheckbox();
+        manageCategoriesPageSteps.selectDefaultProductListingSortBy(selectDefaultProductListingSortBy);
+        manageCategoriesPageSteps.clickPriceStepUseConfigSettingCheckbox();
+        manageCategoriesPageSteps.enterLayeredNavigationPriceStep(priceStep);
+        manageCategoriesPageSteps.selectIsAnchor(isAnchor);
+        manageCategoriesPageSteps.selectCustomDesignTab();
+        manageCategoriesPageSteps.selectUseParentCategorySettings(useParentCategorySettings);
+        manageCategoriesPageSteps.selectApplyToProducts(applyToProducts);
+        manageCategoriesPageSteps.selectCustomDesign(selectCustomDesign);
+        manageCategoriesPageSteps.selectActiveFrom(activeFrom);
+        manageCategoriesPageSteps.selectActiveTo(activeTo);
+        manageCategoriesPageSteps.selectPageLayout(pageLayout);
+        manageCategoriesPageSteps.enterCustomLayoutUpdate(customLayoutUpdate);
+        manageCategoriesPageSteps.selectCategoryProductsTab();
+        manageCategoriesPageSteps.selectSomeCategoryProducts();
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkSuccessMessage();
         manageCategoriesPageSteps.deleteCategory();
-
-
+        manageCategoriesPageSteps.selectCustomDesignTab();
     }
 }
