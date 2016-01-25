@@ -26,7 +26,7 @@ import org.openqa.selenium.support.FindBy;
 
 @RunWith(SerenityParameterizedRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@UseTestDataFrom(value="src/test/resources/ManageOrdersData.csv")
+@UseTestDataFrom(value="src/test/resources/sales/ManageOrdersData.csv")
 public class ManageOrdersStory {
 
     private String login;

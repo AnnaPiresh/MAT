@@ -24,7 +24,7 @@ import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityParameterizedRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@UseTestDataFrom(value="src/test/resources/CacheManagementData.csv")
+@UseTestDataFrom(value="src/test/resources/system/CacheManagementData.csv")
 public class CacheManagementStory {
 
     private String login;

@@ -32,6 +32,7 @@ public class DeleteAttributeSetStory {
     private String setName;
     private String createSuccessMessage;
     private String deleteSuccessMessage;
+    private String defaultSetName;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -74,6 +75,15 @@ public class DeleteAttributeSetStory {
         createAttributeSetSteps.check_success_message(createSuccessMessage);
         manageAttributeSetsSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteSuccessMessage);
+    }
+
+    @Issue("MAT-76")
+    @Pending
+    @Test
+    public void delete_default_attribute_set(){
+        manageAttributeSetsSteps.search_for_attribute_set(defaultSetName);
+        manageAttributeSetsSteps.select_attribute_set_found();
+        manageAttributeSetsSteps.check_delete_button_is_not_present();
     }
 }
 

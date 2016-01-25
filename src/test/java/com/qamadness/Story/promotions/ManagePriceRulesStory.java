@@ -23,7 +23,7 @@ import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityParameterizedRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@UseTestDataFrom(value="src/test/resources/ManagePriceRulesData.csv")
+@UseTestDataFrom(value="src/test/resources/promotions/ManagePriceRulesData.csv")
 public class ManagePriceRulesStory {
 
     private String login;
