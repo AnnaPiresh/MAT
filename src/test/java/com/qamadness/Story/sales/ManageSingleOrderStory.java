@@ -24,7 +24,7 @@ import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityParameterizedRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@UseTestDataFrom(value="src/test/resources/ManageSingleOrderData.csv")
+@UseTestDataFrom(value="src/test/resources/sales/ManageSingleOrderData.csv")
 public class ManageSingleOrderStory {
 
     private String login;

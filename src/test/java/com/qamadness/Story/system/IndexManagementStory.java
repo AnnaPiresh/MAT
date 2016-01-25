@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value="src/test/resources/IndexManagementData.csv")
+@UseTestDataFrom(value="src/test/resources/system/IndexManagementData.csv")
 public class IndexManagementStory {
 
     private String login;
