@@ -11,15 +11,18 @@ import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.junit.annotations.UseTestDataFrom;
+import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 
 /**
  * Created by M. Yermolenko on 19.01.2016.
  */
 
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value="src/test/resources/catalog/ManageCategories/CreateRootCategoryData.csv", separator = ';')
 public class CreateRootCategoryStory extends PageObject{
@@ -48,6 +51,20 @@ public class CreateRootCategoryStory extends PageObject{
     private String pageLayout;
     private String customLayoutUpdate;
 
+    @Before
+    public void openPage () {
+        loginPageSteps.openPage();
+        int size = webDriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
+        if (size > 0) {
+            loginPageSteps.loginInput(login);
+            loginPageSteps.passInput(password);
+            loginPageSteps.loginButton();
+            dashboardSteps.closePopup();}
+
+        else {}
+
+    }
+
     @Managed(uniqueSession = true)
     public WebDriver webDriver;
 
@@ -66,14 +83,16 @@ public class CreateRootCategoryStory extends PageObject{
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    @net.thucydides.core.annotations.Pending @Test
+    @net.thucydides.core.annotations.Pending
+    @Test
     public void createRootCategoryWithRequiredFields () {
-        loginPageSteps.openPage();
+        /*loginPageSteps.openPage();
         loginPageSteps.loginInput(login);
         loginPageSteps.passInput(password);
         loginPageSteps.loginButton();
-        dashboardSteps.closePopup();
+        dashboardSteps.closePopup();*/
         mainMenuSteps.openManageCategoriesPage();
+        manageCategoriesPageSteps.selectGeneralTab();
         createNewProductPageSteps.clearGlobalSearch();
         manageCategoriesPageSteps.enterCategoryName(categoryName);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
@@ -88,12 +107,13 @@ public class CreateRootCategoryStory extends PageObject{
     @Pending
     @Test
         public void createRootCategoryWithAllFields () {
-        loginPageSteps.openPage();
+        /*loginPageSteps.openPage();
         loginPageSteps.loginInput(login);
         loginPageSteps.passInput(password);
         loginPageSteps.loginButton();
-        dashboardSteps.closePopup();
+        dashboardSteps.closePopup();*/
         mainMenuSteps.openManageCategoriesPage();
+        manageCategoriesPageSteps.selectGeneralTab();
         createNewProductPageSteps.clearGlobalSearch();
         manageCategoriesPageSteps.enterCategoryName(categoryName);
         manageCategoriesPageSteps.enterCategoryDescription(desc);
@@ -125,6 +145,26 @@ public class CreateRootCategoryStory extends PageObject{
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkSuccessMessage();
         manageCategoriesPageSteps.deleteCategory();
-        manageCategoriesPageSteps.selectCustomDesignTab();
+    }
+
+
+    @net.thucydides.core.annotations.Pending
+    @Test
+    public void createRootCategoryWithRequiredFieldsEmpty () {
+        /*loginPageSteps.openPage();
+        loginPageSteps.loginInput(login);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        dashboardSteps.closePopup();*/
+        mainMenuSteps.openManageCategoriesPage();
+        manageCategoriesPageSteps.selectGeneralTab();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.clearCategoryNameField();
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkNameIsNotAdded();
+
+
     }
 }

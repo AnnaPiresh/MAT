@@ -56,6 +56,18 @@ public class ManageCategoriesPage extends PageObject {
         }
     }
 
+    public void checkNameIsNotAdded () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='advice-required-entry-group_4name']")));
+        WebElement message = getDriver().findElement(By.xpath(".//*[@id='advice-required-entry-group_4name']"));
+        message.getText();
+        if (message.getText().equals("This is a required field.")){
+            System.out.println("Category isn't saved, '"+message.getText()+"' message is displayed");
+        }else{
+            Assert.fail("Fail message isn't displayed");
+        }
+    }
+
     @FindBy(xpath = "//button[span='Delete Category']")
     WebElementFacade deleteCategoryButton;
     public void deleteCategory () {
@@ -68,6 +80,11 @@ public class ManageCategoriesPage extends PageObject {
 
     //----------------------------------------------General Tab-------------------------------------------------------//
 
+    @FindBy(xpath = ".//*[@id='category_info_tabs_group_4']")
+    WebElementFacade generalTab;
+
+    public void selectGeneralTab () {generalTab.click();}
+
     @FindBy (xpath = "//input[@name='general[name]']")
     WebElementFacade categoryNameField;
 
@@ -75,6 +92,8 @@ public class ManageCategoriesPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(categoryNameField));
         categoryNameField.sendKeys(name);}
+
+    public void clearCategoryNameField () { categoryNameField.clear();}
 
     /*public void clearCategoryName () {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
