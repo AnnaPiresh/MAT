@@ -101,7 +101,7 @@ public class DeleteAttributeSetStory {
     }
 
     @Issue("MAT-75")
-    //@Pending
+    @Pending
     @Test
     public void delete_attribute_set_with_related_products(){
         createAttributeSetSteps.click_add_new_attribute_set_button();
