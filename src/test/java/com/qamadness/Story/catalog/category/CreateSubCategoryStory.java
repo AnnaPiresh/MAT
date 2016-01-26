@@ -167,6 +167,22 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.deleteCategory();
     }
 
+    @Pending
+    @Test
+    public void createSubcategoryWithLongName () {
+        String longName = new String(new char[52]).replace("\0", "Test ");
+        mainMenuSteps.openManageCategoriesPage();
+        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.enterCategoryName(longName);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkSuccessMessage();
+        manageCategoriesPageSteps.deleteCategory();
+    }
 
 
 
