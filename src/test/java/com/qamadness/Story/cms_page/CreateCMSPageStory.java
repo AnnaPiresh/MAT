@@ -2,6 +2,8 @@ package com.qamadness.Story.cms_page;
 
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.CreateNewPagesSteps;
+import com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.ManagePagesSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.frontendSteps.cmsPageSteps.NewCMSPageSteps;
 import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
@@ -56,16 +58,16 @@ public class CreateCMSPageStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.managePagesSteps managePagesSteps;
+    ManagePagesSteps ManagePagesSteps;
 
     @Steps
-    com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.createNewPagesSteps createNewPagesSteps;
+    CreateNewPagesSteps CreateNewPagesSteps;
 
     @Steps
     HomePageSteps homePageSteps;
 
     @Steps
-    NewCMSPageSteps newCMSPageSteps;
+    NewCMSPageSteps NewCMSPageSteps;
 
     /*Precondition:
     * 1)Login to admin and navigate to CMS->Pages page*/
@@ -87,26 +89,26 @@ public class CreateCMSPageStory {
     @Pending @Test
     public void createPageWithAllRequiredFields (){
         //create new page with filling all required fields:
-        managePagesSteps.click_Add_New_Page_Button();
-        createNewPagesSteps.enter_Page_Title(pageTitle);
-        createNewPagesSteps.enter_Url_Key(urlKey);
-        createNewPagesSteps.select_Store_View(allStoreViews);
-        createNewPagesSteps.select_Status("Enabled");
-        createNewPagesSteps.open_Content_Tab();
-        createNewPagesSteps.enter_Content_Heading(contentHeading);
-        createNewPagesSteps.enter_Main_Content(mainContent);
-        createNewPagesSteps.click_Save_Page_Button();
+        ManagePagesSteps.click_Add_New_Page_Button();
+        CreateNewPagesSteps.enter_Page_Title(pageTitle);
+        CreateNewPagesSteps.enter_Url_Key(urlKey);
+        CreateNewPagesSteps.select_Store_View(allStoreViews);
+        CreateNewPagesSteps.select_Status("Enabled");
+        CreateNewPagesSteps.open_Content_Tab();
+        CreateNewPagesSteps.enter_Content_Heading(contentHeading);
+        CreateNewPagesSteps.enter_Main_Content(mainContent);
+        CreateNewPagesSteps.click_Save_Page_Button();
         //verifications:
-        managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
+        ManagePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
         homePageSteps.open_Home_Page();
-        newCMSPageSteps.open_New_CMS_Page(urlKey);
-        newCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
+        NewCMSPageSteps.open_New_CMS_Page(urlKey);
+        NewCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
         //remove created page
         loginPageSteps.openPage();
         mainMenuSteps.open_CMS_Pages_Page();
-        managePagesSteps.filter_Pages_By_Url_Key(urlKey);
-        managePagesSteps.click_First_Page_In_The_Grid();
-        createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+        ManagePagesSteps.filter_Pages_By_Url_Key(urlKey);
+        ManagePagesSteps.click_First_Page_In_The_Grid();
+        CreateNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
 
     //Test case "Create CMS page with all fields and widgets":
@@ -115,33 +117,33 @@ public class CreateCMSPageStory {
     @Pending @Test
     public void createPageWithAllFieldsAndWidgets (){
         //create new page and fill all fields
-        managePagesSteps.click_Add_New_Page_Button();
-        createNewPagesSteps.enter_Page_Title(pageTitle);
-        createNewPagesSteps.enter_Url_Key(urlKey);
-        createNewPagesSteps.select_Store_View(allStoreViews);
-        createNewPagesSteps.select_Status("Enabled");
-        createNewPagesSteps.open_Content_Tab();
-        createNewPagesSteps.enter_Content_Heading(contentHeading);
-        createNewPagesSteps.enter_Main_Content(mainContent);
-        createNewPagesSteps.open_Design_Tab();
-        createNewPagesSteps.select_Page_Layout(layout);
-        createNewPagesSteps.set_Current_Date_For_Custom_Design_From_Date();
-        createNewPagesSteps.set_Current_Date_For_Custom_Design_To_Field();
-        createNewPagesSteps.select_Custom_Theme(customTheme);
-        createNewPagesSteps.select_Custom_Layout(customLayout);
-        createNewPagesSteps.open_Meta_Data_Tab();
-        createNewPagesSteps.enter_Keywords(keywords);
-        createNewPagesSteps.enter_Description(description);
+        ManagePagesSteps.click_Add_New_Page_Button();
+        CreateNewPagesSteps.enter_Page_Title(pageTitle);
+        CreateNewPagesSteps.enter_Url_Key(urlKey);
+        CreateNewPagesSteps.select_Store_View(allStoreViews);
+        CreateNewPagesSteps.select_Status("Enabled");
+        CreateNewPagesSteps.open_Content_Tab();
+        CreateNewPagesSteps.enter_Content_Heading(contentHeading);
+        CreateNewPagesSteps.enter_Main_Content(mainContent);
+        CreateNewPagesSteps.open_Design_Tab();
+        CreateNewPagesSteps.select_Page_Layout(layout);
+        CreateNewPagesSteps.set_Current_Date_For_Custom_Design_From_Date();
+        CreateNewPagesSteps.set_Current_Date_For_Custom_Design_To_Field();
+        CreateNewPagesSteps.select_Custom_Theme(customTheme);
+        CreateNewPagesSteps.select_Custom_Layout(customLayout);
+        CreateNewPagesSteps.open_Meta_Data_Tab();
+        CreateNewPagesSteps.enter_Keywords(keywords);
+        CreateNewPagesSteps.enter_Description(description);
         //add all widgets to the page and save
 
-        createNewPagesSteps.click_Save_Page_Button();
+        CreateNewPagesSteps.click_Save_Page_Button();
 
         //remove created page
         loginPageSteps.openPage();
         mainMenuSteps.open_CMS_Pages_Page();
-        managePagesSteps.filter_Pages_By_Url_Key(urlKey);
-        managePagesSteps.click_First_Page_In_The_Grid();
-        createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+        ManagePagesSteps.filter_Pages_By_Url_Key(urlKey);
+        ManagePagesSteps.click_First_Page_In_The_Grid();
+        CreateNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
 
 }

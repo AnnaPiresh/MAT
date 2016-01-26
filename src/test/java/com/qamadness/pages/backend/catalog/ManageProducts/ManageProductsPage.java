@@ -94,7 +94,16 @@ public class ManageProductsPage extends PageObject {
             Assert.fail("Name is wrong");}
     }
 
+    @FindBy(xpath = ".//*[@id='productGrid_table']/tbody/tr/td")
+    WebElementFacade productGrid;
 
+    public void checkNoProductsAreFound(String searchMessage){
+        if (productGrid.containsText(searchMessage)){
+            System.out.println("Success. No products match the search term");
+        } else{
+            Assert.fail("Fail. Several products match the search term");
+        }
+    }
 
 
 

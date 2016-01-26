@@ -44,7 +44,8 @@ public class ManageProductsPageSteps extends ScenarioSteps {
     /*@Step
     public void selectCategory () { manageProductPage.selectCategory();}*/
 
-
+    @Step
+    public void check_no_products_are_found(String searchMessage) {manageProductPage.checkNoProductsAreFound(searchMessage);}
 
     @Step
     public void updateProductNameCheckboxClick () { manageProductPage.updateProductNameCheckboxClick();}

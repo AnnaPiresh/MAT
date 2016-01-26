@@ -7,7 +7,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 /**
  * Created by Alexandra on 1/25/16.
  */
-public class createNewPagesSteps extends ScenarioSteps{
+public class CreateNewPagesSteps extends ScenarioSteps{
 
     СreateNewPagePage createNewPagePage;
 

@@ -19,6 +19,9 @@ public class CreateNewProductPageSteps extends PageObject {
     public void selectAttributeSet (String value) { createNewProductPage.selectAttributeSet(value);}
 
     @Step
+    public void select_attribute_set_by_name(String setName) {createNewProductPage.selectAttributeSetByName(setName);}
+
+    @Step
     public void selectProductType(String value) { createNewProductPage.selectProductType(value);}
 
     @Step
