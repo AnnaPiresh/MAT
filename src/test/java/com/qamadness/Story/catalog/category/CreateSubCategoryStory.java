@@ -48,6 +48,7 @@ public class CreateSubCategoryStory {
     private String activeTo;
     private String pageLayout;
     private String customLayoutUpdate;
+    private String nameWithSpecialCharacters;
 
     @Before
     public void openPage () {
@@ -149,6 +150,24 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkNameIsNotAdded();
     }
+
+    @Pending
+    @Test
+    public void createSubcategoryWithSpecialCharacters () {
+        mainMenuSteps.openManageCategoriesPage();
+        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.enterCategoryName(nameWithSpecialCharacters);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkSuccessMessage();
+        manageCategoriesPageSteps.deleteCategory();
+    }
+
+
 
 
 }
