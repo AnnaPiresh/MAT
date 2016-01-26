@@ -31,6 +31,23 @@ public class CreateSubCategoryStory {
     private String activity;
     private String including;
     private String rootCategoryName;
+    private String desc;
+    private String title;
+    private String keywords;
+    private String metadesc;
+    private String displayMode;
+    private String cMSBlock;
+    private String availableProductListingSortBy;
+    private String selectDefaultProductListingSortBy;
+    private String priceStep;
+    private String isAnchor;
+    private String useParentCategorySettings;
+    private String applyToProducts;
+    private String selectCustomDesign;
+    private String activeFrom;
+    private String activeTo;
+    private String pageLayout;
+    private String customLayoutUpdate;
 
     @Before
     public void openPage () {
@@ -64,9 +81,9 @@ public class CreateSubCategoryStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
+    @Pending
     @Test
-    public void createRootCategoryWithRequiredFields () {
+    public void createSubcategoryWithRequiredFields () {
         mainMenuSteps.openManageCategoriesPage();
         manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
         manageCategoriesPageSteps.addNewSubCategory();
@@ -75,6 +92,46 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.enterCategoryName(name);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkSuccessMessage();
+        manageCategoriesPageSteps.deleteCategory();
+    }
+
+    @Pending
+    @Test
+    public void createSubcategoryWithAllFields () {
+        mainMenuSteps.openManageCategoriesPage();
+        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.enterCategoryName(name);
+        manageCategoriesPageSteps.enterCategoryDescription(desc);
+        manageCategoriesPageSteps.enterPageTitle(title);
+        manageCategoriesPageSteps.enterMetaKeywords(keywords);
+        manageCategoriesPageSteps.entermetaDescription(metadesc);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.selectDisplaySettingsTab();
+        manageCategoriesPageSteps.selectDisplayMode(displayMode);
+        manageCategoriesPageSteps.selectCMSBlock(cMSBlock);
+        manageCategoriesPageSteps.clickUseAllAvailableAttributesCheckbox();
+        manageCategoriesPageSteps.selectAvailableProductListingSortBy(availableProductListingSortBy);
+        manageCategoriesPageSteps.clickUseConfigSettingCheckbox();
+        manageCategoriesPageSteps.selectDefaultProductListingSortBy(selectDefaultProductListingSortBy);
+        manageCategoriesPageSteps.clickPriceStepUseConfigSettingCheckbox();
+        manageCategoriesPageSteps.enterLayeredNavigationPriceStep(priceStep);
+        manageCategoriesPageSteps.selectIsAnchor(isAnchor);
+        manageCategoriesPageSteps.selectCustomDesignTab();
+        manageCategoriesPageSteps.selectUseParentCategorySettings(useParentCategorySettings);
+        manageCategoriesPageSteps.selectApplyToProducts(applyToProducts);
+        manageCategoriesPageSteps.selectCustomDesign(selectCustomDesign);
+        manageCategoriesPageSteps.selectActiveFrom(activeFrom);
+        manageCategoriesPageSteps.selectActiveTo(activeTo);
+        manageCategoriesPageSteps.selectPageLayout(pageLayout);
+        manageCategoriesPageSteps.enterCustomLayoutUpdate(customLayoutUpdate);
+        manageCategoriesPageSteps.selectCategoryProductsTab();
+        manageCategoriesPageSteps.selectSomeCategoryProducts();
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkSuccessMessage();
         manageCategoriesPageSteps.deleteCategory();
