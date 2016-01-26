@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by Alexandra on 1/25/16.
  */
-public class managePagesPage extends PageObject {
+public class ManagePagesPage extends PageObject {
 
     //CMS pages grid:
 
