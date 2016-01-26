@@ -2,14 +2,13 @@ package com.qamadness.Story.cms_page;
 
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
-import com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.CreateNewPagesSteps;
-import com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.ManagePagesSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.frontendSteps.cmsPageSteps.NewCMSPageSteps;
 import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Before;
@@ -38,6 +37,11 @@ public class CreateCMSPageStory {
     private String allStoreViews;
     private String contentHeading;
     private String mainContent;
+    private String layout;
+    private String customTheme;
+    private String customLayout;
+    private String keywords;
+    private String description;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -52,10 +56,10 @@ public class CreateCMSPageStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    ManagePagesSteps managePagesSteps;
+    com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.managePagesSteps managePagesSteps;
 
     @Steps
-    CreateNewPagesSteps createNewPagesSteps;
+    com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.createNewPagesSteps createNewPagesSteps;
 
     @Steps
     HomePageSteps homePageSteps;
@@ -80,7 +84,7 @@ public class CreateCMSPageStory {
     //Test case "Create page with all required fields"
 
     @Issue("MAT-176")
-    @Test
+    @Pending @Test
     public void createPageWithAllRequiredFields (){
         //create new page with filling all required fields:
         managePagesSteps.click_Add_New_Page_Button();
@@ -104,4 +108,40 @@ public class CreateCMSPageStory {
         managePagesSteps.click_First_Page_In_The_Grid();
         createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
+
+    //Test case "Create CMS page with all fields and widgets":
+
+    @Issue("MAT-177")
+    @Pending @Test
+    public void createPageWithAllFieldsAndWidgets (){
+        //create new page and fill all fields
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(urlKey);
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.open_Design_Tab();
+        createNewPagesSteps.select_Page_Layout(layout);
+        createNewPagesSteps.set_Current_Date_For_Custom_Design_From_Date();
+        createNewPagesSteps.set_Current_Date_For_Custom_Design_To_Field();
+        createNewPagesSteps.select_Custom_Theme(customTheme);
+        createNewPagesSteps.select_Custom_Layout(customLayout);
+        createNewPagesSteps.open_Meta_Data_Tab();
+        createNewPagesSteps.enter_Keywords(keywords);
+        createNewPagesSteps.enter_Description(description);
+        //add all widgets to the page and save
+
+        createNewPagesSteps.click_Save_Page_Button();
+
+        //remove created page
+        loginPageSteps.openPage();
+        mainMenuSteps.open_CMS_Pages_Page();
+        managePagesSteps.filter_Pages_By_Url_Key(urlKey);
+        managePagesSteps.click_First_Page_In_The_Grid();
+        createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+    }
+
 }

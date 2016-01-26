@@ -5,10 +5,13 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 import org.openqa.selenium.support.FindBy;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Alexandra on 1/25/16.
  */
-public class CreateNewPagePage  extends PageObject{
+public class СreateNewPagePage extends PageObject{
 
     //Tabs:
 
@@ -199,6 +202,49 @@ public class CreateNewPagePage  extends PageObject{
     public void enterMainContent (String content){
         editorField.type(content);
     }
+
+    //Methods for Design tab:
+
+    public void openDesignTab (){
+        designTab.click();
+    }
+
+    public void selectPageLayout (String layoutValue){
+        layoutDropdown.selectByVisibleText(layoutValue);
+    }
+
+    public void setCurrentDateForCustomDesignFromDate (){
+        String date = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+        customDesignFrom.type(date);
+    }
+
+    public void setCurrentDateForCustomDesignToField (){
+        String date = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+        customDesignTo.type(date);
+    }
+
+    public void selectCustomTheme (String themeValue){
+        customThemeDropdown.selectByValue(themeValue);
+    }
+
+    public void selectCustomLayout (String customLayoutValue){
+        customLayoutDropdown.selectByVisibleText(customLayoutValue);
+    }
+
+    //Methods for Meta Data tab:
+
+    public void openMetaDataTab (){
+        metaDataTab.click();
+    }
+
+    public void enterKeywords (String keywords){
+        keywordsField.type(keywords);
+    }
+
+    public void enterDescription (String description){
+        descriptionField.type(description);
+    }
+
 
 
 }

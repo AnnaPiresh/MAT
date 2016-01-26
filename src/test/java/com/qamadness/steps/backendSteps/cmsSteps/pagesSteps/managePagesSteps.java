@@ -1,15 +1,14 @@
 package com.qamadness.steps.backendSteps.cmsSteps.pagesSteps;
 
-import com.qamadness.pages.backend.cms.pages.ManagePagesPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 /**
  * Created by Alexandra on 1/25/16.
  */
-public class ManagePagesSteps  extends ScenarioSteps{
+public class managePagesSteps extends ScenarioSteps{
 
-    ManagePagesPage managePagesPage;
+    com.qamadness.pages.backend.cms.pages.managePagesPage managePagesPage;
 
     //Click General buttons steps:
 

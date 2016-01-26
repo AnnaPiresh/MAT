@@ -1,15 +1,15 @@
 package com.qamadness.steps.backendSteps.cmsSteps.pagesSteps;
 
-import com.qamadness.pages.backend.cms.pages.CreateNewPagePage;
+import com.qamadness.pages.backend.cms.pages.СreateNewPagePage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 /**
  * Created by Alexandra on 1/25/16.
  */
-public class CreateNewPagesSteps extends ScenarioSteps{
+public class createNewPagesSteps extends ScenarioSteps{
 
-    CreateNewPagePage createNewPagePage;
+    СreateNewPagePage createNewPagePage;
 
     //Steps for General buttons:
 
@@ -60,5 +60,54 @@ public class CreateNewPagesSteps extends ScenarioSteps{
     @Step
     public void enter_Main_Content (String content){
         createNewPagePage.enterMainContent(content);
+    }
+
+    //Steps for Design tab:
+
+    @Step
+    public void open_Design_Tab (){
+        createNewPagePage.openDesignTab();
+    }
+
+    @Step
+    public void select_Page_Layout (String layoutValue){
+        createNewPagePage.selectPageLayout(layoutValue);
+    }
+
+    @Step
+    public void set_Current_Date_For_Custom_Design_From_Date (){
+        createNewPagePage.setCurrentDateForCustomDesignFromDate();
+    }
+
+    @Step
+    public void set_Current_Date_For_Custom_Design_To_Field (){
+        createNewPagePage.setCurrentDateForCustomDesignToField();
+    }
+
+    @Step
+    public void select_Custom_Theme (String themeValue){
+        createNewPagePage.selectCustomTheme(themeValue);
+    }
+
+    @Step
+    public void select_Custom_Layout (String customLayoutValue){
+        createNewPagePage.selectCustomLayout(customLayoutValue);
+    }
+
+    //Steps for Meta Data tab:
+
+    @Step
+    public void open_Meta_Data_Tab (){
+        createNewPagePage.openMetaDataTab();
+    }
+
+    @Step
+    public void enter_Keywords (String keywords){
+        createNewPagePage.enterKeywords(keywords);
+    }
+
+    @Step
+    public void enter_Description (String description){
+        createNewPagePage.enterDescription(description);
     }
 }
