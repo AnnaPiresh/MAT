@@ -137,5 +137,18 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.deleteCategory();
     }
 
+    @Pending
+    @Test
+    public void createSubcategoryWithRequiredFieldsEmpty () {
+        mainMenuSteps.openManageCategoriesPage();
+        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.clearCategoryNameField();
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkNameIsNotAdded();
+    }
+
 
 }
