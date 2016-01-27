@@ -179,10 +179,10 @@ public class CreateCMSPageStory {
         createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
 
-    //Test case "Create CMS page with empty required field"
+    //Test case "Create CMS page with empty required field":
 
     @Issue("MAT-178")
-    @Test
+    @Pending @Test
     public void createPageWithEmptyRequiredField (){
         //create new page and with empty urlKey field
         managePagesSteps.click_Add_New_Page_Button();
@@ -201,6 +201,45 @@ public class CreateCMSPageStory {
         createNewPagesSteps.click_Save_Page_Button();
         //verification:
         createNewPagesSteps.verify_That_Empty_Required_Field_Error_Message_Is_Displayed();
+    }
+
+    //Test case "Create CMS pages with same URL key":
+
+    @Issue("MAT-179")
+    @Pending @Test
+    public void createPagesWithSameUrlKey (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        String generatedUrlKey = urlKey+i;
+        //create first page:
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.click_Save_Page_Button();
+        managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
+        //create second page:
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.click_Save_Page_Button();
+        //verification:
+        managePagesSteps.verify_That_Existing_URL_Key_Error_Message_Is_Displayed();
+        //remove created page
+        loginPageSteps.openPage();
+        mainMenuSteps.open_CMS_Pages_Page();
+        managePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
+        managePagesSteps.click_First_Page_In_The_Grid();
+        createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
 
 }
