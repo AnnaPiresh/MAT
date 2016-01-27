@@ -7,7 +7,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 /**
  * Created by Alexandra on 1/25/16.
  */
-public class createNewPagesSteps extends ScenarioSteps{
+public class CreateNewPagesSteps extends ScenarioSteps{
 
     СreateNewPagePage createNewPagePage;
 
@@ -110,4 +110,49 @@ public class createNewPagesSteps extends ScenarioSteps{
     public void enter_Description (String description){
         createNewPagePage.enterDescription(description);
     }
+
+    //Steps for for insert widget:
+
+    @Step
+    public void add_CMS_Page_Link_Widget (String anchorText, String anchorTitle){
+        createNewPagePage.addCMSPageLinkWidget(anchorText,anchorTitle);
+    }
+
+    @Step
+    public void add_Cms_Static_Block_Widget (){
+        createNewPagePage.addCmsStaticBlockWidget();
+    }
+
+    @Step
+    public void add_Catalog_Category_Link_Widget (String anchorText, String anchorTitle){
+        createNewPagePage.addCatalogCategoryLinkWidget(anchorText,anchorTitle);
+    }
+
+    @Step
+    public void add_Catalog_New_Product_List_Widget (String numberOfProducts, String cacheLifeTime){
+        createNewPagePage.addCatalogNewProductListWidget(numberOfProducts,cacheLifeTime);
+    }
+
+    @Step
+    public void add_Catalog_Product_Link_Widget (String anchorText, String anchorTitle){
+        createNewPagePage.addCatalogProductLinkWidget(anchorText,anchorTitle);
+    }
+
+    @Step
+    public void add_Orders_And_Returns_Widget (){
+        createNewPagePage.addOrdersAndReturnsWidget();
+    }
+
+    @Step
+    public void add_Recently_Compared_Products_Widget (String numberOfProducts){
+        createNewPagePage.addRecentlyComparedProductsWidget(numberOfProducts);
+    }
+
+    @Step
+    public void add_Recently_Viewed_Products_Widget (String numberOfProducts){
+        createNewPagePage.addRecentlyViewedProductsWidget(numberOfProducts);
+    }
+
+    @Step
+    public void testStep(){}
 }

@@ -62,4 +62,9 @@ public class NewCMSPageSteps extends ScenarioSteps {
     public void verify_That_Product_Link_Widget_Is_Added (){
         newCMSPage.verifyThatProductLinkWidgetIsAdded();
     }
+
+    @Step
+    public void verify_That_Orders_And_Returns_Widget_Is_Added (){
+        newCMSPage.verifyThatOrdersAndReturnsWidgetIsAdded();
+    }
 }
