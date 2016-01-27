@@ -242,4 +242,25 @@ public class CreateCMSPageStory {
         createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
 
+    //Test case "Creates Pages with numbers in URL Key":
+
+    @Issue("MAT-180")
+    @Pending @Test
+    public void createPageWithNumbersInUrlKey (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        //create page with numbers in url key:
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(Integer.toString(i));
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.click_Save_Page_Button();
+        //verification:
+        managePagesSteps.verify_That_Invalid_URL_Key_With_Numbers_Only_Error_Message_Is_Displayed();
+    }
+
 }
