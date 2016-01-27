@@ -50,6 +50,7 @@ public class CreateCMSPageStory {
     private String anchorCustomTitle;
     private String numberOfProducts;
     private String cacheLifetime;
+    private String specialCharactersText;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -261,6 +262,28 @@ public class CreateCMSPageStory {
         createNewPagesSteps.click_Save_Page_Button();
         //verification:
         managePagesSteps.verify_That_Invalid_URL_Key_With_Numbers_Only_Error_Message_Is_Displayed();
+    }
+
+    //Test case "Create CMS page with special characters in required fields":
+
+    @Issue("MAt-181")
+    @Test
+    public void createPageWithSpecialCharactersInRequiredFields (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        String generatedUrlKey = urlKey+i;
+        //create first page:
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(specialCharactersText);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(specialCharactersText);
+        createNewPagesSteps.enter_Main_Content(specialCharactersText);
+        createNewPagesSteps.click_Save_Page_Button();
+        //verifications:
+        managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
     }
 
 }

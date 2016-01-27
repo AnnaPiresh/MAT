@@ -118,4 +118,16 @@ public class ManagePagesPage extends PageObject {
         wait.until(ExpectedConditions.visibilityOf(successSavedCMSPageMessage));
         Assert.assertTrue(successSavedCMSPageMessage.isDisplayed());
     }
+
+    public void verifyThatExistingURLKeyErrorMessageIsDisplayed (){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(errorExistingURLKeyMessage));
+        Assert.assertTrue(errorExistingURLKeyMessage.isDisplayed());
+    }
+
+    public void verifyThatInvalidURLKeyWithNumbersOnlyErrorMessageIsDisplayed (){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(errorInvalidURLKeyWithNumbersOnlyMessage));
+        Assert.assertTrue(errorInvalidURLKeyWithNumbersOnlyMessage.isDisplayed());
+    }
 }
