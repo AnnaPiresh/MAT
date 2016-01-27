@@ -4,12 +4,14 @@ import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageCategoriesSteps.ManageCategoriesPageSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
+import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageProductsPageSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -30,7 +32,7 @@ public class CreateSubCategoryStory {
     private String name;
     private String activity;
     private String including;
-    private String rootCategoryName;
+    private String parentCategoryLocator;
     private String desc;
     private String title;
     private String keywords;
@@ -49,19 +51,61 @@ public class CreateSubCategoryStory {
     private String pageLayout;
     private String customLayoutUpdate;
     private String nameWithSpecialCharacters;
+    private String parentCategoryName;
+    private String attributeSet;
+    private String productType;
+    private String productDescription;
+    private String productShortDescription;
+    private String productSKU;
+    private String productStatus;
+    private String productVisibility;
+    private String productName;
+    private String productPrice;
+    private String taxClass;
+    private String selectAction;
+    private String productWeight;
+
+    int i = 0;
 
     @Before
-    public void openPage () {
+    public void openPage () throws InterruptedException{
+        i = i +1;
         loginPageSteps.openPage();
         int size = webDriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
         if (size > 0) {
             loginPageSteps.loginInput(login);
             loginPageSteps.passInput(password);
             loginPageSteps.loginButton();
-            dashboardSteps.closePopup();}
+            dashboardSteps.closePopup();
+            mainMenuSteps.openManageCategoriesPage();
+            manageCategoriesPageSteps.selectGeneralTab();
+            //createNewProductPageSteps.clearGlobalSearch();
+            Thread.sleep(2000);
+            manageCategoriesPageSteps.enterCategoryName(parentCategoryName);
+            manageCategoriesPageSteps.selectCategoryActivity(activity);
+            manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+            manageCategoriesPageSteps.saveCategory();
+            manageCategoriesPageSteps.checkSuccessMessage();
+        }
 
         else {}
 
+    }
+
+    @After
+    public void parentCategoryDeletion() throws InterruptedException{
+        if (i == 5) {
+
+            System.out.println("OLOLO");
+            mainMenuSteps.openManageCategoriesPage();
+            //createNewProductPageSteps.clearGlobalSearch();
+            Thread.sleep(2000);
+            manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+            //createNewProductPageSteps.clearGlobalSearch();
+            Thread.sleep(2000);
+            manageCategoriesPageSteps.deleteCategory();
+
+        }
     }
 
     @Managed(uniqueSession = true)
@@ -82,14 +126,19 @@ public class CreateSubCategoryStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
+    @Steps
+    ManageProductsPageSteps manageProductsPageSteps;
+
     @Pending
     @Test
-    public void createSubcategoryWithRequiredFields () {
+    public void createSubcategoryWithRequiredFields () throws InterruptedException{
+
         mainMenuSteps.openManageCategoriesPage();
-        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
         createNewProductPageSteps.clearGlobalSearch();
+        Thread.sleep(3000);
         manageCategoriesPageSteps.enterCategoryName(name);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
@@ -100,12 +149,37 @@ public class CreateSubCategoryStory {
 
     @Pending
     @Test
-    public void createSubcategoryWithAllFields () {
+    public void createSubcategoryWithAllFields () throws InterruptedException{
+        mainMenuSteps.openManageProductsPage();
+        manageProductsPageSteps.addProduct();
+        createNewProductPageSteps.selectAttributeSet(attributeSet);
+        createNewProductPageSteps.selectProductType(productType);
+        createNewProductPageSteps.continueButton();
+        createNewProductPageSteps.enterName(productName);
+        createNewProductPageSteps.enterProductDescription(productDescription);
+        createNewProductPageSteps.enterShortDescription(productShortDescription);
+        createNewProductPageSteps.enterSKU(productSKU);
+        createNewProductPageSteps.enterWeight(productWeight);
+        createNewProductPageSteps.selectStatus(productStatus);
+        createNewProductPageSteps.selectVisibility(productVisibility);
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectPricesTab();
+        createNewProductPageSteps.enterProductPrice(productPrice);
+        createNewProductPageSteps.selectTaxClass(taxClass);
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectWebsitesTab();
+        createNewProductPageSteps.selectMainWebsite();
+        createNewProductPageSteps.selectCategoriesTab();
+        createNewProductPageSteps.selectFirstCategory();
+        createNewProductPageSteps.saveProduct();
+
         mainMenuSteps.openManageCategoriesPage();
-        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        createNewProductPageSteps.clearGlobalSearch();
+        //createNewProductPageSteps.clearGlobalSearch();
+        //createNewProductPageSteps.clearGlobalSearch();
+        Thread.sleep(3000);
         manageCategoriesPageSteps.enterCategoryName(name);
         manageCategoriesPageSteps.enterCategoryDescription(desc);
         manageCategoriesPageSteps.enterPageTitle(title);
@@ -136,29 +210,41 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkSuccessMessage();
         manageCategoriesPageSteps.deleteCategory();
+
+        mainMenuSteps.openManageProductsPage();
+        manageProductsPageSteps.searchBySku(productSKU);
+        manageProductsPageSteps.searchButton();
+        manageProductsPageSteps.checkProduct();
+        manageProductsPageSteps.selectAction(selectAction);
+        manageProductsPageSteps.submitAction();
+        manageProductsPageSteps.deletionApproveAlert();
     }
 
     @Pending
     @Test
-    public void createSubcategoryWithRequiredFieldsEmpty () {
+    public void createSubcategoryWithRequiredFieldsEmpty () throws InterruptedException{
         mainMenuSteps.openManageCategoriesPage();
-        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        createNewProductPageSteps.clearGlobalSearch();
+        //createNewProductPageSteps.clearGlobalSearch();
+        //createNewProductPageSteps.clearGlobalSearch();
+        Thread.sleep(3000);
         manageCategoriesPageSteps.clearCategoryNameField();
+        //createNewProductPageSteps.clearGlobalSearch();
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkNameIsNotAdded();
     }
 
     @Pending
     @Test
-    public void createSubcategoryWithSpecialCharacters () {
+    public void createSubcategoryWithSpecialCharacters () throws InterruptedException{
         mainMenuSteps.openManageCategoriesPage();
-        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        createNewProductPageSteps.clearGlobalSearch();
+        //createNewProductPageSteps.clearGlobalSearch();
+        Thread.sleep(3000);
         manageCategoriesPageSteps.enterCategoryName(nameWithSpecialCharacters);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
@@ -169,13 +255,14 @@ public class CreateSubCategoryStory {
 
     @Pending
     @Test
-    public void createSubcategoryWithLongName () {
+    public void createSubcategoryWithLongName () throws InterruptedException{
         String longName = new String(new char[52]).replace("\0", "Test ");
         mainMenuSteps.openManageCategoriesPage();
-        manageCategoriesPageSteps.selectCategoryByName(rootCategoryName);
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        createNewProductPageSteps.clearGlobalSearch();
+        //createNewProductPageSteps.clearGlobalSearch();
+        Thread.sleep(3000);
         manageCategoriesPageSteps.enterCategoryName(longName);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
