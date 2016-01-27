@@ -19,6 +19,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 
+import java.util.Random;
+
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 /**
@@ -44,6 +46,10 @@ public class CreateCMSPageStory {
     private String customLayout;
     private String keywords;
     private String description;
+    private String anchorCustomText;
+    private String anchorCustomTitle;
+    private String numberOfProducts;
+    private String cacheLifetime;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -61,10 +67,10 @@ public class CreateCMSPageStory {
     ManagePagesSteps ManagePagesSteps;
 
     @Steps
-    CreateNewPagesSteps CreateNewPagesSteps;
+    CreateNewPagesSteps createNewPagesSteps;
 
     @Steps
-    HomePageSteps homePageSteps;
+    HomePageSteps HomePageSteps;
 
     @Steps
     NewCMSPageSteps NewCMSPageSteps;
@@ -88,27 +94,30 @@ public class CreateCMSPageStory {
     @Issue("MAT-176")
     @Pending @Test
     public void createPageWithAllRequiredFields (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        String generatedUrlKey = urlKey+i;
         //create new page with filling all required fields:
         ManagePagesSteps.click_Add_New_Page_Button();
-        CreateNewPagesSteps.enter_Page_Title(pageTitle);
-        CreateNewPagesSteps.enter_Url_Key(urlKey);
-        CreateNewPagesSteps.select_Store_View(allStoreViews);
-        CreateNewPagesSteps.select_Status("Enabled");
-        CreateNewPagesSteps.open_Content_Tab();
-        CreateNewPagesSteps.enter_Content_Heading(contentHeading);
-        CreateNewPagesSteps.enter_Main_Content(mainContent);
-        CreateNewPagesSteps.click_Save_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.click_Save_Page_Button();
         //verifications:
         ManagePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
-        homePageSteps.open_Home_Page();
-        NewCMSPageSteps.open_New_CMS_Page(urlKey);
-        NewCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
+        HomePageSteps.open_Home_Page();
+        newCMSPageSteps.open_New_CMS_Page(generatedUrlKey);
+        newCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
         //remove created page
         loginPageSteps.openPage();
         mainMenuSteps.open_CMS_Pages_Page();
-        ManagePagesSteps.filter_Pages_By_Url_Key(urlKey);
+        ManagePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
         ManagePagesSteps.click_First_Page_In_The_Grid();
-        CreateNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+        createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
 
     //Test case "Create CMS page with all fields and widgets":
@@ -116,34 +125,59 @@ public class CreateCMSPageStory {
     @Issue("MAT-177")
     @Pending @Test
     public void createPageWithAllFieldsAndWidgets (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        String generatedUrlKey = urlKey+i;
         //create new page and fill all fields
         ManagePagesSteps.click_Add_New_Page_Button();
-        CreateNewPagesSteps.enter_Page_Title(pageTitle);
-        CreateNewPagesSteps.enter_Url_Key(urlKey);
-        CreateNewPagesSteps.select_Store_View(allStoreViews);
-        CreateNewPagesSteps.select_Status("Enabled");
-        CreateNewPagesSteps.open_Content_Tab();
-        CreateNewPagesSteps.enter_Content_Heading(contentHeading);
-        CreateNewPagesSteps.enter_Main_Content(mainContent);
-        CreateNewPagesSteps.open_Design_Tab();
-        CreateNewPagesSteps.select_Page_Layout(layout);
-        CreateNewPagesSteps.set_Current_Date_For_Custom_Design_From_Date();
-        CreateNewPagesSteps.set_Current_Date_For_Custom_Design_To_Field();
-        CreateNewPagesSteps.select_Custom_Theme(customTheme);
-        CreateNewPagesSteps.select_Custom_Layout(customLayout);
-        CreateNewPagesSteps.open_Meta_Data_Tab();
-        CreateNewPagesSteps.enter_Keywords(keywords);
-        CreateNewPagesSteps.enter_Description(description);
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.open_Design_Tab();
+        createNewPagesSteps.select_Page_Layout(layout);
+        createNewPagesSteps.set_Current_Date_For_Custom_Design_From_Date();
+        createNewPagesSteps.set_Current_Date_For_Custom_Design_To_Field();
+        createNewPagesSteps.select_Custom_Theme(customTheme);
+        createNewPagesSteps.select_Custom_Layout(customLayout);
+        createNewPagesSteps.open_Meta_Data_Tab();
+        createNewPagesSteps.enter_Keywords(keywords);
+        createNewPagesSteps.enter_Description(description);
         //add all widgets to the page and save
-
-        CreateNewPagesSteps.click_Save_Page_Button();
-
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.add_CMS_Page_Link_Widget(anchorCustomText, anchorCustomTitle);
+        createNewPagesSteps.add_Cms_Static_Block_Widget();
+        createNewPagesSteps.add_Catalog_Category_Link_Widget(anchorCustomText,anchorCustomTitle);
+        createNewPagesSteps.add_Catalog_New_Product_List_Widget(numberOfProducts,cacheLifetime);
+        createNewPagesSteps. add_Catalog_Product_Link_Widget(anchorCustomText,anchorCustomTitle);
+        createNewPagesSteps.add_Orders_And_Returns_Widget ();
+        createNewPagesSteps.add_Recently_Compared_Products_Widget(numberOfProducts);
+        createNewPagesSteps.add_Recently_Viewed_Products_Widget(numberOfProducts);
+        createNewPagesSteps.click_Save_Page_Button();
+       //verifications:
+        ManagePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
+        HomePageSteps.open_Home_Page();
+        newCMSPageSteps.open_New_CMS_Page(generatedUrlKey);
+        newCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
+        newCMSPageSteps.verify_That_Three_Columns_Layout_Is_Used();
+        newCMSPageSteps.verify_That_Keywords_Are_Added(keywords);
+        newCMSPageSteps.verify_That_Meta_Description_Is_Added(description);
+        newCMSPageSteps.verify_That_CMS_Page_Link_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_Category_Link_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_Cms_Static_Block_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_New_Products_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_Product_Link_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_Orders_And_Returns_Widget_Is_Added();
         //remove created page
         loginPageSteps.openPage();
         mainMenuSteps.open_CMS_Pages_Page();
-        ManagePagesSteps.filter_Pages_By_Url_Key(urlKey);
+        ManagePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
         ManagePagesSteps.click_First_Page_In_The_Grid();
-        CreateNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+        createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+
     }
 
 }

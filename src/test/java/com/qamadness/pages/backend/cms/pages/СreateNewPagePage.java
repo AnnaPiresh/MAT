@@ -2,8 +2,9 @@ package com.qamadness.pages.backend.cms.pages;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -109,6 +110,28 @@ public class СreateNewPagePage extends PageObject{
 
     @FindBy (xpath = "//div[@id='widget_window_close']")
     WebElementFacade closeWidgetInsertionButton;
+
+    //Widgets: Select page:
+
+    @FindBy (xpath = "//div[@id='widget-chooser' and //div[text()='Select Page...']]")
+    WebElementFacade selectPagePopUpWindow;
+
+    @FindBy (xpath = ".//table[@class='data']/tbody/tr[1]")
+    WebElementFacade firstElementInTable;
+
+    //Widgets: Select block:
+
+    @FindBy (xpath = "//div[@id='widget-chooser' and //div[text()='Select Block...']]")
+    WebElementFacade selectBlockPopUpWindow;
+
+    //Widgets: Select category:
+
+    @FindBy (xpath = "//div[@id='widget-chooser' and //div[text()='Select Category...']]")
+    WebElementFacade selectCategoryPopUpWindow;
+
+    @FindBy(xpath = "//div[@class='x-tree-root-node']//span[contains(.,'Default Category')]")
+    WebElementFacade defaultCategory;
+
 
     //Fields on Design tab:
 
@@ -245,6 +268,119 @@ public class СreateNewPagePage extends PageObject{
         descriptionField.type(description);
     }
 
+    //Methods for insert widget:
 
+    public void addCMSPageLinkWidget (String anchorText, String anchorTitle){
+        insertWidgetButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(widgetTypeDropdown));
+        widgetTypeDropdown.selectByVisibleText("CMS Page Link");
+        wait.until(ExpectedConditions.visibilityOf(anchorCustomTextField));
+        anchorCustomTextField.type(anchorText);
+        anchorCustomTitleField.type(anchorTitle);
+        templateDropdown.selectByIndex(1);
+        selectOptionButton.click();
+        wait.until(ExpectedConditions.visibilityOf(selectPagePopUpWindow));
+        firstElementInTable.click();
+        wait.until(ExpectedConditions.visibilityOf(submitWidgetInsertButton));
+        submitWidgetInsertButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
+    }
+
+    public void addCmsStaticBlockWidget (){
+        insertWidgetButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(widgetTypeDropdown));
+        widgetTypeDropdown.selectByVisibleText("CMS Static Block");
+        wait.until(ExpectedConditions.visibilityOf(templateDropdown));
+        templateDropdown.selectByIndex(0);
+        selectOptionButton.click();
+        wait.until(ExpectedConditions.visibilityOf(selectBlockPopUpWindow));
+        firstElementInTable.click();
+        wait.until(ExpectedConditions.visibilityOf(submitWidgetInsertButton));
+        submitWidgetInsertButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
+    }
+
+    public void addCatalogCategoryLinkWidget (String anchorText, String anchorTitle){
+        insertWidgetButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(widgetTypeDropdown));
+        widgetTypeDropdown.selectByVisibleText("Catalog Category Link");
+        wait.until(ExpectedConditions.visibilityOf(anchorCustomTextField));
+        anchorCustomTextField.type(anchorText);
+        anchorCustomTitleField.type(anchorTitle);
+        templateDropdown.selectByIndex(0);
+        selectOptionButton.click();
+        wait.until(ExpectedConditions.visibilityOf(defaultCategory));
+        defaultCategory.click();
+        wait.until(ExpectedConditions.visibilityOf(submitWidgetInsertButton));
+        submitWidgetInsertButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
+    }
+
+    public void addCatalogNewProductListWidget (String numberOfProducts, String cacheLifeTime){
+        insertWidgetButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(widgetTypeDropdown));
+        widgetTypeDropdown.selectByVisibleText("Catalog New Products List");
+        wait.until(ExpectedConditions.visibilityOf(numberOfProductsToDisplayField));
+        numberOfProductsToDisplayField.type(numberOfProducts);
+        cacheLifetimeField.type(cacheLifeTime);
+        submitWidgetInsertButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
+    }
+
+    public void addCatalogProductLinkWidget (String anchorText, String anchorTitle){
+        insertWidgetButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(widgetTypeDropdown));
+        widgetTypeDropdown.selectByVisibleText("Catalog Product Link");
+        wait.until(ExpectedConditions.visibilityOf(anchorCustomTextField));
+        anchorCustomTextField.type(anchorText);
+        anchorCustomTitleField.type(anchorTitle);
+        templateDropdown.selectByIndex(0);
+        selectOptionButton.click();
+        wait.until(ExpectedConditions.visibilityOf(firstElementInTable));
+        firstElementInTable.click();
+        wait.until(ExpectedConditions.visibilityOf(submitWidgetInsertButton));
+        submitWidgetInsertButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
+    }
+
+    public void addOrdersAndReturnsWidget (){
+        insertWidgetButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(widgetTypeDropdown));
+        widgetTypeDropdown.selectByVisibleText("Orders and Returns");
+        wait.until(ExpectedConditions.visibilityOf(templateDropdown));
+        templateDropdown.selectByIndex(0);
+        submitWidgetInsertButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
+    }
+
+    public void addRecentlyComparedProductsWidget (String numberOfProducts){
+        insertWidgetButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(widgetTypeDropdown));
+        widgetTypeDropdown.selectByVisibleText("Recently Compared Products");
+        wait.until(ExpectedConditions.visibilityOf(numberOfProductsToDisplayComparedAndViewedField));
+        numberOfProductsToDisplayComparedAndViewedField.type(numberOfProducts);
+        templateDropdown.selectByIndex(0);
+        submitWidgetInsertButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
+    }
+
+    public void addRecentlyViewedProductsWidget (String numberOfProducts){
+        insertWidgetButton.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(widgetTypeDropdown));
+        widgetTypeDropdown.selectByVisibleText("Recently Viewed Products");
+        wait.until(ExpectedConditions.visibilityOf(numberOfProductsToDisplayComparedAndViewedField));
+        numberOfProductsToDisplayComparedAndViewedField.type(numberOfProducts);
+        templateDropdown.selectByIndex(0);
+        submitWidgetInsertButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
+    }
 
 }
