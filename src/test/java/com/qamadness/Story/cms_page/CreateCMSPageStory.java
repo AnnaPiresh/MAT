@@ -124,7 +124,7 @@ public class CreateCMSPageStory {
     //Test case "Create CMS page with all fields and widgets":
 
     @Issue("MAT-177")
-    @Pending@Test
+    @Pending @Test
     public void createPageWithAllFieldsAndWidgets (){
         Random generator = new Random();
         int i = generator.nextInt(1000);
@@ -266,8 +266,8 @@ public class CreateCMSPageStory {
 
     //Test case "Create CMS page with special characters in required fields":
 
-    @Issue("MAt-181")
-    @Test
+    @Issue("MAT-181")
+    @Pending @Test
     public void createPageWithSpecialCharactersInRequiredFields (){
         Random generator = new Random();
         int i = generator.nextInt(1000);
@@ -284,6 +284,12 @@ public class CreateCMSPageStory {
         createNewPagesSteps.click_Save_Page_Button();
         //verifications:
         managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
+        //remove created page
+        loginPageSteps.openPage();
+        mainMenuSteps.open_CMS_Pages_Page();
+        managePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
+        managePagesSteps.click_First_Page_In_The_Grid();
+        createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
 
 }
