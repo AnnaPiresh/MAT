@@ -153,6 +153,10 @@ public class CreateNewPagesSteps extends ScenarioSteps{
         createNewPagePage.addRecentlyViewedProductsWidget(numberOfProducts);
     }
 
+    //Verification steps:
+
     @Step
-    public void testStep(){}
+    public void verify_That_Empty_Required_Field_Error_Message_Is_Displayed (){
+        createNewPagePage.verifyThatEmptyRequiredFieldErrorMessageIsDisplayed();
+    }
 }
