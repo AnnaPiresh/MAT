@@ -1,40 +1,50 @@
 package com.qamadness.steps.backendSteps.cmsSteps.pagesSteps;
 
+import com.qamadness.pages.backend.cms.pages.ManagePagesPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 /**
  * Created by Alexandra on 1/25/16.
  */
-public class managePagesSteps extends ScenarioSteps{
+public class ManagePagesSteps extends ScenarioSteps{
 
-    com.qamadness.pages.backend.cms.pages.managePagesPage managePagesPage;
+    ManagePagesPage ManagePagesPage;
 
     //Click General buttons steps:
 
     @Step
     public void click_Add_New_Page_Button (){
-        managePagesPage.clickAddNewPageButton();
+        ManagePagesPage.clickAddNewPageButton();
     }
 
     //Methods for grid:
 
     @Step
     public void filter_Pages_By_Url_Key (String urlKey){
-        managePagesPage.filterPagesByUrlKey(urlKey);
+        ManagePagesPage.filterPagesByUrlKey(urlKey);
     }
 
     @Step
     public void click_First_Page_In_The_Grid (){
-        managePagesPage.clickFirstPageInTheGrid();
+        ManagePagesPage.clickFirstPageInTheGrid();
     }
 
     //Verifications:
 
     @Step
     public void verify_That_Success_Saved_Page_Message_Is_Displayed(){
-        managePagesPage.verifyThatSuccessSavedPageMessageIsDisplayed();
+        ManagePagesPage.verifyThatSuccessSavedPageMessageIsDisplayed();
     }
 
+    @Step
+    public void verify_That_Existing_URL_Key_Error_Message_Is_Displayed (){
+        ManagePagesPage.verifyThatExistingURLKeyErrorMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Invalid_URL_Key_With_Numbers_Only_Error_Message_Is_Displayed (){
+        ManagePagesPage.verifyThatInvalidURLKeyWithNumbersOnlyErrorMessageIsDisplayed();
+    }
 
 }

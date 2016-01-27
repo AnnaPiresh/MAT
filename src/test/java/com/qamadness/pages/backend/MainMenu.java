@@ -136,19 +136,17 @@ public class MainMenu extends PageObject {
     }
 
     public void openManageProductsPage () {
-        WebDriverWait waitt = new WebDriverWait(getDriver(), 60);
-        waitt.until(ExpectedConditions.elementToBeClickable(catalogMenu));
-        catalogMenu.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(catalogMenu));
+        catalogMenu.click();
         wait.until(ExpectedConditions.elementToBeClickable(manageProducts));
         manageProducts.click();
     }
 
     public void openManageCategoriesPage () {
-        WebDriverWait waitt = new WebDriverWait(getDriver(), 60);
-        waitt.until(ExpectedConditions.elementToBeClickable(catalogMenu));
-        catalogMenu.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(catalogMenu));
+        catalogMenu.click();
         wait.until(ExpectedConditions.elementToBeClickable(manageCategoriesMenu));
         manageCategoriesMenu.click();
     }

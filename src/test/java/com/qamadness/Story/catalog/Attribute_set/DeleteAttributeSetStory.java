@@ -4,6 +4,8 @@ import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.AttributesSteps.ManageAttributeSetsSteps.CreateAttributeSetSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.AttributesSteps.ManageAttributeSetsSteps.ManageAttributeSetsSteps;
+import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
+import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageProductsPageSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
@@ -33,6 +35,21 @@ public class DeleteAttributeSetStory {
     private String createSuccessMessage;
     private String deleteSuccessMessage;
     private String defaultSetName;
+    private String attributeSet;
+    private String productType;
+    private String productDescription;
+    private String productShortDescription;
+    private String productSKU;
+    private String productStatus;
+    private String productVisibility;
+    private String productName;
+    private String productPrice;
+    private String taxClass;
+    private String selectAction;
+    private String productWeight;
+    private String productSuccessMessage;
+    private String productDeleteSuccessMessage;
+    private String searchMessage;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -51,6 +68,12 @@ public class DeleteAttributeSetStory {
 
     @Steps
     ManageAttributeSetsSteps manageAttributeSetsSteps;
+
+    @Steps
+    ManageProductsPageSteps manageProductsPageSteps;
+
+    @Steps
+    CreateNewProductPageSteps createNewProductPageSteps;
 
     @Before
     public void openPage () {
@@ -73,8 +96,50 @@ public class DeleteAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(createSuccessMessage);
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteSuccessMessage);
+    }
+
+    @Issue("MAT-75")
+    @Pending
+    @Test
+    public void delete_attribute_set_with_related_products(){
+        createAttributeSetSteps.click_add_new_attribute_set_button();
+        createAttributeSetSteps.enter_attribute_set_name(setName);
+        createAttributeSetSteps.save_attribute_set();
+        createAttributeSetSteps.check_success_message(createSuccessMessage);
+        mainMenuSteps.openManageProductsPage();
+        manageProductsPageSteps.addProduct();
+        createNewProductPageSteps.select_attribute_set_by_name(setName);
+        createNewProductPageSteps.selectProductType(productType);
+        createNewProductPageSteps.continueButton();
+        createNewProductPageSteps.enterName(productName);
+        createNewProductPageSteps.enterProductDescription(productDescription);
+        createNewProductPageSteps.enterShortDescription(productShortDescription);
+        createNewProductPageSteps.enterSKU(productSKU);
+        createNewProductPageSteps.enterWeight(productWeight);
+        createNewProductPageSteps.selectStatus(productStatus);
+        createNewProductPageSteps.selectVisibility(productVisibility);
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectPricesTab();
+        createNewProductPageSteps.enterProductPrice(productPrice);
+        createNewProductPageSteps.selectTaxClass(taxClass);
+        createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.selectWebsitesTab();
+        createNewProductPageSteps.selectMainWebsite();
+        createNewProductPageSteps.selectCategoriesTab();
+        createNewProductPageSteps.selectFirstCategory();
+        createNewProductPageSteps.saveProduct();
+        createAttributeSetSteps.check_success_message(productSuccessMessage);
+        mainMenuSteps.open_Manage_Attribute_Sets_page();
+        manageAttributeSetsSteps.search_for_attribute_set(setName);
+        manageAttributeSetsSteps.select_attribute_set_found();
+        createAttributeSetSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.check_success_message(deleteSuccessMessage);
+        mainMenuSteps.openManageProductsPage();
+        manageProductsPageSteps.searchBySku(productSKU);
+        manageProductsPageSteps.searchButton();
+        manageProductsPageSteps.check_no_products_are_found(searchMessage);
     }
 
     @Issue("MAT-76")
@@ -83,7 +148,7 @@ public class DeleteAttributeSetStory {
     public void delete_default_attribute_set(){
         manageAttributeSetsSteps.search_for_attribute_set(defaultSetName);
         manageAttributeSetsSteps.select_attribute_set_found();
-        manageAttributeSetsSteps.check_delete_button_is_not_present();
+        createAttributeSetSteps.check_delete_button_is_not_present();
     }
 }
 

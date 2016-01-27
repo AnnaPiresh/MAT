@@ -1,2 +1,2 @@
-login,password,setName,createSuccessMessage,deleteSuccessMessage,defaultSetName
-admin,3HSYOFf,Test robot delete set,The attribute set has been saved.,The attribute set has been removed.,Default
+login,password,setName,createSuccessMessage,deleteSuccessMessage,defaultSetName,productType,productDescription,productShortDescription,productSKU,productWeight,productStatus,productVisibility,productName,productPrice,taxClass,selectAction,productSuccessMessage,productDeleteSuccessMessage,searchMessage
+admin,3HSYOFf,Test robot delete set,The attribute set has been saved.,The attribute set has been removed.,Default,simple,Robot auto product description,Robot auto product short description,robot-test,12,1,4,Robot auto product,263,0,delete,The product has been saved.,The product has been deleted.,No records found.

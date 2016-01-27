@@ -2,6 +2,8 @@ package com.qamadness.Story.cms_page;
 
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.CreateNewPagesSteps;
+import com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.ManagePagesSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.frontendSteps.cmsPageSteps.NewCMSPageSteps;
 import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
@@ -16,6 +18,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+
+import java.util.Random;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
@@ -42,6 +46,10 @@ public class CreateCMSPageStory {
     private String customLayout;
     private String keywords;
     private String description;
+    private String anchorCustomText;
+    private String anchorCustomTitle;
+    private String numberOfProducts;
+    private String cacheLifetime;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -56,10 +64,10 @@ public class CreateCMSPageStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.managePagesSteps managePagesSteps;
+    ManagePagesSteps managePagesSteps;
 
     @Steps
-    com.qamadness.steps.backendSteps.cmsSteps.pagesSteps.createNewPagesSteps createNewPagesSteps;
+    CreateNewPagesSteps createNewPagesSteps;
 
     @Steps
     HomePageSteps homePageSteps;
@@ -86,10 +94,13 @@ public class CreateCMSPageStory {
     @Issue("MAT-176")
     @Pending @Test
     public void createPageWithAllRequiredFields (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        String generatedUrlKey = urlKey+i;
         //create new page with filling all required fields:
         managePagesSteps.click_Add_New_Page_Button();
         createNewPagesSteps.enter_Page_Title(pageTitle);
-        createNewPagesSteps.enter_Url_Key(urlKey);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
         createNewPagesSteps.select_Store_View(allStoreViews);
         createNewPagesSteps.select_Status("Enabled");
         createNewPagesSteps.open_Content_Tab();
@@ -99,12 +110,12 @@ public class CreateCMSPageStory {
         //verifications:
         managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
         homePageSteps.open_Home_Page();
-        newCMSPageSteps.open_New_CMS_Page(urlKey);
+        newCMSPageSteps.open_New_CMS_Page(generatedUrlKey);
         newCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
         //remove created page
         loginPageSteps.openPage();
         mainMenuSteps.open_CMS_Pages_Page();
-        managePagesSteps.filter_Pages_By_Url_Key(urlKey);
+        managePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
         managePagesSteps.click_First_Page_In_The_Grid();
         createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
@@ -112,12 +123,15 @@ public class CreateCMSPageStory {
     //Test case "Create CMS page with all fields and widgets":
 
     @Issue("MAT-177")
-    @Pending @Test
+    @Pending@Test
     public void createPageWithAllFieldsAndWidgets (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        String generatedUrlKey = urlKey+i;
         //create new page and fill all fields
         managePagesSteps.click_Add_New_Page_Button();
         createNewPagesSteps.enter_Page_Title(pageTitle);
-        createNewPagesSteps.enter_Url_Key(urlKey);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
         createNewPagesSteps.select_Store_View(allStoreViews);
         createNewPagesSteps.select_Status("Enabled");
         createNewPagesSteps.open_Content_Tab();
@@ -133,15 +147,120 @@ public class CreateCMSPageStory {
         createNewPagesSteps.enter_Keywords(keywords);
         createNewPagesSteps.enter_Description(description);
         //add all widgets to the page and save
-
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.add_CMS_Page_Link_Widget(anchorCustomText, anchorCustomTitle);
+        createNewPagesSteps.add_Cms_Static_Block_Widget();
+        createNewPagesSteps.add_Catalog_Category_Link_Widget(anchorCustomText,anchorCustomTitle);
+        createNewPagesSteps.add_Catalog_New_Product_List_Widget(numberOfProducts,cacheLifetime);
+        createNewPagesSteps. add_Catalog_Product_Link_Widget(anchorCustomText,anchorCustomTitle);
+        createNewPagesSteps.add_Orders_And_Returns_Widget ();
+        createNewPagesSteps.add_Recently_Compared_Products_Widget(numberOfProducts);
+        createNewPagesSteps.add_Recently_Viewed_Products_Widget(numberOfProducts);
         createNewPagesSteps.click_Save_Page_Button();
-
+       //verifications:
+        managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
+        homePageSteps.open_Home_Page();
+        newCMSPageSteps.open_New_CMS_Page(generatedUrlKey);
+        newCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
+        newCMSPageSteps.verify_That_Three_Columns_Layout_Is_Used();
+        newCMSPageSteps.verify_That_Keywords_Are_Added(keywords);
+        newCMSPageSteps.verify_That_Meta_Description_Is_Added(description);
+        newCMSPageSteps.verify_That_CMS_Page_Link_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_Category_Link_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_Cms_Static_Block_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_New_Products_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_Product_Link_Widget_Is_Added ();
+        newCMSPageSteps.verify_That_Orders_And_Returns_Widget_Is_Added();
         //remove created page
         loginPageSteps.openPage();
         mainMenuSteps.open_CMS_Pages_Page();
-        managePagesSteps.filter_Pages_By_Url_Key(urlKey);
+        managePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
         managePagesSteps.click_First_Page_In_The_Grid();
         createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+    }
+
+    //Test case "Create CMS page with empty required field":
+
+    @Issue("MAT-178")
+    @Pending @Test
+    public void createPageWithEmptyRequiredField (){
+        //create new page and with empty urlKey field
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key("");
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.open_Design_Tab();
+        createNewPagesSteps.select_Page_Layout(layout);
+        createNewPagesSteps.open_Meta_Data_Tab();
+        createNewPagesSteps.enter_Keywords(keywords);
+        createNewPagesSteps.enter_Description(description);
+        createNewPagesSteps.click_Save_Page_Button();
+        //verification:
+        createNewPagesSteps.verify_That_Empty_Required_Field_Error_Message_Is_Displayed();
+    }
+
+    //Test case "Create CMS pages with same URL key":
+
+    @Issue("MAT-179")
+    @Pending @Test
+    public void createPagesWithSameUrlKey (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        String generatedUrlKey = urlKey+i;
+        //create first page:
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.click_Save_Page_Button();
+        managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
+        //create second page:
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(generatedUrlKey);
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.click_Save_Page_Button();
+        //verification:
+        managePagesSteps.verify_That_Existing_URL_Key_Error_Message_Is_Displayed();
+        //remove created page
+        loginPageSteps.openPage();
+        mainMenuSteps.open_CMS_Pages_Page();
+        managePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
+        managePagesSteps.click_First_Page_In_The_Grid();
+        createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+    }
+
+    //Test case "Creates Pages with numbers in URL Key":
+
+    @Issue("MAT-180")
+    @Pending @Test
+    public void createPageWithNumbersInUrlKey (){
+        Random generator = new Random();
+        int i = generator.nextInt(1000);
+        //create page with numbers in url key:
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key(Integer.toString(i));
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.click_Save_Page_Button();
+        //verification:
+        managePagesSteps.verify_That_Invalid_URL_Key_With_Numbers_Only_Error_Message_Is_Displayed();
     }
 
 }

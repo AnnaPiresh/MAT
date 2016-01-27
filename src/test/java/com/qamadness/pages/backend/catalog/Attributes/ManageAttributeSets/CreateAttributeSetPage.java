@@ -59,6 +59,9 @@ public class CreateAttributeSetPage extends PageObject{
     @FindBy(xpath = ".//div[@id='tree-div2']/ul/div/li[last()]/div/a")
     WebElementFacade lastAttribute;
 
+    @FindBy(xpath = ".//button[@title='Delete Attribute Set']")
+    WebElementFacade deleteAttributeSetBtn;
+
 //--------------------------------Methods for Creating an Attribute Set------------------------------------------------//
 
     public void clickAddNewAttributeSetBtn(){
@@ -133,6 +136,22 @@ public class CreateAttributeSetPage extends PageObject{
         basedOnDropdown.click();
         basedOnDropdown.selectByValue(basedOnValue);
         basedOnDropdown.click();
+    }
+
+    public void clickDeleteAttributeSetButton(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(deleteAttributeSetBtn));
+        deleteAttributeSetBtn.click();
+        Alert alert = getDriver().switchTo().alert();
+        alert.accept();
+    }
+
+    public void checkDeleteButtonIsNotPresent(){
+        if (deleteAttributeSetBtn.isPresent()){
+            Assert.fail("It's possible to delete Default attribute set");
+        } else{
+            System.out.println("Delete button is not present on page");
+        }
     }
 
 

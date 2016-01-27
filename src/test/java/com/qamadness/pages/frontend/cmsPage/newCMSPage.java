@@ -13,7 +13,33 @@ import org.openqa.selenium.JavascriptExecutor;
  */
 public class NewCMSPage extends PageObject {
 
-    //Page elements:
+    //Meta data:
+
+    @FindBy (xpath = ".//meta[@name='keywords']")
+    WebElementFacade keywordsMetaData;
+
+    @FindBy (xpath = ".//meta[@name='description']")
+    WebElementFacade descriptionMetaData;
+
+    //Widgets:
+
+    @FindBy (xpath = ".//*[@class='widget widget-cms-link-inline']")
+    WebElementFacade cmsPageLinkWidget;
+
+    @FindBy (xpath = ".//*[@class='widget widget-category-link']")
+    WebElementFacade categoryLinkWidget;
+
+    @FindBy (xpath = ".//*[@class='widget widget-static-block']")
+    WebElementFacade cmsStaticBlockWidget;
+
+    @FindBy (xpath = ".//*[@class='widget widget-new-products']")
+    WebElementFacade newProductsWidget;
+
+    @FindBy (xpath = ".//*[@class='widget widget-product-link']")
+    WebElementFacade productLinkWidget;
+
+    @FindBy (xpath = ".//*[@class='widget' and contains (.,'Orders and Returns')]")
+    WebElementFacade ordersAndReturnsWidget;
 
     public void openCMSPage (String urlKey){
         JavascriptExecutor javascript = (JavascriptExecutor) getDriver();
@@ -28,4 +54,47 @@ public class NewCMSPage extends PageObject {
         Assert.assertTrue(getDriver().findElement(By.xpath("//*[contains(.,'"+content+"')]")).isDisplayed());
     }
 
+
+    public void verifyThatThreeColumnsLayoutIsUsed (){
+        Assert.assertTrue(getDriver().findElement(By.xpath(".//*[@class='main-container col3-layout']")).isDisplayed());
+    }
+
+
+    public void verifyThatKeywordsAreAdded (String keywords){
+        Assert.assertTrue(getDriver().findElement(By.xpath(".//meta[@name='keywords']")).getAttribute("content").equalsIgnoreCase(keywords));
+    }
+
+
+    public void verifyThatMetaDescriptionIsAdded(String description){
+        Assert.assertTrue(getDriver().findElement(By.xpath(".//meta[@name='description']")).getAttribute("content").equalsIgnoreCase(description));
+    }
+
+
+    public void verifyThatCMSPageLinkWidgetIsAdded (){
+        Assert.assertTrue(cmsPageLinkWidget.isDisplayed());
+    }
+
+
+    public void verifyThatCategoryLinkWidgetIsAdded (){
+        Assert.assertTrue(categoryLinkWidget.isDisplayed());
+    }
+
+
+    public void verifyThatCmsStaticBlockWidgetIsAdded (){
+        Assert.assertTrue(cmsStaticBlockWidget.isDisplayed());
+    }
+
+
+    public void verifyThatNewProductsWidgetIsAdded (){
+        Assert.assertTrue(newProductsWidget.isDisplayed());
+    }
+
+
+    public void verifyThatProductLinkWidgetIsAdded (){
+        Assert.assertTrue(productLinkWidget.isDisplayed());
+    }
+
+    public void verifyThatOrdersAndReturnsWidgetIsAdded (){
+        Assert.assertTrue(ordersAndReturnsWidget.isDisplayed());
+    }
 }

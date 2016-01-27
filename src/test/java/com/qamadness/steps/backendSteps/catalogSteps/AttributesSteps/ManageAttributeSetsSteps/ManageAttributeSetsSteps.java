@@ -19,12 +19,6 @@ public class ManageAttributeSetsSteps extends ScenarioSteps{
         manageAttributeSetsPage.checkCorrectAttributeSetIsFiltered(searchterm); }
 
     @Step
-    public void click_delete_attribute_set_button(){manageAttributeSetsPage.clickDeleteAttributeSetButton(); }
-
-    @Step
     public void select_attribute_set_found() {manageAttributeSetsPage.selectAttributeSetFound();}
-
-    @Step
-    public void check_delete_button_is_not_present() {manageAttributeSetsPage.checkDeleteButtonIsNotPresent();}
 
 }

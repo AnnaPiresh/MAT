@@ -22,11 +22,20 @@ public class CreateNewProductPage extends PageObject {
         dropdown.selectByValue(value);
     }
 
+    public void selectAttributeSetByName(String setName){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(attributeSetDropdown));
+        Select dropdown = new Select(attributeSetDropdown);
+        dropdown.selectByVisibleText(setName);
+    }
+
 
     @FindBy (xpath = ".//*[@id='product_type']")
     WebElementFacade productTypeDropdown;
 
     public void selectProductType(String value) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(productTypeDropdown));
         Select dropdown = new Select(productTypeDropdown);
         dropdown.selectByValue(value);
     }
@@ -45,7 +54,10 @@ public class CreateNewProductPage extends PageObject {
     @FindBy(xpath = ".//*[@id='name']")
     WebElementFacade productName;
 
-    public void enterName (String name) { productName.sendKeys(name);}
+    public void enterName (String name) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(productName));
+        productName.sendKeys(name);}
 
     @FindBy(xpath = ".//*[@id='description']")
     WebElementFacade productDescription;
@@ -62,6 +74,8 @@ public class CreateNewProductPage extends PageObject {
     WebElementFacade productSKUType;
 
     public void selectProductSKUType (String value) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(productSKUType));
         Select dropdown = new Select(productSKUType);
         dropdown.selectByValue(value);
     }
@@ -70,6 +84,8 @@ public class CreateNewProductPage extends PageObject {
     WebElementFacade productWeightType;
 
     public void selectProductWeightType (String value) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(productWeightType));
         Select dropdown = new Select(productWeightType);
         dropdown.selectByValue(value);
     }
@@ -88,6 +104,8 @@ public class CreateNewProductPage extends PageObject {
     WebElementFacade selectStatusDropdown;
 
     public void selectStatus (String value) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(selectStatusDropdown));
         Select dropdown = new Select(selectStatusDropdown);
         dropdown.selectByValue(value);
     }
@@ -96,13 +114,15 @@ public class CreateNewProductPage extends PageObject {
     WebElementFacade selectVisibilityDropdown;
 
     public void selectVisibility (String value) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(selectVisibilityDropdown));
         Select dropdown = new Select(selectVisibilityDropdown);
         dropdown.selectByValue(value);
     }
 
     //------------------------------------------------Prices Tab------------------------------------------------------//
 
-    @FindBy(css = "#product_info_tabs_group_8")
+    @FindBy(xpath = ".//*[text()='Prices']") //css = "#product_info_tabs_group_8")
     WebElementFacade pricesTab;
 
     public void selectPricesTab() { pricesTab.click();}
