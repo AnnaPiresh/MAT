@@ -2,6 +2,7 @@ package com.qamadness.pages.backend.cms.pages;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,7 +31,7 @@ public class СreateNewPagePage extends PageObject{
 
     //Messages:
 
-    @FindBy(xpath = "//div[@id='advice-required-entry-%fieldId%' and not(contains(@style,'display: none;'))]")
+    @FindBy(xpath = ".//*[@class='validation-advice' and not(contains(@style,'display: none;')) and contains(.,'This is a required field.')]")
     WebElementFacade errorEmptyRequiredField;
 
     //Fields on Page information tab:
@@ -383,4 +384,11 @@ public class СreateNewPagePage extends PageObject{
         wait.until(ExpectedConditions.elementToBeClickable(insertWidgetButton));
     }
 
+    //Verifications:
+
+    public void verifyThatEmptyRequiredFieldErrorMessageIsDisplayed (){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(errorEmptyRequiredField));
+        Assert.assertTrue(errorEmptyRequiredField.isDisplayed());
+    }
 }
