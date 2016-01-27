@@ -9,18 +9,18 @@ import net.thucydides.core.steps.ScenarioSteps;
  */
 public class NewCMSPageSteps extends ScenarioSteps {
 
-    NewCMSPage NewCMSPage;
+    NewCMSPage newCMSPage;
 
     @Step
     public void open_New_CMS_Page(String urlKey){
-        NewCMSPage.openCMSPage(urlKey);
+        newCMSPage.openCMSPage(urlKey);
     }
 
     //Verifications:
 
    @Step
     public void verify_That_Page_Contains_Heading_And_Content (String heading, String content){
-       NewCMSPage.verifyThatPageContainsHeadingAndContent(heading,content);
+       newCMSPage.verifyThatPageContainsHeadingAndContent(heading,content);
    }
 
     @Step

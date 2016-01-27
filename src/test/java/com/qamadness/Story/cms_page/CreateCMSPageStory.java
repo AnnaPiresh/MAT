@@ -64,16 +64,16 @@ public class CreateCMSPageStory {
     MainMenuSteps mainMenuSteps;
 
     @Steps
-    ManagePagesSteps ManagePagesSteps;
+    ManagePagesSteps managePagesSteps;
 
     @Steps
     CreateNewPagesSteps createNewPagesSteps;
 
     @Steps
-    HomePageSteps HomePageSteps;
+    HomePageSteps homePageSteps;
 
     @Steps
-    NewCMSPageSteps NewCMSPageSteps;
+    NewCMSPageSteps newCMSPageSteps;
 
     /*Precondition:
     * 1)Login to admin and navigate to CMS->Pages page*/
@@ -98,7 +98,7 @@ public class CreateCMSPageStory {
         int i = generator.nextInt(1000);
         String generatedUrlKey = urlKey+i;
         //create new page with filling all required fields:
-        ManagePagesSteps.click_Add_New_Page_Button();
+        managePagesSteps.click_Add_New_Page_Button();
         createNewPagesSteps.enter_Page_Title(pageTitle);
         createNewPagesSteps.enter_Url_Key(generatedUrlKey);
         createNewPagesSteps.select_Store_View(allStoreViews);
@@ -108,28 +108,28 @@ public class CreateCMSPageStory {
         createNewPagesSteps.enter_Main_Content(mainContent);
         createNewPagesSteps.click_Save_Page_Button();
         //verifications:
-        ManagePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
-        HomePageSteps.open_Home_Page();
+        managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
+        homePageSteps.open_Home_Page();
         newCMSPageSteps.open_New_CMS_Page(generatedUrlKey);
         newCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
         //remove created page
         loginPageSteps.openPage();
         mainMenuSteps.open_CMS_Pages_Page();
-        ManagePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
-        ManagePagesSteps.click_First_Page_In_The_Grid();
+        managePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
+        managePagesSteps.click_First_Page_In_The_Grid();
         createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
     }
 
     //Test case "Create CMS page with all fields and widgets":
 
     @Issue("MAT-177")
-    @Pending @Test
+    @Pending@Test
     public void createPageWithAllFieldsAndWidgets (){
         Random generator = new Random();
         int i = generator.nextInt(1000);
         String generatedUrlKey = urlKey+i;
         //create new page and fill all fields
-        ManagePagesSteps.click_Add_New_Page_Button();
+        managePagesSteps.click_Add_New_Page_Button();
         createNewPagesSteps.enter_Page_Title(pageTitle);
         createNewPagesSteps.enter_Url_Key(generatedUrlKey);
         createNewPagesSteps.select_Store_View(allStoreViews);
@@ -158,8 +158,8 @@ public class CreateCMSPageStory {
         createNewPagesSteps.add_Recently_Viewed_Products_Widget(numberOfProducts);
         createNewPagesSteps.click_Save_Page_Button();
        //verifications:
-        ManagePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
-        HomePageSteps.open_Home_Page();
+        managePagesSteps.verify_That_Success_Saved_Page_Message_Is_Displayed();
+        homePageSteps.open_Home_Page();
         newCMSPageSteps.open_New_CMS_Page(generatedUrlKey);
         newCMSPageSteps.verify_That_Page_Contains_Heading_And_Content(contentHeading,mainContent);
         newCMSPageSteps.verify_That_Three_Columns_Layout_Is_Used();
@@ -174,8 +174,8 @@ public class CreateCMSPageStory {
         //remove created page
         loginPageSteps.openPage();
         mainMenuSteps.open_CMS_Pages_Page();
-        ManagePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
-        ManagePagesSteps.click_First_Page_In_The_Grid();
+        managePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
+        managePagesSteps.click_First_Page_In_The_Grid();
         createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
 
     }
