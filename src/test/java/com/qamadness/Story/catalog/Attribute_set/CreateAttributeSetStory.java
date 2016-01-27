@@ -79,7 +79,7 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+       createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
@@ -101,7 +101,7 @@ public class CreateAttributeSetStory {
         mainMenuSteps.open_Manage_Attribute_Sets_page();
         manageAttributeSetsSteps.search_for_attribute_set(setName);
         manageAttributeSetsSteps.select_attribute_set_found();
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
@@ -123,7 +123,7 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(longName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
@@ -135,7 +135,7 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(charName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
@@ -153,7 +153,7 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.check_success_message(successMessage);
         manageAttributeSetsSteps.search_for_attribute_set(userProductsName);
         manageAttributeSetsSteps.select_attribute_set_found();
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteMessage);
     }
 
@@ -166,7 +166,7 @@ public class CreateAttributeSetStory {
         createAttributeSetSteps.select_based_on_value(basedOnValue);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(successMessage);
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteMessage);
     }
 }

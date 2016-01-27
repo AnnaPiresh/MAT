@@ -23,9 +23,6 @@ public class ManageAttributeSetsPage extends PageObject{
     @FindBy(xpath = ".//*[@id='setGrid_table']/tbody/tr/td")
     WebElementFacade firstLineInGrid;
 
-    @FindBy(xpath = ".//button[@title='Delete Attribute Set']")
-    WebElementFacade deleteAttributeSetBtn;
-
     @FindBy(xpath = ".//button[@title='Reset']")
     WebElementFacade resetButton;
 
@@ -51,21 +48,7 @@ public class ManageAttributeSetsPage extends PageObject{
         wait.until(ExpectedConditions.elementToBeClickable(resetButton));
     }
 
-    public void clickDeleteAttributeSetButton(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(deleteAttributeSetBtn));
-        deleteAttributeSetBtn.click();
-        Alert alert = getDriver().switchTo().alert();
-        alert.accept();
-    }
 
-    public void checkDeleteButtonIsNotPresent(){
-       if (deleteAttributeSetBtn.isPresent()){
-           Assert.fail("It's possible to delete Default attribute set");
-       } else{
-           System.out.println("Delete button is not present on page");
-       }
-    }
 
 
 
