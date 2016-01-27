@@ -96,7 +96,7 @@ public class DeleteAttributeSetStory {
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(createSuccessMessage);
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteSuccessMessage);
     }
 
@@ -134,7 +134,7 @@ public class DeleteAttributeSetStory {
         mainMenuSteps.open_Manage_Attribute_Sets_page();
         manageAttributeSetsSteps.search_for_attribute_set(setName);
         manageAttributeSetsSteps.select_attribute_set_found();
-        manageAttributeSetsSteps.click_delete_attribute_set_button();
+        createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteSuccessMessage);
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.searchBySku(productSKU);
@@ -148,7 +148,7 @@ public class DeleteAttributeSetStory {
     public void delete_default_attribute_set(){
         manageAttributeSetsSteps.search_for_attribute_set(defaultSetName);
         manageAttributeSetsSteps.select_attribute_set_found();
-        manageAttributeSetsSteps.check_delete_button_is_not_present();
+        createAttributeSetSteps.check_delete_button_is_not_present();
     }
 }
 

@@ -45,4 +45,10 @@ public class CreateAttributeSetSteps extends ScenarioSteps {
     @Step
     public void select_based_on_value(String basedOnValue) {createAttributeSetPage.selectBasedOnValue(basedOnValue);}
 
+    @Step
+    public void click_delete_attribute_set_button(){createAttributeSetPage.clickDeleteAttributeSetButton(); }
+
+    @Step
+    public void check_delete_button_is_not_present() {createAttributeSetPage.checkDeleteButtonIsNotPresent();}
+
 }
