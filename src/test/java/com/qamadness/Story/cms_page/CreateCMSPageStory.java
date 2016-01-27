@@ -177,7 +177,30 @@ public class CreateCMSPageStory {
         managePagesSteps.filter_Pages_By_Url_Key(generatedUrlKey);
         managePagesSteps.click_First_Page_In_The_Grid();
         createNewPagesSteps.click_Delete_Page_Button_And_Confirm();
+    }
 
+    //Test case "Create CMS page with empty required field"
+
+    @Issue("MAT-178")
+    @Test
+    public void createPageWithEmptyRequiredField (){
+        //create new page and with empty urlKey field
+        managePagesSteps.click_Add_New_Page_Button();
+        createNewPagesSteps.enter_Page_Title(pageTitle);
+        createNewPagesSteps.enter_Url_Key("");
+        createNewPagesSteps.select_Store_View(allStoreViews);
+        createNewPagesSteps.select_Status("Enabled");
+        createNewPagesSteps.open_Content_Tab();
+        createNewPagesSteps.enter_Content_Heading(contentHeading);
+        createNewPagesSteps.enter_Main_Content(mainContent);
+        createNewPagesSteps.open_Design_Tab();
+        createNewPagesSteps.select_Page_Layout(layout);
+        createNewPagesSteps.open_Meta_Data_Tab();
+        createNewPagesSteps.enter_Keywords(keywords);
+        createNewPagesSteps.enter_Description(description);
+        createNewPagesSteps.click_Save_Page_Button();
+        //verification:
+        createNewPagesSteps.verify_That_Empty_Required_Field_Error_Message_Is_Displayed();
     }
 
 }
