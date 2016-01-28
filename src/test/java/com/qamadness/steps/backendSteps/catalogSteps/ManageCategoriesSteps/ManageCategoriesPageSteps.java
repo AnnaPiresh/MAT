@@ -12,6 +12,9 @@ public class ManageCategoriesPageSteps extends PageObject {
     ManageCategoriesPage manageCategoriesPage;
 
     @Step
+    public void refreshPage () {manageCategoriesPage.refreshPage();}
+
+    @Step
     public void addNewSubCategory () { manageCategoriesPage.addNewSubCategory();}
 
     @Step

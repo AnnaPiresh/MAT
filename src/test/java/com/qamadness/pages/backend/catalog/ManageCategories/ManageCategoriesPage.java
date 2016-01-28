@@ -19,6 +19,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class ManageCategoriesPage extends PageObject {
 
+    public void refreshPage () { getDriver().navigate().refresh();}
+
     @FindBy (xpath = ".//*[@id='add_subcategory_button']")
     WebElementFacade addNewSubcategoryButton;
 
@@ -30,7 +32,10 @@ public class ManageCategoriesPage extends PageObject {
     @FindBy (css = "button[title='Save Category']")
     WebElementFacade saveCategoryButton;
 
-    public void saveCategory () { saveCategoryButton.click();}
+    public void saveCategory () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(saveCategoryButton));
+        saveCategoryButton.click();}
 
     @FindBy(xpath = "//button[@id='add_root_category_button']")
     WebElementFacade addRootCategoryButton;
@@ -41,6 +46,8 @@ public class ManageCategoriesPage extends PageObject {
         addRootCategoryButton.click();}
 
     public void selectCategoryByName(String name) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(org.openqa.selenium.By.xpath(name)));
         getDriver().findElement(By.xpath(name)).click();
     }
 
@@ -80,10 +87,13 @@ public class ManageCategoriesPage extends PageObject {
 
     //----------------------------------------------General Tab-------------------------------------------------------//
 
-    @FindBy(xpath = ".//*[@id='category_info_tabs_group_4']")
+    @FindBy(xpath = "//a[@title='General Information']/span")
     WebElementFacade generalTab;
 
-    public void selectGeneralTab () {generalTab.click();}
+    public void selectGeneralTab () {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(generalTab));
+        generalTab.click();}
 
     @FindBy (xpath = "//input[@name='general[name]']")
     WebElementFacade categoryNameField;
@@ -281,8 +291,8 @@ public class ManageCategoriesPage extends PageObject {
 
     public void selectSomeCategoryProducts () {
         firstProductInList.click();
-        secondProductInList.click();
-        thirdProductInList.click();
+        //secondProductInList.click();
+        //thirdProductInList.click();
     }
 
 

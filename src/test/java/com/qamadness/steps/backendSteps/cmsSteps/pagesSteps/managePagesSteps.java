@@ -37,5 +37,14 @@ public class ManagePagesSteps extends ScenarioSteps{
         ManagePagesPage.verifyThatSuccessSavedPageMessageIsDisplayed();
     }
 
+    @Step
+    public void verify_That_Existing_URL_Key_Error_Message_Is_Displayed (){
+        ManagePagesPage.verifyThatExistingURLKeyErrorMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Invalid_URL_Key_With_Numbers_Only_Error_Message_Is_Displayed (){
+        ManagePagesPage.verifyThatInvalidURLKeyWithNumbersOnlyErrorMessageIsDisplayed();
+    }
 
 }
