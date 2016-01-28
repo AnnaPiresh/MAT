@@ -1,0 +1,2 @@
+login,password,option,groupValue,firstName,lastName,email,userPassword,productTypeSimple,productTypeVirtual,productDescription,productShortDescription,productSKU,productWeight,productStatus,productVisibility,productName,productPrice,taxClass
+admin,3HSYOFf,Main Website,General,Robot,Tester,mrtest377@gmail.com,123456,simple,virtual,Robot auto product description,Robot auto product short description,robot-test,12,1,4,Robot auto product ,263,0

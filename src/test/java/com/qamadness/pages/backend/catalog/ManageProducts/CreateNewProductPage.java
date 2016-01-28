@@ -186,7 +186,7 @@ public class CreateNewProductPage extends PageObject {
     //---------------------------------------------Categories Tab------------------------------------------------------//
 
 
-    @FindBy(xpath = ".//*[@id='product_info_tabs_categories']/span")
+    @FindBy(xpath = ".//*[@id='product_info_tabs_categories']")
     WebElementFacade categoriesTab;
 
     public void selectCategoriesTab() { categoriesTab.click();}
