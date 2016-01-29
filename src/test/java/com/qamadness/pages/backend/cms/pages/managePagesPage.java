@@ -130,4 +130,10 @@ public class ManagePagesPage extends PageObject {
         wait.until(ExpectedConditions.visibilityOf(errorInvalidURLKeyWithNumbersOnlyMessage));
         Assert.assertTrue(errorInvalidURLKeyWithNumbersOnlyMessage.isDisplayed());
     }
+
+    public void verifyThatDeletedCMSPageSuccessMessageIsDisplayed (){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(successDeletedCMSPageMessage));
+        Assert.assertTrue(successDeletedCMSPageMessage.isDisplayed());
+    }
 }
