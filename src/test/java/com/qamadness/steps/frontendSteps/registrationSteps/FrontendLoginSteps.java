@@ -12,23 +12,18 @@ public class FrontendLoginSteps extends ScenarioSteps {
     FrontendLoginPage frontendLoginPage;
 
     @Step
-    public void enter_customer_email(String email) {
-        frontendLoginPage.enterCustomerEmail(email);}
+    public void enter_customer_email(String email) { frontendLoginPage.enterCustomerEmail(email);}
 
     @Step
-    public void enter_customer_password(String password) {
-        frontendLoginPage.enterCustomerPassword(password);}
+    public void enter_customer_password(String password) { frontendLoginPage.enterCustomerPassword(password);}
 
     @Step
-    public void untick_remember_me_checkbox() {
-        frontendLoginPage.untickRememberMeCheckbox();}
+    public void untick_remember_me_checkbox() { frontendLoginPage.untickRememberMeCheckbox();}
 
     @Step
-    public void click_login_button() {
-        frontendLoginPage.clickLoginButton();}
+    public void click_login_button() {frontendLoginPage.clickLoginButton();}
 
     @Step
-    public void click_create_account_button() {
-        frontendLoginPage.clickCreateAccountButton();}
+    public void click_create_account_button() {frontendLoginPage.clickCreateAccountButton();}
 
 }

@@ -16,12 +16,25 @@ public class ShoppingCartPage extends PageObject{
     @FindBy(xpath = ".//*[text()='Checkout with Multiple Addresses']")
     WebElementFacade checkoutMultipleAddressesLink;
 
+    @FindBy(xpath = ".//*[@id='empty_cart_button']")
+    WebElementFacade emptyCartButton;
+
+    @FindBy(xpath = ".//*[text()='Shopping Cart is Empty']")
+    WebElementFacade emptyCartMessage;
+
 //--------------------------------------------Methods for Shopping Cart Page-------------------------------------------//
 
     public void proceedToMultipleAddressesCheckout(){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(checkoutMultipleAddressesLink));
         checkoutMultipleAddressesLink.click();
+    }
+
+    public void emptyShoppingCart(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(emptyCartButton));
+        emptyCartButton.click();
+        wait.until(ExpectedConditions.visibilityOf(emptyCartMessage));
     }
 
 }

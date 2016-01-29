@@ -13,4 +13,7 @@ public class ShoppingCartSteps extends ScenarioSteps{
 
     @Step
     public void proceed_to_multiple_addresses_checkout(){shoppingCartPage.proceedToMultipleAddressesCheckout();}
+
+    @Step
+    public void empty_shopping_cart() {shoppingCartPage.emptyShoppingCart();}
 }

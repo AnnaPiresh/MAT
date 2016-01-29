@@ -1,6 +1,6 @@
-package com.qamadness.steps.frontendSteps.ProductDetailsPageSteps;
+package com.qamadness.steps.frontendSteps.productDetailsPageSteps;
 
-import com.qamadness.pages.frontend.ProductDetailsPage.SimpleProductDetailsPage;
+import com.qamadness.pages.frontend.productDetailsPage.SimpleProductDetailsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 

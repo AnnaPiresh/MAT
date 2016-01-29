@@ -1,6 +1,6 @@
 package com.qamadness.steps.frontendSteps.productOverviewPageSteps;
 
-import com.qamadness.pages.frontend.ProductOverviewPage.SearchResultsPage;
+import com.qamadness.pages.frontend.productOverviewPage.SearchResultsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 

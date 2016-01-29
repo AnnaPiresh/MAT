@@ -172,7 +172,7 @@ public class CreateNewProductPage extends PageObject {
 
     //----------------------------------------------Websites Tab------------------------------------------------------//
 
-    @FindBy(xpath = ".//*[@id='product_info_tabs_websites']/span")
+    @FindBy(xpath = ".//*[text()='Websites']") //".//*[@id='product_info_tabs_websites']/span")
     WebElementFacade websitesTab;
 
     public void selectWebsitesTab() { websitesTab.click();}
@@ -186,7 +186,7 @@ public class CreateNewProductPage extends PageObject {
     //---------------------------------------------Categories Tab------------------------------------------------------//
 
 
-    @FindBy(xpath = ".//*[@id='product_info_tabs_categories']")
+    @FindBy(xpath = ".//*[text()='Categories']")    //".//*[@id='product_info_tabs_categories']")
     WebElementFacade categoriesTab;
 
     public void selectCategoriesTab() { categoriesTab.click();}

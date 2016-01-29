@@ -8,22 +8,23 @@ import com.qamadness.steps.backendSteps.customersSteps.AddNewCustomerSteps;
 import com.qamadness.steps.backendSteps.customersSteps.CustomerInformationSteps;
 import com.qamadness.steps.backendSteps.customersSteps.ManageCustomersSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
-import com.qamadness.steps.backendSteps.systemSteps.CacheManagementSteps;
+import com.qamadness.steps.frontendSteps.checkoutMultipleAddressesSteps.CheckoutMultipleAddressesSteps;
+import com.qamadness.steps.frontendSteps.productDetailsPageSteps.SimpleProductDetailsPageSteps;
+import com.qamadness.steps.frontendSteps.productOverviewPageSteps.SearchResultsSteps;
+import com.qamadness.steps.frontendSteps.registrationSteps.FrontendLoginSteps;
+import com.qamadness.steps.frontendSteps.shoppingCartSteps.ShoppingCartSteps;
+import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
-
-import java.awt.*;
 
 /**
  * Created by Serhii_Boiko on 27.01.2016.
@@ -52,7 +53,14 @@ public class ExistingShippingMethodStory {
     private String productPrice;
     private String taxClass;
     private String productWeight;
-
+    private String action;
+    private String searchterm;
+    private String telephone1;
+    private String streetAddress1;
+    private String city1;
+    private String state1;
+    private String zipcode1;
+    private String country1;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -76,19 +84,34 @@ public class ExistingShippingMethodStory {
     CustomerInformationSteps customerInformationSteps;
 
     @Steps
-    CacheManagementSteps cacheManagementSteps;
-
-    @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
     @Steps
     ManageProductsPageSteps manageProductsPageSteps;
 
-    int i=0;
+    @Steps
+    HomePageSteps homePageSteps;
+
+    @Steps
+    FrontendLoginSteps frontendLoginSteps;
+
+    @Steps
+    SearchResultsSteps searchResultsSteps;
+
+    @Steps
+    SimpleProductDetailsPageSteps simpleProductDetailsPageSteps;
+
+    @Steps
+    ShoppingCartSteps shoppingCartSteps;
+
+    @Steps
+    CheckoutMultipleAddressesSteps checkoutMultipleAddressesSteps;
+
+    //int i=0;
 
     @Before
     public void openPage () {
-        i=i+1;
+       /* i=i+1;
         loginPageSteps.openPage();
         int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
         if (size > 0) {
@@ -96,7 +119,7 @@ public class ExistingShippingMethodStory {
             loginPageSteps.passInput(password);
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();
-            //create a new customer
+           //create a new customer
             mainMenuSteps.open_Manage_Customers_Page();
             manageCustomersSteps.check_That_Manage_Customers_Page_Is_Opened();
             manageCustomersSteps.clickAddNewCustomerBtn();
@@ -119,7 +142,6 @@ public class ExistingShippingMethodStory {
             createNewProductPageSteps.enterWeight(productWeight);
             createNewProductPageSteps.selectStatus(productStatus);
             createNewProductPageSteps.selectVisibility(productVisibility);
-            createNewProductPageSteps.clearGlobalSearch();
             createNewProductPageSteps.selectPricesTab();
             createNewProductPageSteps.enterProductPrice(productPrice);
             createNewProductPageSteps.selectTaxClass(taxClass);
@@ -130,6 +152,7 @@ public class ExistingShippingMethodStory {
             createNewProductPageSteps.selectFirstCategory();
             createNewProductPageSteps.saveProduct();
             //create second simple product
+            mainMenuSteps.openManageProductsPage();
             manageProductsPageSteps.addProduct();
             createNewProductPageSteps.selectProductType(productTypeSimple);
             createNewProductPageSteps.continueButton();
@@ -140,7 +163,6 @@ public class ExistingShippingMethodStory {
             createNewProductPageSteps.enterWeight(productWeight);
             createNewProductPageSteps.selectStatus(productStatus);
             createNewProductPageSteps.selectVisibility(productVisibility);
-            createNewProductPageSteps.clearGlobalSearch();
             createNewProductPageSteps.selectPricesTab();
             createNewProductPageSteps.enterProductPrice(productPrice);
             createNewProductPageSteps.selectTaxClass(taxClass);
@@ -151,17 +173,16 @@ public class ExistingShippingMethodStory {
             createNewProductPageSteps.selectFirstCategory();
             createNewProductPageSteps.saveProduct();
             //create a virtual product
+            mainMenuSteps.openManageProductsPage();
             manageProductsPageSteps.addProduct();
             createNewProductPageSteps.selectProductType(productTypeVirtual);
             createNewProductPageSteps.continueButton();
-            createNewProductPageSteps.enterName(productName+"virtual");
+            createNewProductPageSteps.enterName(productName+" virtual");
             createNewProductPageSteps.enterProductDescription(productDescription);
             createNewProductPageSteps.enterShortDescription(productShortDescription);
             createNewProductPageSteps.enterSKU(productSKU+3);
-            createNewProductPageSteps.enterWeight(productWeight);
             createNewProductPageSteps.selectStatus(productStatus);
             createNewProductPageSteps.selectVisibility(productVisibility);
-            createNewProductPageSteps.clearGlobalSearch();
             createNewProductPageSteps.selectPricesTab();
             createNewProductPageSteps.enterProductPrice(productPrice);
             createNewProductPageSteps.selectTaxClass(taxClass);
@@ -171,28 +192,71 @@ public class ExistingShippingMethodStory {
             createNewProductPageSteps.selectCategoriesTab();
             createNewProductPageSteps.selectFirstCategory();
             createNewProductPageSteps.saveProduct();
-        } else {}
-
+        } else {}*/
+        homePageSteps.open_Home_Page();
+        homePageSteps.open_account_menu_in_header();
+        homePageSteps.navigate_to_login_page();
+        frontendLoginSteps.enter_customer_email(email);
+        frontendLoginSteps.enter_customer_password(userPassword);
+        frontendLoginSteps.untick_remember_me_checkbox();
+        frontendLoginSteps.click_login_button();
+        homePageSteps.open_floating_cart();
+        if (homePageSteps.check_if_shopping_cart_is_empty()==false){
+            shoppingCartSteps.empty_shopping_cart();
+        }
+        homePageSteps.open_account_menu_in_header();
+        homePageSteps.logout_from_website();
     }
 
     @Issue("MAT-97")
     @Test
     public void multiple_addresses_checkout_with_simple_products(){
-        mainMenuSteps.open_Cache_Management_Page();
-        cacheManagementSteps.click_flush_cache_btn();
-        cacheManagementSteps.check_success_message("The Magento cache storage has been flushed.");
+        String productMessage1 = String.format("%s was added to your shopping cart.", productName+1);
+        String productMessage2 = String.format("%s was added to your shopping cart.", productName+2);
+        //search for test products and add them to cart
+        homePageSteps.search_for_product(searchterm);
+        searchResultsSteps.select_first_product_from_results();
+        simpleProductDetailsPageSteps.click_add_to_cart_button();
+        simpleProductDetailsPageSteps.check_product_is_added_to_cart(productMessage1);
+        searchResultsSteps.return_to_previous_page();
+        searchResultsSteps.select_second_product_from_results();
+        simpleProductDetailsPageSteps.click_add_to_cart_button();
+        simpleProductDetailsPageSteps.check_product_is_added_to_cart(productMessage2);
+        //navigate to cart page
+        homePageSteps.open_floating_cart();
+        homePageSteps.navigate_to_shopping_cart_page();
+        //proceed to checkout
+        shoppingCartSteps.proceed_to_multiple_addresses_checkout();
+        //login
+        frontendLoginSteps.enter_customer_email(email);
+        frontendLoginSteps.enter_customer_password(userPassword);
+        frontendLoginSteps.untick_remember_me_checkbox();
+        frontendLoginSteps.click_login_button();
+        //add default address
+        checkoutMultipleAddressesSteps.enter_telephone(telephone1);
+        checkoutMultipleAddressesSteps.enter_street_address(streetAddress1);
+        checkoutMultipleAddressesSteps.enter_city(city1);
+        checkoutMultipleAddressesSteps.select_state(state1);
+        checkoutMultipleAddressesSteps.enter_zip_code(zipcode1);
+        checkoutMultipleAddressesSteps.select_country(country1);
+        checkoutMultipleAddressesSteps.click_save_address_button();
     }
 
-    @After
+    /*@After
     public void test_data_deletion() throws AWTException {
-        if (i == 2) {
+        //if (i == 0) {
             System.out.println("Time to delete test data");
             mainMenuSteps.open_Manage_Customers_Page();
             manageCustomersSteps.search_Customer_By_Email(email);
             manageCustomersSteps.open_First_Customer_Profile();
             customerInformationSteps.click_Delete_Customer_Button();
             mainMenuSteps.openManageProductsPage();
-
-        }
+            manageProductsPageSteps.searchBySku(productSKU);
+            manageProductsPageSteps.searchButton();
+            manageProductsPageSteps.checkProduct();
+            manageProductsPageSteps.selectAction(action);
+            manageProductsPageSteps.submitActionn();
+            manageProductsPageSteps.deletionApproveAlert();
+        }*/
     }
-}
+//}
