@@ -5,6 +5,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,7 +48,7 @@ public class ManageCategoriesPage extends PageObject {
 
     public void selectCategoryByName(String name) {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(org.openqa.selenium.By.xpath(name)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath(name)));
         getDriver().findElement(By.xpath(name)).click();
     }
 
@@ -78,8 +79,9 @@ public class ManageCategoriesPage extends PageObject {
     @FindBy(xpath = "//button[span='Delete Category']")
     WebElementFacade deleteCategoryButton;
     public void deleteCategory () {
-        deleteCategoryButton.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(deleteCategoryButton));
+        deleteCategoryButton.click();
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = getDriver().switchTo().alert();
         alert.accept();
@@ -92,23 +94,23 @@ public class ManageCategoriesPage extends PageObject {
 
     public void selectGeneralTab () {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(generalTab));
+        wait.until(ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath("//a[@title='General Information']/span")));
         generalTab.click();}
 
-    @FindBy (xpath = "//input[@name='general[name]']")
+    @FindBy (xpath = ".//*[@id='group_4name']")
     WebElementFacade categoryNameField;
 
     public void enterCategoryName (String name) {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(categoryNameField));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.xpath(".//*[@id='group_4name']")));
         categoryNameField.sendKeys(name);}
 
     public void clearCategoryNameField () { categoryNameField.clear();}
 
-    /*public void clearCategoryName () {
+    public void clearCategoryName () {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(categoryNameField));
-        categoryNameField.clear();}*/
+        wait.until(ExpectedConditions.elementToBeClickable(getDriver().findElement(By.id("group_4name"))));
+        getDriver().findElement(By.id("group_4name")).clear();}
 
     @FindBy(xpath = "//textarea[@name='general[description]']")
     WebElementFacade descriptionField;
