@@ -26,8 +26,8 @@ public class ManageCategoriesPageSteps extends PageObject {
     @Step
     public void clearCategoryNameField () {manageCategoriesPage.clearCategoryNameField();}
 
-    /*@Step
-    public void clearCategoryName () { manageCategoriesPage.clearCategoryName();}*/
+    @Step
+    public void clearCategoryName () { manageCategoriesPage.clearCategoryName();}
 
     @Step
     public void selectCategoryActivity (String value) { manageCategoriesPage.selectCategoryActivity(value);}
