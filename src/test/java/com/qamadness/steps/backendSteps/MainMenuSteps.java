@@ -74,4 +74,7 @@ public class MainMenuSteps extends ScenarioSteps {
     public void open_Manage_Roles_Page (){
         mainMenu.openManageRolesPage();
     }
+
+    @Step
+    public void openManageStoresPage () { mainMenu.openManageStoresPage();}
 }

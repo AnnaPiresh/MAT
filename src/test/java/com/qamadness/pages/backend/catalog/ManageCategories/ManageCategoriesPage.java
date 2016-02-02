@@ -15,6 +15,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 /**
  * Created by M. Yermolenko on 13.01.2016.
  */
@@ -85,6 +88,21 @@ public class ManageCategoriesPage extends PageObject {
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = getDriver().switchTo().alert();
         alert.accept();
+    }
+
+    public void checkCategoryDeleted(){
+        String expected = "The category has been deleted.";
+        String actual = getDriver().findElement(By.xpath(".//*[@id='messages']/ul/li/ul/li/span")).getText();
+        assertThat(actual, is(expected));
+    }
+
+    public void checkDeleteButtonAbsent () {
+        int size = getDriver().findElements(By.cssSelector("button[title='Delete Category']")).size();
+        if (size > 0) {Assert.fail("'Delete category Button' is displayed");}
+
+        else {
+            System.out.println("'Delete category Button' isn't displayed");
+        }
     }
 
     //----------------------------------------------General Tab-------------------------------------------------------//

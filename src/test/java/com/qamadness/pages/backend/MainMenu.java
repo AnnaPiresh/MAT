@@ -90,6 +90,9 @@ public class MainMenu extends PageObject {
     @FindBy (xpath = "//ul[@id='nav']//a[contains(@href, 'permissions_role')]")
     WebElementFacade rolesMenuItem;
 
+    @FindBy (xpath = ".//*[@id='nav']/li[9]/ul/li[14]/a/span")
+    WebElementFacade manageStoresMenuItem;
+
 //-----------------------------------------------------Methods for Sales menu-----------------------------------------//
 
     public void openOrdersPage () {
@@ -204,5 +207,11 @@ public class MainMenu extends PageObject {
         rolesMenuItem.click();
     }
 
+    public void openManageStoresPage(){
+        systemMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(manageStoresMenuItem));
+        manageStoresMenuItem.click();
+    }
 
 }
