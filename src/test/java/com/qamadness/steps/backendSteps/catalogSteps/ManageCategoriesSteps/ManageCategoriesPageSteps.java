@@ -54,6 +54,12 @@ public class ManageCategoriesPageSteps extends PageObject {
     public void deleteCategory () {manageCategoriesPage.deleteCategory();}
 
     @Step
+    public void checkCategoryDeleted(){manageCategoriesPage.checkCategoryDeleted();}
+
+    @Step
+    public void checkDeleteButtonAbsent(){manageCategoriesPage.checkDeleteButtonAbsent();}
+
+    @Step
     public void enterCategoryDescription (String desc) {manageCategoriesPage.enterCategoryDescription(desc);}
 
     @Step
