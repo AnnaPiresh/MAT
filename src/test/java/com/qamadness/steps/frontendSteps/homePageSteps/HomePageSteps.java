@@ -38,5 +38,5 @@ public class HomePageSteps extends ScenarioSteps {
     public void logout_from_website() {homePage.logoutFromWebsite();}
 
     @Step
-    public Boolean check_if_shopping_cart_is_empty () {return homePage.checkIfShoppingCartEmpty();}
+    public Boolean check_if_shopping_cart_is_empty (String emptyCartMessage) {return homePage.checkIfShoppingCartEmpty(emptyCartMessage);}
 }

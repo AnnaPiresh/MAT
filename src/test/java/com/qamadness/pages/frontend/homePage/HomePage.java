@@ -59,16 +59,16 @@ public class HomePage extends PageObject {
 
     public void openFloatingCart(){ floatingCartLink.click();}
 
-    public Boolean checkIfShoppingCartEmpty(){
+    public Boolean checkIfShoppingCartEmpty(String emptyCartMessage){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.visibilityOf(floatingCart));
-        if (productName.isPresent()){
+        if (floatingCart.containsText(emptyCartMessage)){
+            System.out.println("Shopping cart is empty");
+            return true;
+        }else{
             System.out.println("Shopping cart is not empty");
             viewShoppingCartLink.click();
             return false;
-        }else{
-            System.out.println("Shopping cart is empty");
-            return true;
         }
     }
 
