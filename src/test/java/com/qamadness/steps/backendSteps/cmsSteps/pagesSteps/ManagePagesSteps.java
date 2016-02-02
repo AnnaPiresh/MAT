@@ -9,42 +9,47 @@ import net.thucydides.core.steps.ScenarioSteps;
  */
 public class ManagePagesSteps extends ScenarioSteps{
 
-    ManagePagesPage ManagePagesPage;
+    ManagePagesPage managePagesPage;
 
     //Click General buttons steps:
 
     @Step
     public void click_Add_New_Page_Button (){
-        ManagePagesPage.clickAddNewPageButton();
+        managePagesPage.clickAddNewPageButton();
     }
 
     //Methods for grid:
 
     @Step
     public void filter_Pages_By_Url_Key (String urlKey){
-        ManagePagesPage.filterPagesByUrlKey(urlKey);
+        managePagesPage.filterPagesByUrlKey(urlKey);
     }
 
     @Step
     public void click_First_Page_In_The_Grid (){
-        ManagePagesPage.clickFirstPageInTheGrid();
+        managePagesPage.clickFirstPageInTheGrid();
     }
 
     //Verifications:
 
     @Step
     public void verify_That_Success_Saved_Page_Message_Is_Displayed(){
-        ManagePagesPage.verifyThatSuccessSavedPageMessageIsDisplayed();
+        managePagesPage.verifyThatSuccessSavedPageMessageIsDisplayed();
     }
 
     @Step
     public void verify_That_Existing_URL_Key_Error_Message_Is_Displayed (){
-        ManagePagesPage.verifyThatExistingURLKeyErrorMessageIsDisplayed();
+        managePagesPage.verifyThatExistingURLKeyErrorMessageIsDisplayed();
     }
 
     @Step
     public void verify_That_Invalid_URL_Key_With_Numbers_Only_Error_Message_Is_Displayed (){
-        ManagePagesPage.verifyThatInvalidURLKeyWithNumbersOnlyErrorMessageIsDisplayed();
+        managePagesPage.verifyThatInvalidURLKeyWithNumbersOnlyErrorMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Deleted_CMS_Page_Success_Message_Is_Displayed (){
+        managePagesPage.verifyThatDeletedCMSPageSuccessMessageIsDisplayed();
     }
 
 }

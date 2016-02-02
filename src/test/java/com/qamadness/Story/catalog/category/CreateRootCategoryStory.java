@@ -83,15 +83,12 @@ public class CreateRootCategoryStory extends PageObject{
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    @net.thucydides.core.annotations.Pending
+    @Pending
     @Test
     public void createRootCategoryWithRequiredFields () {
-        /*loginPageSteps.openPage();
-        loginPageSteps.loginInput(login);
-        loginPageSteps.passInput(password);
-        loginPageSteps.loginButton();
-        dashboardSteps.closePopup();*/
+        
         mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectGeneralTab();
         createNewProductPageSteps.clearGlobalSearch();
         manageCategoriesPageSteps.enterCategoryName(categoryName);
@@ -107,12 +104,9 @@ public class CreateRootCategoryStory extends PageObject{
     @Pending
     @Test
         public void createRootCategoryWithAllFields () {
-        /*loginPageSteps.openPage();
-        loginPageSteps.loginInput(login);
-        loginPageSteps.passInput(password);
-        loginPageSteps.loginButton();
-        dashboardSteps.closePopup();*/
+
         mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectGeneralTab();
         createNewProductPageSteps.clearGlobalSearch();
         manageCategoriesPageSteps.enterCategoryName(categoryName);
@@ -151,12 +145,9 @@ public class CreateRootCategoryStory extends PageObject{
     @net.thucydides.core.annotations.Pending
     @Test
     public void createRootCategoryWithRequiredFieldsEmpty () {
-        /*loginPageSteps.openPage();
-        loginPageSteps.loginInput(login);
-        loginPageSteps.passInput(password);
-        loginPageSteps.loginButton();
-        dashboardSteps.closePopup();*/
+
         mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectGeneralTab();
         createNewProductPageSteps.clearGlobalSearch();
         manageCategoriesPageSteps.clearCategoryNameField();

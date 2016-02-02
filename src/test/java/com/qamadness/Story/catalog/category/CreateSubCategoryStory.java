@@ -19,10 +19,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by M. Yermolenko on 26.01.2016.
  */
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value="src/test/resources/catalog/ManageCategories/CreateSubcategoryData.csv", separator = ';')
 public class CreateSubCategoryStory {
@@ -64,23 +66,23 @@ public class CreateSubCategoryStory {
     private String taxClass;
     private String selectAction;
     private String productWeight;
+    private String parentSubcategoryName;
+    private String parentSubcategoryLocator;
 
     int i = 0;
 
     @Before
     public void openPage () throws InterruptedException{
-        i = i +1;
+        i = i + 6;
         loginPageSteps.openPage();
         int size = webDriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
+        //webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         if (size > 0) {
             loginPageSteps.loginInput(login);
             loginPageSteps.passInput(password);
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();
             mainMenuSteps.openManageCategoriesPage();
-            manageCategoriesPageSteps.selectGeneralTab();
-            //createNewProductPageSteps.clearGlobalSearch();
-            Thread.sleep(2000);
             manageCategoriesPageSteps.enterCategoryName(parentCategoryName);
             manageCategoriesPageSteps.selectCategoryActivity(activity);
             manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
@@ -88,28 +90,30 @@ public class CreateSubCategoryStory {
             manageCategoriesPageSteps.checkSuccessMessage();
         }
 
-        else {}
+        else {
+            mainMenuSteps.openManageCategoriesPage();
+            webDriver.navigate().refresh();
+        }
 
     }
 
     @After
     public void parentCategoryDeletion() throws InterruptedException{
-        if (i == 5) {
-
+        System.out.println(i);
+        if (i == 1) {
             System.out.println("OLOLO");
+            webDriver.navigate().refresh();
             mainMenuSteps.openManageCategoriesPage();
-            //createNewProductPageSteps.clearGlobalSearch();
-            Thread.sleep(2000);
+            webDriver.navigate().refresh();
             manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
-            //createNewProductPageSteps.clearGlobalSearch();
-            Thread.sleep(2000);
             manageCategoriesPageSteps.deleteCategory();
-
         }
     }
 
     @Managed(uniqueSession = true)
     public WebDriver webDriver;
+
+
 
     @Steps
     LoginPageSteps loginPageSteps;
@@ -132,13 +136,12 @@ public class CreateSubCategoryStory {
     @Pending
     @Test
     public void createSubcategoryWithRequiredFields () throws InterruptedException{
-
         mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        createNewProductPageSteps.clearGlobalSearch();
-        Thread.sleep(3000);
+        manageCategoriesPageSteps.clearCategoryNameField();
         manageCategoriesPageSteps.enterCategoryName(name);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
@@ -174,12 +177,11 @@ public class CreateSubCategoryStory {
         createNewProductPageSteps.saveProduct();
 
         mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        //createNewProductPageSteps.clearGlobalSearch();
-        //createNewProductPageSteps.clearGlobalSearch();
-        Thread.sleep(3000);
+        manageCategoriesPageSteps.clearCategoryNameField();
         manageCategoriesPageSteps.enterCategoryName(name);
         manageCategoriesPageSteps.enterCategoryDescription(desc);
         manageCategoriesPageSteps.enterPageTitle(title);
@@ -224,14 +226,13 @@ public class CreateSubCategoryStory {
     @Test
     public void createSubcategoryWithRequiredFieldsEmpty () throws InterruptedException{
         mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        //createNewProductPageSteps.clearGlobalSearch();
-        //createNewProductPageSteps.clearGlobalSearch();
-        Thread.sleep(3000);
+        manageCategoriesPageSteps.clearCategoryName();
         manageCategoriesPageSteps.clearCategoryNameField();
-        //createNewProductPageSteps.clearGlobalSearch();
+        createNewProductPageSteps.clearGlobalSearch();
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkNameIsNotAdded();
     }
@@ -240,11 +241,11 @@ public class CreateSubCategoryStory {
     @Test
     public void createSubcategoryWithSpecialCharacters () throws InterruptedException{
         mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        //createNewProductPageSteps.clearGlobalSearch();
-        Thread.sleep(3000);
+        manageCategoriesPageSteps.clearCategoryName();
         manageCategoriesPageSteps.enterCategoryName(nameWithSpecialCharacters);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
@@ -258,17 +259,51 @@ public class CreateSubCategoryStory {
     public void createSubcategoryWithLongName () throws InterruptedException{
         String longName = new String(new char[52]).replace("\0", "Test ");
         mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.addNewSubCategory();
         manageCategoriesPageSteps.selectGeneralTab();
-        //createNewProductPageSteps.clearGlobalSearch();
-        Thread.sleep(3000);
+        manageCategoriesPageSteps.clearCategoryName();
         manageCategoriesPageSteps.enterCategoryName(longName);
         manageCategoriesPageSteps.selectCategoryActivity(activity);
         manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
         manageCategoriesPageSteps.saveCategory();
         manageCategoriesPageSteps.checkSuccessMessage();
         manageCategoriesPageSteps.deleteCategory();
+    }
+
+    @Pending
+    @Test
+    public void createNestedSubcategoryWithRequiredFields () throws InterruptedException{
+        mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        manageCategoriesPageSteps.clearCategoryNameField();
+        manageCategoriesPageSteps.enterCategoryName(parentSubcategoryName);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+
+        mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(parentSubcategoryLocator);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        manageCategoriesPageSteps.clearCategoryNameField();
+        manageCategoriesPageSteps.enterCategoryName(name);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkSuccessMessage();
+        manageCategoriesPageSteps.deleteCategory();
+
+        mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(parentSubcategoryLocator);
+        manageCategoriesPageSteps.deleteCategory();
+
     }
 
 
