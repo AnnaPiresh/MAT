@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value="src/test/resources/Attributes/ManageAttributes/AddAnAttributeData.csv")
+@UseTestDataFrom(value="src/test/resources/catalog/Attributes/ManageAttributes/AddAnAttributeData.csv")
 public class AddAnAttributeStory {
 
     private String login;

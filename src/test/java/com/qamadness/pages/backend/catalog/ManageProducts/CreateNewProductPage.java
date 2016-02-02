@@ -2,6 +2,7 @@ package com.qamadness.pages.backend.catalog.ManageProducts;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -45,12 +46,19 @@ public class CreateNewProductPage extends PageObject {
 
     public void continueButton () { continueButton.click();}
 
-    @FindBy(css = "button[title='Save']")
+    @FindBy (xpath = ".//button[@title='Save']")            //(css = "button[title='Save']")
     WebElementFacade saveProduct;
 
     public void saveProduct () { saveProduct.click();}
 
-    //-----------------------------------------------General Tab------------------------------------------------------//
+    @FindBy (xpath = ".//button[@title='Save and Continue Edit']")
+    WebElementFacade saveAndEditButton;
+
+    public void clickSaveAndEditButton(){
+        saveAndEditButton.click();
+    }
+
+//-----------------------------------------------General Tab------------------------------------------------------//
     @FindBy(xpath = ".//*[@id='name']")
     WebElementFacade productName;
 
@@ -172,7 +180,7 @@ public class CreateNewProductPage extends PageObject {
 
     //----------------------------------------------Websites Tab------------------------------------------------------//
 
-    @FindBy(xpath = ".//*[@id='product_info_tabs_websites']/span")
+    @FindBy(xpath = ".//*[text()='Websites']") //".//*[@id='product_info_tabs_websites']/span")
     WebElementFacade websitesTab;
 
     public void selectWebsitesTab() { websitesTab.click();}
@@ -186,7 +194,7 @@ public class CreateNewProductPage extends PageObject {
     //---------------------------------------------Categories Tab------------------------------------------------------//
 
 
-    @FindBy(xpath = ".//*[@id='product_info_tabs_categories']/span")
+    @FindBy(xpath = ".//*[text()='Categories']")    //".//*[@id='product_info_tabs_categories']")
     WebElementFacade categoriesTab;
 
     public void selectCategoriesTab() { categoriesTab.click();}

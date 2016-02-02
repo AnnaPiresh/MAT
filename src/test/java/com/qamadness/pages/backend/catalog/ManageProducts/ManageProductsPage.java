@@ -105,6 +105,14 @@ public class ManageProductsPage extends PageObject {
         }
     }
 
+    @FindBy(xpath = ".//*[@class='success-msg']")
+    WebElementFacade successMessage;
+
+    public void checkSuccessMessage(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(successMessage));
+        Assert.assertTrue(successMessage.isPresent());
+    }
 
 
 

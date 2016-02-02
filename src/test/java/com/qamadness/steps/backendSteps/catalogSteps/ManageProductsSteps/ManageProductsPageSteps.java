@@ -50,7 +50,8 @@ public class ManageProductsPageSteps extends ScenarioSteps {
     @Step
     public void updateProductNameCheckboxClick () { manageProductPage.updateProductNameCheckboxClick();}
 
-
+    @Step
+    public void check_success_message(){manageProductPage.checkSuccessMessage();}
 
     @Step
     public void checkNameUpdated (String name) { manageProductPage.checkNameUpdated(name);}

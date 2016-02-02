@@ -155,4 +155,8 @@ public class CreateNewProductPageSteps extends PageObject {
 
     @Step
     public void enterFileURL (String url) { createNewProductPage.enterFileURL(url);}
+
+    @Step
+    public void click_save_and_edit_button(){createNewProductPage.clickSaveAndEditButton();}
+
 }
