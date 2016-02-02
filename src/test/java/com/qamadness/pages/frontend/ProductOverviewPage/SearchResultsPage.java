@@ -39,4 +39,10 @@ public class SearchResultsPage extends PageObject {
         getDriver().findElement(By.xpath(".//*[contains(text(), 'Robot auto product2')]")).click();
     }
 
+    public void selectVirtualProductFromResults(){
+        WebDriverWait wait = new WebDriverWait(getDriver(),60);
+        wait.until(ExpectedConditions.visibilityOf(sortByDropdown));
+        getDriver().findElement(By.xpath(".//*[contains(text(), 'Robot auto product virtual')]")).click();
+    }
+
 }

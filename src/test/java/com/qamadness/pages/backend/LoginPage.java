@@ -60,6 +60,10 @@ public class LoginPage extends PageObject{
         getDriver().manage().window().maximize();
     }
 
+    public void navigateToDashboard(){
+        getDriver().navigate().to("http://www.qamadness.dev/index.php/admin");
+    }
+
     public void loginInput(String login){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(loginInput));

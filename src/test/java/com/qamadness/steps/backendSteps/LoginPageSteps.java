@@ -15,6 +15,9 @@ public class LoginPageSteps extends ScenarioSteps {
     public void openPage(){loginPage.openPage();}
 
     @Step
+    public void navigate_to_dashboard() {loginPage.navigateToDashboard();}
+
+    @Step
     public void loginInput(String login){loginPage.loginInput(login);}
 
     @Step
