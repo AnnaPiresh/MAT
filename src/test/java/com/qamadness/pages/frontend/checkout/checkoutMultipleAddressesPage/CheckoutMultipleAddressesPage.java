@@ -3,6 +3,7 @@ package com.qamadness.pages.frontend.checkout.checkoutMultipleAddressesPage;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -153,6 +154,12 @@ public class CheckoutMultipleAddressesPage extends PageObject{
 
     public void clickContinueToShippingInformationButton(){ continueToShippingInformationButton.click();}
 
+    public void checkNoDropdownForVirtualProduct(String productName){
+        String xpath = String.format(".//tr[.//a='%s']//td[contains(text(),'Shipping selection is not applicable.')]", productName);
+        WebElement cellWithMessage = getDriver().findElement(By.xpath(xpath));
+        Assert.assertTrue(cellWithMessage.isDisplayed());
+}
+
 //------------------------------------Methods for Selecting Shipping Method step---------------------------------------//
 
     public List<WebElement> li() {
@@ -164,6 +171,16 @@ public class CheckoutMultipleAddressesPage extends PageObject{
         li().get(firstMethod).click();
         li().get(secondMethod).click();
     }
+
+    public void selectParticularShippingMethod(String methodTitle, String methodName){
+        String xpath1stPart = String.format(".//dt[text()='%s']", methodTitle);
+        String xpath2ndPart = String.format("/following-sibling::*[contains(.//label,'%s')]//input", methodName);
+        System.out.println(xpath1stPart+xpath2ndPart);
+        String fullXpath = xpath1stPart+xpath2ndPart;
+        WebElement selectedMethod = getDriver().findElement(By.xpath(fullXpath));
+        selectedMethod.click();
+    }
+
      public void clickContinueToBillingInformationButton(){ continueToBillingInformationButton.click();}
 
 //----------------------------------Methods for Selecting Billing Method step------------------------------------------//
