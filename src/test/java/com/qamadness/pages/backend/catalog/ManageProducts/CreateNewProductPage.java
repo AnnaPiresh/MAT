@@ -49,7 +49,10 @@ public class CreateNewProductPage extends PageObject {
     @FindBy (xpath = ".//button[@title='Save']")            //(css = "button[title='Save']")
     WebElementFacade saveProduct;
 
-    public void saveProduct () { saveProduct.click();}
+    public void saveProduct () {
+        WebDriverWait wait = new WebDriverWait(getDriver(),60);
+        wait.until(ExpectedConditions.elementToBeClickable(saveProduct));
+        saveProduct.click();}
 
     @FindBy (xpath = ".//button[@title='Save and Continue Edit']")
     WebElementFacade saveAndEditButton;

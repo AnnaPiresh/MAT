@@ -19,4 +19,7 @@ public class SearchResultsSteps extends ScenarioSteps {
 
     @Step
     public void return_to_previous_page(){searchResultsPage.returnToPreviousPage();}
+
+    @Step
+    public void select_virtual_product_from_results() {searchResultsPage.selectVirtualProductFromResults();}
 }

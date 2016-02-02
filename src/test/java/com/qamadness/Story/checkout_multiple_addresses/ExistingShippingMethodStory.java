@@ -18,6 +18,7 @@ import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.After;
@@ -121,11 +122,11 @@ public class ExistingShippingMethodStory {
     @Steps
     SuccessPageSteps successPageSteps;
 
-    //int i=0;
+    int i = 0;
 
     @Before
-    public void openPage () {
-       // i=i+1;
+    public void openPage() {
+        i = i + 1;
         loginPageSteps.openPage();
         int size = webdriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
         if (size > 0) {
@@ -133,7 +134,7 @@ public class ExistingShippingMethodStory {
             loginPageSteps.passInput(password);
             loginPageSteps.loginButton();
             dashboardSteps.closePopup();
-           //create a new customer
+            //create a new customer
             mainMenuSteps.open_Manage_Customers_Page();
             manageCustomersSteps.check_That_Manage_Customers_Page_Is_Opened();
             manageCustomersSteps.clickAddNewCustomerBtn();
@@ -145,14 +146,15 @@ public class ExistingShippingMethodStory {
             addNewCustomerSteps.enter_Password(userPassword);
             addNewCustomerSteps.click_Save_Customer_Button();
             //create first simple product
+            loginPageSteps.navigate_to_dashboard();
             mainMenuSteps.openManageProductsPage();
             manageProductsPageSteps.addProduct();
             createNewProductPageSteps.selectProductType(productTypeSimple);
             createNewProductPageSteps.continueButton();
-            createNewProductPageSteps.enterName(productName+1);
+            createNewProductPageSteps.enterName(productName + 1);
             createNewProductPageSteps.enterProductDescription(productDescription);
             createNewProductPageSteps.enterShortDescription(productShortDescription);
-            createNewProductPageSteps.enterSKU(productSKU+1);
+            createNewProductPageSteps.enterSKU(productSKU + 1);
             createNewProductPageSteps.enterWeight(productWeight);
             createNewProductPageSteps.selectStatus(productStatus);
             createNewProductPageSteps.selectVisibility(productVisibility);
@@ -166,13 +168,15 @@ public class ExistingShippingMethodStory {
             createNewProductPageSteps.saveProduct();
             manageProductsPageSteps.check_success_message();
             //create second simple product
+            loginPageSteps.navigate_to_dashboard();
+            mainMenuSteps.openManageProductsPage();
             manageProductsPageSteps.addProduct();
             createNewProductPageSteps.selectProductType(productTypeSimple);
             createNewProductPageSteps.continueButton();
-            createNewProductPageSteps.enterName(productName+2);
+            createNewProductPageSteps.enterName(productName + 2);
             createNewProductPageSteps.enterProductDescription(productDescription);
             createNewProductPageSteps.enterShortDescription(productShortDescription);
-            createNewProductPageSteps.enterSKU(productSKU+2);
+            createNewProductPageSteps.enterSKU(productSKU + 2);
             createNewProductPageSteps.enterWeight(productWeight);
             createNewProductPageSteps.selectStatus(productStatus);
             createNewProductPageSteps.selectVisibility(productVisibility);
@@ -186,13 +190,15 @@ public class ExistingShippingMethodStory {
             createNewProductPageSteps.saveProduct();
             manageProductsPageSteps.check_success_message();
             //create a virtual product
+            loginPageSteps.navigate_to_dashboard();
+            mainMenuSteps.openManageProductsPage();
             manageProductsPageSteps.addProduct();
             createNewProductPageSteps.selectProductType(productTypeVirtual);
             createNewProductPageSteps.continueButton();
-            createNewProductPageSteps.enterName(productName+" virtual");
+            createNewProductPageSteps.enterName(productName + " virtual");
             createNewProductPageSteps.enterProductDescription(productDescription);
             createNewProductPageSteps.enterShortDescription(productShortDescription);
-            createNewProductPageSteps.enterSKU(productSKU+3);
+            createNewProductPageSteps.enterSKU(productSKU + 3);
             createNewProductPageSteps.selectStatus(productStatus);
             createNewProductPageSteps.selectVisibility(productVisibility);
             createNewProductPageSteps.selectPricesTab();
@@ -204,7 +210,8 @@ public class ExistingShippingMethodStory {
             createNewProductPageSteps.selectFirstCategory();
             createNewProductPageSteps.saveProduct();
             manageProductsPageSteps.check_success_message();
-        } else {}
+        } else {
+        }
         homePageSteps.open_Home_Page();
         homePageSteps.open_account_menu_in_header();
         homePageSteps.navigate_to_login_page();
@@ -213,7 +220,7 @@ public class ExistingShippingMethodStory {
         frontendLoginSteps.untick_remember_me_checkbox();
         frontendLoginSteps.click_login_button();
         homePageSteps.open_floating_cart();
-        if (homePageSteps.check_if_shopping_cart_is_empty(emptyCartMessage)==false){
+        if (homePageSteps.check_if_shopping_cart_is_empty(emptyCartMessage) == false) {
             shoppingCartSteps.empty_shopping_cart();
         }
         homePageSteps.open_account_menu_in_header();
@@ -221,10 +228,11 @@ public class ExistingShippingMethodStory {
     }
 
     @Issue("MAT-97")
+    //@Pending
     @Test
-    public void multiple_addresses_checkout_with_simple_products(){
-        String productMessage1 = String.format("%s was added to your shopping cart.", productName+1);
-        String productMessage2 = String.format("%s was added to your shopping cart.", productName+2);
+    public void multiple_addresses_checkout_with_both_simple_products() {
+        String productMessage1 = String.format("%s was added to your shopping cart.", productName + 1);
+        String productMessage2 = String.format("%s was added to your shopping cart.", productName + 2);
         //search for test products and add them to cart
         homePageSteps.search_for_product(searchterm);
         searchResultsSteps.select_first_product_from_results();
@@ -245,7 +253,7 @@ public class ExistingShippingMethodStory {
         frontendLoginSteps.untick_remember_me_checkbox();
         frontendLoginSteps.click_login_button();
         //add default address
-        if(checkoutMultipleAddressesSteps.check_if_user_has_a_default_shipping_address()==false){
+        if (checkoutMultipleAddressesSteps.check_if_user_has_a_default_shipping_address() == false) {
             checkoutMultipleAddressesSteps.enter_telephone(telephone1);
             checkoutMultipleAddressesSteps.enter_street_address(streetAddress1);
             checkoutMultipleAddressesSteps.enter_city(city1);
@@ -253,7 +261,9 @@ public class ExistingShippingMethodStory {
             checkoutMultipleAddressesSteps.enter_zip_code(zipcode1);
             checkoutMultipleAddressesSteps.select_country(country1);
             checkoutMultipleAddressesSteps.click_save_address_button();
-        } else{ System.out.println("User already has a saved default address");}
+        } else {
+            System.out.println("User already has a saved default address");
+        }
         //add additional address
         checkoutMultipleAddressesSteps.click_enter_new_address_button();
         checkoutMultipleAddressesSteps.enter_telephone(telephone2);
@@ -263,14 +273,14 @@ public class ExistingShippingMethodStory {
         checkoutMultipleAddressesSteps.enter_zip_code(zipcode2);
         checkoutMultipleAddressesSteps.select_country(country2);
         checkoutMultipleAddressesSteps.click_save_address_button();
-         //select different addresses for products
-        String fullCustomerAddress1 = firstName+" "+lastName+", "+streetAddress1+", "+city1+", "+state1+" "+zipcode1+", "+country1;
-        String fullCustomerAddress2 = firstName+" "+lastName+", "+streetAddress2+", "+city2+", "+state2+" "+zipcode2+", "+country2;
-        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName+1, fullCustomerAddress1);
-        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName+2, fullCustomerAddress2);
+        //select different addresses for products
+        String fullCustomerAddress1 = firstName + " " + lastName + ", " + streetAddress1 + ", " + city1 + ", " + state1 + " " + zipcode1 + ", " + country1;
+        String fullCustomerAddress2 = firstName + " " + lastName + ", " + streetAddress2 + ", " + city2 + ", " + state2 + " " + zipcode2 + ", " + country2;
+        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName + 1, fullCustomerAddress1);
+        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName + 2, fullCustomerAddress2);
         checkoutMultipleAddressesSteps.click_continue_to_shipping_information_button();
         //select different shipping methods for products
-        checkoutMultipleAddressesSteps.select_shipping_methods(4,11);
+        checkoutMultipleAddressesSteps.select_shipping_methods(4, 11);
         checkoutMultipleAddressesSteps.click_continue_to_billing_information_button();
         //select a payment method for orders
         checkoutMultipleAddressesSteps.select_payment_method();
@@ -280,29 +290,96 @@ public class ExistingShippingMethodStory {
         //verify that two orders are created
         successPageSteps.check_order_is_placed_successfully();
         successPageSteps.check_the_qty_of_orders(2);
+        homePageSteps.open_Home_Page();
+        homePageSteps.open_account_menu_in_header();
+        homePageSteps.logout_from_website();
     }
 
-    @After
+    @Issue("MAT-98")
+    //@Pending
+    @Test
+    public void multiple_addresses_checkout_with_simple_and_virtual_products(){
+        String productMessage1 = String.format("%s was added to your shopping cart.", productName + 1);
+        String productMessage3 = String.format("%s was added to your shopping cart.", productName +" virtual");
+        //search for test products and add them to cart
+        homePageSteps.search_for_product(searchterm);
+        searchResultsSteps.select_first_product_from_results();
+        simpleProductDetailsPageSteps.click_add_to_cart_button();
+        simpleProductDetailsPageSteps.check_product_is_added_to_cart(productMessage1);
+        searchResultsSteps.return_to_previous_page();
+        searchResultsSteps.select_virtual_product_from_results();
+        simpleProductDetailsPageSteps.click_add_to_cart_button();
+        simpleProductDetailsPageSteps.check_product_is_added_to_cart(productMessage3);
+        //navigate to cart page
+        homePageSteps.open_floating_cart();
+        homePageSteps.navigate_to_shopping_cart_page();
+        //proceed to checkout
+        shoppingCartSteps.proceed_to_multiple_addresses_checkout();
+        //login
+        frontendLoginSteps.enter_customer_email(email);
+        frontendLoginSteps.enter_customer_password(userPassword);
+        frontendLoginSteps.untick_remember_me_checkbox();
+        frontendLoginSteps.click_login_button();
+        //add default address
+        if (checkoutMultipleAddressesSteps.check_if_user_has_a_default_shipping_address() == false) {
+            checkoutMultipleAddressesSteps.enter_telephone(telephone1);
+            checkoutMultipleAddressesSteps.enter_street_address(streetAddress1);
+            checkoutMultipleAddressesSteps.enter_city(city1);
+            checkoutMultipleAddressesSteps.select_state(state1);
+            checkoutMultipleAddressesSteps.enter_zip_code(zipcode1);
+            checkoutMultipleAddressesSteps.select_country(country1);
+            checkoutMultipleAddressesSteps.click_save_address_button();
+        } else {
+            System.out.println("User already has a saved default address");
+        }
+        //select a shipping address for a simple product
+        String fullCustomerAddress1 = firstName + " " + lastName + ", " + streetAddress1 + ", " + city1 + ", " + state1 + " " + zipcode1 + ", " + country1;
+        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName + 1, fullCustomerAddress1);
+       //assert that dropdown with addresses is not displayed for virtual product
+        checkoutMultipleAddressesSteps.check_no_dropdown_for_virtual_product(productName +" virtual");
+        checkoutMultipleAddressesSteps.click_continue_to_shipping_information_button();
+        //select a shipping methods for simple products
+        checkoutMultipleAddressesSteps.select_particular_shipping_method("Flat Rate", "Fixed");
+        checkoutMultipleAddressesSteps.click_continue_to_billing_information_button();
+        //select a payment method for orders
+        checkoutMultipleAddressesSteps.select_payment_method();
+        checkoutMultipleAddressesSteps.click_continue_to_review_your_order_button();
+        //place an order from review step
+        checkoutMultipleAddressesSteps.click_place_order_button();
+        //verify that two orders are created
+        successPageSteps.check_order_is_placed_successfully();
+        successPageSteps.check_the_qty_of_orders(2);
+        homePageSteps.open_Home_Page();
+        homePageSteps.open_account_menu_in_header();
+        homePageSteps.logout_from_website();
+    }
+
+   @After
     public void test_data_deletion() throws AWTException {
-        //if (i == 0) {
-        loginPageSteps.openPage();
-        System.out.println("Time to delete test data");
-        mainMenuSteps.open_Manage_Customers_Page();
-        manageCustomersSteps.search_Customer_By_Email(email);
-        manageCustomersSteps.open_First_Customer_Profile();
-        customerInformationSteps.click_Delete_Customer_Button();
-        mainMenuSteps.openManageProductsPage();
-        manageProductsPageSteps.searchBySku(productSKU);
-        manageProductsPageSteps.searchButton();
-        manageProductsPageSteps.checkProduct();
-        manageProductsPageSteps.selectAction(action);
-        manageProductsPageSteps.submitActionn();
-        manageProductsPageSteps.deletionApproveAlert();
-        manageProductsPageSteps.searchButton();
-        manageProductsPageSteps.checkProduct();
-        manageProductsPageSteps.selectAction(action);
-        manageProductsPageSteps.submitActionn();
-        manageProductsPageSteps.deletionApproveAlert();
+        if (i == 2) {
+            loginPageSteps.openPage();
+            System.out.println("Time to delete test data");
+            mainMenuSteps.open_Manage_Customers_Page();
+            manageCustomersSteps.search_Customer_By_Email(email);
+            manageCustomersSteps.open_First_Customer_Profile();
+            customerInformationSteps.click_Delete_Customer_Button();
+            mainMenuSteps.openManageProductsPage();
+            manageProductsPageSteps.searchBySku(productSKU);
+            manageProductsPageSteps.searchButton();
+            manageProductsPageSteps.checkProduct();
+            manageProductsPageSteps.selectAction(action);
+            manageProductsPageSteps.submitActionn();
+            manageProductsPageSteps.deletionApproveAlert();
+            manageProductsPageSteps.searchButton();
+            manageProductsPageSteps.checkProduct();
+            manageProductsPageSteps.selectAction(action);
+            manageProductsPageSteps.submitActionn();
+            manageProductsPageSteps.deletionApproveAlert();
+            manageProductsPageSteps.searchButton();
+            manageProductsPageSteps.checkProduct();
+            manageProductsPageSteps.selectAction(action);
+            manageProductsPageSteps.submitActionn();
+            manageProductsPageSteps.deletionApproveAlert();
         }
     }
-
+}
