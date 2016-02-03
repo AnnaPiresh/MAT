@@ -228,7 +228,7 @@ public class ExistingShippingMethodStory {
     }
 
     @Issue("MAT-97")
-    //@Pending
+    @Pending
     @Test
     public void multiple_addresses_checkout_with_both_simple_products() {
         String productMessage1 = String.format("%s was added to your shopping cart.", productName + 1);

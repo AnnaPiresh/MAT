@@ -6,6 +6,7 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageCategoriesSteps.Manag
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
+import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
@@ -51,20 +52,6 @@ public class CreateRootCategoryStory extends PageObject{
     private String pageLayout;
     private String customLayoutUpdate;
 
-    @Before
-    public void openPage () {
-        loginPageSteps.openPage();
-        int size = webDriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
-        if (size > 0) {
-            loginPageSteps.loginInput(login);
-            loginPageSteps.passInput(password);
-            loginPageSteps.loginButton();
-            dashboardSteps.closePopup();}
-
-        else {}
-
-    }
-
     @Managed(uniqueSession = true)
     public WebDriver webDriver;
 
@@ -83,6 +70,24 @@ public class CreateRootCategoryStory extends PageObject{
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
+    /*Preconditions:
+    1) Login as admin user
+    2) Navigate to Manage Categories Page*/
+
+    @Before
+    public void openPage () {
+        loginPageSteps.openPage();
+        int size = webDriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
+        if (size > 0) {
+            loginPageSteps.loginInput(login);
+            loginPageSteps.passInput(password);
+            loginPageSteps.loginButton();
+            dashboardSteps.closePopup();}
+
+        else {}
+    }
+
+    @Issue("MAT-77")
     @Pending
     @Test
     public void createRootCategoryWithRequiredFields () {
@@ -101,6 +106,7 @@ public class CreateRootCategoryStory extends PageObject{
 
     }
 
+    @Issue("MAT-78")
     @Pending
     @Test
         public void createRootCategoryWithAllFields () {
@@ -141,7 +147,7 @@ public class CreateRootCategoryStory extends PageObject{
         manageCategoriesPageSteps.deleteCategory();
     }
 
-
+    @Issue("MAT-79")
     @net.thucydides.core.annotations.Pending
     @Test
     public void createRootCategoryWithRequiredFieldsEmpty () {
