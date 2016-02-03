@@ -228,4 +228,39 @@ public class DeleteCategoryStory {
         manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.deleteCategory();
     }
+
+    @Issue("MAT-90")
+    //@Pending
+    @Test
+    public void deleteRootCategoryWithSubcategoryHavingProducts () {
+
+        manageCategoriesPageSteps.selectGeneralTab();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.enterCategoryName(parentCategoryName);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkSuccessMessage();
+
+        mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        manageCategoriesPageSteps.clearCategoryNameField();
+        manageCategoriesPageSteps.enterCategoryName(name);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.selectCategoryProductsTab();
+        manageCategoriesPageSteps.selectSomeCategoryProducts();
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkSuccessMessage();
+
+        mainMenuSteps.openManageCategoriesPage();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+        manageCategoriesPageSteps.deleteCategory();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.checkCategoryDeleted();
+    }
 }
