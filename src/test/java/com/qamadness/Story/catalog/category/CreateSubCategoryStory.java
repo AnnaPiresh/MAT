@@ -7,6 +7,7 @@ import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateN
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageProductsPageSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
+import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
@@ -71,45 +72,6 @@ public class CreateSubCategoryStory {
 
     int i = 0;
 
-    @Before
-    public void openPage () throws InterruptedException{
-        i = i + 6;
-        loginPageSteps.openPage();
-        int size = webDriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
-        //webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        if (size > 0) {
-            loginPageSteps.loginInput(login);
-            loginPageSteps.passInput(password);
-            loginPageSteps.loginButton();
-            dashboardSteps.closePopup();
-            mainMenuSteps.openManageCategoriesPage();
-            manageCategoriesPageSteps.enterCategoryName(parentCategoryName);
-            manageCategoriesPageSteps.selectCategoryActivity(activity);
-            manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
-            manageCategoriesPageSteps.saveCategory();
-            manageCategoriesPageSteps.checkSuccessMessage();
-        }
-
-        else {
-            mainMenuSteps.openManageCategoriesPage();
-            webDriver.navigate().refresh();
-        }
-
-    }
-
-    @After
-    public void parentCategoryDeletion() throws InterruptedException{
-        System.out.println(i);
-        if (i == 1) {
-            System.out.println("OLOLO");
-            webDriver.navigate().refresh();
-            mainMenuSteps.openManageCategoriesPage();
-            webDriver.navigate().refresh();
-            manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
-            manageCategoriesPageSteps.deleteCategory();
-        }
-    }
-
     @Managed(uniqueSession = true)
     public WebDriver webDriver;
 
@@ -133,6 +95,52 @@ public class CreateSubCategoryStory {
     @Steps
     ManageProductsPageSteps manageProductsPageSteps;
 
+    /*Preconditions:
+    1) Login as admin user
+    2) Navigate to Manage Categories Page
+    3) Create Parent Category*/
+
+    @Before
+    public void openPage () throws InterruptedException{
+        i = i + 1;
+        loginPageSteps.openPage();
+        int size = webDriver.findElements(org.openqa.selenium.By.xpath(".//*[@id='username']")).size();
+        //webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        if (size > 0) {
+            loginPageSteps.loginInput(login);
+            loginPageSteps.passInput(password);
+            loginPageSteps.loginButton();
+            dashboardSteps.closePopup();
+            mainMenuSteps.openManageCategoriesPage();
+            manageCategoriesPageSteps.enterCategoryName(parentCategoryName);
+            manageCategoriesPageSteps.selectCategoryActivity(activity);
+            manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+            manageCategoriesPageSteps.saveCategory();
+            manageCategoriesPageSteps.checkSuccessMessage();
+        }
+
+        else {
+            mainMenuSteps.openManageCategoriesPage();
+            webDriver.navigate().refresh();
+        }
+
+    }
+
+    /*Postconditions:
+    1) Delete Parent Category*/
+
+    @After
+    public void parentCategoryDeletion() throws InterruptedException{
+        if (i == 6) {
+            webDriver.navigate().refresh();
+            mainMenuSteps.openManageCategoriesPage();
+            webDriver.navigate().refresh();
+            manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+            manageCategoriesPageSteps.deleteCategory();
+        }
+    }
+
+    @Issue("MAT-80")
     @Pending
     @Test
     public void createSubcategoryWithRequiredFields () throws InterruptedException{
@@ -150,6 +158,7 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.deleteCategory();
     }
 
+    @Issue("MAT-81")
     @Pending
     @Test
     public void createSubcategoryWithAllFields () throws InterruptedException{
@@ -222,6 +231,7 @@ public class CreateSubCategoryStory {
         manageProductsPageSteps.deletionApproveAlert();
     }
 
+    @Issue("MAT-82")
     @Pending
     @Test
     public void createSubcategoryWithRequiredFieldsEmpty () throws InterruptedException{
@@ -237,6 +247,7 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.checkNameIsNotAdded();
     }
 
+    @Issue("MAT-83")
     @Pending
     @Test
     public void createSubcategoryWithSpecialCharacters () throws InterruptedException{
@@ -254,6 +265,7 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.deleteCategory();
     }
 
+    @Issue("MAT-84")
     @Pending
     @Test
     public void createSubcategoryWithLongName () throws InterruptedException{
@@ -272,6 +284,7 @@ public class CreateSubCategoryStory {
         manageCategoriesPageSteps.deleteCategory();
     }
 
+    @Issue("MAT-85")
     @Pending
     @Test
     public void createNestedSubcategoryWithRequiredFields () throws InterruptedException{
