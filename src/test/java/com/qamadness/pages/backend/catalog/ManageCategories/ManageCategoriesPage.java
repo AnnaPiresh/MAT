@@ -8,6 +8,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -103,6 +104,12 @@ public class ManageCategoriesPage extends PageObject {
         else {
             System.out.println("'Delete category Button' isn't displayed");
         }
+    }
+
+    public void moveCategory(String sourcePath, String targetPath){
+        WebElement source = getDriver().findElement(By.xpath(sourcePath));
+        WebElement target = getDriver().findElement(By.xpath(targetPath));
+        new Actions(getDriver()).dragAndDrop(source, target).perform();
     }
 
     //----------------------------------------------General Tab-------------------------------------------------------//

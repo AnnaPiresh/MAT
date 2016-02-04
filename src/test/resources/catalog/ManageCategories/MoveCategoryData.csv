@@ -1,0 +1,2 @@
+login;password;name;parentCategoryLocator;activity; including;parentCategoryName;secondCategoryName;secondCategoryLocator;secondSubcategoryName;secondSubcategoryLocator; locator
+admin;3HSYOFf;Max Auto Sub Category;//span[contains(text(),'Max Auto Parent Category')];1;1;Max Auto Parent Category;Second test root category;//span[contains(text(),'Second test root category')];Second test subcategory;//span[contains(text(),'Second test subcategory')];//span[contains(text(),'Max Auto Sub Category')]

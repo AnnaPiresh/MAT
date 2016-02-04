@@ -18,6 +18,9 @@ public class ManageCategoriesPageSteps extends PageObject {
     public void addNewSubCategory () { manageCategoriesPage.addNewSubCategory();}
 
     @Step
+    public void moveCategory (String sourcePath, String targetPath){manageCategoriesPage.moveCategory(sourcePath, targetPath);}
+
+    @Step
     public void selectGeneralTab () { manageCategoriesPage.selectGeneralTab();}
 
     @Step

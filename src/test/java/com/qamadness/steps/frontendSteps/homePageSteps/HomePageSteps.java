@@ -39,4 +39,13 @@ public class HomePageSteps extends ScenarioSteps {
 
     @Step
     public Boolean check_if_shopping_cart_is_empty (String emptyCartMessage) {return homePage.checkIfShoppingCartEmpty(emptyCartMessage);}
+
+    @Step
+    public void enter_Email_To_Newsletter_Field (String subscribeEmail) {homePage.enterEmailToNewsletterField(subscribeEmail);}
+
+    @Step
+    public void click_Subscribe_Btn() {homePage.clickSubscribeBtn();}
+
+    @Step
+    public void check_Success_Subscribe_Msg() {homePage.checkSuccessSubscribeMsg();}
 }
