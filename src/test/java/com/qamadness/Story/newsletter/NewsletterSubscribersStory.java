@@ -30,9 +30,6 @@ public class NewsletterSubscribersStory {
     private String password;
     private String subscribeEmail;
 
-
-
-
     @Managed(uniqueSession = true)
     public WebDriver webDriver;
 
