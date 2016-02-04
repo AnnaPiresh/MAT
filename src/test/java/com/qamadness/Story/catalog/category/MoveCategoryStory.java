@@ -36,6 +36,9 @@ public class MoveCategoryStory {
     private String parentCategoryName;
     private String secondCategoryName;
     private String secondCategoryLocator;
+    private String secondSubcategoryName;
+    private String secondSubcategoryLocator;
+    private String locator;
 
     @Managed(uniqueSession = true)
     public WebDriver webDriver;
@@ -136,6 +139,51 @@ public class MoveCategoryStory {
         manageCategoriesPageSteps.moveCategory(secondCategoryLocator, parentCategoryLocator);
         webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+        manageCategoriesPageSteps.deleteCategory();
+    }
+
+    @Issue("MAT-93")
+    @Pending
+    @Test
+    public void moveSubcategoryToSubcategory () {
+        manageCategoriesPageSteps.selectGeneralTab();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.enterCategoryName(parentCategoryName);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectGeneralTab();
+        createNewProductPageSteps.clearGlobalSearch();
+        manageCategoriesPageSteps.enterCategoryName(secondCategoryName);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        manageCategoriesPageSteps.clearCategoryNameField();
+        manageCategoriesPageSteps.enterCategoryName(name);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(secondCategoryLocator);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        manageCategoriesPageSteps.clearCategoryNameField();
+        manageCategoriesPageSteps.enterCategoryName(secondSubcategoryName);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.moveCategory(secondSubcategoryLocator, locator);
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+        manageCategoriesPageSteps.deleteCategory();
+        webDriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(secondCategoryLocator);
         manageCategoriesPageSteps.deleteCategory();
     }
 }
