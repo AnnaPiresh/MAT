@@ -56,5 +56,8 @@ public class ManageProductsPageSteps extends ScenarioSteps {
     @Step
     public void checkNameUpdated (String name) { manageProductPage.checkNameUpdated(name);}
 
+    @Step
+    public void select_all_products() {manageProductPage.selectAllProducts();}
+
 
 }

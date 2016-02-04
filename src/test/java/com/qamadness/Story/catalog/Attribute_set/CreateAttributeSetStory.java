@@ -58,6 +58,10 @@ public class CreateAttributeSetStory {
     @Steps
     ManageAttributeSetsSteps manageAttributeSetsSteps;
 
+    /*Precondition:
+    1. Login to admin panel
+     */
+
     @Before
     public void openPage () {
         loginPageSteps.openPage();

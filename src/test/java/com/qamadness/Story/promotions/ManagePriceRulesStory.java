@@ -58,6 +58,9 @@ public class ManagePriceRulesStory {
     @Steps
     ManagePriceRulesSteps managePriceRulesSteps;
 
+    /*Precondition:
+    1. Login to admin panel
+    */
     @Before
     public void openPage () {
         loginPageSteps.openPage();
@@ -74,6 +77,7 @@ public class ManagePriceRulesStory {
     @Pending
     @Test
     public void create_catalog_price_rule_from_admin(){
+        //create a catalog price rule
         char[] customerGroupsArray = customerGroups.toCharArray();
         mainMenuSteps.open_Catalog_Price_Rules_Page();
         managePriceRulesSteps.click_add_new_rule_btn();
@@ -90,6 +94,7 @@ public class ManagePriceRulesStory {
         managePriceRulesSteps.enter_discount_amount(discount);
         managePriceRulesSteps.save_rule();
         managePriceRulesSteps.check_success_message(successSavingMessage);
+        //delete a created rule
         managePriceRulesSteps.find_created_catalog_rule(ruleId);
         managePriceRulesSteps.delete_created_rule();
         managePriceRulesSteps.check_success_message(successDeletionMessage);
@@ -99,6 +104,7 @@ public class ManagePriceRulesStory {
     @Pending
     @Test
     public void create_shopping_cart_price_rule_from_admin(){
+        //create a shopping cart price rule
         char[] customerGroupsArray = customerGroups.toCharArray();
         mainMenuSteps.open_Shopping_Cart_Price_Rules_Page();
         managePriceRulesSteps.click_add_new_rule_btn();
@@ -118,6 +124,7 @@ public class ManagePriceRulesStory {
         managePriceRulesSteps.enter_discount_amount(discount);
         managePriceRulesSteps.save_rule();
         managePriceRulesSteps.check_success_message(successSavingMessage);
+        //delete a created shopping cart price rule
         managePriceRulesSteps.find_created_shopping_cart_rule(ruleId);
         managePriceRulesSteps.delete_created_rule();
         managePriceRulesSteps.check_success_message(successDeletionMessage);

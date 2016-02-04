@@ -53,11 +53,13 @@ public class AddAnAttributeStory {
     @Pending
     @Test
     public void add_an_attribute_in_admin(){
+        //login to admin
         loginPageSteps.openPage();
         loginPageSteps.loginInput(login);
         loginPageSteps.passInput(password);
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
+        //create a new attribute
         mainMenuSteps.open_Manage_Attributes_Page();
         addAnAttributeSteps.click_add_new_attribute_btn();
         addAnAttributeSteps.add_attribute_code(attrCode);
@@ -73,6 +75,7 @@ public class AddAnAttributeStory {
         addAnAttributeSteps.add_second_dropdown_option(secondOption);
         addAnAttributeSteps.save_an_attribute();
         addAnAttributeSteps.check_success_message(successSaveMessage);
+        //delete a created attribute
         addAnAttributeSteps.delete_attribute(attrCode);
         addAnAttributeSteps.check_success_message(successDeleteMessage);
    }

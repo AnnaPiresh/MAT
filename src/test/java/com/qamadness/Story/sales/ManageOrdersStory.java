@@ -54,6 +54,10 @@ public class ManageOrdersStory {
     @Steps
     ManageOrdersSteps manageOrdersSteps;
 
+    /*Precondition:
+    1. Login to admin panel
+     */
+
     @Before
     public void openPage () {
         loginPageSteps.openPage();

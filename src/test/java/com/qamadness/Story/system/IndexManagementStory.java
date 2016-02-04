@@ -39,6 +39,10 @@ public class IndexManagementStory {
     @Steps
     IndexManagementSteps indexManagementSteps;
 
+    /*Precondition:
+    1. Login to admin panel
+     */
+
     @Before
     public void openPage () {
         loginPageSteps.openPage();

@@ -4,11 +4,14 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by kampa on 14.01.2016.
@@ -180,6 +183,42 @@ public class CreateNewProductPage extends PageObject {
         dropdown.selectByValue(value);
     }
 
+//------------------------------------------------Inventory Tab--------------------------------------------------------//
+
+    @FindBy(xpath = ".//*[@id='product_info_tabs_inventory']/span")
+    WebElementFacade inventoryTab;
+
+    public void selectInventoryTab(){ inventoryTab.click();}
+
+    @FindBy(xpath = ".//*[@id='inventory_stock_availability']")
+    WebElementFacade stockAvailabilityDropdown;
+
+    public void selectStockAvailability(String stockStatus){
+        WebDriverWait wait = new WebDriverWait(getDriver(),60);
+        wait.until(ExpectedConditions.elementToBeClickable(stockAvailabilityDropdown));
+        Select dropdown = new Select(stockAvailabilityDropdown);
+        dropdown.selectByValue(stockStatus);
+    }
+
+    @FindBy(xpath = ".//*[@id='inventory_use_config_manage_stock']")
+    WebElementFacade useConfigSettingsCheckbox;
+
+    public void untickUseConfigSettingsCheckbox(){
+        WebDriverWait wait = new WebDriverWait(getDriver(),60);
+        wait.until(ExpectedConditions.elementToBeClickable(useConfigSettingsCheckbox));
+        useConfigSettingsCheckbox.click();
+    }
+
+    @FindBy(xpath = ".//*[@id='inventory_manage_stock']")
+    WebElementFacade manageStockDropdown;
+
+    public void changeManageStockSettings(String stockEnabled){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(manageStockDropdown));
+        Select dropdown = new Select(manageStockDropdown);
+        dropdown.selectByValue(stockEnabled);
+    }
+
 
     //----------------------------------------------Websites Tab------------------------------------------------------//
 
@@ -203,7 +242,7 @@ public class CreateNewProductPage extends PageObject {
     public void selectCategoriesTab() { categoriesTab.click();}
 
     //@FindBy(css = "#ext-gen23")
-    @FindBy(xpath = "//*[contains(text(), 'Women')]")
+    @FindBy(xpath = ".//*[contains(text(), 'Women')]")
     WebElementFacade firstCategory;
 
     public void selectFirstCategory() {
@@ -322,8 +361,8 @@ public class CreateNewProductPage extends PageObject {
     WebElementFacade associatedProductsTabGrouped;
 
     public void selectAssociatedProductsTabGrouped () {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(associatedProductsTabGrouped));
+        //WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+       // wait.until(ExpectedConditions.elementToBeClickable(associatedProductsTabGrouped));
         associatedProductsTabGrouped.click();}
 
     @FindBy (xpath = ".//*[@id='super_product_grid_table']/tbody/tr[1]/td[1]/input")
@@ -341,6 +380,26 @@ public class CreateNewProductPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(secondGroupAssociatedProduct));
         secondGroupAssociatedProduct.click();}
+
+    @FindBy(xpath = ".//*[@id='super_product_grid_filter_sku']")
+    WebElementFacade skuSearchfield;
+
+    public void searchAssociatedProductsBySku(String productSKU){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(skuSearchfield));
+        skuSearchfield.sendKeys(productSKU);
+        skuSearchfield.sendKeys(Keys.ENTER);
+    }
+
+    @FindBy(xpath = ".//*[@id='super_product_grid_table']/thead/tr[1]/th[1]/span/input")
+    WebElementFacade selectAllCheckbox;
+
+    public void selectAllAssociatedProducts(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        selectAllCheckbox.click();
+        getDriver().manage().timeouts().setScriptTimeout(1, TimeUnit.SECONDS);
+    }
 
     //-------------------------------Downloadable Information Tab (Downloadable Product)------------------------------//
 

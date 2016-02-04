@@ -33,7 +33,8 @@ public class ChangeInterfaceLanguageStory {
     ChangeInterfaceLanguageSteps changeInterfaceLanguageSteps;
 
     @Issue("MAT-38")
-    @Pending@Test
+    @Pending
+    @Test
     public void can_user_change_the_language_of_interface_of_admin_panel(){
         loginPageSteps.openPage();
         loginPageSteps.loginInput(login);
