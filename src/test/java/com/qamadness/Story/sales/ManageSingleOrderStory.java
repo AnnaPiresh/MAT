@@ -55,6 +55,10 @@ public class ManageSingleOrderStory {
     @Steps
     ManageSingleOrderSteps manageSingleOrderSteps;
 
+    /*Precondition:
+    1. Login to admin panel
+     */
+
     @Before
     public void openPage () {
         loginPageSteps.openPage();

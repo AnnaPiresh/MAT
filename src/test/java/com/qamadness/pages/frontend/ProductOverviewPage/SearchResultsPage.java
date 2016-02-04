@@ -23,17 +23,18 @@ public class SearchResultsPage extends PageObject {
 
 //---------------------------------------------Methods for Search Results Page-----------------------------------------//
 
-    public void selectFirstProductFromResults(){
+    public void selectProductFromSearchResults(String productName){
         WebDriverWait wait = new WebDriverWait(getDriver(),60);
         wait.until(ExpectedConditions.visibilityOf(sortByDropdown));
-        getDriver().findElement(By.xpath(".//*[contains(text(), 'Robot auto product1')]")).click();
+        String xpath = String.format(".//*[contains(text(), '%s')]", productName);
+        getDriver().findElement(By.xpath(xpath)).click();
     }
 
     public void returnToPreviousPage(){
         getDriver().navigate().back();
     }
 
-    public void selectSecondProductFromResults(){
+    /*public void selectSecondProductFromResults(String productName){
         WebDriverWait wait = new WebDriverWait(getDriver(),60);
         wait.until(ExpectedConditions.visibilityOf(sortByDropdown));
         getDriver().findElement(By.xpath(".//*[contains(text(), 'Robot auto product2')]")).click();
@@ -43,6 +44,6 @@ public class SearchResultsPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(),60);
         wait.until(ExpectedConditions.visibilityOf(sortByDropdown));
         getDriver().findElement(By.xpath(".//*[contains(text(), 'Robot auto product virtual')]")).click();
-    }
+    }*/
 
 }

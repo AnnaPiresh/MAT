@@ -4,6 +4,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,6 +49,16 @@ public class ManageProductsPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(checkProduct));
         checkProduct.click();}
+
+    @FindBy(xpath = ".//*[@id='productGrid_massaction']/table/tbody/tr/td[1]/a[1]")
+    WebElementFacade selectAllProductsLink;
+
+    public void selectAllProducts(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        selectAllProductsLink.click();
+    }
+
 
     @FindBy (xpath = ".//*[@id='productGrid_massaction-select']")
     WebElementFacade selectActionDropdown;

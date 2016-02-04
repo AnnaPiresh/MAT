@@ -12,14 +12,15 @@ public class SearchResultsSteps extends ScenarioSteps {
     SearchResultsPage searchResultsPage;
 
     @Step
-    public void select_first_product_from_results(){searchResultsPage.selectFirstProductFromResults();}
+    public void select_product_from_search_results(String productName){
+        searchResultsPage.selectProductFromSearchResults(productName);}
 
-    @Step
-    public void select_second_product_from_results() {searchResultsPage.selectSecondProductFromResults();}
+    /*@Step
+    public void select_second_product_from_results() {searchResultsPage.selectSecondProductFromResults();}*/
 
     @Step
     public void return_to_previous_page(){searchResultsPage.returnToPreviousPage();}
 
-    @Step
-    public void select_virtual_product_from_results() {searchResultsPage.selectVirtualProductFromResults();}
+    /*@Step
+    public void select_virtual_product_from_results() {searchResultsPage.selectVirtualProductFromResults();}*/
 }

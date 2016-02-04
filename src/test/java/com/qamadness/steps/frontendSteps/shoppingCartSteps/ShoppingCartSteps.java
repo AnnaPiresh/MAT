@@ -16,4 +16,9 @@ public class ShoppingCartSteps extends ScenarioSteps{
 
     @Step
     public void empty_shopping_cart() {shoppingCartPage.emptyShoppingCart();}
+
+    @Step
+    public void check_product_is_added_to_cart(String productMessage){
+        shoppingCartPage.checkProductIsAddedToCart(productMessage);}
+
 }

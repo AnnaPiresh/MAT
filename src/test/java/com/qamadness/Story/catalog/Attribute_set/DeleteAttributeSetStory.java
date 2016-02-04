@@ -75,6 +75,10 @@ public class DeleteAttributeSetStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
+    /*Precondition:
+    1. Login to admin panel
+     */
+
     @Before
     public void openPage () {
         loginPageSteps.openPage();
@@ -92,10 +96,12 @@ public class DeleteAttributeSetStory {
     @Pending
     @Test
     public void delete_attribute_set_without_related_products(){
+        //create a new attribute set
         createAttributeSetSteps.click_add_new_attribute_set_button();
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(createSuccessMessage);
+        //delete created attribute set
         createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteSuccessMessage);
     }
@@ -104,10 +110,12 @@ public class DeleteAttributeSetStory {
     @Pending
     @Test
     public void delete_attribute_set_with_related_products(){
+        //create a new attribute set
         createAttributeSetSteps.click_add_new_attribute_set_button();
         createAttributeSetSteps.enter_attribute_set_name(setName);
         createAttributeSetSteps.save_attribute_set();
         createAttributeSetSteps.check_success_message(createSuccessMessage);
+        //create a product based on this attribute set
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.addProduct();
         createNewProductPageSteps.select_attribute_set_by_name(setName);
@@ -131,11 +139,13 @@ public class DeleteAttributeSetStory {
         createNewProductPageSteps.selectFirstCategory();
         createNewProductPageSteps.saveProduct();
         createAttributeSetSteps.check_success_message(productSuccessMessage);
+        //delete a created attribute set
         mainMenuSteps.open_Manage_Attribute_Sets_page();
         manageAttributeSetsSteps.search_for_attribute_set(setName);
         manageAttributeSetsSteps.select_attribute_set_found();
         createAttributeSetSteps.click_delete_attribute_set_button();
         createAttributeSetSteps.check_success_message(deleteSuccessMessage);
+        //check that created product is also deleted
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.searchBySku(productSKU);
         manageProductsPageSteps.searchButton();

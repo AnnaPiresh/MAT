@@ -4,6 +4,7 @@ package com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps;
 import com.qamadness.pages.backend.catalog.ManageProducts.CreateNewProductPage;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
+import org.yecht.Data;
 
 
 /**
@@ -159,4 +160,23 @@ public class CreateNewProductPageSteps extends PageObject {
     @Step
     public void click_save_and_edit_button(){createNewProductPage.clickSaveAndEditButton();}
 
+    @Step
+    public void select_inventory_tab() {createNewProductPage.selectInventoryTab();}
+
+    @Step
+    public void select_stock_availability(String stockStatus) {createNewProductPage.selectStockAvailability(stockStatus);}
+
+    @Step
+    public void search_associated_products_by_sku(String productSKU){
+        createNewProductPage.searchAssociatedProductsBySku(productSKU);}
+
+    @Step
+    public void select_all_associated_products(){createNewProductPage.selectAllAssociatedProducts();}
+
+    @Step
+    public void untick_use_config_settings_checkbox(){createNewProductPage.untickUseConfigSettingsCheckbox();}
+
+    @Step
+    public void change_manage_stock_settings(String stockEnabled) {
+        createNewProductPage.changeManageStockSettings(stockEnabled);}
 }

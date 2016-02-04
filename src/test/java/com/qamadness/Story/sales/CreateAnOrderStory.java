@@ -68,6 +68,10 @@ public class CreateAnOrderStory {
     @Steps
     CustomerInformationSteps customerInformationSteps;
 
+    /*Precondition:
+    1. Login to admin panel
+     */
+
     @Before
     public void openPage () {
         loginPageSteps.openPage();
@@ -114,6 +118,7 @@ public class CreateAnOrderStory {
         createAnOrderSteps.select_payment_shipment();
         createAnOrderSteps.click_submit_btn();
         createAnOrderSteps.check_success_message(orderMessage);
+        //delete a created customer
         mainMenuSteps.open_Manage_Customers_Page();
         manageCustomersSteps.search_Customer_By_Email(emailNew);
         manageCustomersSteps.check_Search_Result(emailNew);

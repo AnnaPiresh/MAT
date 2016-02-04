@@ -46,17 +46,20 @@ public class AddNewCustomerGroupStory  {
     @Pending
     @Test
     public void check_that_customer_group_can_be_created_from_agmin(){
+        //login to admin panel
         loginPageSteps.openPage();
         loginPageSteps.loginInput(login);
         loginPageSteps.passInput(password);
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
+        //create a new customer group
         mainMenuSteps.open_Customer_Groups_Page();
         addNewCustomerGroupSteps.click_add_customer_group_btn();
         addNewCustomerGroupSteps.select_tax_class(taxvalue);
         addNewCustomerGroupSteps.enter_group_code(groupCode);
         addNewCustomerGroupSteps.click_save_customer_group_btn();
         addNewCustomerGroupSteps.check_success_msg(successMText);
+        //delete a created customer group
         addNewCustomerGroupSteps.find_created_group(groupCode);
         addNewCustomerGroupSteps.delete_created_group(confirmDelete);
     }
