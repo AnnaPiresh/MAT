@@ -7,7 +7,6 @@ import com.qamadness.steps.backendSteps.customersSteps.ManageCustomersSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.LogoutFromAdminSteps;
 import com.qamadness.steps.backendSteps.newsletterSteps.NewsletterSubscribersSteps;
-import com.qamadness.steps.backendSteps.systemSteps.permissions.users.ManageUsersPageSteps;
 import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
 import com.qamadness.steps.frontendSteps.registrationSteps.RegistrationPageSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
