@@ -4,7 +4,9 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by alexandrakorniichuk on 15.12.15.
@@ -22,6 +24,17 @@ public class ManageCustomersPage extends PageObject{
 
     @FindBy (xpath = ".//*[@id='customerGrid_table']/tbody/tr/td[4]")
     WebElementFacade gridFirstRowEmailCell;
+
+    @FindBy(css = ".massaction-checkbox")
+    WebElementFacade gridFirstRowSelectCheckbox;
+
+    @FindBy(xpath = ".//*[@id='customerGrid_massaction-select']")
+    WebElementFacade actionsDropdown;
+
+    @FindBy(xpath = ".//button[@class='scalable'][@title='Submit']")
+    WebElementFacade submitBtn;
+
+
 
     public void checkThatManageCustomersPageIsOpened (){
         Assert.assertTrue("Correct page is opened", pageTitle.getText().equalsIgnoreCase("Manage Customers"));
@@ -43,5 +56,6 @@ public class ManageCustomersPage extends PageObject{
     public void openFirstCustomerProfile (){
         gridFirstRowEmailCell.click();
     }
+
 
 }
