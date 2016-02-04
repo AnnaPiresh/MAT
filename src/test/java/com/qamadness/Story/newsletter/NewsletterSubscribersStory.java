@@ -53,7 +53,7 @@ public class NewsletterSubscribersStory {
 
 
     @Issue("MAT-229")
-    //@Pending
+    @Pending
     @Test
     public void with_Valid_Email () {
         loginPageSteps.openPage();
