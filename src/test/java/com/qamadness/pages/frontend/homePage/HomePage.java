@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+
+import static org.hamcrest.Matchers.is;
 
 /**
  * Created by Alexandra on 1/25/16.
@@ -42,6 +45,15 @@ public class HomePage extends PageObject {
 
     @FindBy(css = ".product-name")
     WebElementFacade productName;
+
+    @FindBy(xpath = ".//*[@id='newsletter']")
+    WebElementFacade newsletterField;
+
+    @FindBy(xpath = ".//*[@class='button'][@title='Subscribe']")
+    WebElementFacade subscribeBtn;
+
+    @FindBy(xpath = ".//li[@class='success-msg']/ul/li/span[contains(text(),'Thank you for your subscription')]")
+    WebElementFacade successSubscribeMsg;
 
 //----------------------------------------------------Methods for Homepage---------------------------------------------//
 
@@ -110,4 +122,16 @@ public class HomePage extends PageObject {
         wait.until(ExpectedConditions.visibilityOf(accountMenuHeader));
         loginLogoutLink.click();
     }
+
+    public void enterEmailToNewsletterField(String subscribeEmail) {
+        newsletterField.sendKeys(subscribeEmail);
+    }
+
+    public void clickSubscribeBtn() {
+        subscribeBtn.click();
+    }
+
+    public void checkSuccessSubscribeMsg() {
+        System.out.println(successSubscribeMsg.getText());
+        Assert.assertThat(successSubscribeMsg.getText(), is("Thank you for your subscription."));}
 }

@@ -62,6 +62,23 @@ public class MainMenu extends PageObject {
     @FindBy(xpath = ".//*[@id='nav']/li[5]/ul/li[2]/a/span")
     WebElementFacade shoppingCartPriceRulesMenuItem;
 
+//-----------------------------------------------------Objects for Newsletter menu------------------------------------//
+
+    @FindBy(xpath = ".//*[@id='nav']/li[6]/a/span")
+    WebElementFacade newsletterMenu;
+
+    @FindBy(xpath = ".//*[@id='nav']/li[6]/ul/li[1]/a/span")
+    WebElementFacade newsletterTemplatesItem;
+
+    @FindBy(xpath = ".//*[@id='nav']/li[6]/ul/li[2]/a/span")
+    WebElementFacade newsletterQueueItem;
+
+    @FindBy(xpath = ".//*[@id='nav']/li[6]/ul/li[3]/a/span")
+    WebElementFacade newsletterSubscribersItem;
+
+    @FindBy(xpath = ".//*[@id='nav']/li[6]/ul/li[4]/a/span")
+    WebElementFacade newsletterProblemReportsItem;
+
 //-----------------------------------------------------Objects for CMS menu-------------------------------------------//
 
     @FindBy (xpath = ".//a[contains(.,'CMS')]")
@@ -169,6 +186,15 @@ public class MainMenu extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPriceRulesMenuItem));
         shoppingCartPriceRulesMenuItem.click();
+    }
+
+//-------------------------------------------------------Methods for Newsletter menu----------------------------------//
+
+    public void openNewsletterSubscribers() {
+        newsletterMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(newsletterSubscribersItem));
+        newsletterSubscribersItem.click();
     }
 
 //-------------------------------------------------------Methods for CMS menu-----------------------------------------//
