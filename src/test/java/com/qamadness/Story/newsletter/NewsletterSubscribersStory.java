@@ -96,7 +96,7 @@ public class NewsletterSubscribersStory {
     }
 
     @Issue("MAT-230")
-    //@Pending
+    @Pending
     @Test
     public void with_valid_email_that_used_for_registered_customer() throws AWTException {
         loginPageSteps.openPage();
