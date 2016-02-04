@@ -40,9 +40,6 @@ public class NewsletterSubscribersStory {
     LoginPageSteps loginPageSteps;
 
     @Steps
-    DashboardSteps dashboardSteps;
-
-    @Steps
     HomePageSteps homePageSteps;
 
     @Steps
