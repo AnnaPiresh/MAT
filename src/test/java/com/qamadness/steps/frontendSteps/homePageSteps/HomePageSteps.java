@@ -48,4 +48,10 @@ public class HomePageSteps extends ScenarioSteps {
 
     @Step
     public void check_Success_Subscribe_Msg() {homePage.checkSuccessSubscribeMsg();}
+
+    @Step
+    public void click_register_link() {homePage.clickRegisterLink();}
+
+    @Step
+    public void check_Subscribe_Error_Msg() {homePage.checkSubscribeErrorMsg();}
 }
