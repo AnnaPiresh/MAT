@@ -33,37 +33,7 @@ public class DeleteCategoryStory {
     private String activity;
     private String including;
     private String parentCategoryLocator;
-    private String desc;
-    private String title;
-    private String keywords;
-    private String metadesc;
-    private String displayMode;
-    private String cMSBlock;
-    private String availableProductListingSortBy;
-    private String selectDefaultProductListingSortBy;
-    private String priceStep;
-    private String isAnchor;
-    private String useParentCategorySettings;
-    private String applyToProducts;
-    private String selectCustomDesign;
-    private String activeFrom;
-    private String activeTo;
-    private String pageLayout;
-    private String customLayoutUpdate;
-    private String nameWithSpecialCharacters;
     private String parentCategoryName;
-    private String attributeSet;
-    private String productType;
-    private String productDescription;
-    private String productShortDescription;
-    private String productSKU;
-    private String productStatus;
-    private String productVisibility;
-    private String productName;
-    private String productPrice;
-    private String taxClass;
-    private String selectAction;
-    private String productWeight;
     private String parentSubcategoryName;
     private String parentSubcategoryLocator;
 
@@ -227,10 +197,11 @@ public class DeleteCategoryStory {
         webDriver.navigate().refresh();
         manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
         manageCategoriesPageSteps.deleteCategory();
+        manageCategoriesPageSteps.checkCategoryDeleted();
     }
 
     @Issue("MAT-90")
-    //@Pending
+    @Pending
     @Test
     public void deleteRootCategoryWithSubcategoryHavingProducts () {
 
