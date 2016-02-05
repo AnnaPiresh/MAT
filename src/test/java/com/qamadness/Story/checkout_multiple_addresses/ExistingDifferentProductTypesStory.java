@@ -90,6 +90,10 @@ public class ExistingDifferentProductTypesStory {
     private String productColour1;
     private String productColour2;
     private String flushCachesMessage;
+    private String productTypeDownloadable;
+    private String downloadableLinkName;
+    private String sampleURL;
+    private String fileURL;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -372,10 +376,42 @@ public class ExistingDifferentProductTypesStory {
             createNewProductPageSteps.select_all_associated_products_configurable();
             createNewProductPageSteps.saveProduct();
             manageProductsPageSteps.check_success_message();
+            //create a downloadable product
+            mainMenuSteps.openManageProductsPage();
+            manageProductsPageSteps.addProduct();
+            createNewProductPageSteps.selectProductType(productTypeDownloadable);
+            createNewProductPageSteps.continueButton();
+            createNewProductPageSteps.enterName(productName + " downloadable");
+            createNewProductPageSteps.enterProductDescription(productDescription);
+            createNewProductPageSteps.enterShortDescription(productShortDescription);
+            createNewProductPageSteps.enterSKU(productSKU +"-downloadable");
+            createNewProductPageSteps.selectStatus(productStatus);
+            createNewProductPageSteps.selectVisibility(productVisibility);
+            createNewProductPageSteps.selectPricesTab();
+            createNewProductPageSteps.enterProductPrice(productPrice);
+            createNewProductPageSteps.selectTaxClass(taxClass);
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.untick_use_config_settings_checkbox();
+            createNewProductPageSteps.change_manage_stock_settings(stockEnabled);;
+            createNewProductPageSteps.selectWebsitesTab();
+            createNewProductPageSteps.selectMainWebsite();
+            createNewProductPageSteps.selectCategoriesTab();
+            createNewProductPageSteps.selectFirstCategory();
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.selectWebsitesTab();
+            createNewProductPageSteps.selectDownloadableInformationTab();
+            createNewProductPageSteps.addNewRow();
+            createNewProductPageSteps.enterDownloadableLinkName(downloadableLinkName);
+            createNewProductPageSteps.sampleSelectURL();
+            createNewProductPageSteps.enterSampleURL(sampleURL);
+            createNewProductPageSteps.fileSelectURL();
+            createNewProductPageSteps.enterFileURL(fileURL);
+            createNewProductPageSteps.saveProduct();
+            manageProductsPageSteps.check_success_message();
+            mainMenuSteps.open_Cache_Management_Page();
+            cacheManagementSteps.click_flush_cache_btn();
+            cacheManagementSteps.check_success_message(flushCachesMessage);
         } else {}
-        mainMenuSteps.open_Cache_Management_Page();
-        cacheManagementSteps.click_flush_cache_btn();
-        cacheManagementSteps.check_success_message(flushCachesMessage);
         homePageSteps.open_Home_Page();
         homePageSteps.open_account_menu_in_header();
         homePageSteps.navigate_to_login_page();
@@ -401,7 +437,7 @@ public class ExistingDifferentProductTypesStory {
         productDetailsPageSteps.enter_qty_of_products("2","2");
         homePageSteps.open_account_menu_in_header();
         homePageSteps.open_account_menu_in_header();
-        productDetailsPageSteps.click_add_to_cart_button();
+        productDetailsPageSteps.click_add_to_cart_button_grouped();
         shoppingCartSteps.check_product_is_added_to_cart(productMessageGrouped);
         //proceed to checkout
         shoppingCartSteps.proceed_to_multiple_addresses_checkout();
@@ -575,6 +611,63 @@ public class ExistingDifferentProductTypesStory {
         homePageSteps.logout_from_website();
     }
 
+    @Issue("MAT-104")
+    @Pending
+    @Test
+    public void multiple_addresses_checkout_with_downloadable_products(){
+        String productMessageDownloadable = String.format("%s was added to your shopping cart.", productName + " downloadable");
+        String productMessage3 = String.format("%s was added to your shopping cart.", productName + 3);
+        //search for test products and add them to cart
+        homePageSteps.open_Home_Page();
+        homePageSteps.search_for_product(searchterm);
+        searchResultsSteps.select_product_from_search_results(productName + " downloadable");
+        productDetailsPageSteps.select_downloadable_link();
+        productDetailsPageSteps.click_add_to_cart_button_bundle();
+        shoppingCartSteps.check_product_is_added_to_cart(productMessageDownloadable);
+        homePageSteps.search_for_product(searchterm);
+        searchResultsSteps.select_product_from_search_results(productName +3);
+        productDetailsPageSteps.click_add_to_cart_button();
+        shoppingCartSteps.check_product_is_added_to_cart(productMessage3);
+        //proceed to checkout
+        shoppingCartSteps.proceed_to_multiple_addresses_checkout();
+        //login
+        frontendLoginSteps.enter_customer_email(email);
+        frontendLoginSteps.enter_customer_password(userPassword);
+        frontendLoginSteps.click_login_button();
+        //add default address
+        if (checkoutMultipleAddressesSteps.check_if_user_has_a_default_shipping_address() == false) {
+            checkoutMultipleAddressesSteps.enter_telephone(telephone1);
+            checkoutMultipleAddressesSteps.enter_street_address(streetAddress1);
+            checkoutMultipleAddressesSteps.enter_city(city1);
+            checkoutMultipleAddressesSteps.select_state(state1);
+            checkoutMultipleAddressesSteps.enter_zip_code(zipcode1);
+            checkoutMultipleAddressesSteps.select_country(country1);
+            checkoutMultipleAddressesSteps.click_save_address_button();
+        } else {
+            System.out.println("User already has a saved default address");
+        }
+        //select a shipping address for a simple product
+        String fullCustomerAddress1 = firstName + " " + lastName + ", " + streetAddress1 + ", " + city1 + ", " + state1 + " " + zipcode1 + ", " + country1;
+        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName + 3, fullCustomerAddress1);
+        //assert that dropdown with addresses is not displayed for virtual product
+        checkoutMultipleAddressesSteps.check_no_dropdown_for_product(productName +" downloadable");
+        checkoutMultipleAddressesSteps.click_continue_to_shipping_information_button();
+        //select a shipping methods for simple products
+        checkoutMultipleAddressesSteps.select_particular_shipping_method("Flat Rate", "Fixed");
+        checkoutMultipleAddressesSteps.click_continue_to_billing_information_button();
+        //select a payment method for orders
+        checkoutMultipleAddressesSteps.select_payment_method();
+        checkoutMultipleAddressesSteps.click_continue_to_review_your_order_button();
+        //place an order from review step
+        checkoutMultipleAddressesSteps.click_place_order_button();
+        //verify that two orders are created
+        successPageSteps.check_order_is_placed_successfully();
+        successPageSteps.check_the_qty_of_orders(2);
+        homePageSteps.open_Home_Page();
+        homePageSteps.open_account_menu_in_header();
+        homePageSteps.logout_from_website();
+    }
+
     /*Actions after completing the tests in story:
     1. Navigate to admin panel
     2. Delete a created user
@@ -583,7 +676,7 @@ public class ExistingDifferentProductTypesStory {
 
     @After
     public void test_data_deletion() throws AWTException {
-        if (i == 3) {
+        if (i == 4) {
             loginPageSteps.openPage();
             System.out.println("Time to delete test data");
             mainMenuSteps.open_Manage_Customers_Page();

@@ -154,7 +154,7 @@ public class CheckoutMultipleAddressesPage extends PageObject{
 
     public void clickContinueToShippingInformationButton(){ continueToShippingInformationButton.click();}
 
-    public void checkNoDropdownForVirtualProduct(String productName){
+    public void checkNoDropdownForProduct(String productName){
         String xpath = String.format(".//tr[.//a='%s']//td[contains(text(),'Shipping selection is not applicable.')]", productName);
         WebElement cellWithMessage = getDriver().findElement(By.xpath(xpath));
         Assert.assertTrue(cellWithMessage.isDisplayed());

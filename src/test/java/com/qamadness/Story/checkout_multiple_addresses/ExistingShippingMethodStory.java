@@ -347,7 +347,7 @@ public class ExistingShippingMethodStory {
         String fullCustomerAddress1 = firstName + " " + lastName + ", " + streetAddress1 + ", " + city1 + ", " + state1 + " " + zipcode1 + ", " + country1;
         checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName + 1, fullCustomerAddress1);
        //assert that dropdown with addresses is not displayed for virtual product
-        checkoutMultipleAddressesSteps.check_no_dropdown_for_virtual_product(productName +" virtual");
+        checkoutMultipleAddressesSteps.check_no_dropdown_for_product(productName +" virtual");
         checkoutMultipleAddressesSteps.click_continue_to_shipping_information_button();
         //select a shipping methods for simple products
         checkoutMultipleAddressesSteps.select_particular_shipping_method("Flat Rate", "Fixed");

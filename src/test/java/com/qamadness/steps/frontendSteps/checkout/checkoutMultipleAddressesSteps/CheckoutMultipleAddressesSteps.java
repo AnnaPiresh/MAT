@@ -92,8 +92,8 @@ public class CheckoutMultipleAddressesSteps extends ScenarioSteps {
     public void click_place_order_button(){checkoutMultipleAddressesPage.clickPlaceOrderButton();}
 
     @Step
-    public void check_no_dropdown_for_virtual_product(String productName){
-        checkoutMultipleAddressesPage.checkNoDropdownForVirtualProduct(productName);
+    public void check_no_dropdown_for_product(String productName){
+        checkoutMultipleAddressesPage.checkNoDropdownForProduct(productName);
     }
 
     @Step
