@@ -64,6 +64,9 @@ public class HomePage extends PageObject {
     @FindBy(xpath = ".//*[@id='advice-validate-email-newsletter']")
     WebElementFacade invalidEmailErrorMsg;
 
+    @FindBy(xpath = ".//*[@id='advice-required-entry-newsletter']")
+    WebElement emptyEmailFldMsg;
+
 //----------------------------------------------------Methods for Homepage---------------------------------------------//
 
     public void openHomePage() {
@@ -153,6 +156,10 @@ public class HomePage extends PageObject {
         /*WebElement footer = getDriver().findElement(By.xpath(".//*[@id='top']/body/div[1]/div[2]/div[3]/div/address"));
         footer.click();*/
         Assert.assertThat(invalidEmailErrorMsg.getText(), is("PLEASE ENTER A VALID EMAIL ADDRESS. FOR EXAMPLE JOHNDOE@DOMAIN.COM."));
+    }
+
+    public void checkEmptyEmailFldErrorMsg() {
+        Assert.assertThat(emptyEmailFldMsg.getText(), is("THIS IS A REQUIRED FIELD."));
     }
 
 }

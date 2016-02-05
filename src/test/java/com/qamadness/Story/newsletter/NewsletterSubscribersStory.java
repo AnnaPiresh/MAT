@@ -144,6 +144,21 @@ public class NewsletterSubscribersStory {
         homePageSteps.check_Invalid_Email_Error_Msg();
         webDriver.close();
     }
+
+    @Issue("MAT-232")
+    @Pending
+    @Test
+    public void with_empty_email_field () {
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(login);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        homePageSteps.open_Home_Page();
+        homePageSteps.enter_Email_To_Newsletter_Field("");
+        homePageSteps.click_Subscribe_Btn();
+        homePageSteps.check_Empty_Email_Fld_Error_Msg();
+        webDriver.close();
+    }
 }
 
 
