@@ -21,4 +21,7 @@ public class ShoppingCartSteps extends ScenarioSteps{
     public void check_product_is_added_to_cart(String productMessage){
         shoppingCartPage.checkProductIsAddedToCart(productMessage);}
 
+    @Step
+    public void change_products_qty(String productQty){shoppingCartPage.changeProductsQty(productQty);}
+
 }
