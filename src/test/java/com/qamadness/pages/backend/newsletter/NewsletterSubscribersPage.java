@@ -35,6 +35,9 @@ public class NewsletterSubscribersPage extends PageObject {
     @FindBy(xpath = ".//*[@class='empty-text a-center'][@colspan='11']")
     WebElementFacade noRecordsMsg;
 
+    @FindBy(xpath = ".//*[@id='messages']/ul/li/ul/li/span")
+    WebElementFacade successMsg;
+
 
     public void searchUserByEmail(String subscribeEmail) {
         searchByEmailField.sendKeys(subscribeEmail);
@@ -49,5 +52,13 @@ public class NewsletterSubscribersPage extends PageObject {
         submitBtn.click();}
 
     public void checkThatUserWasDeleted() {Assert.assertThat(noRecordsMsg.getText(), is("No records found."));}
+
+    public void unsubscribeSubscriber() {
+        Select dropdown = new Select(actionsDropdown);
+        dropdown.selectByValue("unsubscribe");
+        submitBtn.click();
+    }
+
+    public void checkThatUserUnsubscribe() {Assert.assertThat(successMsg.getText(),is("Total of 1 record(s) were updated"));}
 
 }
