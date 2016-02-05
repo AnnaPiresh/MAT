@@ -18,4 +18,10 @@ public class ProductDetailsPageSteps extends ScenarioSteps {
     public void enter_qty_of_products(String firstProductQty, String secondProductQty){
         productDetailsPage.enterQtyOfProducts(firstProductQty, secondProductQty);}
 
+    @Step
+    public void select_bundle_item(){productDetailsPage.selectBundleItem();}
+
+    @Step
+    public void click_add_to_cart_button_bundle(){productDetailsPage.clickAddToCartButtonBundle();}
+
 }

@@ -302,7 +302,7 @@ public class CreateNewProductPage extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(resetFilterButton));
         resetFilterButton.click();}
 
-    @FindBy (xpath = ".//*[@id='bundle_selection_search_grid_0_table']/tbody/tr[2]/td[6]/input")
+    @FindBy (xpath = ".//*[@id='bundle_selection_search_grid_0_table']/tbody/tr[1]/td[6]/input")
     WebElementFacade productTwo;
 
     public void selectProductTwo () {
@@ -310,7 +310,7 @@ public class CreateNewProductPage extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(productTwo));
         productTwo.click();}
 
-    @FindBy (xpath = ".//*[@id='bundle_selection_search_grid_0_table']/tbody/tr[3]/td[6]/input")
+    @FindBy (xpath = ".//*[@id='bundle_selection_search_grid_0_table']/tbody/tr[2]/td[6]/input")
     WebElementFacade productThree;
 
     public void selectProductThree () {
@@ -318,6 +318,31 @@ public class CreateNewProductPage extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(productThree));
         productThree.click();}
 
+    @FindBy(xpath = ".//*[@id='bundle_selection_search_grid_0_filter_sku']")
+    WebElementFacade bundleItemSkuSearchFld;
+
+    public void searchBudndleItemsBySku(String productSKU){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        bundleItemSkuSearchFld.sendKeys(productSKU);
+        bundleItemSkuSearchFld.sendKeys(Keys.ENTER);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+    }
+
+    @FindBy(xpath = ".//*[@title='Add Selected Product(s) to Option']")
+    WebElementFacade addSelectedProductsToOptionBtn;
+
+    public void clickAddSelectedProductsToOptionBtn(){
+        addSelectedProductsToOptionBtn.click();
+    }
+
+    @FindBy(xpath = ".//*[@id='bundle_option_0_type']")
+    WebElementFacade inputTypeDropdown;
+
+    public void selectInputTypeForBundleItems(String inputType){
+        Select dropdown = new Select(inputTypeDropdown);
+        dropdown.selectByValue(inputType);
+    }
 
     //------------------------------------Configurable Product Settings Tab-------------------------------------------//
 
