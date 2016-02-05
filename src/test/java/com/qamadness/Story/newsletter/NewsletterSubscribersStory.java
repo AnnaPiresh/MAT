@@ -39,6 +39,7 @@ public class NewsletterSubscribersStory {
     private String lastName;
     private String email;
     private String invalidEmail;
+    private String longEmail;
 
     @Managed(uniqueSession = true)
     public WebDriver webDriver;
@@ -157,6 +158,21 @@ public class NewsletterSubscribersStory {
         homePageSteps.enter_Email_To_Newsletter_Field("");
         homePageSteps.click_Subscribe_Btn();
         homePageSteps.check_Empty_Email_Fld_Error_Msg();
+        webDriver.close();
+    }
+
+    @Issue("MAT-233")
+    @Pending
+    @Test
+    public void with_long_valid_email() {
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(login);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        homePageSteps.open_Home_Page();
+        homePageSteps.enter_Email_To_Newsletter_Field(longEmail);
+        homePageSteps.click_Subscribe_Btn();
+        homePageSteps.check_Subscribe_Error_Msg();
         webDriver.close();
     }
 }
