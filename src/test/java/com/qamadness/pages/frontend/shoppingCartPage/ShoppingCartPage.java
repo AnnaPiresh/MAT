@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -25,6 +26,9 @@ public class ShoppingCartPage extends PageObject{
 
     @FindBy(xpath = ".//*[text()='Shopping Cart is Empty']")
     WebElementFacade emptyCartMessage;
+
+    @FindBy(xpath = ".//*[@title='Qty']")
+    WebElementFacade qtyField;
 
 //--------------------------------------------Methods for Shopping Cart Page-------------------------------------------//
 
@@ -50,5 +54,13 @@ public class ShoppingCartPage extends PageObject{
             Assert.fail("Success message is not present");
         }
     }
+
+    public void changeProductsQty(String productQty){
+        qtyField.clear();
+        qtyField.sendKeys(productQty);
+        qtyField.sendKeys(Keys.ENTER);
+    }
+
+
 
 }

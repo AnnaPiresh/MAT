@@ -179,4 +179,14 @@ public class CreateNewProductPageSteps extends PageObject {
     @Step
     public void change_manage_stock_settings(String stockEnabled) {
         createNewProductPage.changeManageStockSettings(stockEnabled);}
+
+    @Step
+    public void search_bundle_items_by_sku(String productSKU) {createNewProductPage.searchBudndleItemsBySku(productSKU);}
+
+    @Step
+    public void click_add_selected_products_to_option_button(){createNewProductPage.clickAddSelectedProductsToOptionBtn();}
+
+    @Step
+    public void select_input_type_for_bundle_items(String inputType){
+        createNewProductPage.selectInputTypeForBundleItems(inputType);}
 }
