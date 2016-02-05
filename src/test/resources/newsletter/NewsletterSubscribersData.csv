@@ -1,2 +1,2 @@
-login,password,subscribeEmail
-admin,3HSYOFf,robottester2016@gmail.com
+login,password,email,firstName,lastName,passwordRegister,invalidEmail
+admin,3HSYOFf,robottester2016@gmail.com,Robot,Tester,tester,robot@gmail.c

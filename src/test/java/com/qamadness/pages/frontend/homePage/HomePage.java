@@ -40,6 +40,9 @@ public class HomePage extends PageObject {
     @FindBy(xpath = ".//*[@id='header-account']")
     WebElementFacade accountMenuHeader;
 
+    @FindBy(xpath = ".//a[@title='Register']")
+    WebElementFacade registerLink;
+
     @FindBy(xpath = ".//div[@id='header-account']/div/ul/li[last()]/a")
     WebElementFacade loginLogoutLink;
 
@@ -54,6 +57,15 @@ public class HomePage extends PageObject {
 
     @FindBy(xpath = ".//li[@class='success-msg']/ul/li/span[contains(text(),'Thank you for your subscription')]")
     WebElementFacade successSubscribeMsg;
+
+    @FindBy(css = ".error-msg>ul>li>span")
+    WebElementFacade errorMsg;
+
+    @FindBy(xpath = ".//*[@id='advice-validate-email-newsletter']")
+    WebElementFacade invalidEmailErrorMsg;
+
+    @FindBy(xpath = ".//*[@id='advice-required-entry-newsletter']")
+    WebElement emptyEmailFldMsg;
 
 //----------------------------------------------------Methods for Homepage---------------------------------------------//
 
@@ -92,6 +104,8 @@ public class HomePage extends PageObject {
     }
 
     public void openAccountMenuInHeader() {accountButton.click();}
+
+    public void clickRegisterLink() {registerLink.click();}
 
     public void navigateToLoginPage () {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
@@ -134,4 +148,18 @@ public class HomePage extends PageObject {
     public void checkSuccessSubscribeMsg() {
         System.out.println(successSubscribeMsg.getText());
         Assert.assertThat(successSubscribeMsg.getText(), is("Thank you for your subscription."));}
+
+    public void checkSubscribeErrorMsg() {
+        Assert.assertThat(errorMsg.getText(), is("There was a problem with the subscription:" + " This email address is already assigned to another user."));}
+
+    public void checkInvalidEmailErrorMsg() {
+        /*WebElement footer = getDriver().findElement(By.xpath(".//*[@id='top']/body/div[1]/div[2]/div[3]/div/address"));
+        footer.click();*/
+        Assert.assertThat(invalidEmailErrorMsg.getText(), is("PLEASE ENTER A VALID EMAIL ADDRESS. FOR EXAMPLE JOHNDOE@DOMAIN.COM."));
+    }
+
+    public void checkEmptyEmailFldErrorMsg() {
+        Assert.assertThat(emptyEmailFldMsg.getText(), is("THIS IS A REQUIRED FIELD."));
+    }
+
 }

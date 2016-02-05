@@ -48,4 +48,16 @@ public class HomePageSteps extends ScenarioSteps {
 
     @Step
     public void check_Success_Subscribe_Msg() {homePage.checkSuccessSubscribeMsg();}
+
+    @Step
+    public void click_register_link() {homePage.clickRegisterLink();}
+
+    @Step
+    public void check_Subscribe_Error_Msg() {homePage.checkSubscribeErrorMsg();}
+
+    @Step
+    public void check_Invalid_Email_Error_Msg() {homePage.checkInvalidEmailErrorMsg();}
+
+    @Step
+    public void check_Empty_Email_Fld_Error_Msg() {homePage.checkEmptyEmailFldErrorMsg();}
 }

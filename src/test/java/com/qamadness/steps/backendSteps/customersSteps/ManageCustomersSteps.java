@@ -3,6 +3,7 @@ package com.qamadness.steps.backendSteps.customersSteps;
 import com.qamadness.pages.backend.customers.ManageCustomersPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by alexandrakorniichuk on 15.12.15.
@@ -35,4 +36,5 @@ public class ManageCustomersSteps extends ScenarioSteps {
     public void open_First_Customer_Profile (){
         manageCustomersPage.openFirstCustomerProfile();
     }
+
 }
