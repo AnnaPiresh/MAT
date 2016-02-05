@@ -38,6 +38,7 @@ public class NewsletterSubscribersStory {
     private String firstName;
     private String lastName;
     private String email;
+    private String invalidEmail;
 
     @Managed(uniqueSession = true)
     public WebDriver webDriver;
@@ -127,6 +128,21 @@ public class NewsletterSubscribersStory {
         logoutFromAdminSteps.logout_from_admin();
 
 
+    }
+
+    @Issue("MAT-231")
+    //@Pending
+    @Test
+    public void with_invalid_email() {
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(login);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        homePageSteps.open_Home_Page();
+        homePageSteps.enter_Email_To_Newsletter_Field(invalidEmail);
+        homePageSteps.click_Subscribe_Btn();
+        homePageSteps.check_Invalid_Email_Error_Msg();
+        webDriver.close();
     }
 }
 

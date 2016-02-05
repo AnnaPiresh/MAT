@@ -61,6 +61,9 @@ public class HomePage extends PageObject {
     @FindBy(css = ".error-msg>ul>li>span")
     WebElementFacade errorMsg;
 
+    @FindBy(xpath = ".//*[@id='advice-validate-email-newsletter']")
+    WebElementFacade invalidEmailErrorMsg;
+
 //----------------------------------------------------Methods for Homepage---------------------------------------------//
 
     public void openHomePage() {
@@ -143,6 +146,13 @@ public class HomePage extends PageObject {
         System.out.println(successSubscribeMsg.getText());
         Assert.assertThat(successSubscribeMsg.getText(), is("Thank you for your subscription."));}
 
-    public void checkSubscribeErrorMsg() {Assert.assertThat(errorMsg.getText(), is("There was a problem with the subscription: This email address is already assigned to another user."));}
+    public void checkSubscribeErrorMsg() {
+        Assert.assertThat(errorMsg.getText(), is("There was a problem with the subscription:" + " This email address is already assigned to another user."));}
+
+    public void checkInvalidEmailErrorMsg() {
+        /*WebElement footer = getDriver().findElement(By.xpath(".//*[@id='top']/body/div[1]/div[2]/div[3]/div/address"));
+        footer.click();*/
+        Assert.assertThat(invalidEmailErrorMsg.getText(), is("PLEASE ENTER A VALID EMAIL ADDRESS. FOR EXAMPLE JOHNDOE@DOMAIN.COM."));
+    }
 
 }
