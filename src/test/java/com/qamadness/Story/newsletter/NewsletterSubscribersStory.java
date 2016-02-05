@@ -131,7 +131,7 @@ public class NewsletterSubscribersStory {
     }
 
     @Issue("MAT-231")
-    //@Pending
+    @Pending
     @Test
     public void with_invalid_email() {
         loginPageSteps.openPage();
