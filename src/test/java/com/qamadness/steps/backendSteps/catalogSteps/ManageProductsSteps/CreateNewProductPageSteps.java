@@ -189,4 +189,25 @@ public class CreateNewProductPageSteps extends PageObject {
     @Step
     public void select_input_type_for_bundle_items(String inputType){
         createNewProductPage.selectInputTypeForBundleItems(inputType);}
+
+    @Step
+    public void select_clothing_tab(){createNewProductPage.selectClothingTab();}
+
+    @Step
+    public void select_product_colour(String productColour){createNewProductPage.selectProductColour(productColour);}
+
+    @Step
+    public void select_clothing_type(String clothingType){createNewProductPage.selectClothingType(clothingType);}
+
+    @Step
+    public void tick_configurable_attribute_checkbox() {createNewProductPage.tickConfigurableAttributeCheckbox();}
+
+    @Step
+    public void search_configurable_associated_products_bu_sku(String productSKU){
+        createNewProductPage.searchConfigurableAssociatedProductsBySku(productSKU); }
+
+    @Step
+    public void select_all_associated_products_configurable(){
+        createNewProductPage.selectAllAssociatedProductsConfigurable();
+    }
 }

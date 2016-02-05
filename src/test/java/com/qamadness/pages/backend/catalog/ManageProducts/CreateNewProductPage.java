@@ -354,6 +354,15 @@ public class CreateNewProductPage extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(configurableAttribute));
         configurableAttribute.click();}
 
+    @FindBy(xpath = ".//*[@class='attribute-checkbox']")
+    WebElementFacade configurableAttributeCheckbox;
+
+    public void tickConfigurableAttributeCheckbox(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(configurableAttributeCheckbox));
+        configurableAttributeCheckbox.click();
+    }
+
     //---------------------------------Associated Products Tab (Configurable)-----------------------------------------//
 
     @FindBy (xpath = ".//*[@id='product_info_tabs_configurable']/span")
@@ -379,6 +388,26 @@ public class CreateNewProductPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(secondConfigurableAssociatedProduct));
         secondConfigurableAssociatedProduct.click();}
+
+    @FindBy(xpath = ".//*[@id='super_product_links_filter_sku']")
+    WebElementFacade configurableSkuSearchfield;
+
+    public void searchConfigurableAssociatedProductsBySku(String productSKU){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(configurableSkuSearchfield));
+        configurableSkuSearchfield.sendKeys(productSKU);
+        configurableSkuSearchfield.sendKeys(Keys.ENTER);
+    }
+
+    @FindBy(xpath = ".//*[@id='super_product_links_table']/thead/tr[1]/th[1]/span/input")
+    WebElementFacade selectAllCheckboxConfigurable;
+
+    public void selectAllAssociatedProductsConfigurable(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        selectAllCheckboxConfigurable.click();
+        getDriver().manage().timeouts().setScriptTimeout(1, TimeUnit.SECONDS);
+    }
 
     //-----------------------------------Associated Products Tab (Grouped)--------------------------------------------//
 
@@ -483,6 +512,36 @@ public class CreateNewProductPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(fileURLField));
         fileURLField.sendKeys(url);}
+
+//----------------------------Clothing tab (optional for products with "Clothing" attribute set------------------------//
+
+    @FindBy(xpath = ".//*[@title='Clothing']")
+    WebElementFacade clothingTab;
+
+    @FindBy(xpath = ".//*[@id='color']")
+    WebElementFacade colourDropdown;
+
+    @FindBy(xpath = ".//*[@id='apparel_type']")
+    WebElementFacade typeDropdown;
+
+    public void selectClothingTab(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(clothingTab));
+        clothingTab.click();
+    }
+
+    public void selectProductColour(String productColour){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(colourDropdown));
+        Select dropdown = new Select(colourDropdown);
+        dropdown.selectByValue(productColour);
+    }
+
+    public void selectClothingType(String clothingType){
+        Select dropdown = new Select(typeDropdown);
+        dropdown.selectByValue(clothingType);
+    }
+
 
 }
 

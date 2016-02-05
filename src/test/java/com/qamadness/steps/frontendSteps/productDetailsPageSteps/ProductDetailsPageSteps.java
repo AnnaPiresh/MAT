@@ -24,4 +24,7 @@ public class ProductDetailsPageSteps extends ScenarioSteps {
     @Step
     public void click_add_to_cart_button_bundle(){productDetailsPage.clickAddToCartButtonBundle();}
 
+    @Step
+    public void select_configurable_option(String productColour){productDetailsPage.selectConfigurableOption(productColour);}
+
 }

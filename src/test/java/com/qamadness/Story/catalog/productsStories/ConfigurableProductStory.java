@@ -56,7 +56,7 @@ public class ConfigurableProductStory {
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
 
-    //@Pending
+
     @Pending
     @Test
     public void addingConfigurableProduct () {

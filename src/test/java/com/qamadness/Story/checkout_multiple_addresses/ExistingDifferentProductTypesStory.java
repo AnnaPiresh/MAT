@@ -8,6 +8,7 @@ import com.qamadness.steps.backendSteps.customersSteps.AddNewCustomerSteps;
 import com.qamadness.steps.backendSteps.customersSteps.CustomerInformationSteps;
 import com.qamadness.steps.backendSteps.customersSteps.ManageCustomersSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+import com.qamadness.steps.backendSteps.systemSteps.CacheManagementSteps;
 import com.qamadness.steps.frontendSteps.checkout.SuccessPageSteps;
 import com.qamadness.steps.frontendSteps.checkout.checkoutMultipleAddressesSteps.CheckoutMultipleAddressesSteps;
 import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
@@ -51,6 +52,7 @@ public class ExistingDifferentProductTypesStory {
     private String productTypeSimple;
     private String productTypeGrouped;
     private String productTypeBundle;
+    private String productTypeConfigurable;
     private String productDescription;
     private String productShortDescription;
     private String productSKU;
@@ -84,6 +86,10 @@ public class ExistingDifferentProductTypesStory {
     private String priceView;
     private String shipmentType;
     private String inputType;
+    private String setName;
+    private String productColour1;
+    private String productColour2;
+    private String flushCachesMessage;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -132,6 +138,9 @@ public class ExistingDifferentProductTypesStory {
 
     @Steps
     SuccessPageSteps successPageSteps;
+
+    @Steps
+    CacheManagementSteps cacheManagementSteps;
 
     /*Precondition:
     1. Login as admin user
@@ -232,13 +241,13 @@ public class ExistingDifferentProductTypesStory {
             createNewProductPageSteps.selectCategoriesTab();
             createNewProductPageSteps.selectFirstCategory();
             createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.selectWebsitesTab();
             createNewProductPageSteps.selectAssociatedProductsTabGrouped();
             createNewProductPageSteps.search_associated_products_by_sku(productSKU);
             createNewProductPageSteps.select_all_associated_products();
             createNewProductPageSteps.saveProduct();
             manageProductsPageSteps.check_success_message();
             //create a bundle product
-            mainMenuSteps.openManageProductsPage();
             manageProductsPageSteps.addProduct();
             createNewProductPageSteps.selectProductType(productTypeBundle);
             createNewProductPageSteps.continueButton();
@@ -276,7 +285,97 @@ public class ExistingDifferentProductTypesStory {
             createNewProductPageSteps.click_add_selected_products_to_option_button();
             createNewProductPageSteps.saveProduct();
             manageProductsPageSteps.check_success_message();
+            //create first simple product with "Clothing" attribute set
+            manageProductsPageSteps.addProduct();
+            createNewProductPageSteps.select_attribute_set_by_name(setName);
+            createNewProductPageSteps.selectProductType(productTypeSimple);
+            createNewProductPageSteps.continueButton();
+            createNewProductPageSteps.enterName(productName + 3);
+            createNewProductPageSteps.enterProductDescription(productDescription);
+            createNewProductPageSteps.enterShortDescription(productShortDescription);
+            createNewProductPageSteps.enterSKU(productSKU + 3);
+            createNewProductPageSteps.enterWeight(productWeight);
+            createNewProductPageSteps.selectStatus(productStatus);
+            createNewProductPageSteps.selectVisibility(productVisibility);
+            createNewProductPageSteps.selectPricesTab();
+            createNewProductPageSteps.enterProductPrice(productPrice);
+            createNewProductPageSteps.selectTaxClass(taxClass);
+            createNewProductPageSteps.select_clothing_tab();
+            createNewProductPageSteps.select_product_colour(productColour1);
+            createNewProductPageSteps.select_clothing_type("33");
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.untick_use_config_settings_checkbox();
+            createNewProductPageSteps.change_manage_stock_settings(stockEnabled);
+            createNewProductPageSteps.selectWebsitesTab();
+            createNewProductPageSteps.selectMainWebsite();
+            createNewProductPageSteps.selectCategoriesTab();
+            createNewProductPageSteps.selectFirstCategory();
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.saveProduct();
+            manageProductsPageSteps.check_success_message();
+            //create second simple product with "Clothing" attribute set
+            manageProductsPageSteps.addProduct();
+            createNewProductPageSteps.select_attribute_set_by_name(setName);
+            createNewProductPageSteps.selectProductType(productTypeSimple);
+            createNewProductPageSteps.continueButton();
+            createNewProductPageSteps.enterName(productName + 4);
+            createNewProductPageSteps.enterProductDescription(productDescription);
+            createNewProductPageSteps.enterShortDescription(productShortDescription);
+            createNewProductPageSteps.enterSKU(productSKU + 4);
+            createNewProductPageSteps.enterWeight(productWeight);
+            createNewProductPageSteps.selectStatus(productStatus);
+            createNewProductPageSteps.selectVisibility(productVisibility);
+            createNewProductPageSteps.selectPricesTab();
+            createNewProductPageSteps.enterProductPrice(productPrice);
+            createNewProductPageSteps.selectTaxClass(taxClass);
+            createNewProductPageSteps.select_clothing_tab();
+            createNewProductPageSteps.select_product_colour(productColour2);
+            createNewProductPageSteps.select_clothing_type("33");
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.untick_use_config_settings_checkbox();
+            createNewProductPageSteps.change_manage_stock_settings(stockEnabled);
+            createNewProductPageSteps.selectWebsitesTab();
+            createNewProductPageSteps.selectMainWebsite();
+            createNewProductPageSteps.selectCategoriesTab();
+            createNewProductPageSteps.selectFirstCategory();
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.saveProduct();
+            manageProductsPageSteps.check_success_message();
+            //create a configurable product based on two products with "Clothing" attribute set
+            manageProductsPageSteps.addProduct();
+            createNewProductPageSteps.select_attribute_set_by_name(setName);
+            createNewProductPageSteps.selectProductType(productTypeConfigurable);
+            createNewProductPageSteps.continueButton();
+            createNewProductPageSteps.tick_configurable_attribute_checkbox();
+            createNewProductPageSteps.continueButton();
+            createNewProductPageSteps.enterName(productName + " configurable");
+            createNewProductPageSteps.enterProductDescription(productDescription);
+            createNewProductPageSteps.enterShortDescription(productShortDescription);
+            createNewProductPageSteps.enterSKU(productSKU + "-configurable");
+            createNewProductPageSteps.selectStatus(productStatus);
+            createNewProductPageSteps.selectVisibility(productVisibility);
+            createNewProductPageSteps.selectPricesTab();
+            createNewProductPageSteps.enterProductPrice(productPrice);
+            createNewProductPageSteps.selectTaxClass(taxClass);
+            createNewProductPageSteps.select_clothing_tab();
+            createNewProductPageSteps.select_clothing_type("33");
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.untick_use_config_settings_checkbox();
+            createNewProductPageSteps.change_manage_stock_settings(stockEnabled);
+            createNewProductPageSteps.selectWebsitesTab();
+            createNewProductPageSteps.selectMainWebsite();
+            createNewProductPageSteps.selectCategoriesTab();
+            createNewProductPageSteps.selectFirstCategory();
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.selectAssociatedProductsConfigurableTab();
+            createNewProductPageSteps.search_configurable_associated_products_bu_sku(productSKU);
+            createNewProductPageSteps.select_all_associated_products_configurable();
+            createNewProductPageSteps.saveProduct();
+            manageProductsPageSteps.check_success_message();
         } else {}
+        mainMenuSteps.open_Cache_Management_Page();
+        cacheManagementSteps.click_flush_cache_btn();
+        cacheManagementSteps.check_success_message(flushCachesMessage);
         homePageSteps.open_Home_Page();
         homePageSteps.open_account_menu_in_header();
         homePageSteps.navigate_to_login_page();
@@ -415,6 +514,67 @@ public class ExistingDifferentProductTypesStory {
         homePageSteps.logout_from_website();
     }
 
+    @Issue("MAT-103")
+    @Pending
+    @Test
+    public void multiple_addresses_checkout_with_configurable_products(){
+        String productMessageConfigurable = String.format("%s was added to your shopping cart.", productName + " configurable");
+        //search for test products and add them to cart
+        homePageSteps.open_Home_Page();
+        homePageSteps.search_for_product(searchterm);
+        searchResultsSteps.select_product_from_search_results(productName + " configurable");
+        productDetailsPageSteps.select_configurable_option(productColour1);
+        productDetailsPageSteps.click_add_to_cart_button_bundle();
+        shoppingCartSteps.check_product_is_added_to_cart(productMessageConfigurable);
+        //increase product qty to 2
+        shoppingCartSteps.change_products_qty("2");
+        //proceed to checkout
+        shoppingCartSteps.proceed_to_multiple_addresses_checkout();
+        //login
+        frontendLoginSteps.enter_customer_email(email);
+        frontendLoginSteps.enter_customer_password(userPassword);
+        frontendLoginSteps.click_login_button();
+        //add default address
+        if (checkoutMultipleAddressesSteps.check_if_user_has_a_default_shipping_address() == false) {
+            checkoutMultipleAddressesSteps.enter_telephone(telephone1);
+            checkoutMultipleAddressesSteps.enter_street_address(streetAddress1);
+            checkoutMultipleAddressesSteps.enter_city(city1);
+            checkoutMultipleAddressesSteps.select_state(state1);
+            checkoutMultipleAddressesSteps.enter_zip_code(zipcode1);
+            checkoutMultipleAddressesSteps.select_country(country1);
+            checkoutMultipleAddressesSteps.click_save_address_button();
+        } else {
+            System.out.println("User already has a saved default address");
+        }
+        //add additional address
+        checkoutMultipleAddressesSteps.click_enter_new_address_button();
+        checkoutMultipleAddressesSteps.enter_telephone(telephone2);
+        checkoutMultipleAddressesSteps.enter_street_address(streetAddress2);
+        checkoutMultipleAddressesSteps.enter_city(city2);
+        checkoutMultipleAddressesSteps.select_state(state2);
+        checkoutMultipleAddressesSteps.enter_zip_code(zipcode2);
+        checkoutMultipleAddressesSteps.select_country(country2);
+        checkoutMultipleAddressesSteps.click_save_address_button();
+        //select different addresses for products
+        String fullCustomerAddressConfigurable = firstName + " " + lastName + ", " + streetAddress2 + ", " + city2 + ", " + state2 + " " + zipcode2 + ", " + country2;
+        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName + " configurable", fullCustomerAddressConfigurable);
+        checkoutMultipleAddressesSteps.click_continue_to_shipping_information_button();
+        //select different shipping methods for products
+        checkoutMultipleAddressesSteps.select_shipping_methods(3, 9);
+        checkoutMultipleAddressesSteps.click_continue_to_billing_information_button();
+        //select a payment method for orders
+        checkoutMultipleAddressesSteps.select_payment_method();
+        checkoutMultipleAddressesSteps.click_continue_to_review_your_order_button();
+        //place an order from review step
+        checkoutMultipleAddressesSteps.click_place_order_button();
+        //verify that two orders are created
+        successPageSteps.check_order_is_placed_successfully();
+        successPageSteps.check_the_qty_of_orders(2);
+        homePageSteps.open_Home_Page();
+        homePageSteps.open_account_menu_in_header();
+        homePageSteps.logout_from_website();
+    }
+
     /*Actions after completing the tests in story:
     1. Navigate to admin panel
     2. Delete a created user
@@ -423,7 +583,7 @@ public class ExistingDifferentProductTypesStory {
 
     @After
     public void test_data_deletion() throws AWTException {
-        if (i == 2) {
+        if (i == 3) {
             loginPageSteps.openPage();
             System.out.println("Time to delete test data");
             mainMenuSteps.open_Manage_Customers_Page();

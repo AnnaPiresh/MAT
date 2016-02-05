@@ -63,5 +63,11 @@ public class ProductDetailsPage extends PageObject {
         addToCartBtnBundle.click();
     }
 
+//-----------------------------------Methods for Configurable Products Details page------------------------------------//
+
+    public void selectConfigurableOption(String productColour){
+        String xpath = String.format(".//*[@id='swatch%s']", productColour);
+        getDriver().findElement(By.xpath(xpath)).click();
+    }
 
 }
