@@ -150,7 +150,7 @@ public class HomePage extends PageObject {
         Assert.assertThat(successSubscribeMsg.getText(), is("Thank you for your subscription."));}
 
     public void checkSubscribeErrorMsg() {
-        Assert.assertThat(errorMsg.getText(), is("There was a problem with the subscription:" + " This email address is already assigned to another user."));}
+        Assert.assertTrue(errorMsg.getText().contains("There was a problem with the subscription:"));}
 
     public void checkInvalidEmailErrorMsg() {
         /*WebElement footer = getDriver().findElement(By.xpath(".//*[@id='top']/body/div[1]/div[2]/div[3]/div/address"));
