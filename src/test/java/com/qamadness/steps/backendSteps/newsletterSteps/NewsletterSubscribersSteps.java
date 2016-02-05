@@ -30,4 +30,10 @@ public class NewsletterSubscribersSteps extends ScenarioSteps {
     public void check_That_User_Was_Deleted() {
         newsletterSubscribers.checkThatUserWasDeleted();
     }
+
+    @Step
+    public void unsubscribe_Subscriber() {newsletterSubscribers.unsubscribeSubscriber();}
+
+    @Step
+    public void check_That_User_Unsubscribe() {newsletterSubscribers.checkThatUserUnsubscribe();}
 }
