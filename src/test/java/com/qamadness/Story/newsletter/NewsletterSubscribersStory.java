@@ -207,6 +207,29 @@ public class NewsletterSubscribersStory {
         customerInformationSteps.click_Delete_Customer_Button();
         logoutFromAdminSteps.logout_from_admin();
     }
+
+    @Issue("MAT-235")
+    @Pending
+    @Test
+    public void delete_subscriber() {
+        loginPageSteps.openPage();
+        loginPageSteps.loginInput(login);
+        loginPageSteps.passInput(password);
+        loginPageSteps.loginButton();
+        homePageSteps.open_Home_Page();
+        homePageSteps.enter_Email_To_Newsletter_Field(email);
+        homePageSteps.click_Subscribe_Btn();
+        homePageSteps.check_Success_Subscribe_Msg();
+        loginPageSteps.navigate_to_dashboard();
+        mainMenuSteps.open_Newsletter_Subscribers();
+        webDriver.navigate().refresh();
+        newsletterSubscribersSteps.search_User_By_Email(email);
+        newsletterSubscribersSteps.select_Subscriber();
+        newsletterSubscribersSteps.delete_Subscriber();
+        newsletterSubscribersSteps.search_User_By_Email(email);
+        newsletterSubscribersSteps.check_That_User_Was_Deleted();
+        logoutFromAdminSteps.logout_from_admin();
+    }
 }
 
 
