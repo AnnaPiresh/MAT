@@ -19,16 +19,26 @@ public class ProductDetailsPage extends PageObject {
 
 //---------------------------------------Objects for Simple Product Details page---------------------------------------//
 
-    @FindBy(xpath = ".//*[@id='product_addtocart_form']/div[4]/div[2]/div/div/button")
+    @FindBy(xpath = ".//*[@id='product_addtocart_form']/div[4]/div/div/div[2]/button")
     WebElementFacade addToCartButton;
 
-//----------------------------------------Objects for Bundle Details page----------------------------------------------//
+//--------------------------------------Objects for Grouped Product Details page---------------------------------------//
+
+    @FindBy(xpath = ".//*[@id='product_addtocart_form']/div[4]/div[2]/div/div/button")
+    WebElementFacade addToCartGrouped;
+
+//--------------------------------------Objects for Bundle Product Details page----------------------------------------//
 
     @FindBy(xpath = ".//*[@type='radio']")
     WebElementFacade bundleRadioButtons;
 
     @FindBy(xpath = ".//*[@id='product_addtocart_form']/div[7]/div[2]/div[2]/button")
-    WebElementFacade addToCartBtnBundle;
+    WebElementFacade addToCartBundle;
+
+//------------------------------------Objects for Downloadable Product Details page------------------------------------//
+
+    @FindBy(xpath = ".//*[@id='downloadable-links-list']/li/span/label")
+    WebElementFacade downloadableLink;
 
 //---------------------------------------Methods for Simple Product Details page---------------------------------------//
 
@@ -51,6 +61,10 @@ public class ProductDetailsPage extends PageObject {
         qty().get(1).sendKeys(secondProductQty);
     }
 
+    public void clickAddToCartButtonGrouped(){
+        addToCartGrouped.click();
+    }
+
 //--------------------------------------Methods for Bundle Product Details page---------------------------------------//
 
     public void selectBundleItem(){
@@ -60,7 +74,7 @@ public class ProductDetailsPage extends PageObject {
     }
 
     public void clickAddToCartButtonBundle(){
-        addToCartBtnBundle.click();
+        addToCartBundle.click();
     }
 
 //-----------------------------------Methods for Configurable Products Details page------------------------------------//
@@ -68,6 +82,14 @@ public class ProductDetailsPage extends PageObject {
     public void selectConfigurableOption(String productColour){
         String xpath = String.format(".//*[@id='swatch%s']", productColour);
         getDriver().findElement(By.xpath(xpath)).click();
+    }
+
+//------------------------------------Methods for Downloadable Product Details page------------------------------------//
+
+    public void selectDownloadableLink(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(downloadableLink));
+        downloadableLink.click();
     }
 
 }
