@@ -57,4 +57,7 @@ public class HomePageSteps extends ScenarioSteps {
 
     @Step
     public void check_Invalid_Email_Error_Msg() {homePage.checkInvalidEmailErrorMsg();}
+
+    @Step
+    public void check_Empty_Email_Fld_Error_Msg() {homePage.checkEmptyEmailFldErrorMsg();}
 }
