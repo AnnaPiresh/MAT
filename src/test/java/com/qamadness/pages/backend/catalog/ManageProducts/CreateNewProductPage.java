@@ -542,6 +542,81 @@ public class CreateNewProductPage extends PageObject {
         dropdown.selectByValue(clothingType);
     }
 
+//-------------------------------------------------Custom Options tab--------------------------------------------------//
+
+    @FindBy(css = "#product_info_tabs_customer_options>span")
+    WebElementFacade customOptionsTab;
+
+    public void openCustomOptionsTab(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(customOptionsTab));
+        customOptionsTab.click();
+    }
+
+    @FindBy(css = "#add_new_defined_option")
+    WebElementFacade addNewOptionBtn;
+
+    public void clickAddNewOptionButton(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(addNewOptionBtn));
+        addNewOptionBtn.click();
+    }
+
+    @FindBy(css = "#product_option_1_title")
+    WebElementFacade titleField;
+
+    public void enterCustomOptionTitle(String optionTitle){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(titleField));
+        titleField.sendKeys(optionTitle);
+    }
+
+    @FindBy(css = "#product_option_1_type")
+    WebElementFacade optionInputTypeDropdown;
+
+    public void selectCustomOptionTypeDropdown(String optionValue){
+        Select dropdown = new Select(optionInputTypeDropdown);
+        dropdown.selectByValue(optionValue);
+    }
+
+    @FindBy(css = "#add_select_row_button_1")
+    WebElementFacade addNewRowBtn;
+
+    public void clickAddNewRowBtn(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(addNewRowBtn));
+        addNewRowBtn.click();
+    }
+
+    @FindBy(css = "#product_option_1_select_0_title")
+    WebElementFacade firstOptionTitle;
+
+    public void enterFirstOptionTitle(String firstOptTitle){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(firstOptionTitle));
+        firstOptionTitle.sendKeys(firstOptTitle);
+    }
+
+    @FindBy(css = "#product_option_1_select_1_title")
+    WebElementFacade secondOptionTile;
+
+    public void enterSecondOptionTitle(String secondOptTitle){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(secondOptionTile));
+        secondOptionTile.sendKeys(secondOptTitle);
+    }
+
+    @FindBy(css = "#product_option_1_select_0_price")
+    WebElementFacade firstOptionPriceField;
+
+    public void enterFirstOptionPrice(String firstOptPrice){firstOptionPriceField.sendKeys(firstOptPrice);}
+
+    @FindBy(css = "#product_option_1_select_1_price")
+    WebElementFacade secondOptionPriceField;
+
+    public void enterSecondOptionPrice(String secondOptPrice){secondOptionPriceField.sendKeys(secondOptPrice);}
+
+
 
 }
 

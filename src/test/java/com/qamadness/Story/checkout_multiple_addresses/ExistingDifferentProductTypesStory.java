@@ -94,6 +94,12 @@ public class ExistingDifferentProductTypesStory {
     private String downloadableLinkName;
     private String sampleURL;
     private String fileURL;
+    private String optionTitle;
+    private String optionValue;
+    private String firstOptTitle;
+    private String secondOptTitle;
+    private String firstOptPrice;
+    private String secondOptPrice;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -408,6 +414,42 @@ public class ExistingDifferentProductTypesStory {
             createNewProductPageSteps.enterFileURL(fileURL);
             createNewProductPageSteps.saveProduct();
             manageProductsPageSteps.check_success_message();
+            //create a simple product with custom options
+            mainMenuSteps.openManageProductsPage();
+            manageProductsPageSteps.addProduct();
+            createNewProductPageSteps.selectProductType(productTypeSimple);
+            createNewProductPageSteps.continueButton();
+            createNewProductPageSteps.enterName(productName + 5);
+            createNewProductPageSteps.enterProductDescription(productDescription);
+            createNewProductPageSteps.enterShortDescription(productShortDescription);
+            createNewProductPageSteps.enterSKU(productSKU + 5);
+            createNewProductPageSteps.enterWeight(productWeight);
+            createNewProductPageSteps.selectStatus(productStatus);
+            createNewProductPageSteps.selectVisibility(productVisibility);
+            createNewProductPageSteps.selectPricesTab();
+            createNewProductPageSteps.enterProductPrice(productPrice);
+            createNewProductPageSteps.selectTaxClass(taxClass);
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.untick_use_config_settings_checkbox();
+            createNewProductPageSteps.change_manage_stock_settings(stockEnabled);
+            createNewProductPageSteps.selectWebsitesTab();
+            createNewProductPageSteps.selectMainWebsite();
+            createNewProductPageSteps.selectCategoriesTab();
+            createNewProductPageSteps.selectFirstCategory();
+            createNewProductPageSteps.select_inventory_tab();
+            createNewProductPageSteps.selectWebsitesTab();
+            createNewProductPageSteps.open_custom_options_tab();
+            createNewProductPageSteps.click_add_new_option_button();
+            createNewProductPageSteps.enter_custom_option_title(optionTitle);
+            createNewProductPageSteps.select_custom_option_type_dropdown(optionValue);
+            createNewProductPageSteps.click_add_new_row_button();
+            createNewProductPageSteps.click_add_new_row_button();
+            createNewProductPageSteps.enter_first_option_title(firstOptTitle);
+            createNewProductPageSteps.enter_second_option_title(secondOptTitle);
+            createNewProductPageSteps.enter_first_option_price(firstOptPrice);
+            createNewProductPageSteps.enter_second_option_price(secondOptPrice);
+            createNewProductPageSteps.saveProduct();
+            manageProductsPageSteps.check_success_message();
             mainMenuSteps.open_Cache_Management_Page();
             cacheManagementSteps.click_flush_cache_btn();
             cacheManagementSteps.check_success_message(flushCachesMessage);
@@ -668,6 +710,68 @@ public class ExistingDifferentProductTypesStory {
         homePageSteps.logout_from_website();
     }
 
+    @Issue("MAT")
+    @Pending
+    @Test
+    public void multiple_addresses_checkout_with_products_with_custom_options(){
+        String productMessage5 = String.format("%s was added to your shopping cart.", productName + 5);
+        String customOption = secondOptTitle+" +$"+secondOptPrice;
+        //search for test product and add it to cart
+        homePageSteps.open_Home_Page();
+        homePageSteps.search_for_product(searchterm);
+        searchResultsSteps.select_product_from_search_results(productName + 5);
+        productDetailsPageSteps.select_custom_option_for_product(customOption);
+        productDetailsPageSteps.click_add_to_cart_button_bundle();
+        shoppingCartSteps.check_product_is_added_to_cart(productMessage5);
+        //increase product qty to 2
+        shoppingCartSteps.change_products_qty("2");
+        //proceed to checkout
+        shoppingCartSteps.proceed_to_multiple_addresses_checkout();
+        //login
+        frontendLoginSteps.enter_customer_email(email);
+        frontendLoginSteps.enter_customer_password(userPassword);
+        frontendLoginSteps.click_login_button();
+        //add default address
+        if (checkoutMultipleAddressesSteps.check_if_user_has_a_default_shipping_address() == false) {
+            checkoutMultipleAddressesSteps.enter_telephone(telephone1);
+            checkoutMultipleAddressesSteps.enter_street_address(streetAddress1);
+            checkoutMultipleAddressesSteps.enter_city(city1);
+            checkoutMultipleAddressesSteps.select_state(state1);
+            checkoutMultipleAddressesSteps.enter_zip_code(zipcode1);
+            checkoutMultipleAddressesSteps.select_country(country1);
+            checkoutMultipleAddressesSteps.click_save_address_button();
+        } else {
+            System.out.println("User already has a saved default address");
+        }
+        //add additional address
+        checkoutMultipleAddressesSteps.click_enter_new_address_button();
+        checkoutMultipleAddressesSteps.enter_telephone(telephone2);
+        checkoutMultipleAddressesSteps.enter_street_address(streetAddress2);
+        checkoutMultipleAddressesSteps.enter_city(city2);
+        checkoutMultipleAddressesSteps.select_state(state2);
+        checkoutMultipleAddressesSteps.enter_zip_code(zipcode2);
+        checkoutMultipleAddressesSteps.select_country(country2);
+        checkoutMultipleAddressesSteps.click_save_address_button();
+        //select different addresses for products
+        String fullCustomerAddress5 = firstName + " " + lastName + ", " + streetAddress2 + ", " + city2 + ", " + state2 + " " + zipcode2 + ", " + country2;
+        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName +5, fullCustomerAddress5);
+        checkoutMultipleAddressesSteps.click_continue_to_shipping_information_button();
+        //select different shipping methods for products
+        checkoutMultipleAddressesSteps.select_shipping_methods(3, 9);
+        checkoutMultipleAddressesSteps.click_continue_to_billing_information_button();
+        //select a payment method for orders
+        checkoutMultipleAddressesSteps.select_payment_method();
+        checkoutMultipleAddressesSteps.click_continue_to_review_your_order_button();
+        //place an order from review step
+        checkoutMultipleAddressesSteps.click_place_order_button();
+        //verify that two orders are created
+        successPageSteps.check_order_is_placed_successfully();
+        successPageSteps.check_the_qty_of_orders(2);
+        homePageSteps.open_Home_Page();
+        homePageSteps.open_account_menu_in_header();
+        homePageSteps.logout_from_website();
+    }
+
     /*Actions after completing the tests in story:
     1. Navigate to admin panel
     2. Delete a created user
@@ -676,7 +780,7 @@ public class ExistingDifferentProductTypesStory {
 
     @After
     public void test_data_deletion() throws AWTException {
-        if (i == 4) {
+        if (i == 5) {
             loginPageSteps.openPage();
             System.out.println("Time to delete test data");
             mainMenuSteps.open_Manage_Customers_Page();

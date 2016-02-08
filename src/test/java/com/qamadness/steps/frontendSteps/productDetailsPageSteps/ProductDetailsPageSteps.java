@@ -34,4 +34,9 @@ public class ProductDetailsPageSteps extends ScenarioSteps {
     @Step
     public void click_add_to_cart_button_grouped() {productDetailsPage.clickAddToCartButtonGrouped();}
 
+    @Step
+    public void select_custom_option_for_product(String customOption){
+        productDetailsPage.selectCustomOptionForProduct(customOption);
+    }
+
 }
