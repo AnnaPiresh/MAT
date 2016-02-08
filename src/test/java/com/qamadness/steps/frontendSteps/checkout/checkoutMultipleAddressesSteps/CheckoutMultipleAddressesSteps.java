@@ -104,5 +104,13 @@ public class CheckoutMultipleAddressesSteps extends ScenarioSteps {
     @Step
     public void check_required_field_message(){checkoutMultipleAddressesPage.checkRequiredFieldMessage();}
 
+    @Step
+    public void click_change_address_link() {checkoutMultipleAddressesPage.clickChangeAddressLink();}
+
+    @Step
+    public void click_add_new_billing_address_button() {checkoutMultipleAddressesPage.clickAddNewBillingAddressButton();}
+
+    @Step
+    public void check_required_dropdown_message(){checkoutMultipleAddressesPage.checkRequiredDropdownMessage();}
 
 }
