@@ -122,7 +122,7 @@ public class LoggedIn_InputDataValidationStory {
     /*Precondition:
     1. Login as admin user
     2. Register a new customer
-    3. Create two imple products
+    3. Create two simple products
     4. Navigate to front end
     5. Log in as a registered user
     6. Clear shopping cart
