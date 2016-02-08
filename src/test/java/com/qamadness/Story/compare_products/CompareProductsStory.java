@@ -4,9 +4,6 @@ import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageProductsPageSteps;
-import com.qamadness.steps.backendSteps.customersSteps.AddNewCustomerSteps;
-import com.qamadness.steps.backendSteps.customersSteps.CustomerInformationSteps;
-import com.qamadness.steps.backendSteps.customersSteps.ManageCustomersSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.frontendSteps.advancedSearchPageSteps.AdvancedSearchPageSteps;
 import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
@@ -25,9 +22,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
-
 import java.awt.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Vladislav.E on 08.02.2016.
@@ -70,12 +65,6 @@ public class CompareProductsStory {
 
     @Steps
     MainMenuSteps mainMenuSteps;
-
-    @Steps
-    ManageCustomersSteps manageCustomersSteps;
-
-    @Steps
-    CustomerInformationSteps customerInformationSteps;
 
     @Steps
     CreateNewProductPageSteps createNewProductPageSteps;
@@ -131,7 +120,7 @@ public class CompareProductsStory {
     }
 
     @Issue("MAT-201")
-    //@Pending
+    @Pending
     @Test
     public void Adds_a_product_to_Compare_from_Product_Details_page() {
         homePageSteps.open_Home_Page();

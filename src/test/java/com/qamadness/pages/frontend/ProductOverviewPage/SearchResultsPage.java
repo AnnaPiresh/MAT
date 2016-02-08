@@ -26,7 +26,8 @@ public class SearchResultsPage extends PageObject {
     public void selectProductFromSearchResults(String productName){
         WebDriverWait wait = new WebDriverWait(getDriver(),60);
         wait.until(ExpectedConditions.visibilityOf(sortByDropdown));
-        String xpath = String.format(".//*[contains(text(), '%s')]", productName);
+        String xpath = String.format(".//h2[@class='product-name']/a[@title='%s']", productName);
+        //.//*[contains(text(), '%s')]
         getDriver().findElement(By.xpath(xpath)).click();
     }
 
