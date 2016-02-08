@@ -65,7 +65,10 @@ public class HomePage extends PageObject {
     WebElementFacade invalidEmailErrorMsg;
 
     @FindBy(xpath = ".//*[@id='advice-required-entry-newsletter']")
-    WebElement emptyEmailFldMsg;
+    WebElementFacade emptyEmailFldMsg;
+
+    @FindBy(xpath = ".//a[@title='Advanced Search']")
+    WebElementFacade advancedSearchFooterLink;
 
 //----------------------------------------------------Methods for Homepage---------------------------------------------//
 
@@ -161,5 +164,7 @@ public class HomePage extends PageObject {
     public void checkEmptyEmailFldErrorMsg() {
         Assert.assertThat(emptyEmailFldMsg.getText(), is("THIS IS A REQUIRED FIELD."));
     }
+
+    public void clickFooterAdvancedSearchLink() {advancedSearchFooterLink.click();}
 
 }

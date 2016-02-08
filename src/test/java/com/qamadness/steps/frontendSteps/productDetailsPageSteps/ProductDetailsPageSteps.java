@@ -34,4 +34,11 @@ public class ProductDetailsPageSteps extends ScenarioSteps {
     @Step
     public void click_add_to_cart_button_grouped() {productDetailsPage.clickAddToCartButtonGrouped();}
 
+    @Step
+    public void click_add_to_compare_btn() {productDetailsPage.clickAddToCompareBtn();}
+
+    @Step
+    public void check_Success_Compare_Msg(String productName) {productDetailsPage.checkSuccessCompareMsg(productName);}
+
+
 }
