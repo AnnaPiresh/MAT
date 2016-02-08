@@ -17,6 +17,7 @@ import com.qamadness.steps.frontendSteps.shoppingCartSteps.ShoppingCartSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.After;
@@ -215,6 +216,7 @@ public class LoggedIn_InputDataValidationStory {
     }
 
     @Issue("MAT-106")
+    @Pending
     @Test
     public void multiple_addresses_checkout_with_empty_required_fields_in_shipping_address(){
         String productMessage1 = String.format("%s was added to your shopping cart.", productName + 1);
