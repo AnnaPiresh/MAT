@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.validation.constraints.AssertFalse;
 import java.util.List;
 
 /**
@@ -63,6 +64,9 @@ public class CheckoutMultipleAddressesPage extends PageObject{
 
     @FindBy(xpath = ".//*[@id='checkout-progress-state']")
     WebElementFacade checkoutProgressState;
+
+    @FindBy(css = "div[id^='advice-required-']")
+    WebElementFacade requiredFieldMessage;
 
 //---------------------------------------Objects for Select Addresses step--------------------------------------------//
 
@@ -135,6 +139,15 @@ public class CheckoutMultipleAddressesPage extends PageObject{
         } else{
            System.out.println("User has a saved shipping address");
             return true;
+        }
+    }
+
+    public void checkRequiredFieldMessage(){
+        if (zipCodeField.getText().isEmpty()){
+            Assert.assertTrue(requiredFieldMessage.isDisplayed());
+            System.out.println("Message that required field is not filled in is displayed");
+        }else{
+            System.out.println("Oh, no! Product can be saved");
         }
     }
 

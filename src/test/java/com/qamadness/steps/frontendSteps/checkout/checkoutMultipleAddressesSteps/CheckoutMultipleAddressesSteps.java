@@ -101,4 +101,8 @@ public class CheckoutMultipleAddressesSteps extends ScenarioSteps {
         checkoutMultipleAddressesPage.selectParticularShippingMethod(methodTitle, methodName);
     }
 
+    @Step
+    public void check_required_field_message(){checkoutMultipleAddressesPage.checkRequiredFieldMessage();}
+
+
 }
