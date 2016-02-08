@@ -255,10 +255,67 @@ public class LoggedIn_InputDataValidationStory {
         checkoutMultipleAddressesSteps.check_required_field_message();
     }
 
+    @Issue("MAT-107")
+    @Pending
+    @Test
+    public void multiple_addresses_checkout_with_empty_required_fields_in_billing_address(){
+        String productMessage1 = String.format("%s was added to your shopping cart.", productName + 1);
+        String productMessage2 = String.format("%s was added to your shopping cart.", productName + 2);
+        homePageSteps.search_for_product(searchterm);
+        searchResultsSteps.select_product_from_search_results(productName+1);
+        productDetailsPageSteps.click_add_to_cart_button();
+        shoppingCartSteps.check_product_is_added_to_cart(productMessage1);
+        homePageSteps.search_for_product(searchterm);
+        searchResultsSteps.select_product_from_search_results(productName+2);
+        productDetailsPageSteps.click_add_to_cart_button();
+        shoppingCartSteps.check_product_is_added_to_cart(productMessage2);
+        //proceed to checkout
+        shoppingCartSteps.proceed_to_multiple_addresses_checkout();
+        //check if user has a saved default address
+        if (checkoutMultipleAddressesSteps.check_if_user_has_a_default_shipping_address() == false) {
+            checkoutMultipleAddressesSteps.enter_telephone(telephone1);
+            checkoutMultipleAddressesSteps.enter_street_address(streetAddress1);
+            checkoutMultipleAddressesSteps.enter_city(city1);
+            checkoutMultipleAddressesSteps.select_state(state1);
+            checkoutMultipleAddressesSteps.enter_zip_code(zipcode1);
+            checkoutMultipleAddressesSteps.select_country(country1);
+            checkoutMultipleAddressesSteps.click_save_address_button();
+        } else {
+            System.out.println("User already has a saved default address");
+        }
+        //add additional address
+        checkoutMultipleAddressesSteps.click_enter_new_address_button();
+        checkoutMultipleAddressesSteps.enter_telephone(telephone2);
+        checkoutMultipleAddressesSteps.enter_street_address(streetAddress2);
+        checkoutMultipleAddressesSteps.enter_city(city2);
+        checkoutMultipleAddressesSteps.select_state(state2);
+        checkoutMultipleAddressesSteps.enter_zip_code(zipcode2);
+        checkoutMultipleAddressesSteps.select_country(country2);
+        checkoutMultipleAddressesSteps.click_save_address_button();
+        //select different addresses for products
+        String fullCustomerAddress2 = firstName + " " + lastName + ", " + streetAddress2 + ", " + city2 + ", " + state2 + " " + zipcode2 + ", " + country2;
+        checkoutMultipleAddressesSteps.select_an_address_from_dropdown(productName +2, fullCustomerAddress2);
+        checkoutMultipleAddressesSteps.click_continue_to_shipping_information_button();
+        //select different shipping methods for products
+        checkoutMultipleAddressesSteps.select_shipping_methods(3, 9);
+        checkoutMultipleAddressesSteps.click_continue_to_billing_information_button();
+        //add a new billing addresses for products
+        checkoutMultipleAddressesSteps.click_change_address_link();
+        checkoutMultipleAddressesSteps.click_add_new_billing_address_button();
+        checkoutMultipleAddressesSteps.enter_telephone(telephone2);
+        checkoutMultipleAddressesSteps.enter_street_address(streetAddress2);
+        checkoutMultipleAddressesSteps.enter_city(city2);
+        checkoutMultipleAddressesSteps.enter_zip_code(zipcode2);
+        checkoutMultipleAddressesSteps.select_country(country2);
+        checkoutMultipleAddressesSteps.click_save_address_button();
+        //verify that address can not be saved without a required field
+        checkoutMultipleAddressesSteps.check_required_dropdown_message();
+    }
+
 
     @After
     public void test_data_deletion() throws AWTException {
-        if (i == 1) {
+        if (i == 2) {
             loginPageSteps.openPage();
             System.out.println("Time to delete test data");
             mainMenuSteps.open_Manage_Customers_Page();
