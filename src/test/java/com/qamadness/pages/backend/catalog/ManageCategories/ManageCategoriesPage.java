@@ -52,8 +52,9 @@ public class ManageCategoriesPage extends PageObject {
 
     public void selectCategoryByName(String name) {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath(name)));
-        getDriver().findElement(By.xpath(name)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath("//*[text()[contains(.,'"+name+"')]]")));
+        getDriver().findElement(By.xpath("//*[text()[contains(.,'"+name+"')]]")).click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
     }
 
     public void checkSuccessMessage () {
@@ -82,6 +83,7 @@ public class ManageCategoriesPage extends PageObject {
 
     @FindBy(xpath = "//button[span='Delete Category']")
     WebElementFacade deleteCategoryButton;
+
     public void deleteCategory () {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(deleteCategoryButton));
@@ -163,8 +165,7 @@ public class ManageCategoriesPage extends PageObject {
     WebElementFacade activitySelectionDropdown;
 
     public void selectCategoryActivity (String value){
-        Select dropdown = new Select(activitySelectionDropdown);
-        dropdown.selectByValue(value);
+        activitySelectionDropdown.selectByVisibleText(value);
     }
 
     @FindBy (xpath = ".//*[@id='group_4include_in_menu']")
