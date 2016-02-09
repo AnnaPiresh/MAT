@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -47,6 +48,11 @@ public class ProductDetailsPage extends PageObject {
 
     @FindBy(xpath = ".//*[@id='downloadable-links-list']/li/span/label")
     WebElementFacade downloadableLink;
+
+//----------------------------------------Objects for Product with Custom Options-------------------------------------//
+
+    @FindBy(css = "select[name^='options']")
+    WebElementFacade customOptionsDropdown;
 
 //---------------------------------------Methods for Simple Product Details page---------------------------------------//
 
@@ -111,6 +117,15 @@ public class ProductDetailsPage extends PageObject {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(downloadableLink));
         downloadableLink.click();
+    }
+
+//-----------------------------------Methods for Products with Custom Options------------------------------------------//
+
+    public void selectCustomOptionForProduct(String customOption){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(customOptionsDropdown));
+        Select dropdown = new Select(customOptionsDropdown);
+        dropdown.selectByVisibleText(customOption);
     }
 
 }

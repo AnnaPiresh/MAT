@@ -17,197 +17,355 @@ public class CreateNewProductPageSteps extends PageObject {
     CreateNewProductPage createNewProductPage;
 
     @Step
-    public void selectAttributeSet (String value) { createNewProductPage.selectAttributeSet(value);}
+    public void selectAttributeSet(String value) {
+        createNewProductPage.selectAttributeSet(value);
+    }
 
     @Step
-    public void select_attribute_set_by_name(String setName) {createNewProductPage.selectAttributeSetByName(setName);}
+    public void select_attribute_set_by_name(String setName) {
+        createNewProductPage.selectAttributeSetByName(setName);
+    }
 
     @Step
-    public void selectProductType(String value) { createNewProductPage.selectProductType(value);}
+    public void selectProductType(String value) {
+        createNewProductPage.selectProductType(value);
+    }
 
     @Step
-    public void continueButton () { createNewProductPage.continueButton();}
+    public void continueButton() {
+        createNewProductPage.continueButton();
+    }
 
     @Step
-    public void enterName (String name) { createNewProductPage.enterName(name);}
+    public void enterName(String name) {
+        createNewProductPage.enterName(name);
+    }
 
     @Step
-    public void enterProductDescription (String descr) { createNewProductPage.enterProductDescription(descr);}
+    public void enterProductDescription(String descr) {
+        createNewProductPage.enterProductDescription(descr);
+    }
 
     @Step
-    public void enterShortDescription (String shortDescr) {createNewProductPage.enterShortDescription(shortDescr);}
+    public void enterShortDescription(String shortDescr) {
+        createNewProductPage.enterShortDescription(shortDescr);
+    }
 
     @Step
-    public void selectProductSKUType (String value) { createNewProductPage.selectProductSKUType(value);}
+    public void selectProductSKUType(String value) {
+        createNewProductPage.selectProductSKUType(value);
+    }
 
     @Step
-    public void enterSKU (String SKU) { createNewProductPage.enterSKU(SKU);}
+    public void enterSKU(String SKU) {
+        createNewProductPage.enterSKU(SKU);
+    }
 
     @Step
-    public void selectProductWeightType (String value) { createNewProductPage.selectProductWeightType(value);}
+    public void selectProductWeightType(String value) {
+        createNewProductPage.selectProductWeightType(value);
+    }
 
     @Step
-    public void enterWeight (String weight) { createNewProductPage.enterWeight(weight);}
+    public void enterWeight(String weight) {
+        createNewProductPage.enterWeight(weight);
+    }
 
     @Step
-    public void selectStatus (String value) { createNewProductPage.selectStatus(value);}
+    public void selectStatus(String value) {
+        createNewProductPage.selectStatus(value);
+    }
 
     @Step
-    public void selectVisibility (String value) { createNewProductPage.selectVisibility(value);}
+    public void selectVisibility(String value) {
+        createNewProductPage.selectVisibility(value);
+    }
 
     @Step
-    public void selectPricesTab () { createNewProductPage.selectPricesTab();}
+    public void selectPricesTab() {
+        createNewProductPage.selectPricesTab();
+    }
 
     @Step
-    public void clearGlobalSearch () { createNewProductPage.clearGlobalSearch();}
+    public void clearGlobalSearch() {
+        createNewProductPage.clearGlobalSearch();
+    }
 
     @Step
-    public void selectPriceType (String value) { createNewProductPage.selectPriceType(value);}
+    public void selectPriceType(String value) {
+        createNewProductPage.selectPriceType(value);
+    }
 
     @Step
-    public void enterProductPrice (String price) { createNewProductPage.enterProductPrice(price);}
+    public void enterProductPrice(String price) {
+        createNewProductPage.enterProductPrice(price);
+    }
 
     @Step
-    public void selectTaxClass (String value) { createNewProductPage.selectTaxClass(value);}
+    public void selectTaxClass(String value) {
+        createNewProductPage.selectTaxClass(value);
+    }
 
     @Step
-    public void selectPriceView (String value) { createNewProductPage.selectPriceView(value);}
+    public void selectPriceView(String value) {
+        createNewProductPage.selectPriceView(value);
+    }
 
     @Step
-    public void selectWebsitesTab () { createNewProductPage.selectWebsitesTab();}
+    public void selectWebsitesTab() {
+        createNewProductPage.selectWebsitesTab();
+    }
 
     @Step
-    public void selectMainWebsite () { createNewProductPage.selectMainWebsite();}
+    public void selectMainWebsite() {
+        createNewProductPage.selectMainWebsite();
+    }
 
     @Step
-    public void moveToTop () { createNewProductPage.moveToTop();}
+    public void moveToTop() {
+        createNewProductPage.moveToTop();
+    }
 
     @Step
-    public void selectCategoriesTab () { createNewProductPage.selectCategoriesTab();}
+    public void selectCategoriesTab() {
+        createNewProductPage.selectCategoriesTab();
+    }
 
     @Step
-    public void selectFirstCategory () { createNewProductPage.selectFirstCategory();}
+    public void selectFirstCategory() {
+        createNewProductPage.selectFirstCategory();
+    }
 
     @Step
-    public void saveProduct () { createNewProductPage.saveProduct();}
+    public void saveProduct() {
+        createNewProductPage.saveProduct();
+    }
 
     @Step
-    public void selectBundleTab () { createNewProductPage.selectBundleTab();}
+    public void selectBundleTab() {
+        createNewProductPage.selectBundleTab();
+    }
 
     @Step
-    public void selectShipmentType (String value) { createNewProductPage.selectShipmentType(value);}
+    public void selectShipmentType(String value) {
+        createNewProductPage.selectShipmentType(value);
+    }
 
     @Step
-    public void addNewOption () { createNewProductPage.addNewOption();}
+    public void addNewOption() {
+        createNewProductPage.addNewOption();
+    }
 
     @Step
-    public void enterDeafultTitle(String title) { createNewProductPage.enterDeafultTitle(title);}
+    public void enterDeafultTitle(String title) {
+        createNewProductPage.enterDeafultTitle(title);
+    }
 
     @Step
-    public void addSelection () { createNewProductPage.addSelection();}
+    public void addSelection() {
+        createNewProductPage.addSelection();
+    }
 
     @Step
-    public void resetFilter () { createNewProductPage.resetFilter();}
+    public void resetFilter() {
+        createNewProductPage.resetFilter();
+    }
 
     @Step
-    public void selectProductTwo () { createNewProductPage.selectProductTwo();}
+    public void selectProductTwo() {
+        createNewProductPage.selectProductTwo();
+    }
 
     @Step
-    public void selectProductThree () { createNewProductPage.selectProductThree();}
+    public void selectProductThree() {
+        createNewProductPage.selectProductThree();
+    }
 
     @Step
-    public void selectConfigurableAttribute () { createNewProductPage.selectConfigurableAttribute();}
+    public void selectConfigurableAttribute() {
+        createNewProductPage.selectConfigurableAttribute();
+    }
 
     @Step
-    public void selectAssociatedProductsConfigurableTab() { createNewProductPage.selectAssociatedProductsConfigurableTab();}
+    public void selectAssociatedProductsConfigurableTab() {
+        createNewProductPage.selectAssociatedProductsConfigurableTab();
+    }
 
     @Step
-    public void checkFirstConfigurableAssociatedProduct() { createNewProductPage.checkFirstConfigurableAssociatedProduct();}
+    public void checkFirstConfigurableAssociatedProduct() {
+        createNewProductPage.checkFirstConfigurableAssociatedProduct();
+    }
 
     @Step
-    public void checkSecondConfigurableAssociatedProduct() { createNewProductPage.checkSecondConfigurableAssociatedProduct();}
+    public void checkSecondConfigurableAssociatedProduct() {
+        createNewProductPage.checkSecondConfigurableAssociatedProduct();
+    }
 
     @Step
-    public void selectAssociatedProductsTabGrouped () { createNewProductPage.selectAssociatedProductsTabGrouped();}
+    public void selectAssociatedProductsTabGrouped() {
+        createNewProductPage.selectAssociatedProductsTabGrouped();
+    }
 
     @Step
-    public void checkFirstGroupAssociatedProduct () { createNewProductPage.checkFirstGroupAssociatedProduct();}
+    public void checkFirstGroupAssociatedProduct() {
+        createNewProductPage.checkFirstGroupAssociatedProduct();
+    }
 
     @Step
-    public void checkSecondGroupAssociatedProduct () { createNewProductPage.checkSecondGroupAssociatedProduct();}
+    public void checkSecondGroupAssociatedProduct() {
+        createNewProductPage.checkSecondGroupAssociatedProduct();
+    }
 
     @Step
-    public void selectDownloadableInformationTab () { createNewProductPage.selectDownloadableInformationTab();}
+    public void selectDownloadableInformationTab() {
+        createNewProductPage.selectDownloadableInformationTab();
+    }
 
     @Step
-    public void addNewRow () { createNewProductPage.addNewRow();}
+    public void addNewRow() {
+        createNewProductPage.addNewRow();
+    }
 
     @Step
-    public void enterDownloadableLinkName (String name) { createNewProductPage.enterDownloadableLinkName(name);}
+    public void enterDownloadableLinkName(String name) {
+        createNewProductPage.enterDownloadableLinkName(name);
+    }
 
     @Step
-    public void sampleSelectURL () { createNewProductPage.sampleSelectURL();}
+    public void sampleSelectURL() {
+        createNewProductPage.sampleSelectURL();
+    }
 
     @Step
-    public void enterSampleURL (String url) { createNewProductPage.enterSampleURL(url);}
+    public void enterSampleURL(String url) {
+        createNewProductPage.enterSampleURL(url);
+    }
 
     @Step
-    public void fileSelectURL () { createNewProductPage.fileSelectURL();}
+    public void fileSelectURL() {
+        createNewProductPage.fileSelectURL();
+    }
 
     @Step
-    public void enterFileURL (String url) { createNewProductPage.enterFileURL(url);}
+    public void enterFileURL(String url) {
+        createNewProductPage.enterFileURL(url);
+    }
 
     @Step
-    public void click_save_and_edit_button(){createNewProductPage.clickSaveAndEditButton();}
+    public void click_save_and_edit_button() {
+        createNewProductPage.clickSaveAndEditButton();
+    }
 
     @Step
-    public void select_inventory_tab() {createNewProductPage.selectInventoryTab();}
+    public void select_inventory_tab() {
+        createNewProductPage.selectInventoryTab();
+    }
 
     @Step
-    public void select_stock_availability(String stockStatus) {createNewProductPage.selectStockAvailability(stockStatus);}
+    public void select_stock_availability(String stockStatus) {
+        createNewProductPage.selectStockAvailability(stockStatus);
+    }
 
     @Step
-    public void search_associated_products_by_sku(String productSKU){
-        createNewProductPage.searchAssociatedProductsBySku(productSKU);}
+    public void search_associated_products_by_sku(String productSKU) {
+        createNewProductPage.searchAssociatedProductsBySku(productSKU);
+    }
 
     @Step
-    public void select_all_associated_products(){createNewProductPage.selectAllAssociatedProducts();}
+    public void select_all_associated_products() {
+        createNewProductPage.selectAllAssociatedProducts();
+    }
 
     @Step
-    public void untick_use_config_settings_checkbox(){createNewProductPage.untickUseConfigSettingsCheckbox();}
+    public void untick_use_config_settings_checkbox() {
+        createNewProductPage.untickUseConfigSettingsCheckbox();
+    }
 
     @Step
     public void change_manage_stock_settings(String stockEnabled) {
-        createNewProductPage.changeManageStockSettings(stockEnabled);}
+        createNewProductPage.changeManageStockSettings(stockEnabled);
+    }
 
     @Step
-    public void search_bundle_items_by_sku(String productSKU) {createNewProductPage.searchBudndleItemsBySku(productSKU);}
+    public void search_bundle_items_by_sku(String productSKU) {
+        createNewProductPage.searchBudndleItemsBySku(productSKU);
+    }
 
     @Step
-    public void click_add_selected_products_to_option_button(){createNewProductPage.clickAddSelectedProductsToOptionBtn();}
+    public void click_add_selected_products_to_option_button() {
+        createNewProductPage.clickAddSelectedProductsToOptionBtn();
+    }
 
     @Step
-    public void select_input_type_for_bundle_items(String inputType){
-        createNewProductPage.selectInputTypeForBundleItems(inputType);}
+    public void select_input_type_for_bundle_items(String inputType) {
+        createNewProductPage.selectInputTypeForBundleItems(inputType);
+    }
 
     @Step
-    public void select_clothing_tab(){createNewProductPage.selectClothingTab();}
+    public void select_clothing_tab() {
+        createNewProductPage.selectClothingTab();
+    }
 
     @Step
-    public void select_product_colour(String productColour){createNewProductPage.selectProductColour(productColour);}
+    public void select_product_colour(String productColour) {
+        createNewProductPage.selectProductColour(productColour);
+    }
 
     @Step
-    public void select_clothing_type(String clothingType){createNewProductPage.selectClothingType(clothingType);}
+    public void select_clothing_type(String clothingType) {
+        createNewProductPage.selectClothingType(clothingType);
+    }
 
     @Step
-    public void tick_configurable_attribute_checkbox() {createNewProductPage.tickConfigurableAttributeCheckbox();}
+    public void tick_configurable_attribute_checkbox() {
+        createNewProductPage.tickConfigurableAttributeCheckbox();
+    }
 
     @Step
-    public void search_configurable_associated_products_bu_sku(String productSKU){
-        createNewProductPage.searchConfigurableAssociatedProductsBySku(productSKU); }
+    public void search_configurable_associated_products_bu_sku(String productSKU) {
+        createNewProductPage.searchConfigurableAssociatedProductsBySku(productSKU);
+    }
 
     @Step
-    public void select_all_associated_products_configurable(){
+    public void select_all_associated_products_configurable() {
         createNewProductPage.selectAllAssociatedProductsConfigurable();
     }
+
+    @Step
+    public void open_custom_options_tab(){createNewProductPage.openCustomOptionsTab();}
+
+    @Step
+    public void click_add_new_option_button(){createNewProductPage.clickAddNewOptionButton();}
+
+    @Step
+    public void enter_custom_option_title(String optionTitle) {createNewProductPage.enterCustomOptionTitle(optionTitle);}
+
+    @Step
+    public void select_custom_option_type_dropdown(String optionValue) {
+        createNewProductPage.selectCustomOptionTypeDropdown(optionValue);
+    }
+
+    @Step
+    public void click_add_new_row_button() {createNewProductPage.clickAddNewRowBtn();}
+
+    @Step
+    public void enter_first_option_title(String firstOptTitle) {
+        createNewProductPage.enterFirstOptionTitle(firstOptTitle);
+    }
+
+    @Step
+    public void enter_second_option_title(String secondOptTitle){
+        createNewProductPage.enterSecondOptionTitle(secondOptTitle);
+    }
+
+    @Step
+    public void enter_first_option_price(String firstOptPrice){
+        createNewProductPage.enterFirstOptionPrice(firstOptPrice);
+    }
+
+    @Step
+    public void enter_second_option_price(String secondOptPrice){
+        createNewProductPage.enterSecondOptionPrice(secondOptPrice);
+    }
+
 }

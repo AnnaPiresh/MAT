@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.validation.constraints.AssertFalse;
 import java.util.List;
 
 /**
@@ -64,6 +65,9 @@ public class CheckoutMultipleAddressesPage extends PageObject{
     @FindBy(xpath = ".//*[@id='checkout-progress-state']")
     WebElementFacade checkoutProgressState;
 
+    @FindBy(css = "div[id^='advice-required-']")
+    WebElementFacade requiredFieldMessage;
+
 //---------------------------------------Objects for Select Addresses step--------------------------------------------//
 
     @FindBy(xpath = ".//button[@title='Enter a New Address']")
@@ -84,6 +88,15 @@ public class CheckoutMultipleAddressesPage extends PageObject{
 
     @FindBy(xpath = ".//button[@id='payment-continue']")
     WebElementFacade continueToReviewStepButton;
+
+    @FindBy(xpath = ".//*[text()='Change']")
+    WebElementFacade changeLink;
+
+    @FindBy(xpath = ".//*[@title='Add New Address']")
+    WebElementFacade addNewAddressBtn;
+
+    @FindBy(css = "div[id^='advice-validate-']")
+    WebElementFacade requiredDropdownMessage;
 
 //--------------------------------------------Objects for Review step--------------------------------------------------//
 
@@ -138,6 +151,24 @@ public class CheckoutMultipleAddressesPage extends PageObject{
         }
     }
 
+    public void checkRequiredFieldMessage(){
+        if (zipCodeField.getText().isEmpty()){
+            Assert.assertTrue(requiredFieldMessage.isDisplayed());
+            System.out.println("Message that required field is not filled in is displayed");
+        }else{
+            System.out.println("Oh, no! Address can be saved");
+        }
+    }
+
+    public void checkRequiredDropdownMessage(){
+        if (stateRegionDropdown.getValue().equals(" ")){
+            Assert.assertTrue(requiredDropdownMessage.isDisplayed());
+            System.out.println("Message that required dropdown value is not selected is displayed");
+        }else{
+            System.out.println("Oh, no! Address can be saved");
+        }
+    }
+
 //---------------------------------------Methods for Select Addresses step--------------------------------------------//
 
     public void clickEnterNewAddressButton(){
@@ -188,6 +219,18 @@ public class CheckoutMultipleAddressesPage extends PageObject{
     public void selectPaymentMethod(){checkMoneyOrderMethodRadioButton.click();}
 
     public void clickContinueToReviewYourOrderButton(){continueToReviewStepButton.click();}
+
+    public void clickChangeAddressLink(){
+        WebDriverWait wait = new WebDriverWait(getDriver(),60);
+        wait.until(ExpectedConditions.elementToBeClickable(changeLink));
+        changeLink.click();
+    }
+
+    public void clickAddNewBillingAddressButton(){
+        WebDriverWait wait = new WebDriverWait(getDriver(),60);
+        wait.until(ExpectedConditions.elementToBeClickable(addNewAddressBtn));
+        addNewAddressBtn.click();
+    }
 
 //------------------------------------------Methods for Review step----------------------------------------------------//
 
