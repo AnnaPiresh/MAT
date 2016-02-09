@@ -56,4 +56,26 @@ public class CreateNewPollSteps extends ScenarioSteps {
     public void click_Delete_Poll_Button (){
         createNewPollPage.clickDeletePollButton();
     }
+
+    //Verifications:
+
+    @Step
+    public void verify_That_Poll_Question_Required_Field_Message_Is_Displayed (){
+        createNewPollPage.verifyThatPollQuestionRequiredFieldMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Answer_Title_Is_Required_Field_Message_Is_Displayed (){
+        createNewPollPage.verifyThatAnswerTitleIsRequiredFieldMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Votes_Count_Is_Required_Field_Message_Is_Displayed (){
+        createNewPollPage.verifyThatVotesCountIsRequiredFieldMessageIsDisplayed();
+    }
+
+    @Step
+    public void verify_That_Add_Some_Answers_Error_Message_Is_Displayed (){
+        createNewPollPage.verifyThatAddSomeAnswersErrorMessageIsDisplayed();
+    }
 }

@@ -1,7 +1,9 @@
 package com.qamadness.pages.backend.cms.polls;
 
+import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -55,6 +57,20 @@ public class CreateNewPollPage extends PageObject {
     @FindBy (xpath = "//button[span='Delete Poll']")
     WebElementFacade deletePollButton;
 
+    //Messages:
+
+    @FindBy (xpath = ".//*[@id='advice-required-entry-poll_title' and contains(text(), 'This is a required field.')]")
+    WebElementFacade pollQuestionRequiredFieldMessage;
+
+    @FindBy (xpath = ".//*[@id='advice-required-entry-answer_-1' and contains(text(),'This is a required field.')]")
+    WebElementFacade answerTitleIsRequiredFieldMessage;
+
+    @FindBy (xpath = ".//*[@id='advice-required-entry-answer_votes_-1' and contains(text(),'This is a required field.')]")
+    WebElementFacade votesCountIsRequiredFieldMessage;
+
+    @FindBy (xpath = "//li[normalize-space(@class)='error-msg' and contains(.,'Please, add some answers to this poll first.')]")
+    WebElementFacade addAnswersMessage;
+
     //Methods for Poll Information tab:
 
     public void enterPollQuestion (String question){
@@ -95,6 +111,28 @@ public class CreateNewPollPage extends PageObject {
     public void clickDeletePollButton (){
         deletePollButton.click();
         getDriver().switchTo().alert().accept();
+    }
+
+    //Verifications:
+
+    public void verifyThatPollQuestionRequiredFieldMessageIsDisplayed (){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(pollQuestionRequiredFieldMessage));
+        Assert.assertTrue(pollQuestionRequiredFieldMessage.isDisplayed());
+    }
+
+    public void verifyThatAnswerTitleIsRequiredFieldMessageIsDisplayed (){
+        Assert.assertTrue(answerTitleIsRequiredFieldMessage.isDisplayed());
+    }
+
+    public void verifyThatVotesCountIsRequiredFieldMessageIsDisplayed (){
+        Assert.assertTrue(votesCountIsRequiredFieldMessage.isDisplayed());
+    }
+
+    public void verifyThatAddSomeAnswersErrorMessageIsDisplayed (){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(addAnswersMessage));
+        Assert.assertTrue(addAnswersMessage.isDisplayed());
     }
 
 
