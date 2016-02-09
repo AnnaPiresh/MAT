@@ -73,4 +73,9 @@ public class CreateNewPollSteps extends ScenarioSteps {
     public void verify_That_Votes_Count_Is_Required_Field_Message_Is_Displayed (){
         createNewPollPage.verifyThatVotesCountIsRequiredFieldMessageIsDisplayed();
     }
+
+    @Step
+    public void verify_That_Add_Some_Answers_Error_Message_Is_Displayed (){
+        createNewPollPage.verifyThatAddSomeAnswersErrorMessageIsDisplayed();
+    }
 }

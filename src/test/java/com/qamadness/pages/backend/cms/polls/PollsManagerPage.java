@@ -85,9 +85,6 @@ public class PollsManagerPage extends PageObject {
     @FindBy (xpath = "//li[normalize-space(@class)='error-msg' and contains(.,'Your answers contain duplicates.')]")
     WebElementFacade duplicatePollAnswerMessage;
 
-    @FindBy (xpath = "//li[normalize-space(@class)='error-msg' and contains(.,'Please, add some answers to this poll first.')]")
-    WebElementFacade addAnswersMessage;
-
     //Click general buttons methods:
 
     public void clickAddNewPollButton (){

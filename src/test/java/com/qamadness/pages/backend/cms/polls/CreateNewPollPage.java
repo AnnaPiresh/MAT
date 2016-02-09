@@ -68,6 +68,9 @@ public class CreateNewPollPage extends PageObject {
     @FindBy (xpath = ".//*[@id='advice-required-entry-answer_votes_-1' and contains(text(),'This is a required field.')]")
     WebElementFacade votesCountIsRequiredFieldMessage;
 
+    @FindBy (xpath = "//li[normalize-space(@class)='error-msg' and contains(.,'Please, add some answers to this poll first.')]")
+    WebElementFacade addAnswersMessage;
+
     //Methods for Poll Information tab:
 
     public void enterPollQuestion (String question){
@@ -124,6 +127,12 @@ public class CreateNewPollPage extends PageObject {
 
     public void verifyThatVotesCountIsRequiredFieldMessageIsDisplayed (){
         Assert.assertTrue(votesCountIsRequiredFieldMessage.isDisplayed());
+    }
+
+    public void verifyThatAddSomeAnswersErrorMessageIsDisplayed (){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(addAnswersMessage));
+        Assert.assertTrue(addAnswersMessage.isDisplayed());
     }
 
 
