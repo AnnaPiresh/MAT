@@ -1,24 +1,22 @@
 package com.qamadness.Story.sales;
 
-import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
+
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.backendSteps.salesSteps.ManageOrdersSteps;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
-import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by Serhii_Boiko on 14.01.2016.
@@ -31,13 +29,14 @@ public class ManageOrdersStory {
 
     private String login;
     private String password;
-
     private String status;
     private String action;
     private String orderID;
-    private String ordersPage;
+    private String ordersPage1;
+    private String ordersPage2;
     private String value;
     private String cancelOrderMessage;
+    private String pageValue;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -92,8 +91,9 @@ public class ManageOrdersStory {
     @Pending
     @Test
     public void can_user_navigate_to_a_particular_page_of_orders(){
-        manageOrdersSteps.enter_orders_page(ordersPage);
-        manageOrdersSteps.check_the_page_is_correct(ordersPage);
+        manageOrdersSteps.enter_orders_page(ordersPage1);
+        manageOrdersSteps.check_the_page_is_correct(ordersPage1);
+        manageOrdersSteps.enter_orders_page(ordersPage2);
     }
 
     @Issue("MAT-15")
@@ -111,6 +111,7 @@ public class ManageOrdersStory {
     public void can_user_sort_orders_by_id(){
         manageOrdersSteps.change_sort_order_by_id();
         manageOrdersSteps.check_that_sorting_changed();
+        manageOrdersSteps.reset_filter();
     }
 
     @Issue("MAT-19")
