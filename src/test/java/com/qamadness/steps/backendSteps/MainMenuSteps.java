@@ -51,6 +51,11 @@ public class MainMenuSteps extends ScenarioSteps {
         mainMenu.openCMSPagesPage();
     }
 
+    @Step
+    public void open_Cms_Polls_Page (){
+        mainMenu.openCmsPollsPage();
+    }
+
     //-----------------------------------------Steps for system menu----------------------------------//
 
     @Step
@@ -73,5 +78,10 @@ public class MainMenuSteps extends ScenarioSteps {
     @Step
     public void open_Manage_Roles_Page (){
         mainMenu.openManageRolesPage();
+    }
+
+    @Step
+    public void open_Configuration_Page (){
+        mainMenu.openConfigurationPage();
     }
 }

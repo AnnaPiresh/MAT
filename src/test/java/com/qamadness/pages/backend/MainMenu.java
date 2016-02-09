@@ -70,6 +70,9 @@ public class MainMenu extends PageObject {
     @FindBy (xpath = ".//a[contains(.,'Pages')]")
     WebElementFacade pagesMenuItem;
 
+    @FindBy (xpath = "//ul[@id='nav']//a[contains(@href, 'poll')]")
+    WebElementFacade pollsMenuItem;
+
 //------------------------------------------------------Objects for System menu---------------------------------------//
 
     @FindBy(xpath = ".//*[@id='nav']/li[9]/a/span")
@@ -89,6 +92,9 @@ public class MainMenu extends PageObject {
 
     @FindBy (xpath = "//ul[@id='nav']//a[contains(@href, 'permissions_role')]")
     WebElementFacade rolesMenuItem;
+
+    @FindBy (xpath = "//ul[@id='nav']//a[contains(@href, 'system_config')]")
+    WebElementFacade configurationMenuItem;
 
 //-----------------------------------------------------Methods for Sales menu-----------------------------------------//
 
@@ -145,7 +151,6 @@ public class MainMenu extends PageObject {
 
     public void openManageCategoriesPage () {
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-        wait.until(ExpectedConditions.elementToBeClickable(catalogMenu));
         catalogMenu.click();
         wait.until(ExpectedConditions.elementToBeClickable(manageCategoriesMenu));
         manageCategoriesMenu.click();
@@ -176,6 +181,13 @@ public class MainMenu extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(pagesMenuItem));
         pagesMenuItem.click();
     }
+
+    public void openCmsPollsPage (){
+        cmsMenu.click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(pollsMenuItem));
+        pollsMenuItem.click();
+    }
 //------------------------------------------------------Methods for System menu------------------------------------//
 
     public void openCacheManagementPage(){
@@ -202,6 +214,11 @@ public class MainMenu extends PageObject {
         systemMenu.click();
         permissionsMenu.click();
         rolesMenuItem.click();
+    }
+
+    public void openConfigurationPage (){
+        systemMenu.click();
+        configurationMenuItem.click();
     }
 
 
