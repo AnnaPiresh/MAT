@@ -21,7 +21,7 @@ public class CreateAnOrderSteps extends ScenarioSteps {
     public void select_engish_storeview(){createAnOrder.selectStoreview();}
 
     @Step
-    public void add_products_to_cart(String productID){createAnOrder.addProductstoCart(productID);}
+    public void add_products_to_cart(String productSKU){createAnOrder.addProductstoCart(productSKU);}
 
     @Step
     public void select_payment_shipment(){createAnOrder.selectPaymentShipment();}

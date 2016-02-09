@@ -1,6 +1,6 @@
 package com.qamadness.pages.backend.sales;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
@@ -42,9 +42,9 @@ public class CreateAnOrder extends PageObject {
     WebElementFacade addProductsBtn;
     //Add product to Cart button at new order's page
 
-    @FindBy(xpath = ".//*[@id='sales_order_create_search_grid_filter_entity_id']")
+    @FindBy(xpath = ".//*[@id='sales_order_create_search_grid_filter_sku']")
     WebElementFacade productSearchFld;
-    //field for search for a product by id at list with products
+    //field for search for a product by SKU at list with products
 
     @FindBy(xpath = ".//input[@class='checkbox']")
     WebElementFacade productCheckbox;

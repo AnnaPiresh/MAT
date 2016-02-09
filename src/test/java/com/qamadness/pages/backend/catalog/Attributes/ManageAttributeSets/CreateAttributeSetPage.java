@@ -1,20 +1,14 @@
 package com.qamadness.pages.backend.catalog.Attributes.ManageAttributeSets;
 
-import com.thoughtworks.selenium.webdriven.commands.DragAndDrop;
-import net.serenitybdd.core.annotations.findby.*;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
-import org.omg.CORBA.PUBLIC_MEMBER;
-import org.openqa.selenium.*;
-import org.openqa.selenium.By;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.security.Credentials;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import javax.swing.*;
 
 /**
  * Created by kampa on 15.01.2016.

@@ -76,4 +76,40 @@ public class AddNewCustomerSteps extends ScenarioSteps {
     public void click_Save_Customer_Button (){
         addNewCustomerPage.clickSaveCustomerButton();
     }
+
+    @Step
+    public void switch_to_addresses_tab() {addNewCustomerPage.switchToAddressesTab();}
+
+    @Step
+    public void click_add_new_address_button() {addNewCustomerPage.clickAddNewAddressButton();}
+
+    @Step
+    public void select_billing_address_as_default() {addNewCustomerPage.selectBillingAddressAsDefault();}
+
+    @Step
+    public void select_shipping_address_as_default() {addNewCustomerPage.selectShippingAddressAsDefault();}
+
+    @Step
+    public void enter_firstname_address(String firstName) {addNewCustomerPage.enterFirstNameAddress(firstName);}
+
+    @Step
+    public void enter_lastname_address(String lastName) {addNewCustomerPage.enterLastNameAddress(lastName);}
+
+    @Step
+    public void enter_street_address(String street) {addNewCustomerPage.enterStreetAddress(street);}
+
+    @Step
+    public void enter_city_address(String city) {addNewCustomerPage.enterCityAddress(city);}
+
+    @Step
+    public void select_country(String country) {addNewCustomerPage.selectCountry(country);}
+
+    @Step
+    public void select_state (String region) {addNewCustomerPage.selectState(region);}
+
+    @Step
+    public void enter_zipcode(String zipcode) {addNewCustomerPage.enterZipcode(zipcode);}
+
+    @Step
+    public void enter_telephone(String telephone) {addNewCustomerPage.enterTelephone(telephone);}
 }
