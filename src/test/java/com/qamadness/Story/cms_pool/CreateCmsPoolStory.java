@@ -163,4 +163,21 @@ public class CreateCmsPoolStory {
         createNewPollSteps.verify_That_Votes_Count_Is_Required_Field_Message_Is_Displayed();
     }
 
+    // Test case "Create CMS poll without answers"
+
+    @Issue("MAT-185")
+    @Pending @Test
+    public void createCmsPollWithoutAnswers (){
+        //Create new CMS poll without answers:
+        mainMenuSteps.open_Cms_Polls_Page();
+        pollsManagerSteps.click_Add_New_Poll_Button();
+        createNewPollSteps.enter_Poll_Question(pollQuestion);
+        createNewPollSteps.select_Poll_Status("Open");
+        createNewPollSteps.select_Visible_In();
+        createNewPollSteps.click_Save_Poll_Button();
+        /*Verifications:
+        * 1) Check that error message is displayed*/
+        createNewPollSteps.verify_That_Add_Some_Answers_Error_Message_Is_Displayed();
+    }
+
 }
