@@ -40,5 +40,10 @@ public class ProductDetailsPageSteps extends ScenarioSteps {
     @Step
     public void check_Success_Compare_Msg(String productName) {productDetailsPage.checkSuccessCompareMsg(productName);}
 
+    @Step
+    public void select_custom_option_for_product(String customOption){
+        productDetailsPage.selectCustomOptionForProduct(customOption);
+    }
+
 
 }
