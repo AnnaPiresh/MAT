@@ -60,4 +60,7 @@ public class HomePageSteps extends ScenarioSteps {
 
     @Step
     public void check_Empty_Email_Fld_Error_Msg() {homePage.checkEmptyEmailFldErrorMsg();}
+
+    @Step
+    public void click_Footer_Advanced_Search_Link() {homePage.clickFooterAdvancedSearchLink();}
 }

@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import static org.hamcrest.Matchers.is;
+
 /**
  * Created by Serhii_Boiko on 28.01.2016.
  */
@@ -22,6 +24,12 @@ public class ProductDetailsPage extends PageObject {
 
     @FindBy(xpath = ".//*[@id='product_addtocart_form']/div[4]/div/div/div[2]/button")
     WebElementFacade addToCartButton;
+
+    @FindBy(xpath = ".//*[@class='link-compare']")
+    WebElementFacade compareBtn;
+
+    @FindBy(xpath = ".//li[@class='success-msg']/ul/li")
+    WebElementFacade successCompareMsg;
 
 //--------------------------------------Objects for Grouped Product Details page---------------------------------------//
 
@@ -53,6 +61,19 @@ public class ProductDetailsPage extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButton));
         addToCartButton.click();
     }
+
+    public void clickAddToCompareBtn() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(compareBtn));
+        compareBtn.click();
+    }
+
+    public void checkSuccessCompareMsg(String productName) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(successCompareMsg));
+        Assert.assertThat(successCompareMsg.getText(), is("The product "+productName+" has been added to comparison list."));
+    }
+
 
 //--------------------------------------Methods for Grouped Product Details page---------------------------------------//
 

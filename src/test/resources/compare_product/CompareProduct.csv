@@ -1,0 +1,2 @@
+login,password,productTypeSimple,productName,productDescription,productShortDescription,productSKU,productWeight,productStatus,productVisibility,productPrice,taxClass,stockEnabled,action
+admin,3HSYOFf,simple,COMPARE PRODUCT,Robot auto product description,Robot auto product short description,Compare-product,12,1,4,263,0,0,delete
