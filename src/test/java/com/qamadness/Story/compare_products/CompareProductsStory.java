@@ -164,7 +164,7 @@ public class CompareProductsStory {
     }
 
     @Issue("MAT-202")
-    //@Pending
+    @Pending
     @Test
     public void Adds_a_products_to_Compare_from_Category_page() {
 
