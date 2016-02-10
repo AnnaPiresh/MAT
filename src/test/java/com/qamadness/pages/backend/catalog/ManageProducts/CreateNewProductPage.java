@@ -241,6 +241,14 @@ public class CreateNewProductPage extends PageObject {
 
     public void selectCategoriesTab() { categoriesTab.click();}
 
+    @FindBy(xpath = ".//*[contains(text(), 'Compare Category')]")
+    WebElementFacade newCategory;
+
+    public void selectCreatedCategory() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.elementToBeClickable(newCategory));
+        newCategory.click();}
+
     //@FindBy(css = "#ext-gen23")
     @FindBy(xpath = ".//*[contains(text(), 'Women')]")
     WebElementFacade firstCategory;

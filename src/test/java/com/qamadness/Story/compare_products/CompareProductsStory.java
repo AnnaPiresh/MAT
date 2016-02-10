@@ -2,10 +2,12 @@ package com.qamadness.Story.compare_products;
 
 import com.qamadness.steps.backendSteps.LoginPageSteps;
 import com.qamadness.steps.backendSteps.MainMenuSteps;
+import com.qamadness.steps.backendSteps.catalogSteps.ManageCategoriesSteps.ManageCategoriesPageSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.CreateNewProductPageSteps;
 import com.qamadness.steps.backendSteps.catalogSteps.ManageProductsSteps.ManageProductsPageSteps;
 import com.qamadness.steps.backendSteps.dashboardSteps.DashboardSteps;
 import com.qamadness.steps.frontendSteps.advancedSearchPageSteps.AdvancedSearchPageSteps;
+import com.qamadness.steps.frontendSteps.categoryPageSteps.CategoryPageSteps;
 import com.qamadness.steps.frontendSteps.homePageSteps.HomePageSteps;
 import com.qamadness.steps.frontendSteps.productDetailsPageSteps.ProductDetailsPageSteps;
 import com.qamadness.steps.frontendSteps.productOverviewPageSteps.SearchResultsSteps;
@@ -52,6 +54,12 @@ public class CompareProductsStory {
     private String taxClass;
     private String stockEnabled;
     private String action;
+    private String categoryName;
+    private String activity;
+    private String including;
+    private String parentCategoryLocator;
+    private String name;
+    private String createdCategoryLocator;
 
 
     @Managed(uniqueSession = true)
@@ -84,6 +92,13 @@ public class CompareProductsStory {
     @Steps
     AdvancedSearchPageSteps advancedSearchPageSteps;
 
+    @Steps
+    CategoryPageSteps categoryPageSteps;
+
+    @Steps
+    ManageCategoriesPageSteps manageCategoriesPageSteps;
+
+
     @Before
     public void openPage() {
         loginPageSteps.openPage();
@@ -91,6 +106,20 @@ public class CompareProductsStory {
         loginPageSteps.passInput(password);
         loginPageSteps.loginButton();
         dashboardSteps.closePopup();
+        //create category
+
+        mainMenuSteps.openManageCategoriesPage();
+        webdriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(parentCategoryLocator);
+        manageCategoriesPageSteps.addNewSubCategory();
+        manageCategoriesPageSteps.selectGeneralTab();
+        manageCategoriesPageSteps.clearCategoryNameField();
+        manageCategoriesPageSteps.enterCategoryName(categoryName);
+        manageCategoriesPageSteps.selectCategoryActivity(activity);
+        manageCategoriesPageSteps.selectIncludingInNavigationMenu(including);
+        manageCategoriesPageSteps.saveCategory();
+        manageCategoriesPageSteps.checkSuccessMessage();
+
         //create first simple product
         loginPageSteps.navigate_to_dashboard();
         mainMenuSteps.openManageProductsPage();
@@ -113,31 +142,47 @@ public class CompareProductsStory {
         createNewProductPageSteps.selectWebsitesTab();
         createNewProductPageSteps.selectMainWebsite();
         createNewProductPageSteps.selectCategoriesTab();
-        createNewProductPageSteps.selectFirstCategory();
+        createNewProductPageSteps.select_Created_Category();
         createNewProductPageSteps.saveProduct();
         manageProductsPageSteps.check_success_message();
-
     }
+
 
     @Issue("MAT-201")
     @Pending
     @Test
     public void Adds_a_product_to_Compare_from_Product_Details_page() {
+
         homePageSteps.open_Home_Page();
         homePageSteps.search_for_product(productName);
         searchResultsSteps.select_product_from_search_results(productName);
         productDetailsPageSteps.click_add_to_compare_btn();
         productDetailsPageSteps.check_Success_Compare_Msg(productName);
-        homePageSteps.open_Home_Page();
-        homePageSteps.click_Footer_Advanced_Search_Link();
         advancedSearchPageSteps.check_Compared_Product(productName);
         advancedSearchPageSteps.clear_compare_block();
+
+    }
+
+    @Issue("MAT-202")
+    @Pending
+    @Test
+    public void Adds_a_products_to_Compare_from_Category_page() {
+
+        homePageSteps.open_Home_Page();
+        homePageSteps.open_Created_Product_From_New_Category();
+        categoryPageSteps.add_Products_To_Compare();
+        advancedSearchPageSteps.check_Compared_Product(productName);
+        advancedSearchPageSteps.check_That_Product_In_Compare_Block();
     }
 
     @After
     public void delete_test_data() throws AWTException {
         loginPageSteps.openPage();
         System.out.println("Time to delete test data");
+        mainMenuSteps.openManageCategoriesPage();
+        webdriver.navigate().refresh();
+        manageCategoriesPageSteps.selectCategoryByName(createdCategoryLocator);
+        manageCategoriesPageSteps.deleteCategory();
         mainMenuSteps.openManageProductsPage();
         manageProductsPageSteps.searchBySku(productSKU);
         manageProductsPageSteps.searchButton();

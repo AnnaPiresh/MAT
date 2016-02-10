@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -166,5 +167,12 @@ public class HomePage extends PageObject {
     }
 
     public void clickFooterAdvancedSearchLink() {advancedSearchFooterLink.click();}
+
+    public void openCreatedProductFromNewCategory() {
+        Actions action = new Actions(getDriver());
+        WebElement newCategory = getDriver().findElement(By.xpath(".//*[contains(text(), 'Compare Category')]"));
+        newCategory.click();
+        //action.moveToElement(we).moveToElement(getDriver().findElement(By.xpath(".//*[@id='nav']/ol/li[1]/ul/li[2]/a"))).click().build().perform();
+    }
 
 }

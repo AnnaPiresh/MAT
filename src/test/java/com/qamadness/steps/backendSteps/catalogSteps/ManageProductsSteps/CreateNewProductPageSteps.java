@@ -137,6 +137,9 @@ public class CreateNewProductPageSteps extends PageObject {
     }
 
     @Step
+    public void select_Created_Category() {createNewProductPage.selectCreatedCategory();}
+
+    @Step
     public void saveProduct() {
         createNewProductPage.saveProduct();
     }
