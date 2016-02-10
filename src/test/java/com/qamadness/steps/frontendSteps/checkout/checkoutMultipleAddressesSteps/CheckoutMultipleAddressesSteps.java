@@ -113,4 +113,9 @@ public class CheckoutMultipleAddressesSteps extends ScenarioSteps {
     @Step
     public void check_required_dropdown_message(){checkoutMultipleAddressesPage.checkRequiredDropdownMessage();}
 
+    @Step
+    public void check_success_address_message(String successAddressMsg){
+        checkoutMultipleAddressesPage.checkSuccessAddressMessage(successAddressMsg);
+    }
+
 }

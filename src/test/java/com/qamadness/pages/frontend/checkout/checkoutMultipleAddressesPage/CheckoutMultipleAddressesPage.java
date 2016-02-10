@@ -81,6 +81,9 @@ public class CheckoutMultipleAddressesPage extends PageObject{
     @FindBy(xpath = ".//button[@title='Continue to Billing Information']")
     WebElementFacade continueToBillingInformationButton;
 
+    @FindBy(css = ".success-msg>ul>li")
+    WebElementFacade sucessMessage;
+
 //---------------------------------------Objects for Select Billing Method step----------------------------------------//
 
     @FindBy(xpath = ".//input[@id='p_method_checkmo']")
@@ -213,6 +216,12 @@ public class CheckoutMultipleAddressesPage extends PageObject{
     }
 
      public void clickContinueToBillingInformationButton(){ continueToBillingInformationButton.click();}
+
+    public void checkSuccessAddressMessage(String successAddressMsg){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(sucessMessage));
+        Assert.assertEquals(successAddressMsg, sucessMessage.getText());
+    }
 
 //----------------------------------Methods for Selecting Billing Method step------------------------------------------//
 

@@ -1,6 +1,6 @@
 package com.qamadness.pages.backend.sales;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
@@ -10,14 +10,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 
 /**
  * Created by Serhii_Boiko on 14.01.2016.
  */
-public class ManageOrders extends PageObject{
+public class ManageOrders extends PageObject {
 
 //-------------------------------------Objects for Canceling Order----------------------------------------------------//
 
@@ -120,7 +118,7 @@ public class ManageOrders extends PageObject{
     public void checkFilteredOrderNo(String orderId){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        assertEquals("Correct order is in grid", orderId, firstFilteredOrder.getText());
+        Assert.assertEquals("Correct order is in grid", orderId, firstFilteredOrder.getText());
     }
 
     public void resetFilter(){
@@ -141,7 +139,7 @@ public class ManageOrders extends PageObject{
     public void checkThePageIsCorrect(String ordersPage){
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
-        assertEquals("The page is correct", ordersPage, fieldWithPageNo.getValue());
+        Assert.assertEquals("The page is correct", ordersPage, fieldWithPageNo.getValue());
     }
 
 //------------------------------------Methods for Sorting orders by ID-----------------------------------------------//
@@ -157,7 +155,7 @@ public class ManageOrders extends PageObject{
         String secondorder = lowerOrderInTable.getText();
         int fisrtOrderInt = Integer.parseInt(firstOrder);
         int secondOrderInt = Integer.parseInt(secondorder);
-        assertTrue(!(secondOrderInt <= fisrtOrderInt));
+        Assert.assertTrue(!(secondOrderInt <= fisrtOrderInt));
     }
 
 //------------------------------------Methods for sorting orders by Qty per page---------------------------------------//
@@ -170,7 +168,7 @@ public class ManageOrders extends PageObject{
     }
     public void checkNewQtyOfOrders(){
         selectVisibleOrdersBtn.click();
-        assertEquals("Qty of orders is correct","50",qtyOfOrdersPerPageDropdown.getText());
+        Assert.assertEquals("Qty of orders is correct","50",qtyOfOrdersPerPageDropdown.getText());
     }
 
     public void unselectOrders(){
@@ -180,21 +178,28 @@ public class ManageOrders extends PageObject{
  //------------------------------------Methods for Switching Between orders by arrows------------------------------------//
 
     public void switchToNextOrdersPage() {
+        String firstPageValue = fieldWithPageNo.getValue();
+        int firstValue = Integer.parseInt(firstPageValue);
         nextPageArrow.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        String secondPageValue = fieldWithPageNo.getValue();
+        int secondValue = Integer.parseInt(secondPageValue);
+        Assert.assertTrue(secondValue>firstValue);
     }
-      /*  assertEquals("User is redirected to next page",nextPage, fieldWithPageNo.getValue());
-    }*/
+
 
     public void switchToPreviousOrdersPage() {
+        String firstPageValue = fieldWithPageNo.getValue();
+        int firstValue = Integer.parseInt(firstPageValue);
         previousPageArrow.click();
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[@id='loading_mask_loader']")));
+        String secondPageValue = fieldWithPageNo.getValue();
+        int secondValue = Integer.parseInt(secondPageValue);
+        Assert.assertTrue(secondValue<firstValue);
     }
-    /*    assertEquals("User is redirected to previous page", previousPage, fieldWithPageNo.getValue());
-    }
-*/
+
 //-------------------------------Methods for Success Messages---------------------------------------------------------//
 
     public void checkSuccessMsg(String message){

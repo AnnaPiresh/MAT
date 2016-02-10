@@ -74,4 +74,7 @@ public class ManageOrdersSteps extends ScenarioSteps {
     @Step
     public void reset_filter() { manageOrders.resetFilter(); }
 
+//    @Step
+//    public String get_Value( String pageValue){return manageOrders.getValue(pageValue);}
+
 }

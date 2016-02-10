@@ -1,2 +1,2 @@
 login,password,setName,successMessage,errorMessage,requiredMessage,charName,userProductsName,groupTitle,customSetName,basedOnValue,deleteMessage
-admin,3HSYOFf,Test robot attribute set,The attribute set has been saved.,"Attribute set with the ""Test robot attribute set"" name already exists.",This is a required field.,!@#$%^&*&^%$#@!,Test robot set with attributes,User Attributes,Test custom robot set,23,The attribute set has been removed.
+admin,3HSYOFf,Test robot attribute set,The attribute set has been saved.,"Attribute set with the ""Test robot attribute set"" name already exists.",This is a required field.,!@#$%^&*&^%$#@!,Test robot set with attributes,User Attributes,Test custom robot set,17,The attribute set has been removed.
