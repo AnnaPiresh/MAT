@@ -22,13 +22,24 @@ public class AdvancedSearchPage extends PageObject {
     @FindBy(xpath = ".//a[contains(text(), 'Clear All')]")
     WebElementFacade clearAllLink;
 
-    public void openComparedProduct(String productName) {
+    public void checkComparedProduct(String productName) {
 
         WebDriverWait wait = new WebDriverWait(getDriver(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(comparedProduct));
         System.out.println(comparedProduct.getText());
         Assert.assertThat(comparedProduct.getText(), is(productName));
     }
+
+    public void checkThatProductInCompareBlock() {
+        if(comparedProduct.isDisplayed()){
+            System.out.println("Product in compare block");
+            clearAllLink.click();
+        }else {
+            System.out.println("Compare block empty");
+        }
+    }
+
+
 
     public void clearCompare() {
         clearAllLink.click();

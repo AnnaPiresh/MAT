@@ -63,4 +63,7 @@ public class HomePageSteps extends ScenarioSteps {
 
     @Step
     public void click_Footer_Advanced_Search_Link() {homePage.clickFooterAdvancedSearchLink();}
+
+    @Step
+    public void open_Created_Product_From_New_Category() {homePage.openCreatedProductFromNewCategory();}
 }

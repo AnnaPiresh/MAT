@@ -1,2 +1,2 @@
-login,password,productTypeSimple,productName,productDescription,productShortDescription,productSKU,productWeight,productStatus,productVisibility,productPrice,taxClass,stockEnabled,action
-admin,3HSYOFf,simple,COMPARE PRODUCT,Robot auto product description,Robot auto product short description,Compare-product,12,1,4,263,0,0,delete
+login,password,productTypeSimple,productName,productDescription,productShortDescription,productSKU,productWeight,productStatus,productVisibility,productPrice,taxClass,stockEnabled,action,categoryName,activity,including,parentCategoryLocator,createdCategoryLocator
+admin,3HSYOFf,simple,COMPARE PRODUCT,Robot auto product description,Robot auto product short description,Compare-product,12,1,4,263,0,0,delete,Compare Category,1,1,".//span[contains(text(), 'Default Category')]",".//span[contains(text(),'Compare Category')]"
