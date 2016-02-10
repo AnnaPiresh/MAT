@@ -30,6 +30,9 @@ public class ShoppingCartPage extends PageObject{
     @FindBy(xpath = ".//*[@title='Qty']")
     WebElementFacade qtyField;
 
+    @FindBy(css = ".cart-empty>p")
+    WebElementFacade emptyShoppingCartMessage;
+
 //--------------------------------------------Methods for Shopping Cart Page-------------------------------------------//
 
     public void proceedToMultipleAddressesCheckout(){
@@ -61,6 +64,11 @@ public class ShoppingCartPage extends PageObject{
         qtyField.sendKeys(Keys.ENTER);
     }
 
+    public void verifyShoppingCartIsEmpty(String emptyShoppingCartText){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(emptyShoppingCartMessage));
+        Assert.assertTrue("Success message is present",emptyShoppingCartMessage.containsText(emptyShoppingCartText));
+    }
 
 
 }

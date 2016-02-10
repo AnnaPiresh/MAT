@@ -24,4 +24,9 @@ public class ShoppingCartSteps extends ScenarioSteps{
     @Step
     public void change_products_qty(String productQty){shoppingCartPage.changeProductsQty(productQty);}
 
+    @Step
+    public void verify_shopping_cart_is_empty(String emptyShoppingCartMessage){
+        shoppingCartPage.verifyShoppingCartIsEmpty(emptyShoppingCartMessage);
+    }
+
 }

@@ -76,6 +76,9 @@ public class CheckoutMultipleAddressesPage extends PageObject{
     @FindBy(xpath = ".//button[@title='Continue to Shipping Information']")
     WebElementFacade continueToShippingInformationButton;
 
+    @FindBy(xpath = ".//*[@title='Update Qty & Addresses']")
+    WebElementFacade updateButton;
+
 //--------------------------------------Objects for Select Shipping Method step----------------------------------------//
 
     @FindBy(xpath = ".//button[@title='Continue to Billing Information']")
@@ -110,7 +113,11 @@ public class CheckoutMultipleAddressesPage extends PageObject{
 
     public void enterFirstName(String firstName){firstNameField.sendKeys(firstName);}
 
+    public void clearFirstNameField(){firstNameField.clear();}
+
     public void enterLastName(String lastName) {lastNameField.sendKeys(lastName);}
+
+    public void clearLastNameField(){lastNameField.clear();}
 
     public void enterCompanyName(String company) {companyField.sendKeys(company);}
 
@@ -164,7 +171,7 @@ public class CheckoutMultipleAddressesPage extends PageObject{
     }
 
     public void checkRequiredDropdownMessage(){
-        if (stateRegionDropdown.getValue().equals(" ")){
+        if (stateRegionDropdown.getValue().equals("")){
             Assert.assertTrue(requiredDropdownMessage.isDisplayed());
             System.out.println("Message that required dropdown value is not selected is displayed");
         }else{
@@ -192,7 +199,24 @@ public class CheckoutMultipleAddressesPage extends PageObject{
         String xpath = String.format(".//tr[.//a='%s']//td[contains(text(),'Shipping selection is not applicable.')]", productName);
         WebElement cellWithMessage = getDriver().findElement(By.xpath(xpath));
         Assert.assertTrue(cellWithMessage.isDisplayed());
-}
+    }
+
+    public List<WebElement> qtyFields(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(enterNewAddressBtn));
+        return getDriver().findElements(By.xpath(".//input[@class='input-text qty']"));
+    }
+
+    public void changeQtyOfProducts(String firstQty, String secondQty){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        wait.until(ExpectedConditions.visibilityOf(enterNewAddressBtn));
+        qtyFields().get(0).clear();
+        qtyFields().get(0).sendKeys(firstQty);
+        qtyFields().get(1).clear();
+        qtyFields().get(1).sendKeys(secondQty);
+    }
+
+    public void clickUpdateButton(){ updateButton.click();}
 
 //------------------------------------Methods for Selecting Shipping Method step---------------------------------------//
 

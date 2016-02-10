@@ -15,7 +15,13 @@ public class CheckoutMultipleAddressesSteps extends ScenarioSteps {
     public void enter_first_name(String firstName) {checkoutMultipleAddressesPage.enterFirstName(firstName);}
 
     @Step
+    public void clear_first_name_field() {checkoutMultipleAddressesPage.clearFirstNameField();}
+
+    @Step
     public void enter_last_name (String lastName) {checkoutMultipleAddressesPage.enterLastName(lastName);}
+
+    @Step
+    public void clear_last_name_field() {checkoutMultipleAddressesPage.clearLastNameField();}
 
     @Step
     public void enter_company_name (String company) {checkoutMultipleAddressesPage.enterCompanyName(company);}
@@ -117,5 +123,12 @@ public class CheckoutMultipleAddressesSteps extends ScenarioSteps {
     public void check_success_address_message(String successAddressMsg){
         checkoutMultipleAddressesPage.checkSuccessAddressMessage(successAddressMsg);
     }
+
+    @Step
+    public void change_qty_of_products(String firstQty, String secondQty) {
+        checkoutMultipleAddressesPage.changeQtyOfProducts(firstQty, secondQty);}
+
+    @Step
+    public void click_update_button(){checkoutMultipleAddressesPage.clickUpdateButton();}
 
 }

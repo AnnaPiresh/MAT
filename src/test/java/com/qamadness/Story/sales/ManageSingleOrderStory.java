@@ -254,7 +254,7 @@ public class ManageSingleOrderStory {
     }
 
     @Issue("MAT-33")
-    //@Pending
+    @Pending
     @Test
     public void resend_an_email_to_a_customer(){
         createAnOrderSteps.click_create_order_btn();
